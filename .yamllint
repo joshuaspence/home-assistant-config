@@ -1,0 +1,62 @@
+---
+rules:
+  braces:
+    max-spaces-inside: 1
+    max-spaces-inside-empty: 0
+    min-spaces-inside: 1
+    min-spaces-inside-empty: 0
+  brackets:
+    max-spaces-inside: 0
+    max-spaces-inside-empty: 0
+    min-spaces-inside: 0
+    min-spaces-inside-empty: 0
+  colons:
+    max-spaces-after: 1
+    max-spaces-before: 0
+  commas:
+    max-spaces-after: 1
+    max-spaces-before: 0
+    min-spaces-after: 1
+  comments:
+    min-spaces-from-content: 2
+    require-starting-space: true
+  comments-indentation: 'enable'
+  document-end:
+    present: false
+  document-start:
+    present: true
+  empty-lines:
+    max: 1
+  empty-values:
+    forbid-in-block-mappings: true
+    forbid-in-flow-mappings: true
+  hyphens:
+    max-spaces-after: 1
+  indentation:
+    check-multi-line-strings: true
+    indent-sequences: true
+    level: 'warning'
+    spaces: 2
+  key-duplicates: 'enable'
+  key-ordering:
+    ignore: |-
+      # Keys are sorted based on the order they appear in documentation
+      # rather than alphabetically.
+      #
+      # See also https://github.com/adrienverge/yamllint/issues/178.
+      /.github/dependabot.yaml
+      /.github/workflows/*.yaml
+  line-length:
+    allow-non-breakable-inline-mappings: true
+    max: 80
+  new-line-at-end-of-file: 'enable'
+  new-lines:
+    type: 'unix'
+  octal-values:
+    forbid-implicit-octal: true
+  quoted-strings:
+    quote-type: 'single'
+    required: true
+  trailing-spaces: 'enable'
+  truthy:
+    check-keys: false

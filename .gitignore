@@ -6,6 +6,7 @@
 !.gitignore
 !*.md
 !.editorconfig
+!.yamllint
 
 # Ignore folders.
 .storage
