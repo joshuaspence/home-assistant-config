@@ -6,6 +6,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
-      - uses: 'ludeeus/action-ha-config-check@1.1.0'
+      - uses: 'docker://homeassistant/home-assistant:stable'
         with:
-          version: 'STABLE'
+          args: |
+            python -m homeassistant --config . --script check_config --info all
