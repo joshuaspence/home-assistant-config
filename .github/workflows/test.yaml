@@ -1,0 +1,11 @@
+---
+name: 'Test'
+on: 'push'
+jobs:
+  home-assistant:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'ludeeus/action-ha-config-check@1.1.0'
+        with:
+          version: 'STABLE'
