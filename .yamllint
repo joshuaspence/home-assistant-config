@@ -46,6 +46,7 @@ rules:
       # See also https://github.com/adrienverge/yamllint/issues/178.
       /.github/dependabot.yaml
       /.github/workflows/*.yaml
+      /docker-compose.yaml
   line-length:
     allow-non-breakable-inline-mappings: true
     max: 80
