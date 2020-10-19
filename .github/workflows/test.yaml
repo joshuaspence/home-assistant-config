@@ -11,6 +11,14 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
+      - uses: 'DamianReeves/write-file-action@v1.0'
+        with:
+          path: 'secrets.yaml'
+          contents: |
+            ---
+            elevation: 0
+            latitude: 0
+            longitude: 0
       - uses: 'docker://homeassistant/home-assistant:stable'
         with:
           args: |
