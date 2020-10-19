@@ -10,3 +10,16 @@ group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
+# See https://www.home-assistant.io/docs/configuration/basic/.
+homeassistant:
+  name: 'Home'
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: 'metric'
+  temperature_unit: 'C'
+  time_zone: 'Australia/Sydney'
+  external_url: 'https://hass.spence.network'
+  internal_url: 'http://localhost:8123'
+  customize: !include customize.yaml
