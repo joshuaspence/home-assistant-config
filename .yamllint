@@ -1,4 +1,7 @@
 ---
+ignore: |-
+  known_devices.yaml
+
 rules:
   braces:
     max-spaces-inside: 1
