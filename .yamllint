@@ -60,7 +60,7 @@ rules:
     forbid-implicit-octal: true
   quoted-strings:
     quote-type: 'single'
-    required: true
+    required: false
   trailing-spaces: 'enable'
   truthy:
     check-keys: false

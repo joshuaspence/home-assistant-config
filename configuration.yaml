@@ -1,4 +1,4 @@
-# yamllint disable rule:empty-values rule:key-ordering rule:quoted-strings
+# yamllint disable rule:key-ordering
 ---
 automation: {}
 cloud: {}
@@ -22,13 +22,11 @@ ssdp: {}
 sun: {}
 system_health: {}
 tag: {}
+tts:
+  - platform: 'google_translate'
 updater: {}
 zeroconf: {}
 zone: {}
-
-# Text to speech
-tts:
-  - platform: 'google_translate'
 
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
