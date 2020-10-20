@@ -6,11 +6,6 @@ default_config: {}
 tts:
   - platform: 'google_translate'
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
-
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
   name: 'Home'
@@ -22,7 +17,7 @@ homeassistant:
   time_zone: 'Australia/Sydney'
   external_url: 'https://hass.spence.network'
   internal_url: 'http://localhost:8123'
-  customize: !include customize.yaml
+  customize: {}
 
 device_tracker:
   - platform: 'linksys_smart'
