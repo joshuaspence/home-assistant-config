@@ -1,6 +1,30 @@
 # yamllint disable rule:empty-values rule:key-ordering rule:quoted-strings
 ---
-default_config: {}
+automation: {}
+cloud: {}
+config: {}
+frontend: {}
+history: {}
+image: {}
+input_boolean: {}
+input_datetime: {}
+input_number: {}
+input_select: {}
+input_text: {}
+logbook: {}
+map: {}
+media_source: {}
+mobile_app: {}
+person: {}
+scene: {}
+script: {}
+ssdp: {}
+sun: {}
+system_health: {}
+tag: {}
+updater: {}
+zeroconf: {}
+zone: {}
 
 # Text to speech
 tts:
