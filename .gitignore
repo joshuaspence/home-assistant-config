@@ -1,9 +1,9 @@
-/.storage/
+# Home Assistant
 /.cloud/
-
 /.HA_VERSION
-/ip_bans.yaml
-/secrets.yaml
-/known_devices.yaml
 /home-assistant.log
 /home-assistant_v2.db
+/known_devices.yaml
+/secrets.yaml
+/.storage/
+
