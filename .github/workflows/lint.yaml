@@ -2,11 +2,32 @@
 name: 'Lint'
 on: 'push'
 jobs:
+  docker-compose:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - run: 'docker-compose config'
   eclint:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'snow-actions/eclint@v1.0.1'
+  home-assistant:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'DamianReeves/write-file-action@v1.0'
+        with:
+          path: 'secrets.yaml'
+          contents: |
+            ---
+            elevation: 0
+            latitude: 0
+            longitude: 0
+      - uses: 'docker://homeassistant/home-assistant:stable'
+        with:
+          args: |
+            python -m homeassistant --config . --script check_config --info all
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
