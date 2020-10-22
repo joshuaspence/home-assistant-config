@@ -1,0 +1,4 @@
+---
+device_tracker:
+  - platform: 'linksys_smart'
+    host: '10.158.145.48'

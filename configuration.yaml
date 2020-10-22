@@ -1,13 +1,9 @@
 # yamllint disable rule:key-ordering
 ---
 cloud: {}
-media_source: {}
-ssdp: {}
 tag: {}
 tts:
   - platform: 'google_translate'
-updater: {}
-zeroconf: {}
 
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
@@ -22,7 +18,3 @@ homeassistant:
   internal_url: 'http://localhost:8123'
   customize: {}
   packages: !include_dir_named integrations
-
-device_tracker:
-  - platform: 'linksys_smart'
-    host: '10.158.145.48'
