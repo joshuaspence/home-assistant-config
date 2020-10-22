@@ -1,5 +1,6 @@
 ---
 ignore: |-
+  ip_bans.yaml
   known_devices.yaml
 
 rules:
