@@ -2,12 +2,6 @@
 ---
 automation: {}
 cloud: {}
-image: {}
-input_boolean: {}
-input_datetime: {}
-input_number: {}
-input_select: {}
-input_text: {}
 map: {}
 media_source: {}
 mobile_app: {}
