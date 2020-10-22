@@ -1,20 +1,13 @@
 # yamllint disable rule:key-ordering
 ---
-automation: {}
 cloud: {}
-map: {}
 media_source: {}
-mobile_app: {}
-person: {}
-scene: {}
-script: {}
 ssdp: {}
 tag: {}
 tts:
   - platform: 'google_translate'
 updater: {}
 zeroconf: {}
-zone: {}
 
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
