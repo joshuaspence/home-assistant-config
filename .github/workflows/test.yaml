@@ -11,10 +11,8 @@ jobs:
           path: 'secrets.yaml'
           contents: |
             ---
-            elevation: 0
             latitude: 0
             longitude: 0
       - uses: 'docker://homeassistant/home-assistant:stable'
         with:
-          args: |
-            python -m homeassistant --config . --script check_config --info all
+          args: 'python -m homeassistant --config . --script check_config'
