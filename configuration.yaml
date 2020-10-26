@@ -2,8 +2,6 @@
 ---
 cloud: {}
 tag: {}
-tts:
-  - platform: 'google_translate'
 
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
