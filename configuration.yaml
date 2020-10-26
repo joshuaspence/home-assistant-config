@@ -1,15 +1,15 @@
-# yamllint disable rule:key-ordering rule:quoted-strings
+# yamllint disable rule:quoted-strings
 ---
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
-  name: 'Home'
-  latitude: !secret latitude
-  longitude: !secret longitude
+  customize: {}
   elevation: 11
-  unit_system: 'metric'
-  temperature_unit: 'C'
-  time_zone: 'Australia/Sydney'
   external_url: 'https://hass.spence.network'
   internal_url: 'http://localhost:8123'
-  customize: {}
+  latitude: !secret latitude
+  longitude: !secret longitude
+  name: 'Home'
   packages: !include_dir_named integrations
+  temperature_unit: 'C'
+  time_zone: 'Australia/Sydney'
+  unit_system: 'metric'
