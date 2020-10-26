@@ -6,13 +6,10 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
-      - uses: 'DamianReeves/write-file-action@v1.0'
+      - uses: 'canastro/copy-action@0.0.2'
         with:
-          path: 'secrets.yaml'
-          contents: |
-            ---
-            latitude: 0
-            longitude: 0
+          source: '.github/stubs/secrets.yaml'
+          target: '.'
       - uses: 'docker://homeassistant/home-assistant:stable'
         with:
           args: 'python -m homeassistant --config . --script check_config'
