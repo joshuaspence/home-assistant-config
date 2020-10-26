@@ -1,4 +1,3 @@
-# yamllint disable rule:quoted-strings
 ---
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
@@ -6,10 +5,10 @@ homeassistant:
   elevation: 11
   external_url: 'https://hass.spence.network'
   internal_url: 'http://localhost:8123'
-  latitude: !secret latitude
-  longitude: !secret longitude
+  latitude: !secret 'latitude'
+  longitude: !secret 'longitude'
   name: 'Home'
-  packages: !include_dir_named integrations
+  packages: !include_dir_named 'integrations'
   temperature_unit: 'C'
   time_zone: 'Australia/Sydney'
   unit_system: 'metric'
