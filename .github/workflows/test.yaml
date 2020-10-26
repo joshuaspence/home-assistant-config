@@ -1,5 +1,5 @@
 ---
-name: 'Lint'
+name: 'Test'
 on: 'push'
 jobs:
   home-assistant:
