@@ -1,5 +1,4 @@
 ---
-# See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
   customize: {}
   elevation: 11
