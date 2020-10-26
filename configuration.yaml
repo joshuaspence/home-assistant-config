@@ -1,8 +1,5 @@
 # yamllint disable rule:key-ordering rule:quoted-strings
 ---
-cloud: {}
-tag: {}
-
 # See https://www.home-assistant.io/docs/configuration/basic/.
 homeassistant:
   name: 'Home'
