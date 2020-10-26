@@ -1,4 +1,4 @@
-# yamllint disable rule:key-ordering
+# yamllint disable rule:key-ordering rule:quoted-strings
 ---
 cloud: {}
 tag: {}
