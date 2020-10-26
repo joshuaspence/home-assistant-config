@@ -1,4 +1,4 @@
 ---
 tts:
-  - platform: 'google_translate'
-    cache_dir: '/tmp/tts'
+  - cache_dir: '/tmp/tts'
+    platform: 'google_translate'
