@@ -1,11 +1,16 @@
 ---
 homeassistant:
+  allowlist_external_dirs: []
+  allowlist_external_urls: []
   customize: {}
+  customize_domain: {}
+  customize_glob: {}
   elevation: 11
   external_url: 'https://hass.spence.network'
   internal_url: 'http://localhost:8123'
   latitude: !secret 'latitude'
   longitude: !secret 'longitude'
+  media_dirs: {}
   name: 'Home'
   packages: !include_dir_named 'integrations'
   temperature_unit: 'C'
