@@ -1,4 +1,5 @@
 ---
 tts:
+  # TODO: Move to `entities`.
   - cache_dir: '/tmp/tts'
     platform: 'google_translate'
