@@ -13,6 +13,4 @@ homeassistant:
   media_dirs: {}
   name: 'Home'
   packages: !include_dir_named 'integrations'
-  temperature_unit: 'C'
   time_zone: 'Australia/Sydney'
-  unit_system: 'metric'
