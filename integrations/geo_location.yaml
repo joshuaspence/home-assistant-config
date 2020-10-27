@@ -1,2 +1,2 @@
 ---
-geo_location: !include_dir_list '../entities/geo_locations'
+geo_location: !include_dir_list '../entities/geo_location'

@@ -1,2 +1,2 @@
 ---
-sensor: !include_dir_list '../entities/sensors'
+sensor: !include_dir_list '../entities/sensor'
