@@ -1,4 +1,5 @@
 ---
+# TODO: Define these in the `entities` directory.
 input_boolean: {}
 input_datetime: {}
 input_number: {}
