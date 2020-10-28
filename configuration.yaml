@@ -6,7 +6,7 @@ homeassistant:
   customize_domain: {}
   customize_glob: {}
   elevation: !secret 'elevation'
-  external_url: 'https://hass.spence.network'
+  external_url: !secret 'external_url'
   internal_url: 'http://localhost:8123'
   latitude: !secret 'latitude'
   longitude: !secret 'longitude'
