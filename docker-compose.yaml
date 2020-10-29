@@ -9,3 +9,6 @@ services:
     userns_mode: 'host'
     volumes:
       - '.:/config'
+      - 'database:/data'
+volumes:
+  database: {}
