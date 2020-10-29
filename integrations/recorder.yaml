@@ -1,3 +1,7 @@
 ---
 recorder:
   db_url: 'sqlite:////data/home-assistant.db'
+  exclude:
+    domains:
+      - 'updater'
+    entities: []
