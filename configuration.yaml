@@ -2,6 +2,8 @@
 homeassistant:
   allowlist_external_dirs: []
   allowlist_external_urls: []
+  auth_providers:
+    - type: 'homeassistant'
   customize: {}
   customize_domain: {}
   customize_glob: {}
