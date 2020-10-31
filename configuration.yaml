@@ -13,11 +13,11 @@ homeassistant:
   customize_glob:
     sensor.caltex_woolworths_*:
       icon: 'mdi:gas-station'
-  elevation: !secret 'elevation'
-  external_url: !secret 'external_url'
+  elevation: !secret 'home.elevation'
+  external_url: !secret 'core.external_url'
   internal_url: 'http://localhost:8123'
-  latitude: !secret 'latitude'
-  longitude: !secret 'longitude'
+  latitude: !secret 'home.latitude'
+  longitude: !secret 'home.longitude'
   media_dirs: {}
   name: 'Home'
   packages: !include_dir_named 'integrations'

@@ -1,5 +1,5 @@
 ---
-api_key: !secret 'transport_nsw_api_key'
+api_key: !secret 'transport_nsw.api_key'
 name: 'Bus'
 platform: 'transport_nsw'
-stop_id: !secret 'transport_nsw_stop_id'
+stop_id: !secret 'transport_nsw.stop_id'

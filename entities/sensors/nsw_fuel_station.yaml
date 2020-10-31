@@ -3,4 +3,4 @@ fuel_types:
   - 'P95'
   - 'P98'
 platform: 'nsw_fuel_station'
-station_id: !secret 'nsw_fuel_station_station_id'
+station_id: !secret 'nsw_fuel_station.station_id'
