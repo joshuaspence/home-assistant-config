@@ -2,6 +2,8 @@
 homeassistant:
   allowlist_external_dirs: []
   allowlist_external_urls: []
+  auth_mfa_modules:
+    - type: 'totp'
   auth_providers:
     - type: 'homeassistant'
   customize: {}
