@@ -6,9 +6,13 @@ homeassistant:
     - type: 'totp'
   auth_providers:
     - type: 'homeassistant'
-  customize: {}
+  customize:
+    binary_sensor.workday:
+      icon: 'mdi:office-building'
   customize_domain: {}
-  customize_glob: {}
+  customize_glob:
+    sensor.caltex_woolworths_*:
+      icon: 'mdi:gas-station'
   elevation: !secret 'elevation'
   external_url: !secret 'external_url'
   internal_url: 'http://localhost:8123'
