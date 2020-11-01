@@ -9,7 +9,6 @@ recorder:
       - 'binary_sensor.updater'
       - 'binary_sensor.workday'
       - 'sensor.bus'
-      - 'sensor.moon'
       - 'sensor.season'
     entity_globs:
       - 'sensor.caltex_woolworths_*'
