@@ -1,0 +1,6 @@
+---
+device_trackers:
+  - 'device_tracker.lily_phone'
+id: 'lily'
+name: 'Amelia Spence'
+user_id: '71917d714b7345a1a1a2ad6caf9c500e'
