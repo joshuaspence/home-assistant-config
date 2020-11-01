@@ -2,12 +2,31 @@
 version: '3'
 
 tasks:
+  reload:
+    deps:
+      - 'reload-automations'
+      - 'reload-core-config'
+      - 'reload-groups'
+      - 'reload-inputs'
+      - 'reload-persons'
+      - 'reload-scenes'
+      - 'reload-scripts'
+      - 'reload-zones'
   reload-automations:
-    cmd: 'hass-cli service call automation.reload'
+    cmds:
+      - 'hass-cli service call automation.reload'
+    sources:
+      - 'integrations/automation.yaml'
+      - 'automations/**.yaml'
   reload-core-config:
-    cmd: 'hass-cli service call homeassistant.reload_core_config'
+    cmds:
+      - 'hass-cli service call homeassistant.reload_core_config'
   reload-groups:
-    cmd: 'hass-cli service call group.reload'
+    cmds:
+      - 'hass-cli service call group.reload'
+    sources:
+      - 'integrations/group.yaml'
+      - 'entities/groups/**.yaml'
   reload-inputs:
     cmds:
       - 'hass-cli service call input_boolean.reload'
@@ -15,11 +34,28 @@ tasks:
       - 'hass-cli service call input_number.reload'
       - 'hass-cli service call input_select.reload'
       - 'hass-cli service call input_text.reload'
+    sources:
+      - 'integrations/input.yaml'
   reload-persons:
-    cmd: 'hass-cli service call person.reload'
+    cmds:
+      - 'hass-cli service call person.reload'
+    sources:
+      - 'integrations/person.yaml'
+      - 'entities/persons/**.yaml'
   reload-scenes:
-    cmd: 'hass-cli service call scene.reload'
+    cmds:
+      - 'hass-cli service call scene.reload'
+    sources:
+      - 'integrations/scene.yaml'
+      - 'scenes/**.yaml'
   reload-scripts:
-    cmd: 'hass-cli service call script.reload'
+    cmds:
+      - 'hass-cli service call script.reload'
+    sources:
+      - 'integrations/script.yaml'
   reload-zones:
-    cmd: 'hass-cli service call zone.reload'
+    cmds:
+      - 'hass-cli service call zone.reload'
+    sources:
+      - 'integrations/zone.yaml'
+      - 'entities/zones/**.yaml'
