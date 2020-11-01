@@ -7,6 +7,7 @@ tasks:
       - 'docker-compose down'
     status:
       - '! docker-compose ps --quiet | grep ^'
+
   reload:
     deps:
       - 'reload-automations'
@@ -17,6 +18,7 @@ tasks:
       - 'reload-scenes'
       - 'reload-scripts'
       - 'reload-zones'
+
   reload-automations:
     cmds:
       - 'hass-cli service call automation.reload'
@@ -25,11 +27,13 @@ tasks:
     sources:
       - 'integrations/automation.yaml'
       - 'automations/**.yaml'
+
   reload-core-config:
     cmds:
       - 'hass-cli service call homeassistant.reload_core_config'
     deps:
       - 'up'
+
   reload-groups:
     cmds:
       - 'hass-cli service call group.reload'
@@ -38,6 +42,7 @@ tasks:
     sources:
       - 'integrations/group.yaml'
       - 'entities/groups/**.yaml'
+
   reload-inputs:
     cmds:
       - 'hass-cli service call input_boolean.reload'
@@ -49,6 +54,7 @@ tasks:
       - 'up'
     sources:
       - 'integrations/input.yaml'
+
   reload-persons:
     cmds:
       - 'hass-cli service call person.reload'
@@ -57,6 +63,7 @@ tasks:
     sources:
       - 'integrations/person.yaml'
       - 'entities/persons/**.yaml'
+
   reload-scenes:
     cmds:
       - 'hass-cli service call scene.reload'
@@ -65,6 +72,7 @@ tasks:
     sources:
       - 'integrations/scene.yaml'
       - 'scenes/**.yaml'
+
   reload-scripts:
     cmds:
       - 'hass-cli service call script.reload'
@@ -72,6 +80,7 @@ tasks:
       - 'up'
     sources:
       - 'integrations/script.yaml'
+
   reload-zones:
     cmds:
       - 'hass-cli service call zone.reload'
@@ -80,6 +89,7 @@ tasks:
     sources:
       - 'integrations/zone.yaml'
       - 'entities/zones/**.yaml'
+
   up:
     cmds:
       - 'docker-compose up --detach'
