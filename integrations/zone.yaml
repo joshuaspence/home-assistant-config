@@ -1,2 +1,2 @@
 ---
-zone: []
+zone: !include_dir_list '../entities/zones'
