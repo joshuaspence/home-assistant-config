@@ -1,2 +1,10 @@
 ---
-notify: !include_dir_list '../entities/notifiers'
+notify:
+  - name: 'josh_phone'
+    platform: 'group'
+    services:
+      - service: 'mobile_app_josh_s_phone'
+  - name: 'lily_phone'
+    platform: 'group'
+    services:
+      - service: 'mobile_app_lily_s_phone'

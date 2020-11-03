@@ -1,5 +1,0 @@
----
-name: 'lily_phone'
-platform: 'group'
-services:
-  - service: 'mobile_app_lily_s_phone'
