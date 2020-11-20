@@ -1,6 +1,6 @@
 ---
 recorder:
-  db_url: 'sqlite:////data/home-assistant.db'
+  db_url: 'sqlite:///:memory:'
   exclude:
     domains:
       - 'sun'
