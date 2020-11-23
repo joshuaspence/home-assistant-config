@@ -37,7 +37,6 @@ rules:
       /.github/dependabot.yaml
       /.github/workflows/*.yaml
       /docker-compose.yaml
-      /Taskfile.yml
   line-length:
     allow-non-breakable-inline-mappings: true
   octal-values: 'enable'
