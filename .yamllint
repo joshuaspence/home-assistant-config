@@ -4,6 +4,7 @@ extends: 'default'
 ignore: |-
   /ip_bans.yaml
   /known_devices.yaml
+  /secrets.yaml
 
 rules:
   braces:
