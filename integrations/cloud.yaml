@@ -1,3 +1,7 @@
 ---
 cloud:
-  google_actions: {}
+  google_actions:
+    entity_config: {}
+    filter:
+      exclude_domains: []
+      exclude_entities: []
