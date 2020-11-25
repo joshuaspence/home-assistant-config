@@ -6,7 +6,6 @@ recorder:
       - 'sun'
       - 'weather'
     entities:
-      - 'binary_sensor.updater'
       - 'binary_sensor.workday'
       - 'sensor.bus'
       - 'sensor.season'
