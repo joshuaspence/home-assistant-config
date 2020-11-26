@@ -1,2 +1,3 @@
 ---
 scene: !include_dir_list '../scenes'
+scene editor: !include '../scenes.yaml'
