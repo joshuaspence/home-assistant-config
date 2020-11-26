@@ -1,2 +1,3 @@
 ---
-http: {}
+http:
+  server_port: 80
