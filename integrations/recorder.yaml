@@ -1,14 +1,10 @@
 ---
 recorder:
   db_url: 'sqlite:///:memory:'
-  exclude:
+  include:
     domains:
-      - 'sun'
-      - 'weather'
-    entities:
-      - 'binary_sensor.workday'
-      - 'sensor.bus'
-      - 'sensor.season'
+      - 'device_tracker'
+      - 'person'
+    entities: []
     entity_globs:
-      - 'sensor.caltex_woolworths_*'
-    event_types: []
+      - 'sensor.speedtest_*'
