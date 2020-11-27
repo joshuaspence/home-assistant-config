@@ -7,6 +7,10 @@ homeassistant:
   auth_providers:
     - type: 'homeassistant'
   customize:
+    binary_sensor.josh_phone_is_charging:
+      friendly_name: "Josh's Phone Charging"
+    binary_sensor.lily_phone_is_charging:
+      friendly_name: "Lily's Phone Charging"
     binary_sensor.workday:
       icon: 'mdi:office-building'
   customize_domain: {}
