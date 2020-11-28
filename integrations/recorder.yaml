@@ -1,10 +1,14 @@
 ---
 recorder:
   commit_interval: 300
-  include:
+  exclude:
     domains:
-      - 'device_tracker'
-      - 'person'
-    entities: []
+      - 'sun'
+      - 'weather'
+    entities:
+      - 'binary_sensor.workday'
+      - 'sensor.bus'
+      - 'sensor.season'
+      - 'sensor.snapshot_backup'
     entity_globs:
-      - 'sensor.speedtest_*'
+      - 'sensor.caltex_*'
