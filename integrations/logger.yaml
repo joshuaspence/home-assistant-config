@@ -1,4 +1,5 @@
 ---
 logger:
   default: 'warning'
-  logs: {}
+  logs:
+    homeassistant.components.daikin: 'debug'
