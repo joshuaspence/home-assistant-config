@@ -1,6 +1,6 @@
 ---
 recorder:
-  db_url: 'sqlite:///:memory:'
+  commit_interval: 300
   include:
     domains:
       - 'device_tracker'
