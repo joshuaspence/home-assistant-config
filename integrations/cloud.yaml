@@ -3,5 +3,5 @@ cloud:
   google_actions:
     entity_config: {}
     filter:
-      include_domains:
-        - 'light'
+      exclude_domains: []
+      exclude_entities: []
