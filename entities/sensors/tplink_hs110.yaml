@@ -1,0 +1,11 @@
+---
+platform: 'template'
+sensors:
+  dishwasher_power:
+    friendly_name_template: '{{ states.switch.dishwasher.name }} Power Consumption'
+    unit_of_measurement: 'W'
+    value_template: '{{ states.switch.dishwasher.attributes["current_power_w"] | float }}'
+  washing_machine_power:
+    friendly_name_template: '{{ states.switch.washing_machine.name }} Power Consumption'
+    unit_of_measurement: 'W'
+    value_template: '{{ states.switch.washing_machine.attributes["current_power_w"] | float }}'
