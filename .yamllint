@@ -38,8 +38,7 @@ rules:
       /.github/dependabot.yaml
       /.github/workflows/*.yaml
       /docker-compose.yaml
-  line-length:
-    allow-non-breakable-inline-mappings: true
+  line-length: 'disable'
   octal-values: 'enable'
   quoted-strings:
     quote-type: 'single'
