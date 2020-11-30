@@ -4,4 +4,7 @@ cloud:
     entity_config: {}
     filter:
       exclude_domains: []
-      exclude_entities: []
+      exclude_entities:
+        - 'light.living_room'
+        - 'switch.dishwasher'
+        - 'switch.washing_machine'
