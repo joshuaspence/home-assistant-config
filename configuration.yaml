@@ -19,6 +19,8 @@ homeassistant:
   customize_glob:
     sensor.caltex_woolworths_*:
       icon: 'mdi:gas-station'
+    switch.aircon_*:
+      icon: 'mdi:air-conditioner'
   elevation: !secret 'home.elevation'
   external_url: !secret 'core.external_url'
   internal_url: 'http://homeassistant.local:8123'
