@@ -6,6 +6,8 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
+        with:
+          submodules: true
       - uses: 'canastro/copy-action@0.0.2'
         with:
           source: '.github/stubs/secrets.yaml'
