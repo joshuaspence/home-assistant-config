@@ -1,0 +1,3 @@
+[submodule "modules/attributes"]
+	path = modules/attributes
+	url = https://github.com/pilotak/homeassistant-attributes.git
