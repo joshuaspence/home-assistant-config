@@ -15,8 +15,21 @@ homeassistant:
       friendly_name: "Lily's Phone Charging"
     binary_sensor.workday:
       icon: 'mdi:office-building'
+    light.dining_room:
+      icon: 'mdi:ceiling-light'
   customize_domain: {}
   customize_glob:
+    light.bedroom_*:
+      icon: 'mdi:ceiling-light'
+    light.living_room_*_*:
+      icon: 'mdi:track-light'
+    media_player.*_display: {}
+    media_player.*_speaker:
+      device_class: 'speaker'
+      icon: 'mdi:_speaker'
+    media_player.*_tv:
+      device_class: 'tv'
+      icon: 'mdi:television'
     sensor.caltex_woolworths_*:
       icon: 'mdi:gas-station'
     switch.aircon_*:
