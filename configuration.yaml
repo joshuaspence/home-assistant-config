@@ -14,7 +14,7 @@ homeassistant:
       # yamllint disable-line rule:quoted-strings
       friendly_name: "Lily's Phone Charging"
     binary_sensor.workday:
-      icon: 'mdi:office-building'
+      icon: 'mdi:calendar'
     light.dining_room:
       icon: 'mdi:ceiling-light'
   customize_domain: {}
