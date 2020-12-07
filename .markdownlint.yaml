@@ -5,6 +5,8 @@ heading-style:
   style: 'atx'
 ul-style:
   style: 'dash'
+line-length:
+  tables: false
 ol-prefix:
   style: 'ordered'
 hr-style:
