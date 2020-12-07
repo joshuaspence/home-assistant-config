@@ -2,9 +2,9 @@
 extends: 'default'
 
 ignore: |-
+  /hacs_integrations/
   /ip_bans.yaml
   /known_devices.yaml
-  /modules/
   /secrets.yaml
 
 rules:

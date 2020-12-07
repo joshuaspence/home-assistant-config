@@ -1,4 +1,4 @@
-[submodule "modules/attributes"]
+[submodule "hacs/attributes"]
 	ignore = untracked
-	path = modules/attributes
+	path = hacs_integrations/attributes
 	url = https://github.com/pilotak/homeassistant-attributes.git
