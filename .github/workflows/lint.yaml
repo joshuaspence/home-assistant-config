@@ -7,6 +7,13 @@ jobs:
     steps:
       - uses: 'actions/checkout@v2'
       - run: 'docker-compose config --quiet'
+  markdownlint:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'avto-dev/markdown-lint@v1'
+        with:
+          args: '*.md'
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
