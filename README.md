@@ -7,6 +7,7 @@
 | Bedroom 2 Light              | `d3061b994adb52a5c52f160fff8065e1` | Philips Hue         | LWA001               | Bedroom 2   | Light           |
 | Dining Room Light            | `6d050213abc44f0534906d8ecbeb5e6c` | Samsung SmartThings | ZBT-DIMLight-GLS0044 | Dining Room | Light           |
 | Dishwasher                   | `7131616138d08e980c8b8550ffbbcda4` | TP-Link             | HS110                | Kitchen     | Switch / Sensor |
+| Front Door Light             | `bf6a0b44595912412b6814c7de195143` | Philips Hue         | LCA001               | Outside     | Light           |
 | Front Yard Motion Sensor     | `0ff7f209d4b441cc9f8bbc40f7c64328` | Philips Hue         | SML002               | Outside     | Sensor          |
 | Kitchen Display              | `1809c84f036bcc583e1b3ed96b08be43` | Google              | Nest Hub             | Kitchen     | Media Player    |
 | Living Room Lower East Light | `58a4f6bda31916c80c0f1f527dede3b0` | Philips Hue         | LCA001               | Living Room | Light           |
