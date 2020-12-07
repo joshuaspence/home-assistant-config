@@ -39,6 +39,7 @@ rules:
       /.github/dependabot.yaml
       /.github/workflows/*.yaml
       /docker-compose.yaml
+      /.markdownlint.yaml
   line-length: 'disable'
   octal-values: 'enable'
   quoted-strings:
