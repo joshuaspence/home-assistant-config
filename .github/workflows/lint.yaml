@@ -2,11 +2,6 @@
 name: 'Lint'
 on: 'push'
 jobs:
-  docker-compose:
-    runs-on: 'ubuntu-latest'
-    steps:
-      - uses: 'actions/checkout@v2'
-      - run: 'docker-compose config --quiet'
   markdownlint:
     runs-on: 'ubuntu-latest'
     steps:
