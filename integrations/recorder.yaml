@@ -12,3 +12,4 @@ recorder:
       - 'sensor.snapshot_backup'
     entity_globs:
       - 'sensor.caltex_*'
+  purge_keep_days: 30
