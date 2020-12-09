@@ -9,7 +9,3 @@ resources:
   - type: 'memory_use_percent'
   - type: 'processor_temperature'
   - type: 'processor_use'
-  - arg: 'eth0'
-    type: 'throughput_network_in'
-  - arg: 'eth0'
-    type: 'throughput_network_out'
