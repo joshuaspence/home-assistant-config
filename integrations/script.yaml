@@ -1,2 +1,5 @@
 ---
 script: !include_dir_named '../scripts'
+
+# TODO: This doesn't actually work at the moment, see https://github.com/home-assistant/core/issues/38456.
+script editor: !include '../scripts.yaml'
