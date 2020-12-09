@@ -2,8 +2,6 @@
 logger:
   default: 'warning'
   logs:
-    homeassistant.components.daikin: 'debug'
-
     # ZHA seems to be printing debug logs.
     homeassistant.components.zha.core.channels.base: 'warning'
     homeassistant.components.zha.entity: 'warning'

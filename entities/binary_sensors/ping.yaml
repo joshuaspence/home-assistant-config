@@ -1,4 +1,0 @@
----
-host: '10.158.145.185'
-platform: 'ping'
-scan_interval: 60
