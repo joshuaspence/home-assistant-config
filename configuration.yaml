@@ -17,6 +17,14 @@ homeassistant:
       icon: 'mdi:calendar'
     light.dining_room:
       icon: 'mdi:ceiling-light'
+    sensor.disk_free:
+      friendly_name: 'Disk free'
+    sensor.disk_use:
+      friendly_name: 'Disk use'
+    sensor.disk_use_percent:
+      friendly_name: 'Disk use (percent)'
+    sensor.processor_temperature:
+      icon: 'mdi:mdi-thermometer'
   customize_domain: {}
   customize_glob:
     light.bedroom_*:
@@ -26,7 +34,7 @@ homeassistant:
     media_player.*_display: {}
     media_player.*_speaker:
       device_class: 'speaker'
-      icon: 'mdi:_speaker'
+      icon: 'mdi:speaker'
     media_player.*_tv:
       device_class: 'tv'
       icon: 'mdi:television'
