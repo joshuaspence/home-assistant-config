@@ -3,3 +3,4 @@ tts:
   - base_url: !secret 'core.external_url'
     cache_dir: '/tmp/tts'
     platform: 'google_translate'
+    service_name: 'google_translate'
