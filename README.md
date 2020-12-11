@@ -1,3 +1,3 @@
 # Devices
 
-See [DEVICES.md].
+See [DEVICES.md](README.md).
