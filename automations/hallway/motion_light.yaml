@@ -1,0 +1,11 @@
+---
+alias: 'Hallway Motion-Activated Lights'
+description: ''
+id: ''
+use_blueprint:
+  input:
+    light_target:
+      area_id: 'living_room'
+    motion_entity:
+      area_id: 'hallway'
+  path: 'motion_light.yaml'
