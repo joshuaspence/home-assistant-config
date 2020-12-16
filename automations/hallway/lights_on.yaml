@@ -1,0 +1,37 @@
+# yamllint disable rule:key-ordering
+---
+id: '1607684866830'
+alias: 'Turn on hallway lights when motion is detected'
+description: ''
+trigger:
+  - type: 'occupied'
+    platform: 'device'
+    device_id: '91655f25d135d9b7ac6d882e6eaab151'
+    entity_id: 'binary_sensor.hallway_occupancy'
+    domain: 'binary_sensor'
+condition:
+  - condition: 'time'
+    after: '23:00'
+    before: '06:00'
+action:
+  - domain: 'light'
+    entity_id: 'light.living_room_upper_east'
+    device_id: 'c965b7bde5fe53f58fcb7939c56732a6'
+    type: 'turn_on'
+    brightness_pct: 25
+  - domain: 'light'
+    entity_id: 'light.living_room_upper_west'
+    device_id: '82f261b960d522effa8809434a4915c1'
+    type: 'turn_on'
+    brightness_pct: 25
+  - domain: 'light'
+    entity_id: 'light.living_room_lower_west'
+    device_id: '299af845a1144e43d1e3251178c4d890'
+    type: 'turn_on'
+    brightness_pct: 25
+  - domain: 'light'
+    entity_id: 'light.living_room_lower_east'
+    device_id: '58a4f6bda31916c80c0f1f527dede3b0'
+    type: 'turn_on'
+    brightness_pct: 25
+mode: 'single'
