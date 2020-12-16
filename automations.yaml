@@ -1,3 +1,4 @@
+# yamllint disable-file
 - id: '1607684866830'
   alias: Turn on hallway lights when motion is detected
   description: ''
