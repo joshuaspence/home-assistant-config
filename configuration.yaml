@@ -7,12 +7,6 @@ homeassistant:
   auth_providers:
     - type: 'homeassistant'
   customize:
-    binary_sensor.josh_phone_is_charging:
-      # yamllint disable-line rule:quoted-strings
-      friendly_name: "Josh's Phone Charging"
-    binary_sensor.lily_phone_is_charging:
-      # yamllint disable-line rule:quoted-strings
-      friendly_name: "Lily's Phone Charging"
     binary_sensor.workday:
       hidden: true
       icon: 'mdi:calendar'

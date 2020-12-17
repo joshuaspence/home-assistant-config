@@ -1,2 +1,23 @@
 ---
+homeassistant:
+  customize:
+    binary_sensor.josh_phone_is_charging:
+      # yamllint disable-line rule:quoted-strings
+      friendly_name: "Josh's Phone Charging"
+    binary_sensor.lily_phone_is_charging:
+      # yamllint disable-line rule:quoted-strings
+      friendly_name: "Lily's Phone Charging"
+
 mobile_app: {}
+
+# The ID of notify targets cannot be changed (see https://community.home-assistant.io/t/how-to-rename-notify-service-created-by-mobile-app-integration/207009),
+# so create group targets as a workaround.
+notify:
+  - name: 'josh_phone'
+    platform: 'group'
+    services:
+      - service: 'mobile_app_josh_s_phone'
+  - name: 'lily_phone'
+    platform: 'group'
+    services:
+      - service: 'mobile_app_lily_s_phone'
