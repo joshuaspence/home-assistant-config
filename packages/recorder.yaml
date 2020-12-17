@@ -1,4 +1,6 @@
 ---
+history: {}
+logbook: {}
 recorder:
   commit_interval: 300
   exclude:
