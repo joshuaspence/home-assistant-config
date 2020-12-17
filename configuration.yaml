@@ -54,5 +54,5 @@ homeassistant:
   longitude: !secret 'home.longitude'
   media_dirs: {}
   name: 'Home'
-  packages: !include_dir_named 'integrations'
+  packages: !include_dir_named 'packages'
   time_zone: 'Australia/Sydney'
