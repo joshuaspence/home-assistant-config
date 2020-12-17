@@ -8,7 +8,6 @@ recorder:
     entities:
       - 'binary_sensor.workday'
       - 'sensor.bus'
-      - 'sensor.season'
       - 'sensor.snapshot_backup'
     entity_globs:
       - 'sensor.caltex_*'
