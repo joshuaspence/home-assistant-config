@@ -1,0 +1,8 @@
+---
+frontend: {}
+
+lovelace:
+  dashboards: {}
+  mode: 'storage'
+
+map: {}
