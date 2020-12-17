@@ -17,4 +17,4 @@ jobs:
       # https://github.com/marketplace/actions/home-assistant-configuration-check.
       - uses: 'docker://homeassistant/home-assistant:stable'
         with:
-          args: 'python -m homeassistant --config . --script check_config'
+          args: 'python -m homeassistant --config . --script check_config --info all'
