@@ -12,18 +12,6 @@ homeassistant:
       icon: 'mdi:calendar'
     light.dining_room:
       icon: 'mdi:ceiling-light'
-    sensor.disk_free:
-      friendly_name: 'Disk free'
-    sensor.disk_use:
-      friendly_name: 'Disk use'
-    sensor.disk_use_percent:
-      friendly_name: 'Disk use'
-    sensor.memory_use_percent:
-      friendly_name: 'Memory use'
-    sensor.processor_temperature:
-      icon: 'mdi:mdi-thermometer'
-    sensor.processor_use:
-      friendly_name: 'Processor use'
   customize_domain: {}
   customize_glob:
     light.bedroom_*:
