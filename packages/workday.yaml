@@ -1,0 +1,10 @@
+---
+binary_sensor:
+  - country: 'Australia'
+    name: 'Workday'
+    platform: 'workday'
+    province: 'NSW'
+homeassistant:
+  customize:
+    binary_sensor.workday:
+      icon: 'mdi:calendar'

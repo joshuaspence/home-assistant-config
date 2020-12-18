@@ -7,9 +7,6 @@ homeassistant:
   auth_providers:
     - type: 'homeassistant'
   customize:
-    binary_sensor.workday:
-      hidden: true
-      icon: 'mdi:calendar'
     light.dining_room:
       icon: 'mdi:ceiling-light'
   customize_domain: {}
