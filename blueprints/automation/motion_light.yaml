@@ -18,6 +18,17 @@ blueprint:
         target:
           entity:
             domain: 'light'
+    brightness:
+      name: 'Brightness'
+      description: 'Brightness of the light(s) when turning on'
+      default: 100
+      selector:
+        number:
+          min: 0
+          max: 100
+          mode: 'slider'
+          step: 1
+          unit_of_measurement: '%'
     no_motion_wait:
       name: 'Wait time'
       description: 'Time to leave the light on after last motion is detected.'
@@ -41,11 +52,13 @@ trigger:
 action:
   - service: 'light.turn_on'
     target: !input 'light_target'
+    data:
+      brightness_pct: !input 'brightness'
   - wait_for_trigger:
       platform: 'state'
       entity_id: !input 'motion_entity'
       from: 'on'
-      to: 'odd'
+      to: 'off'
   - delay: !input 'no_motion_wait'
   - service: 'light.turn_off'
     target: !input 'light_target'

@@ -3,6 +3,7 @@ alias: 'Hallway Motion-Activated Lights'
 description: ''
 use_blueprint:
   input:
+    brightness: 25
     light_target:
       area_id: 'living_room'
     motion_entity: 'binary_sensor.hallway_motion'
