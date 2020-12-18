@@ -12,6 +12,7 @@
 | Hallway Motion Sensor         | 91655f25d135d9b7ac6d882e6eaab151 | Philips        | SML001                                                                 | hallway     |
 | Josh's Phone                  | 5a2014471b1d11eba300099a15c95714 | Google         | Pixel 4 XL                                                             | None        |
 | Kitchen Display               | 1809c84f036bcc583e1b3ed96b08be43 | Google Inc.    | Google Nest Hub                                                        | None        |
+| Laundry Light                 | 8c5a42521b8953f724c39a342f37d330 | Philips        | LTW013                                                                 | laundry     |
 | Lily's Phone                  | 494acf0d1b2411eb9173137f60e0ef46 | Google         | Pixel 2 XL                                                             | None        |
 | Living Room Lower East Light  | 58a4f6bda31916c80c0f1f527dede3b0 | Philips        | LCA001                                                                 | living_room |
 | Living Room Lower West Light  | 299af845a1144e43d1e3251178c4d890 | Philips        | LCA001                                                                 | living_room |
