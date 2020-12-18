@@ -1,2 +1,9 @@
 ---
+sensor:
+  - attribute: 'current_power_w'
+    entities:
+      - 'switch.dishwasher'
+      - 'switch.washing_machine'
+    platform: 'attributes'
+    unit_of_measurement: 'W'
 tplink: {}
