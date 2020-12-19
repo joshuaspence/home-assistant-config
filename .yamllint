@@ -3,8 +3,6 @@ extends: 'default'
 
 ignore: |-
   /integrations/
-  /ip_bans.yaml
-  /known_devices.yaml
   /secrets.yaml
 
 rules:
@@ -12,9 +10,6 @@ rules:
     max-spaces-inside: 1
     max-spaces-inside-empty: 0
     min-spaces-inside: 1
-    min-spaces-inside-empty: 0
-  brackets:
-    max-spaces-inside-empty: 0
     min-spaces-inside-empty: 0
   comments:
     level: 'error'
@@ -31,6 +26,7 @@ rules:
     check-multi-line-strings: true
     spaces: 2
   key-ordering:
+    # TODO: Maybe remove this?
     ignore: |-
       # Keys are sorted based on the order they appear in documentation
       # rather than alphabetically.
