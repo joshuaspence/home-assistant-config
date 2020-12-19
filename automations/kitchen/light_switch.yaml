@@ -1,0 +1,9 @@
+---
+alias: 'Kitchen Light Switch'
+description: 'Toggle kitchen lights when the switch is pressed.'
+use_blueprint:
+  input:
+    light_target:
+      area_id: 'kitchen'
+    switch_entity: 'binary_sensor.kitchen_light_switch'
+  path: 'light_switch.yaml'

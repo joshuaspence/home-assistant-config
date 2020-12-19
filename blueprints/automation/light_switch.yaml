@@ -1,0 +1,27 @@
+# yamllint disable rule:key-ordering
+---
+blueprint:
+  name: 'Light Switch'
+  description: 'Toggle lights when a light switch is pressed.'
+  domain: 'automation'
+  input:
+    switch_entity:
+      name: 'Light Switch'
+      selector:
+        entity:
+          domain: 'binary_sensor'
+          device_class: 'power'
+    light_target:
+      name: 'Light'
+      selector:
+        target:
+          entity:
+            domain: 'light'
+
+trigger:
+  platform: 'state'
+  entity_id: !input 'switch_entity'
+
+action:
+  - service: 'light.toggle'
+    target: !input 'light_target'
