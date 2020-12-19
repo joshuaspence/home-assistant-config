@@ -2,7 +2,7 @@
 extends: 'default'
 
 ignore: |-
-  /hacs_integrations/
+  /integrations/
   /ip_bans.yaml
   /known_devices.yaml
   /secrets.yaml
