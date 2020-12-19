@@ -7,11 +7,14 @@
 | Bedroom 2 Light               | d3061b994adb52a5c52f160fff8065e1 | Philips        | LWA001                                                                 | bedroom_2   |
 | Dining Room Light             | 6d050213abc44f0534906d8ecbeb5e6c | LDS            | ZBT-DIMLight-GLS0044                                                   | dining_room |
 | Dishwasher                    | 7131616138d08e980c8b8550ffbbcda4 | TP-Link        | HS110(AU)                                                              | kitchen     |
+| Front Door                    | 6c09c18cf318d4285195da0edddee190 | Samjin         | multi                                                                  | hallway     |
 | Front Door Light              | 02f9d192c85d064249ea6cb33d7a3bbe | Philips        | LCT007                                                                 | outside     |
 | Front Yard Motion Sensor      | 0ff7f209d4b441cc9f8bbc40f7c64328 | Philips        | SML002                                                                 | outside     |
 | Hallway Motion Sensor         | 91655f25d135d9b7ac6d882e6eaab151 | Philips        | SML001                                                                 | hallway     |
 | Josh's Phone                  | 5a2014471b1d11eba300099a15c95714 | Google         | Pixel 4 XL                                                             | None        |
 | Kitchen Display               | 1809c84f036bcc583e1b3ed96b08be43 | Google Inc.    | Google Nest Hub                                                        | None        |
+| Kitchen Light                 | 02581d13d43f5efb44cc810004c419f4 | Shelly         | Shelly 1                                                               | kitchen     |
+| Laundry Door                  | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin         | multi                                                                  | laundry     |
 | Laundry Light                 | 8c5a42521b8953f724c39a342f37d330 | Philips        | LTW013                                                                 | laundry     |
 | Lily's Phone                  | 494acf0d1b2411eb9173137f60e0ef46 | Google         | Pixel 2 XL                                                             | None        |
 | Living Room Lower East Light  | 58a4f6bda31916c80c0f1f527dede3b0 | Philips        | LCA001                                                                 | living_room |
@@ -27,6 +30,7 @@
 | Outside North-northwest Light | 32096630c1890c2b926055ee921ebb82 | Philips        | LCA001                                                                 | outside     |
 | Outside South-southeast Light | 6715cac52e975a6196b87b5ca3edfbc3 | Philips        | LCA001                                                                 | outside     |
 | Outside South-southwest Light | bf6a0b44595912412b6814c7de195143 | Philips        | LCA001                                                                 | outside     |
+| Toilet Light                  | 2ab1a8d9b78c87eed91784762869121c | Philips        | LTW013                                                                 | toilet      |
 | Washing Machine               | 0b0837ae5dbd3add9f4a0b843e1fb581 | TP-Link        | HS110(AU)                                                              | laundry     |
 | Weather Forecast              | 3e617b22f36c672e07d81fd4afd9dbec | Met.no         | Forecast                                                               | None        |
 | Zigbee Coordinator            | 63f7b0afefff8a784c859d55945e45a4 | ZHA            | deCONZ = dresden elektronik deCONZ protocol: ConBee I/II, RaspBee I/II | office      |
