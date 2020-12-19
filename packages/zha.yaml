@@ -1,7 +1,0 @@
----
-zha:
-  usb_path: '/dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2254045-if00'
-
-  # TODO: Enable OTA support, see https://github.com/zigpy/zigpy/issues/154.
-  zigpy_config:
-    ota: {}
