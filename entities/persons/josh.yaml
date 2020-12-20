@@ -1,6 +1,0 @@
----
-device_trackers:
-  - 'device_tracker.josh_phone'
-id: 'josh'
-name: 'Joshua Spence'
-user_id: '480722be90284576b6f3ad7596843dfa'
