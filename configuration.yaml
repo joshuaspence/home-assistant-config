@@ -1,4 +1,5 @@
 ---
+automation: !include_dir_list 'automations'
 homeassistant:
   allowlist_external_dirs: []
   allowlist_external_urls: []
@@ -28,3 +29,5 @@ homeassistant:
   name: 'Home'
   packages: !include_dir_named 'packages'
   time_zone: 'Australia/Sydney'
+scene: !include_dir_list 'scenes'
+script: !include_dir_named 'scripts'
