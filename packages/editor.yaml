@@ -1,6 +1,4 @@
 ---
 automation: !include '../automations.yaml'
 scene: !include '../scenes.yaml'
-
-# TODO: This doesn't actually work at the moment, see https://github.com/home-assistant/core/issues/38456.
 script: !include '../scripts.yaml'
