@@ -10,9 +10,11 @@
 | Front Door                    | 6c09c18cf318d4285195da0edddee190 | Samjin         | multi                                                                  | hallway     |
 | Front Door Light              | 02f9d192c85d064249ea6cb33d7a3bbe | Philips        | LCT007                                                                 | outside     |
 | Front Yard Motion Sensor      | 0ff7f209d4b441cc9f8bbc40f7c64328 | Philips        | SML002                                                                 | outside     |
+| Hallway East                  | 061d581bfeba93d0ce50b53bcb87782e | Philips        | LTD011                                                                 | hallway     |
 | Hallway Motion Sensor         | 91655f25d135d9b7ac6d882e6eaab151 | Philips        | SML001                                                                 | hallway     |
+| Hallway West                  | 064c683ea72a74adf1f6f51991b8eada | Philips        | LTD011                                                                 | hallway     |
 | Josh's Phone                  | 5a2014471b1d11eba300099a15c95714 | Google         | Pixel 4 XL                                                             | None        |
-| Kitchen Display               | 1809c84f036bcc583e1b3ed96b08be43 | Google Inc.    | Google Nest Hub                                                        | None        |
+| Kitchen Display               | aef92c244b1a325f2e2beb9d284db7c6 | Google Inc.    | Google Nest Hub                                                        | kitchen     |
 | Kitchen Light                 | 02581d13d43f5efb44cc810004c419f4 | Shelly         | Shelly 1                                                               | kitchen     |
 | Kitchen Motion Sensor         | 02f28a1e50600275c7752272b54bd902 | Philips        | SML001                                                                 | kitchen     |
 | Laundry Door                  | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin         | multi                                                                  | laundry     |
@@ -21,11 +23,11 @@
 | Living Room Lower East Light  | 58a4f6bda31916c80c0f1f527dede3b0 | Philips        | LCA001                                                                 | living_room |
 | Living Room Lower West Light  | 299af845a1144e43d1e3251178c4d890 | Philips        | LCA001                                                                 | living_room |
 | Living Room Motion Sensor     | 857c02e66f8caa4183fa0720ace1ccef | Philips        | SML001                                                                 | living_room |
-| Living Room Speaker           | b2b12a3e9b1ccd45c75ebfe5a019921f | Google Inc.    | Google Home                                                            | living_room |
-| Living Room TV                | 046ef74bf61004b7388434a997960030 | Google Inc.    | Chromecast Ultra                                                       | living_room |
+| Living Room Speaker           | 8aaf8c751fddfa44dcd2b32101ae72c4 | Google Inc.    | Google Home                                                            | living_room |
+| Living Room TV                | 884fb275990cdca00879d138afed1be6 | Google Inc.    | Chromecast Ultra                                                       | living_room |
 | Living Room Upper East Light  | c965b7bde5fe53f58fcb7939c56732a6 | Philips        | LCA001                                                                 | living_room |
 | Living Room Upper West Light  | 82f261b960d522effa8809434a4915c1 | Philips        | LCA001                                                                 | living_room |
-| Office Display                | c7b219f2a858857da2f816b3c0bab234 | Google Inc.    | Google Nest Hub Max                                                    | office      |
+| Office Display                | f0458918b78a0ce39cf68f5febcbb7f4 | Google Inc.    | Google Nest Hub Max                                                    | office      |
 | Outside East-northeast Light  | a8259594cc0dcbd3a4393f715831840a | Philips        | LCA001                                                                 | outside     |
 | Outside East-southeast Light  | e9734bce05d69dafebe1ab08f11a9ba3 | Philips        | LCA001                                                                 | outside     |
 | Outside North-northeast Light | fe0e72cf37572c7e939c0353a8eabc21 | Philips        | LCA001                                                                 | outside     |
