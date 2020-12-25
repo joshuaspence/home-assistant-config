@@ -13,7 +13,7 @@ homeassistant:
       friendly_name: 'Memory use'
     sensor.processor_temperature:
       icon: 'mdi:thermometer'
-    sensor.processor_use:
+    sensor.processor_use_percent:
       friendly_name: 'Processor use'
 sensor:
   - platform: 'systemmonitor'
