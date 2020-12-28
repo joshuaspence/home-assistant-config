@@ -1,4 +1,10 @@
 ---
 frontend: {}
-lovelace: {}
+lovelace:
+  dashboards:
+    lovelace-overview:
+      filename: 'lovelace/overview.yaml'
+      mode: 'yaml'
+      title: 'Overview'
+  mode: 'yaml'
 map: {}

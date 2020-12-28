@@ -1,0 +1,156 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    badges:
+      - entity: binary_sensor.workday
+      - entity: binary_sensor.remote_ui
+      - entity: binary_sensor.snapshots_stale
+      - entity: person.josh
+      - entity: person.lily
+      - entity: sensor.disk_free
+      - entity: sensor.dishwasher_current_power_w
+      - entity: sensor.washing_machine_current_power_w
+      - entity: sensor.disk_use
+      - entity: sensor.disk_use_percent
+      - entity: sensor.speedtest_ping
+      - entity: sensor.speedtest_download
+      - entity: sensor.speedtest_upload
+      - entity: sensor.memory_free
+      - entity: sensor.memory_use
+      - entity: sensor.memory_use_percent
+      - entity: sensor.processor_temperature
+      - entity: sensor.processor_use_percent
+      - entity: sensor.daikin_ac_inside_temperature
+      - entity: sensor.snapshot_backup
+      - entity: sun.sun
+    cards:
+      - type: entities
+        entities:
+          - light.bedroom_1
+        title: Bedroom 1
+      - type: entities
+        entities:
+          - light.bedroom_2
+        title: Bedroom 2
+      - type: entities
+        entities:
+          - light.dining_room
+        title: Dining Room
+      - type: entities
+        entities:
+          - entity: sensor.hallway_illuminance
+            name: Illuminance
+          - entity: binary_sensor.hallway_occupancy
+            name: Occupancy
+          - entity: sensor.hallway_temperature
+            name: Temperature
+          - entity: binary_sensor.hallway_motion
+            name: Motion
+          - sensor.front_door_temperature
+          - binary_sensor.front_door_accelerometer
+          - binary_sensor.front_door_position
+          - entity: light.hallway_east
+            name: East
+          - entity: light.hallway_west
+            name: West
+        title: Hallway
+      - type: entities
+        entities:
+          - switch.dishwasher
+          - light.kitchen
+          - entity: binary_sensor.kitchen_light_switch
+            name: Light Switch
+          - entity: sensor.kitchen_illuminance
+            name: Illuminance
+          - entity: binary_sensor.kitchen_occupancy
+            name: Occupancy
+          - entity: binary_sensor.kitchen_motion
+            name: Motion
+          - entity: sensor.kitchen_temperature
+            name: Temperature
+        title: Kitchen
+      - type: media-control
+        entity: media_player.kitchen_display
+      - type: entities
+        entities:
+          - switch.washing_machine
+          - light.laundry
+          - entity: sensor.laundry_door_temperature
+            name: Door Temperature
+          - entity: binary_sensor.laundry_door_position
+            name: Door Position
+          - entity: binary_sensor.laundry_door_accelerometer
+            name: Door Accelerometer
+        title: Laundry
+      - type: entities
+        entities:
+          - entity: light.living_room_upper_east
+            name: Upper East
+          - entity: light.living_room_lower_east
+            name: Lower East
+          - entity: light.living_room_lower_west
+            name: Lower West
+          - entity: light.living_room_upper_west
+            name: Upper West
+          - entity: sensor.living_room_illuminance
+            name: Illuminance
+          - entity: binary_sensor.living_room_occupancy
+            name: Occupancy
+          - entity: binary_sensor.living_room_motion
+            name: Motion
+          - entity: sensor.living_room_temperature
+            name: Temperature
+        title: Living Room
+      - type: media-control
+        entity: media_player.living_room_speaker
+      - type: media-control
+        entity: media_player.living_room_tv
+      - type: media-control
+        entity: media_player.office_display
+      - type: entities
+        entities:
+          - sensor.front_yard_illuminance
+          - binary_sensor.front_yard_occupancy
+          - sensor.front_yard_temperature
+          - entity: light.outside_sse
+            name: South-southeast
+          - entity: light.outside_nnw
+            name: North-northwest
+          - entity: light.outside_nne
+            name: North-northeast
+          - entity: light.outside_ene
+            name: East-northeast
+          - entity: light.outside_ssw
+            name: South-southwest
+          - light.front_door
+          - entity: light.outside_ese
+            name: East-southeast
+          - binary_sensor.front_yard_motion
+        title: Outside
+      - type: entities
+        entities:
+          - light.toilet
+        title: Toilet
+      - type: thermostat
+        entity: climate.daikin_ac
+      - type: entities
+        entities:
+          - light.living_room
+          - light.outside_wall
+        title: Light
+      - type: entities
+        entities:
+          - switch.aircon_downstairs
+          - switch.aircon_upstairs
+        title: Switch
+      - type: weather-forecast
+        entity: weather.home
+        show_forecast: false
+      - type: weather-forecast
+        entity: weather.home_hourly
+        show_forecast: false
+      - type: map
+        geo_location_sources:
+          - all
+
