@@ -5,27 +5,12 @@ views:
   - path: 'default_view'
     title: 'Home'
     badges:
-      - entity: 'binary_sensor.workday'
-      - entity: 'binary_sensor.remote_ui'
-      - entity: 'binary_sensor.snapshots_stale'
       - entity: 'person.josh'
       - entity: 'person.lily'
-      - entity: 'sensor.disk_free'
-      - entity: 'sensor.dishwasher_current_power_w'
-      - entity: 'sensor.washing_machine_current_power_w'
-      - entity: 'sensor.disk_use'
-      - entity: 'sensor.disk_use_percent'
       - entity: 'sensor.speedtest_ping'
       - entity: 'sensor.speedtest_download'
       - entity: 'sensor.speedtest_upload'
-      - entity: 'sensor.memory_free'
-      - entity: 'sensor.memory_use'
-      - entity: 'sensor.memory_use_percent'
-      - entity: 'sensor.processor_temperature'
-      - entity: 'sensor.processor_use_percent'
       - entity: 'sensor.daikin_ac_inside_temperature'
-      - entity: 'sensor.snapshot_backup'
-      - entity: 'sun.sun'
     cards:
       - type: 'entities'
         entities:
@@ -59,10 +44,7 @@ views:
         title: 'Hallway'
       - type: 'entities'
         entities:
-          - 'switch.dishwasher'
           - 'light.kitchen'
-          - entity: 'binary_sensor.kitchen_light_switch'
-            name: 'Light Switch'
           - entity: 'sensor.kitchen_illuminance'
             name: 'Illuminance'
           - entity: 'binary_sensor.kitchen_occupancy'
@@ -76,7 +58,6 @@ views:
         entity: 'media_player.kitchen_display'
       - type: 'entities'
         entities:
-          - 'switch.washing_machine'
           - 'light.laundry'
           - entity: 'sensor.laundry_door_temperature'
             name: 'Door Temperature'
@@ -152,6 +133,3 @@ views:
       - type: 'weather-forecast'
         entity: 'weather.home_hourly'
         show_forecast: false
-      - type: 'map'
-        geo_location_sources:
-          - 'all'
