@@ -94,7 +94,7 @@ views:
             entity: 'switch.aircon_downstairs'
             show_name: false
             show_state: true
-            icon_height: '30px'
+            icon_height: '40px'
           - type: 'glance'
             entities: &downstairs_temperature_entities
               - entity: 'sensor.kitchen_temperature'
@@ -113,7 +113,7 @@ views:
             entity: 'switch.aircon_upstairs'
             show_name: false
             show_state: true
-            icon_height: '30px'
+            icon_height: '40px'
           - type: 'glance'
             entities: &upstairs_temperature_entities
               - entity: 'sensor.front_door_temperature'
@@ -126,6 +126,10 @@ views:
       - type: 'vertical-stack'
         title: 'Outside'
         cards:
+          - type: 'weather-forecast'
+            entity: 'weather.home'
+            show_forecast: false
+            secondary_info_attribute: 'humidity'
           - type: 'glance'
             entities: &outside_temperature_entities
               - entity: 'sensor.front_yard_temperature'
@@ -134,16 +138,15 @@ views:
             entities: *outside_temperature_entities
 
   - title: 'Weather'
+    # icon: 'mdi:weather-cloudy'
     path: 'weather'
     cards:
       - type: 'weather-forecast'
         entity: 'weather.home_hourly'
         name: 'Hourly'
-        show_forecast: true
       - type: 'weather-forecast'
         entity: 'weather.home'
         name: 'Daily'
-        show_forecast: true
 
   - title: 'Media'
     path: 'media'
