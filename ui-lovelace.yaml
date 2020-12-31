@@ -24,8 +24,9 @@ views:
             entity: 'switch.aircon_downstairs'
             show_name: false
             show_state: true
+            icon_height: '30px'
           - type: 'glance'
-            entities:
+            entities: &downstairs_temperature_entities
               - entity: 'sensor.kitchen_temperature'
                 name: 'Kitchen'
               - entity: 'sensor.laundry_door_temperature'
@@ -33,13 +34,7 @@ views:
               - entity: 'sensor.living_room_temperature'
                 name: 'Living Room'
           - type: 'history-graph'
-            entities:
-              - entity: 'sensor.kitchen_temperature'
-                name: 'Kitchen'
-              - entity: 'sensor.laundry_door_temperature'
-                name: 'Laundry'
-              - entity: 'sensor.living_room_temperature'
-                name: 'Living Room'
+            entities: *downstairs_temperature_entities
 
       - type: 'vertical-stack'
         title: 'Upstairs'
@@ -48,27 +43,22 @@ views:
             entity: 'switch.aircon_upstairs'
             show_name: false
             show_state: true
+            icon_height: '30px'
           - type: 'glance'
-            entities:
+            entities: &upstairs_temperature_entities
               - entity: 'sensor.front_door_temperature'
                 name: 'Front Door'
               - entity: 'sensor.hallway_temperature'
                 name: 'Hallway'
           - type: 'history-graph'
-            entities:
-              - entity: 'sensor.front_door_temperature'
-                name: 'Front Door'
-              - entity: 'sensor.hallway_temperature'
-                name: 'Hallway'
+            entities: *upstairs_temperature_entities
 
       - type: 'vertical-stack'
         title: 'Outside'
         cards:
           - type: 'glance'
-            entities:
+            entities: &outside_temperature_entities
               - entity: 'sensor.front_yard_temperature'
                 name: 'Front Yard'
           - type: 'history-graph'
-            entities:
-              - entity: 'sensor.front_yard_temperature'
-                name: 'Front Yard'
+            entities: *outside_temperature_entities
