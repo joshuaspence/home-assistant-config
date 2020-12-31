@@ -132,3 +132,16 @@ views:
                 name: 'Front Yard'
           - type: 'history-graph'
             entities: *outside_temperature_entities
+
+  - title: 'Weather'
+    path: 'weather'
+    cards:
+      - type: 'weather-forecast'
+        entity: 'weather.home_hourly'
+        name: 'Hourly'
+        show_forecast: true
+      - type: 'weather-forecast'
+        entity: 'weather.home'
+        name: 'Daily'
+        show_forecast: true
+
