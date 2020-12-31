@@ -165,3 +165,22 @@ views:
           - 'person.josh'
           - 'person.lily'
           - 'zone.home'
+  - title: 'System'
+    path: 'system'
+    badges:
+      - 'binary_sensor.remote_ui'
+      - 'binary_sensor.snapshots_stale'
+      - 'sensor.snapshot_backup'
+
+      - 'sensor.disk_free'
+      - 'sensor.disk_use'
+      - 'sensor.disk_use_percent'
+      - 'sensor.memory_free'
+      - 'sensor.memory_use'
+      - 'sensor.memory_use_percent'
+      - 'sensor.processor_use_percent'
+      - 'sensor.processor_temperature'
+
+      - 'sensor.speedtest_ping'
+      - 'sensor.speedtest_download'
+      - 'sensor.speedtest_upload'

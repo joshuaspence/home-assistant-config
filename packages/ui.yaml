@@ -1,12 +1,6 @@
 ---
 frontend: {}
 lovelace:
-  dashboards:
-    admin-dashboard:
-      filename: 'lovelace/admin.yaml'
-      icon: 'mdi:head-cog'
-      mode: 'yaml'
-      require_admin: true
-      title: 'Admin'
+  dashboards: {}
   mode: 'yaml'
 map: {}
