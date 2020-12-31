@@ -145,3 +145,11 @@ views:
         name: 'Daily'
         show_forecast: true
 
+  - title: 'Map'
+    path: 'map'
+    cards:
+      - type: 'map'
+        entities:
+          - 'person.josh'
+          - 'person.lily'
+          - 'zone.home'
