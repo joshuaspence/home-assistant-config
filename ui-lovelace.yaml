@@ -1,87 +1,74 @@
 # yamllint disable rule:key-ordering
 ---
-title: 'Home'
 views:
-  - path: 'default_view'
-    title: 'Home'
-    badges:
-      - entity: 'person.josh'
-      - entity: 'person.lily'
-      - entity: 'sensor.daikin_ac_inside_temperature'
+  - title: 'Lighting'
+    path: 'light'
     cards:
       - type: 'entities'
+        title: 'Bedrooms'
+        icon: 'mdi:bed'
         entities:
           - 'light.bedroom_1'
-        title: 'Bedroom 1'
-      - type: 'entities'
-        entities:
           - 'light.bedroom_2'
-        title: 'Bedroom 2'
-      - type: 'entities'
-        entities:
-          - 'light.dining_room'
-        title: 'Dining Room'
-      - type: 'entities'
-        entities:
-          - entity: 'light.hallway_east'
-            name: 'East'
-          - entity: 'light.hallway_west'
-            name: 'West'
-        title: 'Hallway'
-      - type: 'entities'
-        entities:
-          - 'light.kitchen'
-        title: 'Kitchen'
-      - type: 'entities'
-        entities:
-          - 'light.laundry'
-        title: 'Laundry'
-      - type: 'entities'
-        entities:
-          - entity: 'light.living_room_upper_east'
-            name: 'Upper East'
-          - entity: 'light.living_room_lower_east'
-            name: 'Lower East'
-          - entity: 'light.living_room_lower_west'
-            name: 'Lower West'
-          - entity: 'light.living_room_upper_west'
-            name: 'Upper West'
-        title: 'Living Room'
-      - type: 'entities'
-        entities:
-          - entity: 'light.outside_sse'
-            name: 'South-southeast'
-          - entity: 'light.outside_nnw'
-            name: 'North-northwest'
-          - entity: 'light.outside_nne'
-            name: 'North-northeast'
-          - entity: 'light.outside_ene'
-            name: 'East-northeast'
-          - entity: 'light.outside_ssw'
-            name: 'South-southwest'
-          - 'light.front_door'
-          - entity: 'light.outside_ese'
-            name: 'East-southeast'
-        title: 'Outside'
-      - type: 'entities'
-        entities:
-          - 'light.toilet'
-        title: 'Toilet'
+
+  - title: 'Aircon'
+    path: 'climate'
+    cards:
       - type: 'thermostat'
         entity: 'climate.daikin_ac'
-      - type: 'entities'
-        entities:
-          - 'light.living_room'
-          - 'light.outside_wall'
-        title: 'Light'
-      - type: 'entities'
-        entities:
-          - 'switch.aircon_downstairs'
-          - 'switch.aircon_upstairs'
-        title: 'Switch'
-      - type: 'weather-forecast'
-        entity: 'weather.home'
-        show_forecast: false
-      - type: 'weather-forecast'
-        entity: 'weather.home_hourly'
-        show_forecast: false
+
+      - type: 'vertical-stack'
+        title: 'Downstairs'
+        cards:
+          - type: 'button'
+            entity: 'switch.aircon_downstairs'
+            show_name: false
+            show_state: true
+          - type: 'glance'
+            entities:
+              - entity: 'sensor.kitchen_temperature'
+                name: 'Kitchen'
+              - entity: 'sensor.laundry_door_temperature'
+                name: 'Laundry'
+              - entity: 'sensor.living_room_temperature'
+                name: 'Living Room'
+          - type: 'history-graph'
+            entities:
+              - entity: 'sensor.kitchen_temperature'
+                name: 'Kitchen'
+              - entity: 'sensor.laundry_door_temperature'
+                name: 'Laundry'
+              - entity: 'sensor.living_room_temperature'
+                name: 'Living Room'
+
+      - type: 'vertical-stack'
+        title: 'Upstairs'
+        cards:
+          - type: 'button'
+            entity: 'switch.aircon_upstairs'
+            show_name: false
+            show_state: true
+          - type: 'glance'
+            entities:
+              - entity: 'sensor.front_door_temperature'
+                name: 'Front Door'
+              - entity: 'sensor.hallway_temperature'
+                name: 'Hallway'
+          - type: 'history-graph'
+            entities:
+              - entity: 'sensor.front_door_temperature'
+                name: 'Front Door'
+              - entity: 'sensor.hallway_temperature'
+                name: 'Hallway'
+
+      - type: 'vertical-stack'
+        title: 'Outside'
+        cards:
+          - type: 'glance'
+            entities:
+              - entity: 'sensor.front_yard_temperature'
+                name: 'Front Yard'
+          - type: 'history-graph'
+            entities:
+              - entity: 'sensor.front_yard_temperature'
+                name: 'Front Yard'
