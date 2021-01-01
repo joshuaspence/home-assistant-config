@@ -1,8 +1,9 @@
 # yamllint disable rule:key-ordering
 ---
 views:
-  - title: 'Lighting'
-    path: 'light'
+  - title: 'Lights'
+    icon: 'mdi:flashlight'
+    path: 'lights'
     cards:
       - type: 'entities'
         title: 'Bedrooms'
@@ -82,7 +83,8 @@ views:
           - 'light.toilet'
 
   - title: 'Aircon'
-    path: 'climate'
+    icon: 'mdi:mdi-air-conditioner'
+    path: 'aircon'
     cards:
       - type: 'thermostat'
         entity: 'climate.daikin_ac'
@@ -138,7 +140,7 @@ views:
             entities: *outside_temperature_entities
 
   - title: 'Weather'
-    # icon: 'mdi:weather-cloudy'
+    icon: 'mdi:weather-cloudy'
     path: 'weather'
     cards:
       - type: 'weather-forecast'
@@ -149,6 +151,7 @@ views:
         name: 'Daily'
 
   - title: 'Media'
+    icon: 'mdi:speaker'
     path: 'media'
     cards:
       - type: 'media-control'
@@ -161,6 +164,7 @@ views:
         entity: 'media_player.office_display'
 
   - title: 'Map'
+    icon: 'mdi:map'
     path: 'map'
     cards:
       - type: 'map'
@@ -168,7 +172,9 @@ views:
           - 'person.josh'
           - 'person.lily'
           - 'zone.home'
+
   - title: 'System'
+    icon: 'mdi:server-network'
     path: 'system'
     badges:
       - 'binary_sensor.remote_ui'
