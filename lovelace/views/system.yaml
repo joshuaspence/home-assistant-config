@@ -1,0 +1,52 @@
+---
+title: 'System'
+icon: 'mdi:server-network'
+path: 'system'
+cards:
+  - type: 'entity'
+    entity: 'binary_sensor.remote_ui'
+
+  - type: 'entities'
+    title: 'Snapshots'
+    icon: 'mdi:backup-restore'
+    entities:
+      - entity: 'binary_sensor.snapshots_stale'
+        name: 'Staleness'
+      - entity: 'sensor.snapshot_backup'
+        name: 'State'
+
+  - type: 'grid'
+    title: 'Host'
+    columns: 4
+    cards:
+      - type: 'gauge'
+        entity: 'sensor.processor_use_percent'
+        name: 'Processor'
+      - type: 'gauge'
+        entity: 'sensor.memory_use_percent'
+        name: 'Memory'
+      - type: 'gauge'
+        entity: 'sensor.disk_use_percent'
+        name: 'Disk'
+      - type: 'gauge'
+        entity: 'sensor.processor_temperature'
+        name: 'Temperature'
+        min: 20
+        max: 80
+
+  - type: 'grid'
+    title: 'Network'
+    columns: 3
+    cards:
+      - type: 'sensor'
+        entity: 'sensor.speedtest_download'
+        name: 'Download'
+        graph: 'line'
+      - type: 'sensor'
+        entity: 'sensor.speedtest_upload'
+        name: 'Upload'
+        graph: 'line'
+      - type: 'sensor'
+        entity: 'sensor.speedtest_ping'
+        name: 'Ping'
+        graph: 'line'

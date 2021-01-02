@@ -172,23 +172,4 @@ views:
           - 'person.lily'
           - 'zone.home'
 
-  - title: 'System'
-    icon: 'mdi:server-network'
-    path: 'system'
-    badges:
-      - 'binary_sensor.remote_ui'
-      - 'binary_sensor.snapshots_stale'
-      - 'sensor.snapshot_backup'
-
-      - 'sensor.disk_free'
-      - 'sensor.disk_use'
-      - 'sensor.disk_use_percent'
-      - 'sensor.memory_free'
-      - 'sensor.memory_use'
-      - 'sensor.memory_use_percent'
-      - 'sensor.processor_use_percent'
-      - 'sensor.processor_temperature'
-
-      - 'sensor.speedtest_ping'
-      - 'sensor.speedtest_download'
-      - 'sensor.speedtest_upload'
+  - !include 'lovelace/views/system.yaml'
