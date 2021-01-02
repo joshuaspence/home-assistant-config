@@ -3,4 +3,5 @@ frontend: {}
 lovelace:
   dashboards: {}
   mode: 'yaml'
+  resources: []
 map: {}
