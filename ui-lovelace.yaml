@@ -19,6 +19,7 @@ views:
 
       - type: 'entities'
         title: 'Hallway'
+        icon: 'mdi:wall'
         entities:
           - entity: 'light.hallway_east'
             name: 'East'
@@ -162,14 +163,5 @@ views:
       - type: 'media-control'
         entity: 'media_player.office_display'
 
-  - title: 'Map'
-    icon: 'mdi:map'
-    path: 'map'
-    cards:
-      - type: 'map'
-        entities:
-          - 'person.josh'
-          - 'person.lily'
-          - 'zone.home'
-
+  - !include 'lovelace/views/occupancy.yaml'
   - !include 'lovelace/views/system.yaml'
