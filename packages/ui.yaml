@@ -3,5 +3,7 @@ frontend: {}
 lovelace:
   dashboards: {}
   mode: 'yaml'
-  resources: []
+  resources:
+    - type: 'module'
+      url: '/local/node_modules/vacuum-card/dist/vacuum-card.js'
 map: {}

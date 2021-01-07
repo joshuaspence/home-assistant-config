@@ -4,6 +4,7 @@ extends: 'default'
 ignore: |-
   /integrations/
   /secrets.yaml
+  /www/node_modules/
 
 rules:
   braces:

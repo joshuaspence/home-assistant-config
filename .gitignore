@@ -7,3 +7,6 @@
 /known_devices.yaml
 /.storage/
 /zigbee.db
+
+# NPM
+/www/node_modules/
