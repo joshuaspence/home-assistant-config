@@ -1,2 +1,18 @@
 ---
-[]
+- name: 'Night'
+  icon: 'mdi:weather-night'
+  entities:
+    light.dining_room: 'off'
+    light.hallway_east: 'off'
+    light.hallway_west: 'off'
+    light.kitchen: 'off'
+    light.laundry: 'off'
+    light.living_room_lower_east: 'off'
+    light.living_room_lower_west: 'off'
+    light.living_room_upper_east: 'off'
+    light.living_room_upper_west:
+      brightness: 100
+      state: 'on'
+    light.toilet:
+      brightness: 100
+      state: 'on'
