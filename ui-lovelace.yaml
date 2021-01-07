@@ -139,10 +139,6 @@ views:
           - type: 'history-graph'
             entities: *outside_temperature_entities
 
-  - title: 'Weather'
-    icon: 'mdi:weather-cloudy'
-    path: 'weather'
-    cards:
       - type: 'weather-forecast'
         entity: 'weather.home_hourly'
         name: 'Hourly'
