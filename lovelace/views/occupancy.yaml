@@ -20,16 +20,12 @@ cards:
     entities:
       - entity: 'binary_sensor.front_yard_occupancy'
         name: 'Front Yard'
-        icon: 'mdi:tree'
       - entity: 'binary_sensor.hallway_occupancy'
         name: 'Hallway'
-        icon: 'mdi:wall'
       - entity: 'binary_sensor.kitchen_occupancy'
         name: 'Kitchen'
-        icon: 'mdi:fridge'
       - entity: 'binary_sensor.living_room_occupancy'
         name: 'Living Room'
-        icon: 'mdi:television'
 
   - type: 'map'
     entities:
