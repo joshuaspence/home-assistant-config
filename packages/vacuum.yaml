@@ -1,0 +1,6 @@
+---
+deebot:
+  continent: 'WW'
+  country: 'AU'
+  password: !secret 'ecovacs.password'
+  username: 'josh@joshuaspence.com'
