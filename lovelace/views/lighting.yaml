@@ -7,7 +7,7 @@ cards:
     title: 'Scenes'
     icon: 'mdi:palette'
     entities:
-      - 'scene.night'
+      - 'scene.bed_time'
 
   - type: 'entities'
     title: 'Bedrooms'
