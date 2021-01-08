@@ -1,6 +1,6 @@
 ---
-- name: 'Night'
-  icon: 'mdi:weather-night'
+- name: 'Bed Time'
+  icon: 'mdi:bed'
   entities:
     light.dining_room: 'off'
     light.hallway_east: 'off'
@@ -11,8 +11,8 @@
     light.living_room_lower_west: 'off'
     light.living_room_upper_east: 'off'
     light.living_room_upper_west:
-      brightness: 100
+      brightness_pct: 20
       state: 'on'
     light.toilet:
-      brightness: 100
+      brightness_pct: 20
       state: 'on'
