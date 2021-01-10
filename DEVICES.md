@@ -14,7 +14,7 @@
 | Hallway Motion Sensor         | 91655f25d135d9b7ac6d882e6eaab151 | Philips        | SML001                                                                 | hallway     |
 | Hallway West                  | 064c683ea72a74adf1f6f51991b8eada | Philips        | LTD011                                                                 | hallway     |
 | Josh's Phone                  | 5a2014471b1d11eba300099a15c95714 | Google         | Pixel 4 XL                                                             | None        |
-| Kitchen Display               | aef92c244b1a325f2e2beb9d284db7c6 | Google Inc.    | Google Nest Hub                                                        | kitchen     |
+| Kitchen Display               | a2cb11e64399a5728466224e8c101b54 | Google Inc.    | Google Nest Hub                                                        | kitchen     |
 | Kitchen Light                 | 02581d13d43f5efb44cc810004c419f4 | Shelly         | Shelly 1                                                               | kitchen     |
 | Kitchen Motion Sensor         | 02f28a1e50600275c7752272b54bd902 | Philips        | SML001                                                                 | kitchen     |
 | Laundry Door                  | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin         | multi                                                                  | laundry     |
@@ -23,11 +23,10 @@
 | Living Room Lower East Light  | 58a4f6bda31916c80c0f1f527dede3b0 | Philips        | LCA001                                                                 | living_room |
 | Living Room Lower West Light  | 299af845a1144e43d1e3251178c4d890 | Philips        | LCA001                                                                 | living_room |
 | Living Room Motion Sensor     | 857c02e66f8caa4183fa0720ace1ccef | Philips        | SML001                                                                 | living_room |
-| Living Room Speaker           | 8aaf8c751fddfa44dcd2b32101ae72c4 | Google Inc.    | Google Home                                                            | living_room |
-| Living Room TV                | 884fb275990cdca00879d138afed1be6 | Google Inc.    | Chromecast Ultra                                                       | living_room |
+| Living Room TV                | 7f7915983b8e35b78a2f76bb7f37a0a4 | Google Inc.    | Hitachi 4K Android TV                                                  | living_room |
 | Living Room Upper East Light  | c965b7bde5fe53f58fcb7939c56732a6 | Philips        | LCA001                                                                 | living_room |
 | Living Room Upper West Light  | 82f261b960d522effa8809434a4915c1 | Philips        | LCA001                                                                 | living_room |
-| Office Display                | f0458918b78a0ce39cf68f5febcbb7f4 | Google Inc.    | Google Nest Hub Max                                                    | office      |
+| Office Display                | ef7b46f25ceb69a7afab34dfe702015a | Google Inc.    | Google Nest Hub Max                                                    | office      |
 | Outside East-northeast Light  | a8259594cc0dcbd3a4393f715831840a | Philips        | LCA001                                                                 | outside     |
 | Outside East-southeast Light  | e9734bce05d69dafebe1ab08f11a9ba3 | Philips        | LCA001                                                                 | outside     |
 | Outside North-northeast Light | fe0e72cf37572c7e939c0353a8eabc21 | Philips        | LCA001                                                                 | outside     |

@@ -1,0 +1,7 @@
+---
+media_player:
+  - apps: {}
+    host: '10.158.145.163'
+    name: 'Living Room TV'
+    platform: 'androidtv'
+    state_detection_rules: {}
