@@ -1,6 +1,6 @@
 ---
 title: 'Climate'
-icon: 'mdi:weather-cloudy'
+icon: 'mdi:fan'
 path: 'climate'
 cards:
   - type: 'thermostat'
