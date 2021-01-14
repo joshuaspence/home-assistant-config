@@ -6,6 +6,8 @@ cards:
   - type: 'custom:vacuum-card'
     entity: 'vacuum.deebot'
     stats:
-      default: []
+      default:
+        - attribute: 'error'
+          subtitle: 'Error'
       cleaning: []
     actions: []
