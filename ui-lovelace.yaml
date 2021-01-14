@@ -1,5 +1,6 @@
 ---
 views:
+  - !include 'lovelace/views/overview.yaml'
   - !include 'lovelace/views/lighting.yaml'
   - !include 'lovelace/views/climate.yaml'
   - !include 'lovelace/views/vacuum.yaml'
