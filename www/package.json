@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ha-floorplan": "https://github.com/ExperienceLovelace/ha-floorplan/archive/1.0.10.tar.gz",
     "vacuum-card": "~1"
   }
 }

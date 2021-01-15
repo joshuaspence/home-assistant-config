@@ -6,4 +6,6 @@ lovelace:
   resources:
     - type: 'module'
       url: '/local/node_modules/vacuum-card/dist/vacuum-card.js'
+    - type: 'module'
+      url: '/local/node_modules/ha-floorplan/dist/floorplan.js'
 map: {}
