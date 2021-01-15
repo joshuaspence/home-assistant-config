@@ -3,6 +3,10 @@
 | Name                          | ID                               | Manufacturer   | Model                                                                  | Area        |
 |-------------------------------|----------------------------------|----------------|------------------------------------------------------------------------|-------------|
 | Air Conditioner               | 21804eade0d3eaf7fed4f56bfbcc7cca | Daikin         | NOTSUPPORT                                                             | None        |
+| Attic Lower                   | 2a0c9b2b2dc2fe378d1c9fa1633b42d5 | LUMI           | lumi.weather                                                           | attic       |
+| Attic Upper                   | 4342f0cce4c6a08a07b15f9d793b809d | LUMI           | lumi.weather                                                           | attic       |
+| Basement East                 | caea1628a5a11768281d39c2c375440c | LUMI           | lumi.weather                                                           | basement    |
+| Basement West                 | 31c46f54af521c07627724ab684613e6 | LUMI           | lumi.weather                                                           | basement    |
 | Bedroom 1 Light               | 526fe85c6b1adc2a587190d5424b9b74 | Philips        | LWA001                                                                 | bedroom_1   |
 | Bedroom 2 Light               | d3061b994adb52a5c52f160fff8065e1 | Philips        | LWA001                                                                 | bedroom_2   |
 | Dining Room Light             | 6d050213abc44f0534906d8ecbeb5e6c | LDS            | ZBT-DIMLight-GLS0044                                                   | dining_room |
