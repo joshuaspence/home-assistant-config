@@ -1,6 +1,8 @@
 ---
 media_player:
-  - apps: {}
+  - apps:
+      com.google.android.youtube.tvkids: 'YouTube Kids'
+    exclude_unnamed_apps: true
     host: '10.158.145.163'
     name: 'Living Room TV'
     platform: 'androidtv'
