@@ -54,3 +54,45 @@ cards:
             name: 'Front Yard'
       - type: 'history-graph'
         entities: *outside_temperature_entities
+
+  - type: 'vertical-stack'
+    title: 'Attic'
+    cards:
+      - type: 'glance'
+        entities: &attic_temperature_entities
+          - entity: 'sensor.attic_lower_temperature'
+            name: 'Lower'
+          - entity: 'sensor.attic_upper_temperature'
+            name: 'Upper'
+      - type: 'history-graph'
+        entities: *attic_temperature_entities
+
+      - type: 'glance'
+        entities: &attic_humidity_entities
+          - entity: 'sensor.attic_lower_humidity'
+            name: 'Lower'
+          - entity: 'sensor.attic_upper_humidity'
+            name: 'Upper'
+      - type: 'history-graph'
+        entities: *attic_humidity_entities
+
+  - type: 'vertical-stack'
+    title: 'Basement'
+    cards:
+      - type: 'glance'
+        entities: &basement_temperature_entities
+          - entity: 'sensor.basement_east_temperature'
+            name: 'East'
+          - entity: 'sensor.basement_west_temperature'
+            name: 'West'
+      - type: 'history-graph'
+        entities: *basement_temperature_entities
+
+      - type: 'glance'
+        entities: &basement_humidity_entities
+          - entity: 'sensor.basement_east_humidity'
+            name: 'East'
+          - entity: 'sensor.basement_west_humidity'
+            name: 'West'
+      - type: 'history-graph'
+        entities: *basement_humidity_entities
