@@ -3,100 +3,96 @@ title: 'Climate'
 icon: 'mdi:fan'
 path: 'climate'
 cards:
-  - type: 'horizontal-stack'
+  - type: 'thermostat'
+    entity: 'climate.daikin_ac'
+
+  - type: 'vertical-stack'
+    title: 'Downstairs'
     cards:
-      - type: 'thermostat'
-        entity: 'climate.daikin_ac'
+      - type: 'button'
+        entity: 'switch.aircon_downstairs'
+        show_name: false
+        show_state: true
+        icon_height: '40px'
+      - type: 'glance'
+        entities: &downstairs_temperature_entities
+          - entity: 'sensor.kitchen_temperature'
+            name: 'Kitchen'
+          - entity: 'sensor.laundry_door_temperature'
+            name: 'Laundry'
+          - entity: 'sensor.living_room_temperature'
+            name: 'Living Room'
+      - type: 'history-graph'
+        entities: *downstairs_temperature_entities
 
-      - type: 'vertical-stack'
-        title: 'Downstairs'
-        cards:
-          - type: 'button'
-            entity: 'switch.aircon_downstairs'
-            show_name: false
-            show_state: true
-            icon_height: '40px'
-          - type: 'glance'
-            entities: &downstairs_temperature_entities
-              - entity: 'sensor.kitchen_temperature'
-                name: 'Kitchen'
-              - entity: 'sensor.laundry_door_temperature'
-                name: 'Laundry'
-              - entity: 'sensor.living_room_temperature'
-                name: 'Living Room'
-          - type: 'history-graph'
-            entities: *downstairs_temperature_entities
-
-      - type: 'vertical-stack'
-        title: 'Upstairs'
-        cards:
-          - type: 'button'
-            entity: 'switch.aircon_upstairs'
-            show_name: false
-            show_state: true
-            icon_height: '40px'
-          - type: 'glance'
-            entities: &upstairs_temperature_entities
-              - entity: 'sensor.front_door_temperature'
-                name: 'Front Door'
-              - entity: 'sensor.hallway_temperature'
-                name: 'Hallway'
-          - type: 'history-graph'
-            entities: *upstairs_temperature_entities
-
-      - type: 'vertical-stack'
-        title: 'Outside'
-        cards:
-          - type: 'weather-forecast'
-            entity: 'weather.home_hourly'
-            show_forecast: false
-          - type: 'glance'
-            entities: &outside_temperature_entities
-              - entity: 'sensor.front_yard_temperature'
-                name: 'Front Yard'
-          - type: 'history-graph'
-            entities: *outside_temperature_entities
-
-  - type: 'horizontal-stack'
+  - type: 'vertical-stack'
+    title: 'Upstairs'
     cards:
-      - type: 'vertical-stack'
-        title: 'Attic'
-        cards:
-          - type: 'glance'
-            entities: &attic_temperature_entities
-              - entity: 'sensor.attic_lower_temperature'
-                name: 'Lower'
-              - entity: 'sensor.attic_upper_temperature'
-                name: 'Upper'
-          - type: 'history-graph'
-            entities: *attic_temperature_entities
+      - type: 'button'
+        entity: 'switch.aircon_upstairs'
+        show_name: false
+        show_state: true
+        icon_height: '40px'
+      - type: 'glance'
+        entities: &upstairs_temperature_entities
+          - entity: 'sensor.front_door_temperature'
+            name: 'Front Door'
+          - entity: 'sensor.hallway_temperature'
+            name: 'Hallway'
+      - type: 'history-graph'
+        entities: *upstairs_temperature_entities
 
-          - type: 'glance'
-            entities: &attic_humidity_entities
-              - entity: 'sensor.attic_lower_humidity'
-                name: 'Lower'
-              - entity: 'sensor.attic_upper_humidity'
-                name: 'Upper'
-          - type: 'history-graph'
-            entities: *attic_humidity_entities
+  - type: 'vertical-stack'
+    title: 'Outside'
+    cards:
+      - type: 'weather-forecast'
+        entity: 'weather.home_hourly'
+        show_forecast: false
+      - type: 'glance'
+        entities: &outside_temperature_entities
+          - entity: 'sensor.front_yard_temperature'
+            name: 'Front Yard'
+      - type: 'history-graph'
+        entities: *outside_temperature_entities
 
-      - type: 'vertical-stack'
-        title: 'Basement'
-        cards:
-          - type: 'glance'
-            entities: &basement_temperature_entities
-              - entity: 'sensor.basement_east_temperature'
-                name: 'East'
-              - entity: 'sensor.basement_west_temperature'
-                name: 'West'
-          - type: 'history-graph'
-            entities: *basement_temperature_entities
+  - type: 'vertical-stack'
+    title: 'Attic'
+    cards:
+      - type: 'glance'
+        entities: &attic_temperature_entities
+          - entity: 'sensor.attic_lower_temperature'
+            name: 'Lower'
+          - entity: 'sensor.attic_upper_temperature'
+            name: 'Upper'
+      - type: 'history-graph'
+        entities: *attic_temperature_entities
 
-          - type: 'glance'
-            entities: &basement_humidity_entities
-              - entity: 'sensor.basement_east_humidity'
-                name: 'East'
-              - entity: 'sensor.basement_west_humidity'
-                name: 'West'
-          - type: 'history-graph'
-            entities: *basement_humidity_entities
+      - type: 'glance'
+        entities: &attic_humidity_entities
+          - entity: 'sensor.attic_lower_humidity'
+            name: 'Lower'
+          - entity: 'sensor.attic_upper_humidity'
+            name: 'Upper'
+      - type: 'history-graph'
+        entities: *attic_humidity_entities
+
+  - type: 'vertical-stack'
+    title: 'Basement'
+    cards:
+      - type: 'glance'
+        entities: &basement_temperature_entities
+          - entity: 'sensor.basement_east_temperature'
+            name: 'East'
+          - entity: 'sensor.basement_west_temperature'
+            name: 'West'
+      - type: 'history-graph'
+        entities: *basement_temperature_entities
+
+      - type: 'glance'
+        entities: &basement_humidity_entities
+          - entity: 'sensor.basement_east_humidity'
+            name: 'East'
+          - entity: 'sensor.basement_west_humidity'
+            name: 'West'
+      - type: 'history-graph'
+        entities: *basement_humidity_entities
