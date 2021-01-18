@@ -1,8 +1,0 @@
-[submodule "integrations/attributes"]
-	ignore = untracked
-	path = integrations/attributes
-	url = https://github.com/pilotak/homeassistant-attributes.git
-
-[submodule "integrations/deebot"]
-	path = integrations/deebot
-	url = https://github.com/Ligio/hacc-ozmo.git

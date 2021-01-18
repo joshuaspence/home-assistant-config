@@ -5,7 +5,7 @@ lovelace:
   mode: 'yaml'
   resources:
     - type: 'module'
-      url: '/local/node_modules/vacuum-card/dist/vacuum-card.js'
+      url: '/hacsfiles/vacuum-card/vacuum-card.js'
     - type: 'module'
-      url: '/local/node_modules/ha-floorplan/dist/floorplan.js'
+      url: '/hacsfiles/ha-floorplan/floorplan.js'
 map: {}

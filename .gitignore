@@ -8,5 +8,6 @@
 /.storage/
 /zigbee.db
 
-# NPM
-/www/node_modules/
+# Python
+__pycache__/
+*.pyc

@@ -2,9 +2,9 @@
 extends: 'default'
 
 ignore: |-
-  /integrations/
+  /custom_components/
   /secrets.yaml
-  /www/node_modules/
+  /www/community/
 
 rules:
   braces:
