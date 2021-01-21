@@ -1,0 +1,6 @@
+---
+entities:
+  - 'light.hallway_east'
+  - 'light.hallway_west'
+name: 'Hallway'
+platform: 'group'
