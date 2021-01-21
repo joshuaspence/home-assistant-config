@@ -8,6 +8,17 @@ cards:
     icon: 'mdi:palette'
     entities:
       - type: 'button'
+        name: 'All Off'
+        icon: 'mdi:cancel'
+        action_name: 'Activate'
+        tap_action:
+          action: 'call-service'
+          service: 'homeassistant.turn_off'
+          service_data: 'all'
+          confirmation:
+            text: 'Are you sure you want to turn off everything?'
+
+      - type: 'button'
         name: 'All Lights Off'
         icon: 'mdi:lightbulb-group-off'
         action_name: 'Activate'
