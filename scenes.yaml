@@ -1,5 +1,6 @@
 ---
-- name: 'Bed Time'
+- id: '0335bf6d893e41559d6b338b1e5b60f8'
+  name: 'Bed Time'
   icon: 'mdi:bed'
   entities:
     light.dining_room: 'off'
