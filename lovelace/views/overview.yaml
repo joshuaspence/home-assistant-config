@@ -7,7 +7,29 @@ cards:
     title: 'Scenes'
     icon: 'mdi:palette'
     entities:
+      - type: 'button'
+        name: 'All Lights Off'
+        icon: 'mdi:lightbulb-group-off'
+        action_name: 'Activate'
+        tap_action:
+          action: 'call-service'
+          service: 'light.turn_off'
+          service_data: 'all'
+          confirmation:
+            text: 'Are you sure you want to turn off all lights?'
+
       - 'scene.bed_time'
+
+      - type: 'button'
+        name: 'All Lights On'
+        icon: 'mdi:lightbulb-group'
+        action_name: 'Activate'
+        tap_action:
+          action: 'call-service'
+          service: 'light.turn_on'
+          service_data: 'all'
+          confirmation:
+            text: 'Are you sure you want to turn on all lights?'
 
   - type: 'custom:floorplan-card'
     full_height: false
