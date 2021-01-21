@@ -1,1 +1,3 @@
+/custom_components/** linguist-vendored
 /secrets.yaml diff=git-crypt filter=git-crypt
+/www/community/** linguist-vendored
