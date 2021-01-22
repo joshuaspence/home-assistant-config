@@ -1,5 +1,0 @@
----
-tuya:
-  country_code: 61
-  password: !secret 'tuya.password'
-  username: 'josh@joshuaspence.com'
