@@ -6,6 +6,9 @@ cards:
   - type: 'entity'
     entity: 'binary_sensor.remote_ui'
 
+  - type: 'entity'
+    entity: 'sensor.hacs'
+
   - type: 'entities'
     title: 'Snapshots'
     icon: 'mdi:backup-restore'
