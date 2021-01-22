@@ -3,8 +3,10 @@ cloud:
   google_actions:
     entity_config: {}
     filter:
-      exclude_domains: []
+      exclude_domains:
+        - 'media_player'
       exclude_entities:
+        - 'light.hallway'
         - 'light.living_room'
         - 'switch.dishwasher'
         - 'switch.washing_machine'
