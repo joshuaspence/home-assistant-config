@@ -1,3 +1,10 @@
+# yamllint disable rule:key-ordering
 ---
 met: {}
 sun: {}
+
+recorder:
+  exclude:
+    domains:
+      - 'sun'
+      - 'weather'

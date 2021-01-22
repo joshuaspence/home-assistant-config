@@ -4,9 +4,7 @@ logbook: {}
 recorder:
   commit_interval: 300
   exclude:
-    domains:
-      - 'sun'
-      - 'weather'
+    domains: []
     entities:
       - 'sensor.snapshot_backup'
     entity_globs: []
