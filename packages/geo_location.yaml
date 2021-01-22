@@ -1,4 +1,0 @@
----
-geo_location:
-  - platform: 'nsw_rural_fire_service_feed'
-    radius: 10
