@@ -1,9 +1,0 @@
----
-entities:
-  - 'light.outside_ene'
-  - 'light.outside_nne'
-  - 'light.outside_nnw'
-  - 'light.outside_sse'
-  - 'light.outside_ssw'
-name: 'Outside Wall'
-platform: 'group'
