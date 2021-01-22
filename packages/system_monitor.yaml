@@ -1,12 +1,18 @@
+# yamllint disable rule:key-ordering
 ---
+sensor:
+  - platform: 'systemmonitor'
+    resources:
+      - type: 'disk_use_percent'
+      - type: 'last_boot'
+      - type: 'memory_use_percent'
+      - type: 'processor_temperature'
+      - type: 'processor_use'
+system_health: {}
+system_log: {}
+
 homeassistant:
-  # Remove the mountpoint (`/`) from the `disk_*` sensor names and
-  # `(percent)` from the `*_use_percent` sensor names.
   customize:
-    sensor.disk_free:
-      friendly_name: 'Disk free'
-    sensor.disk_use:
-      friendly_name: 'Disk use'
     sensor.disk_use_percent:
       friendly_name: 'Disk use'
     sensor.memory_use_percent:
@@ -15,16 +21,3 @@ homeassistant:
       icon: 'mdi:thermometer'
     sensor.processor_use_percent:
       friendly_name: 'Processor use'
-sensor:
-  - platform: 'systemmonitor'
-    resources:
-      - type: 'disk_free'
-      - type: 'disk_use'
-      - type: 'disk_use_percent'
-      - type: 'memory_free'
-      - type: 'memory_use'
-      - type: 'memory_use_percent'
-      - type: 'processor_temperature'
-      - type: 'processor_use'
-system_health: {}
-system_log: {}
