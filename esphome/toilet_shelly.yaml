@@ -1,0 +1,78 @@
+---
+substitutions:
+  device_name: 'toilet_shelly'
+  input1_name: 'Toilet Upper Button'
+  input2_name: 'Toilet Lower Button'
+  output1_name: 'Toilet Light'
+  output2_name: 'Toilet Fan'
+
+esphome:
+  name: '${device_name}'
+  comment: 'Shelly 2.5'
+  platform: 'ESP8266'
+  board: 'esp01_1m'
+  build_path: 'build/${device_name}'
+
+wifi:
+  ssid: !secret 'wifi.ssid'
+  password: !secret 'wifi.password'
+
+  ap:
+    ssid: '${device_name} Fallback Hotspot'
+    password: !secret 'fallback_hotspot.password'
+
+api: {}
+
+captive_portal: {}
+
+i2c:
+  sda: 'GPIO12'
+  scl: 'GPIO14'
+
+logger: {}
+
+ota: {}
+
+status_led:
+  pin:
+    number: 'GPIO0'
+    inverted: yes
+
+# Inputs
+binary_sensor:
+  - platform: 'gpio'
+    pin: 'GPIO13'
+    name: '${input1_name}'
+  - platform: 'gpio'
+    pin: 'GPIO5'
+    name: '${input2_name}'
+    on_press:
+      then:
+        - fan.toggle: 'output_2'
+  - platform: 'gpio'
+    pin: 'GPIO16'
+    name: 'ADE7953 IRQ'
+    internal: true
+
+# Outputs
+output:
+  - platform: 'gpio'
+    pin: 'GPIO15'
+    id: 'relay_1'
+  - platform: 'gpio'
+    pin: 'GPIO4'
+    id: 'relay_2'
+
+light:
+  - platform: 'binary'
+    output: 'relay_2'
+    name: '${output1_name}'
+    id: 'output_1'
+    restore_mode: 'ALWAYS_ON'
+    internal: true
+
+fan:
+  - platform: 'binary'
+    output: 'relay_1'
+    name: '${output2_name}'
+    id: 'output_2'

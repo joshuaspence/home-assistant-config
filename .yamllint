@@ -3,6 +3,7 @@ extends: 'default'
 
 ignore: |-
   /custom_components/
+  /esphome/secrets.yaml
   /secrets.yaml
   /themes/
   /www/community/
