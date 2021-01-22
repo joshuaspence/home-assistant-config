@@ -8,8 +8,6 @@ recorder:
       - 'sun'
       - 'weather'
     entities:
-      - 'sensor.bus'
       - 'sensor.snapshot_backup'
-    entity_globs:
-      - 'sensor.caltex_*'
+    entity_globs: []
   purge_keep_days: 30

@@ -14,8 +14,6 @@ homeassistant:
       icon: 'mdi:ceiling-light'
     light.living_room_*_*:
       icon: 'mdi:track-light'
-    sensor.caltex_woolworths_*:
-      icon: 'mdi:gas-station'
     switch.aircon_*:
       icon: 'mdi:air-conditioner'
   elevation: !secret 'home.elevation'
