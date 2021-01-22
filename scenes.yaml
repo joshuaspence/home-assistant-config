@@ -7,14 +7,10 @@
     light.hallway: 'off'
     light.kitchen: 'off'
     light.laundry: 'off'
-    light.living_room_lower_east: 'off'
-    light.living_room_lower_west: 'off'
-    light.living_room_upper_east: 'off'
-    light.living_room_upper_west:
-      brightness_pct: 20
+    light.living_room:
+      brightness_pct: 10
       state: 'on'
     light.outside_wall: 'off'
     light.toilet:
       brightness_pct: 20
       state: 'on'
-    media_player.living_room_tv: 'off'
