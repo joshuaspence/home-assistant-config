@@ -8,4 +8,6 @@ lovelace:
       url: '/hacsfiles/vacuum-card/vacuum-card.js'
     - type: 'module'
       url: '/hacsfiles/ha-floorplan/floorplan.js'
+    - type: 'module'
+      url: '/hacsfiles/zha-network-card/zha-network-card.js'
 map: {}
