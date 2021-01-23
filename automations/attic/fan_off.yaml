@@ -1,0 +1,13 @@
+---
+alias: 'Attic Fan Off'
+description: 'Turn off Attic Fan.'
+trigger:
+  platform: 'template'
+  value_template: "{{ states('sensor.attic_upper_temperature') <= states('sensor.attic_lower_temperature') }}"
+  for:
+    minutes: 10
+action:
+  service: 'fan.turn_off'
+  data:
+    entity_id: 'fan.attic'
+mode: 'single'
