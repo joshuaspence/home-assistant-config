@@ -3,11 +3,13 @@
 | Name                          | ID                               | Manufacturer   | Model                                                                  | Area        |
 |-------------------------------|----------------------------------|----------------|------------------------------------------------------------------------|-------------|
 | Air Conditioner               | 21804eade0d3eaf7fed4f56bfbcc7cca | Daikin         | NOTSUPPORT                                                             | None        |
+| Attic Fan                     | 9177ea25fc6409ee3020c4d7d25fa063 | Philips        | LOM005                                                                 | attic       |
 | Attic Lower                   | 2a0c9b2b2dc2fe378d1c9fa1633b42d5 | LUMI           | lumi.weather                                                           | attic       |
 | Attic Upper                   | 4342f0cce4c6a08a07b15f9d793b809d | LUMI           | lumi.weather                                                           | attic       |
 | Basement East                 | caea1628a5a11768281d39c2c375440c | LUMI           | lumi.weather                                                           | basement    |
 | Basement West                 | 31c46f54af521c07627724ab684613e6 | LUMI           | lumi.weather                                                           | basement    |
 | Bedroom 1 Light               | 526fe85c6b1adc2a587190d5424b9b74 | Philips        | LWA001                                                                 | bedroom_1   |
+| Bedroom 1 Speaker             | 9cfad6d54caa5d07fb669ac0c50770cd | Google Inc.    | Google Home Mini                                                       | bedroom_1   |
 | Bedroom 2 Light               | d3061b994adb52a5c52f160fff8065e1 | Philips        | LWA001                                                                 | bedroom_2   |
 | Dining Room Light             | 6d050213abc44f0534906d8ecbeb5e6c | LDS            | ZBT-DIMLight-GLS0044                                                   | dining_room |
 | Dishwasher                    | 7131616138d08e980c8b8550ffbbcda4 | TP-Link        | HS110(AU)                                                              | kitchen     |
@@ -27,6 +29,7 @@
 | Living Room Lower East Light  | 58a4f6bda31916c80c0f1f527dede3b0 | Philips        | LCA001                                                                 | living_room |
 | Living Room Lower West Light  | 299af845a1144e43d1e3251178c4d890 | Philips        | LCA001                                                                 | living_room |
 | Living Room Motion Sensor     | 857c02e66f8caa4183fa0720ace1ccef | Philips        | SML001                                                                 | living_room |
+| Living Room Speaker           | 87d702e9cbdb16a41f447c99ed956c20 | Google Inc.    | Google Home                                                            | living_room |
 | Living Room TV                | 7f7915983b8e35b78a2f76bb7f37a0a4 | Google Inc.    | Hitachi 4K Android TV                                                  | living_room |
 | Living Room Upper East Light  | c965b7bde5fe53f58fcb7939c56732a6 | Philips        | LCA001                                                                 | living_room |
 | Living Room Upper West Light  | 82f261b960d522effa8809434a4915c1 | Philips        | LCA001                                                                 | living_room |
