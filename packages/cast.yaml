@@ -2,7 +2,6 @@
 cast: {}
 homeassistant:
   customize_glob:
-    media_player.*_display: {}
     media_player.*_speaker:
       device_class: 'speaker'
       icon: 'mdi:speaker'
