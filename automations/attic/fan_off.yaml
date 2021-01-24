@@ -4,7 +4,7 @@ description: 'Turn off Attic Fan.'
 id: '856d814347d907d7e0d4da41fb9f3128'
 trigger:
   platform: 'template'
-  value_template: "{{ (states('sensor.attic_upper_temperature') | float) - (states('sensor.attic_lower_temperature') | float) <= 1 }}"
+  value_template: '{{ (states("sensor.attic_upper_temperature") | float) - (states("sensor.attic_lower_temperature") | float) <= 1 }}'
 action:
   service: 'fan.turn_off'
   data:

@@ -1,17 +1,17 @@
 ---
 fan:
-  - platform: 'template'
-    fans:
+  - fans:
       attic:
+        availability_template: '{{ not is_state("switch.attic_fan", "unavailable") }}'
         friendly_name: 'Attic'
-        unique_id: '1fb48e039236f6b0bcdad42d8fe85dff'
-        value_template: "{{ states('switch.attic_fan') }}"
-        availability_template: "{{ not is_state('switch.attic_fan', 'unavailable') }}"
-        turn_on:
-          service: 'switch.turn_on'
-          data:
-            entity_id: 'switch.attic_fan'
         turn_off:
-          service: 'switch.turn_off'
           data:
             entity_id: 'switch.attic_fan'
+          service: 'switch.turn_off'
+        turn_on:
+          data:
+            entity_id: 'switch.attic_fan'
+          service: 'switch.turn_on'
+        unique_id: '1fb48e039236f6b0bcdad42d8fe85dff'
+        value_template: '{{ states("switch.attic_fan") }}'
+    platform: 'template'
