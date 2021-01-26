@@ -9,4 +9,5 @@ use_blueprint:
       area_id: 'kitchen'
     manual_override: 'light.kitchen'
     occupancy_sensor: 'binary_sensor.kitchen_occupancy'
+    off_delay: 30
   path: 'occupancy_light.yaml'
