@@ -31,30 +31,35 @@ blueprint:
           max: 1000
           step: 10
           unit_of_measurement: 'lx'
+    manual_override:
+      name: 'Manual Override'
+      selector:
+        entity:
+          domain: 'light'
 
 trigger:
   platform: 'state'
   entity_id: !input 'occupancy_sensor'
+  from: 'off'
+  to: 'on'
 
 condition:
-  condition: 'numeric_state'
-  entity_id: !input 'illuminance_sensor'
-  below: !input 'illuminance_threshold'
+  - condition: 'numeric_state'
+    entity_id: !input 'illuminance_sensor'
+    below: !input 'illuminance_threshold'
+
+  # If the target light is already on then it must've been turned on manually.
+  - condition: 'state'
+    entity_id: !input 'manual_override'
+    state: 'off'
 
 action:
-  choose:
-    - conditions:
-        - condition: 'state'
-          entity_id: !input 'occupancy_sensor'
-          state: 'on'
-      sequence:
-        - service: 'light.turn_on'
-          target: !input 'light_target'
-
-    - conditions:
-        - condition: 'state'
-          entity_id: !input 'occupancy_sensor'
-          state: 'off'
-      sequence:
-        - service: 'light.turn_off'
-          target: !input 'light_target'
+  - service: 'light.turn_on'
+    target: !input 'light_target'
+  - wait_for_trigger:
+      platform: 'state'
+      entity_id: !input 'occupancy_sensor'
+      from: 'on'
+      to: 'off'
+  - service: 'light.turn_off'
+    target: !input 'light_target'

@@ -7,5 +7,6 @@ use_blueprint:
     illuminance_sensor: 'sensor.kitchen_illuminance'
     light_target:
       area_id: 'kitchen'
+    manual_override: 'light.kitchen'
     occupancy_sensor: 'binary_sensor.kitchen_occupancy'
   path: 'occupancy_light.yaml'
