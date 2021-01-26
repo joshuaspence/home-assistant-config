@@ -10,6 +10,8 @@ homeassistant:
   customize: !include 'customize.yaml'
   customize_domain: {}
   customize_glob:
+    automation.*_night_light:
+      icon: 'mdi:flashlight'
     light.bedroom_*:
       icon: 'mdi:ceiling-light'
     light.living_room_*_*:

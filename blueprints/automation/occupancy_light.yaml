@@ -1,0 +1,41 @@
+---
+blueprint:
+  name: 'Occupancy-activated Light'
+  description: 'Turn lights on/off based on room occupancy.'
+  domain: 'automation'
+
+  input:
+    occupancy_sensor:
+      name: 'Occupancy Sensor'
+      selector:
+        entity:
+          domain: 'binary_sensor'
+          device_class: 'occupancy'
+    light_target:
+      name: 'Light'
+      selector:
+        target:
+          entity:
+            domain: 'light'
+
+trigger:
+  platform: 'state'
+  entity_id: !input 'occupancy_sensor'
+
+action:
+  choose:
+    - conditions:
+        - condition: 'state'
+          entity_id: !input 'occupancy_sensor'
+          state: 'on'
+      sequence:
+        - service: 'light.turn_on'
+          target: !input 'light_target'
+
+    - conditions:
+        - condition: 'state'
+          entity_id: !input 'occupancy_sensor'
+          state: 'off'
+      sequence:
+        - service: 'light.turn_off'
+          target: !input 'light_target'
