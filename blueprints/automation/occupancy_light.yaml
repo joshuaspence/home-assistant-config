@@ -4,17 +4,22 @@ blueprint:
   description: 'Turn lights on/off based on room occupancy.'
   domain: 'automation'
   input:
+    # TODO: Allow `motion` entities as well.
     occupancy_sensor:
       name: 'Occupancy Sensor'
       selector:
         entity:
           domain: 'binary_sensor'
           device_class: 'occupancy'
+
+    # TODO: Allow `scene` entities as well.
     light_target:
       name: 'Light'
       selector:
         entity:
           domain: 'light'
+
+    # TODO: This input should be optional.
     illuminance_sensor:
       name: 'Illuminance Sensor'
       selector:
@@ -30,6 +35,7 @@ blueprint:
           max: 1000
           step: 10
           unit_of_measurement: 'lx'
+
     off_delay:
       name: 'Off Delay'
       default: 0
