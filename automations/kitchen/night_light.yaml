@@ -4,6 +4,7 @@ description: 'Turn kitchen lights on/off based on room occupancy.'
 id: '1d8af1cbb5ffc10f15249e2dcd3da67f'
 use_blueprint:
   input:
+    illuminance_sensor: 'sensor.kitchen_illuminance'
     light_target:
       area_id: 'kitchen'
     occupancy_sensor: 'binary_sensor.kitchen_occupancy'

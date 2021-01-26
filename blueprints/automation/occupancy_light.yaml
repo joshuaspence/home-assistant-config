@@ -3,7 +3,6 @@ blueprint:
   name: 'Occupancy-activated Light'
   description: 'Turn lights on/off based on room occupancy.'
   domain: 'automation'
-
   input:
     occupancy_sensor:
       name: 'Occupancy Sensor'
@@ -17,10 +16,30 @@ blueprint:
         target:
           entity:
             domain: 'light'
+    illuminance_sensor:
+      name: 'Illuminance Sensor'
+      selector:
+        entity:
+          domain: 'sensor'
+          device_class: 'illuminance'
+    illuminance_threshold:
+      name: 'Illuminance Threshold'
+      default: 20
+      selector:
+        number:
+          min: 0
+          max: 1000
+          step: 10
+          unit_of_measurement: 'lx'
 
 trigger:
   platform: 'state'
   entity_id: !input 'occupancy_sensor'
+
+condition:
+  condition: 'numeric_state'
+  entity_id: !input 'illuminance_sensor'
+  below: !input 'illuminance_threshold'
 
 action:
   choose:
