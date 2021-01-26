@@ -1,7 +1,7 @@
 ---
 alias: 'Attic Fan On'
 description: 'Turn on Attic Fan.'
-id: 'e829b25fd73e4986fc2005ea03db50a9'
+id: '12e839e7-eddc-4d4e-b116-872db0497a2b'
 trigger:
   platform: 'template'
   value_template: '{{ (states("sensor.attic_upper_temperature") | float) - (states("sensor.attic_lower_temperature") | float) > 3 }}'

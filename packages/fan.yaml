@@ -12,6 +12,6 @@ fan:
           data:
             entity_id: 'switch.attic_fan'
           service: 'switch.turn_on'
-        unique_id: '1fb48e039236f6b0bcdad42d8fe85dff'
+        unique_id: 'be4ace62-8dab-45d1-a2b4-4898eb8a8973'
         value_template: '{{ states("switch.attic_fan") }}'
     platform: 'template'

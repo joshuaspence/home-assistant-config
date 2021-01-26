@@ -1,6 +1,7 @@
 ---
 alias: 'Kitchen Light Switch'
 description: 'Toggle kitchen lights when the switch is pressed.'
+id: 'c6e0de34-90ce-409e-995e-2066cb539abe'
 use_blueprint:
   input:
     light_target:
