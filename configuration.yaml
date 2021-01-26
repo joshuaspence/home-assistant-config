@@ -2,11 +2,11 @@
 automation: !include_dir_list 'automations'
 group:
   family:
-    name: 'Family'
     entities:
       - 'person.josh'
       - 'person.lily'
     icon: 'mdi:human-male-female'
+    name: 'Family'
 homeassistant:
   allowlist_external_dirs: []
   allowlist_external_urls: []
