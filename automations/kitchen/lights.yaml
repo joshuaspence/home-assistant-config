@@ -6,8 +6,8 @@ use_blueprint:
   input:
     illuminance_sensor: 'sensor.kitchen_illuminance'
     light_target:
-      area_id: 'kitchen'
-    manual_override: 'light.kitchen'
+      - 'light.kitchen'
+      - 'light.dining_room'
     occupancy_sensor: 'binary_sensor.kitchen_occupancy'
-    off_delay: 30
+    off_delay: 1
   path: 'occupancy_light.yaml'

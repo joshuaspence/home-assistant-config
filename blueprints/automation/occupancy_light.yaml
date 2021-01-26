@@ -13,9 +13,8 @@ blueprint:
     light_target:
       name: 'Light'
       selector:
-        target:
-          entity:
-            domain: 'light'
+        entity:
+          domain: 'light'
     illuminance_sensor:
       name: 'Illuminance Sensor'
       selector:
@@ -31,11 +30,6 @@ blueprint:
           max: 1000
           step: 10
           unit_of_measurement: 'lx'
-    manual_override:
-      name: 'Manual Override'
-      selector:
-        entity:
-          domain: 'light'
     off_delay:
       name: 'Off Delay'
       default: 0
@@ -58,12 +52,13 @@ condition:
 
   # If the target light is already on then it must've been turned on manually.
   - condition: 'state'
-    entity_id: !input 'manual_override'
+    entity_id: !input 'light_target'
     state: 'off'
 
 action:
   - service: 'light.turn_on'
-    target: !input 'light_target'
+    data:
+      entity_id: !input 'light_target'
   - wait_for_trigger:
       platform: 'state'
       entity_id: !input 'occupancy_sensor'
@@ -71,4 +66,5 @@ action:
       to: 'off'
       for: !input 'off_delay'
   - service: 'light.turn_off'
-    target: !input 'light_target'
+    data:
+      entity_id: !input 'light_target'
