@@ -7,5 +7,7 @@ recorder:
     domains: []
     entities:
       - 'sensor.snapshot_backup'
+      - 'switch.dishwasher'
+      - 'switch.washing_machine'
     entity_globs: []
   purge_keep_days: 30
