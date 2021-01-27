@@ -9,5 +9,5 @@ use_blueprint:
       - 'light.kitchen'
       - 'light.dining_room'
     occupancy_sensor: 'binary_sensor.kitchen_occupancy'
-    off_delay: 1
+    off_delay: 30
   path: 'occupancy_light.yaml'
