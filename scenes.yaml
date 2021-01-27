@@ -8,9 +8,8 @@
     light.kitchen: 'off'
     light.laundry: 'off'
     light.living_room:
-      brightness_pct: 10
+      brightness: 25
       state: 'on'
-    light.outside_wall: 'off'
     light.toilet:
-      brightness_pct: 20
+      brightness: 25
       state: 'on'
