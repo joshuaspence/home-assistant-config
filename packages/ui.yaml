@@ -12,4 +12,6 @@ lovelace:
       url: '/hacsfiles/zha-network-card/zha-network-card.js'
     - type: 'module'
       url: '/hacsfiles/lovelace-template-entity-row/template-entity-row.js'
+    - type: 'module'
+      url: '/hacsfiles/lovelace-auto-entities/auto-entities.js'
 map: {}
