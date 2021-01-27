@@ -16,7 +16,8 @@ cards:
         tap_action:
           action: 'call-service'
           service: 'light.turn_off'
-          service_data: 'all'
+          service_data:
+            entity_id: 'all'
       - type: 'button'
         name: 'All Lights On'
         icon: 'mdi:lightbulb-group'
@@ -24,7 +25,8 @@ cards:
         tap_action:
           action: 'call-service'
           service: 'light.turn_on'
-          service_data: 'all'
+          service_data:
+            entity_id: 'all'
 
   - type: 'custom:floorplan-card'
     full_height: false
