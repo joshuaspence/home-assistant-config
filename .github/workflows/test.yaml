@@ -10,15 +10,12 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v2'
+      - uses: 'frenck/action-home-assistant@v1'
         with:
-          submodules: true
-      - uses: 'canastro/copy-action@0.0.2'
-        with:
-          source: '.github/stubs/secrets.yaml'
-          target: '.'
-
-      # TODO: Consider using
-      # https://github.com/marketplace/actions/home-assistant-configuration-check.
-      - uses: 'docker://homeassistant/home-assistant:stable'
-        with:
-          args: 'python -m homeassistant --config . --skip-pip --script check_config --info all'
+          secrets: '.github/stubs/secrets.yaml'
+          version: '${{ matrix.version }}'
+    strategy:
+      matrix:
+        version:
+          - 'beta'
+          - 'stable'
