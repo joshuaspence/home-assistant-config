@@ -1,0 +1,12 @@
+---
+alias: 'Arriving Home'
+id: '7a14e9b0-b1ea-43da-9057-fcd7be8c66c3'
+trigger:
+  platform: 'state'
+  entity_id: 'group.family'
+  from: 'not_home'
+  to: 'home'
+action:
+  service: 'light.turn_on'
+  entity_id: 'light.front_door'
+mode: 'single'

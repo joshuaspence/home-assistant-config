@@ -1,0 +1,12 @@
+---
+alias: 'Leaving Home'
+id: 'b6b9bdb0-b60f-4de0-91b0-c545ad0b0f06'
+trigger:
+  platform: 'state'
+  entity_id: 'group.family'
+  from: 'home'
+  to: 'not_home'
+action:
+  service: 'light.turn_off'
+  entity_id: 'all'
+mode: 'single'
