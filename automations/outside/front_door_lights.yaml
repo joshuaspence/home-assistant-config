@@ -1,0 +1,22 @@
+---
+alias: 'Front Door Lights'
+id: '202391d6-d64b-402b-b041-2dd9c8a6e263'
+trigger:
+  platform: 'state'
+  entity_id: 'binary_sensor.front_door_position'
+  to: 'on'
+condition:
+  condition: 'numeric_state'
+  entity_id: 'sensor.front_yard_illuminance'
+  below: 100
+action:
+  - service: 'light.turn_on'
+    entity_id: 'light.front_door'
+  - wait_for_trigger:
+      - platform: 'state'
+        entity_id: 'binary_sensor.front_door_position'
+        to: 'off'
+  - delay: 300
+  - service: 'light.turn_off'
+    entity_id: 'light.front_door'
+mode: 'single'
