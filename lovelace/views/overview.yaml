@@ -3,11 +3,12 @@ title: 'Overview'
 icon: 'mdi:home'
 path: 'overview'
 cards:
-  - type: 'entities'
-    title: 'Scenes'
-    icon: 'mdi:palette'
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Scenes'
+      icon: 'mdi:palette'
     entities:
-      - 'scene.bed_time'
       - type: 'divider'
       - type: 'button'
         name: 'All Lights Off'
@@ -27,6 +28,8 @@ cards:
           service: 'light.turn_on'
           service_data:
             entity_id: 'all'
+    filter:
+      - domain: 'scene'
 
   - type: 'custom:floorplan-card'
     full_height: false
