@@ -1,0 +1,15 @@
+---
+alias: 'Vacuum Error'
+id: '10a065f5-f820-42d7-aa54-ceae3e8a4993'
+trigger:
+  - platform: 'state'
+    entity_id: &entity_id 'vacuum.deebot'
+    attribute: 'error'
+    to: 'host_hang'
+action:
+  - service: 'notify.mobile_app_josh_phone'
+    data:
+      title: 'Vacuum has experienced an error'
+      message: '{{ trigger.to_state.attributes.error }}'
+
+# host_hang: The robot is off the floor. Please put it back.

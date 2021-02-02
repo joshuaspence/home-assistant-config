@@ -1,0 +1,39 @@
+---
+alias: 'Vacuum Low Battery'
+id: '77a8cf42-1126-4741-be4a-17869fadcabb'
+trigger:
+  - platform: 'numeric_state'
+    entity_id: &entity_id 'vacuum.deebot'
+    attribute: 'battery_level'
+    below: 20
+condition:
+  - condition: 'state'
+    entity_id: *entity_id
+    state: 'on'
+  - condition: 'not'
+    conditions:
+        condition: 'state'
+        entity_id: *entity_id
+        attribute: 'status'
+        state: 'charging'
+action:
+  - service: 'vacuum.return_to_base'
+    data:
+      entity_id: *entity_id
+
+  # TODO: Handle failure.
+  - wait_for_trigger:
+      platform: 'state'
+      entity_id: *entity_id
+      attribute: 'status'
+      to: 'returning'
+    timeout: 60
+
+  # TODO: Handle failure.
+  - wait_for_trigger:
+      platform: 'state'
+      entity_id: 'vacuum.deebot'
+      attribute: 'status'
+      to: 'charging'
+    timeout: 600
+
