@@ -1,13 +1,2 @@
 ---
-# Extract the power consumption attribute into a separate sensor.
-sensor:
-  # TODO: Customize sensor names.
-  - attribute: 'current_power_w'
-    entities:
-      - 'switch.dishwasher'
-      - 'switch.washing_machine'
-    icon: 'mdi:speedometer'
-    platform: 'attributes'
-    unit_of_measurement: 'W'
-
 tplink: {}
