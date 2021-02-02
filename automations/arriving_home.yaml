@@ -1,12 +1,38 @@
 ---
-alias: 'Arriving Home'
 id: '7a14e9b0-b1ea-43da-9057-fcd7be8c66c3'
+alias: 'Arriving Home'
 trigger:
+  # TODO: Use https://www.home-assistant.io/docs/automation/trigger/#zone-trigger.
   platform: 'state'
   entity_id: 'group.family'
   from: 'not_home'
   to: 'home'
 action:
-  service: 'light.turn_on'
-  entity_id: 'light.front_door'
+  # Turn some lights on when we arrive home.
+  - service: 'scene.turn_on'
+    entity_id: 'scene.arriving_home'
+  - service: 'vacuum.return_to_base'
+    entity_id: 'vacuum.deebot'
+
+  # Wait for the door to be opened.
+  - wait_for_trigger:
+      platform: 'state'
+      entity_id: 'binary_sensor.front_door_position'
+      from: 'off'
+      to: 'on'
+    timeout: 900
+    continue_on_timeout: false
+
+  # Turn some lights off after the door is closed.
+  - wait_for_trigger:
+      platform: 'state'
+      entity_id: 'binary_sensor.front_door_position'
+      from: 'on'
+      to: 'off'
+    timeout: 300
+  - delay: 300
+  - service: 'light.turn_off'
+    entity_id:
+      - 'light.front_door'
+      - 'light.outside_wall'
 mode: 'single'

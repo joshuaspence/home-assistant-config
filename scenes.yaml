@@ -13,3 +13,12 @@
     light.toilet:
       brightness: 25
       state: 'on'
+
+- id: '991026e7-5e54-4225-93b8-8e5b3deb65cf'
+  name: 'Arriving Home'
+  icon: 'mdi:home'
+  entities:
+    light.front_door: 'on'
+    light.hallway: 'on'
+    light.outside_wall: 'on'
+    light.toilet: 'on'
