@@ -12,10 +12,10 @@ condition:
     state: 'on'
   - condition: 'not'
     conditions:
-        condition: 'state'
-        entity_id: *entity_id
-        attribute: 'status'
-        state: 'charging'
+      condition: 'state'
+      entity_id: *entity_id
+      attribute: 'status'
+      state: 'charging'
 action:
   - service: 'vacuum.return_to_base'
     data:
@@ -36,4 +36,3 @@ action:
       attribute: 'status'
       to: 'charging'
     timeout: 600
-

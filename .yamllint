@@ -24,7 +24,6 @@ rules:
     max: 1
   empty-values: 'enable'
   indentation:
-    check-multi-line-strings: true
     spaces: 2
   key-ordering:
     # TODO: Maybe remove this?
