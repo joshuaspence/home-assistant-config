@@ -5,9 +5,3 @@ path: 'vacuum'
 cards:
   - type: 'custom:vacuum-card'
     entity: 'vacuum.deebot'
-    stats:
-      default:
-        - attribute: 'error'
-          subtitle: 'Error'
-      cleaning: []
-    actions: []
