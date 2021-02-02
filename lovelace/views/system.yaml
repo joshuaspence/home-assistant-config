@@ -90,6 +90,17 @@ cards:
         - state: 'unavailable'
         - state: 'unknown'
 
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Restored Entities'
+      icon: 'mdi:restore-alert'
+      show_header_toggle: false
+    filter:
+      include:
+        - attributes:
+            restored: true
+
   - type: 'entity'
     entity: 'binary_sensor.remote_ui'
 
