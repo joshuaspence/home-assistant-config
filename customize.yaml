@@ -1,3 +1,7 @@
 ---
 light.dining_room:
   icon: 'mdi:ceiling-light'
+person.josh:
+  entity_picture: null
+person.lily:
+  entity_picture: null
