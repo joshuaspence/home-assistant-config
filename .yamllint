@@ -4,6 +4,7 @@ extends: 'default'
 ignore: |-
   /custom_components/
   /secrets.yaml
+  /themes/
   /www/community/
 
 rules:
