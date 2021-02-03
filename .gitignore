@@ -4,7 +4,10 @@
 /home-assistant.log
 /home-assistant_v2.db
 /.storage/
+
+# ZHA
 /zigbee.db
+/zigbee.db-journal
 
 # Python
 __pycache__/
