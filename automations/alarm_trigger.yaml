@@ -1,0 +1,16 @@
+---
+id: '5350a641-9769-4587-b0a0-3dd2ba6d0fd3'
+alias: 'Trigger alarm while armed away'
+trigger:
+  platform: 'state'
+  entity_id:
+    - 'binary_sensor.front_door_position'
+    - 'binary_sensor.laundry_door_position'
+  to: 'on'
+condition:
+  condition: 'state'
+  entity_id: 'alarm_control_panel.alarm'
+  state: 'armed_away'
+action:
+  service: 'alarm_control_panel.alarm_trigger'
+  entity_id: 'alarm_control_panel.alarm'

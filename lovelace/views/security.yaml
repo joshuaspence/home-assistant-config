@@ -1,0 +1,14 @@
+---
+title: 'Security'
+icon: 'mdi:security'
+path: 'security'
+cards:
+  - type: 'alarm-panel'
+    entity: 'alarm_control_panel.alarm'
+
+  - type: 'entities'
+    title: 'Doors'
+    icon: 'mdi:door'
+    entities:
+      - 'binary_sensor.front_door_position'
+      - 'binary_sensor.laundry_door_position'

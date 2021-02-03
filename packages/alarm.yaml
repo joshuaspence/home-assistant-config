@@ -1,0 +1,5 @@
+---
+alarm_control_panel:
+  - code: !secret 'alarm.code'
+    name: 'Alarm'
+    platform: 'manual'

@@ -1,0 +1,11 @@
+---
+id: 'c9e5b5d8-3d97-404c-8158-50956278fb72'
+alias: 'Send notification when alarm triggered'
+trigger:
+  platform: 'state'
+  entity_id: 'alarm_control_panel.alarm'
+  to: 'triggered'
+action:
+  service: 'notify.notify'
+  data:
+    message: 'The alarm has been triggered!'
