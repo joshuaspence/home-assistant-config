@@ -10,6 +10,8 @@ trigger:
 condition:
   condition: 'sun'
   after: 'sunset'
+
+# TODO: Add welcome message (see https://github.com/stanvx/Home-Assistant-Configuration/blob/master/packages/welcome_home.yaml).
 action:
   # Turn some lights on when we arrive home.
   - service: 'scene.turn_on'
