@@ -1,0 +1,23 @@
+---
+id: '9383a9d8-4bdf-4021-9629-0ca2aea5eabe'
+alias: 'Theme Customizations'
+trigger:
+  - platform: 'homeassistant'
+    event: 'start'
+  - platform: 'sun'
+action:
+  choose:
+    - conditions:
+        - condition: 'sun'
+          after: 'sunrise'
+      sequence:
+        - service: 'frontend.set_theme'
+          data:
+            mode: 'light'
+    - conditions:
+        - condition: 'sun'
+          after: 'sunset'
+      sequence:
+        - service: 'frontend.set_theme'
+          data:
+            mode: 'dark'
