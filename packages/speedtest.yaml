@@ -1,3 +1,2 @@
 ---
-speedtestdotnet:
-  scan_interval: 30
+speedtestdotnet: {}
