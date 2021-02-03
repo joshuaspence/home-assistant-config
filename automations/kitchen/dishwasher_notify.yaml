@@ -1,0 +1,18 @@
+---
+id: '512f02bc-5371-4d85-b10a-4410a86b059c'
+alias: 'Dishwasher Notification'
+trigger:
+  platform: 'numeric_state'
+  entity_id: 'switch.dishwasher'
+  attribute: 'current_power_w'
+  below: 10
+  for: 60
+condition:
+  condition: 'zone'
+  entity_id: 'person.josh'
+  zone: 'zone.home'
+action:
+  service: 'notify.mobile_app_josh_phone'
+  data:
+    title: 'Dishwasher finished'
+    message: 'The dishwasher has completed its cycle.'
