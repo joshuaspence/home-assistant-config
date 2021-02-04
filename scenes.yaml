@@ -24,3 +24,14 @@
     light.toilet:
       brightness: 255
       state: 'on'
+
+- id: '93ee1444-600f-422a-8300-e806a800336b'
+  name: 'Day Time'
+  icon: 'mdi:white-balance-sunny'
+  entities:
+    light.living_room:
+      brightness: 255
+      state: 'on'
+    light.toilet:
+      brightness: 255
+      state: 'on'
