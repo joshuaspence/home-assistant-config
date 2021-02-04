@@ -1,5 +1,6 @@
 ---
 cast: {}
+
 homeassistant:
   customize_glob:
     media_player.*_speaker:

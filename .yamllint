@@ -26,21 +26,6 @@ rules:
   empty-values: 'enable'
   indentation:
     spaces: 2
-  key-ordering:
-    # TODO: Maybe remove this?
-    ignore: |-
-      # Keys are sorted based on the order they appear in documentation
-      # rather than alphabetically.
-      #
-      # See also https://github.com/adrienverge/yamllint/issues/178.
-      /.github/dependabot.yaml
-      /.github/workflows/*.yaml
-      /automations/*.yaml
-      /automations/*/*.yaml
-      /blueprints/automation/*.yaml
-      /lovelace/views/*.yaml
-      /scenes.yaml
-      /ui-lovelace.yaml
   line-length: 'disable'
   octal-values: 'enable'
   quoted-strings:

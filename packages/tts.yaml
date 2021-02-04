@@ -1,5 +1,5 @@
 ---
 tts:
-  - base_url: !secret 'core.external_url'
+  - platform: 'google_translate'
     cache_dir: '/tmp/tts'
-    platform: 'google_translate'
+    base_url: !secret 'core.external_url'
