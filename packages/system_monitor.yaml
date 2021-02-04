@@ -8,7 +8,6 @@ sensor:
       - type: 'memory_use_percent'
       - type: 'processor_temperature'
       - type: 'processor_use'
-system_health: {}
 system_log: {}
 
 homeassistant:
