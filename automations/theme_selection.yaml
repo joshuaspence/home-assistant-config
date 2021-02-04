@@ -7,7 +7,7 @@ trigger:
   entity_id: 'sun.sun'
 action:
   service: 'frontend.set_theme'
-  data:
+  data_template:
     name: >-
       {% if is_state('sun.sun', 'above_horizon') %}
         default
