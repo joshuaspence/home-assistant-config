@@ -21,4 +21,6 @@
     light.front_door: 'on'
     light.hallway: 'on'
     light.outside_wall: 'on'
-    light.toilet: 'on'
+    light.toilet:
+      brightness: 255
+      state: 'on'
