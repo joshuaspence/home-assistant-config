@@ -9,7 +9,6 @@ cards:
       title: 'Scenes'
       icon: 'mdi:palette'
     entities:
-      - type: 'divider'
       - type: 'button'
         name: 'All Lights Off'
         icon: 'mdi:lightbulb-group-off'
@@ -28,8 +27,10 @@ cards:
           service: 'light.turn_on'
           service_data:
             entity_id: 'all'
+      - type: 'divider'
     filter:
-      - domain: 'scene'
+      include:
+        - domain: 'scene'
 
   - type: 'custom:floorplan-card'
     full_height: false
