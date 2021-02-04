@@ -10,7 +10,7 @@ action:
   data:
     name: >-
       {% if is_state('sun.sun', 'above_horizon') %}
-        Google Light Theme
+        default
       {% elif is_state('sun.sun', 'below_horizon') %}
-        Google Dark Theme
+        slate
       {% endif %}
