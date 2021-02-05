@@ -1,0 +1,31 @@
+---
+daikin: {}
+
+homeassistant:
+  customize:
+    climate.aircon:
+      friendly_name: 'Air Conditioner'
+      icon: 'mdi:air-conditioner'
+
+    switch.aircon_downstairs:
+      friendly_name: 'Aircon Downstairs'
+      icon: 'mdi:hvac'
+    switch.aircon_upstairs:
+      friendly_name: 'Aircon Upstairs'
+      icon: 'mdi:hvac'
+
+    switch.aircon_zone_3:
+      friendly_name: 'Aircon Zone 3'
+    switch.aircon_zone_4:
+      friendly_name: 'Aircon Zone 4'
+    switch.aircon_zone_5:
+      friendly_name: 'Aircon Zone 5'
+    switch.aircon_zone_6:
+      friendly_name: 'Aircon Zone 6'
+    switch.aircon_zone_7:
+      friendly_name: 'Aircon Zone 7'
+    switch.aircon_zone_8:
+      friendly_name: 'Aircon Zone 8'
+  customize_glob:
+    switch.aircon_zone_*:
+      icon: 'mdi:hvac'

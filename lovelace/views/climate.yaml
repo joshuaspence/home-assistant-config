@@ -4,7 +4,7 @@ icon: 'mdi:fan'
 path: 'climate'
 cards:
   - type: 'thermostat'
-    entity: 'climate.daikin_ac'
+    entity: 'climate.aircon'
 
   - type: 'vertical-stack'
     title: 'Downstairs'
