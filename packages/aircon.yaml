@@ -1,6 +1,4 @@
 ---
-daikin: {}
-
 homeassistant:
   customize:
     climate.aircon:
