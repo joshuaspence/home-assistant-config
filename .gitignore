@@ -2,12 +2,16 @@
 /.cloud/
 /.HA_VERSION
 /home-assistant.log
-/home-assistant_v2.db
 /.storage/
+
+# Python
+__pycache__/
+
+# SQLite
+/home-assistant_v2.db
+/home-assistant_v2.db-shm
+/home-assistant_v2.db-wal
 
 # ZHA
 /zigbee.db
 /zigbee.db-journal
-
-# Python
-__pycache__/
