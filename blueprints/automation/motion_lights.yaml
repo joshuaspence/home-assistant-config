@@ -1,20 +1,23 @@
 ---
 blueprint:
-  name: 'Occupancy-activated Light'
-  description: 'Turn lights on/off based on room occupancy.'
+  name: 'Motion-Activated Lights'
+  description: >-
+    Turn lights on/off based on motion/occupancy and ambient light.
+
+    The targeted lights will turn on when motion/occupancy is detected, unless
+    the ambient light level exceeds a configured threshold. The targeted lights
+    will turn off when there is an absence of motion/occupancy for a duration
+    of `off_delay`.
   domain: 'automation'
   input:
-    # TODO: Allow `motion` entities as well.
-    occupancy_sensor:
-      name: 'Occupancy Sensor'
+    # TODO: Limit `device_class` to `motion` and `occupancy` sensors.
+    trigger_sensor:
+      name: 'Motion/Occupancy Sensor'
       selector:
         entity:
           domain: 'binary_sensor'
-          device_class: 'occupancy'
-
-    # TODO: Allow `scene` entities as well.
     light_target:
-      name: 'Light'
+      name: 'Target Lights'
       selector:
         entity:
           domain: 'light'
@@ -28,7 +31,7 @@ blueprint:
           device_class: 'illuminance'
     illuminance_threshold:
       name: 'Illuminance Threshold'
-      default: 20
+      default: 50
       selector:
         number:
           min: 0
@@ -47,30 +50,31 @@ blueprint:
 
 trigger:
   platform: 'state'
-  entity_id: !input 'occupancy_sensor'
+  entity_id: !input 'trigger_sensor'
   from: 'off'
   to: 'on'
 
 condition:
-  - condition: 'numeric_state'
-    entity_id: !input 'illuminance_sensor'
-    below: !input 'illuminance_threshold'
-
   # If the target light is already on then it must've been turned on manually.
   - condition: 'state'
     entity_id: !input 'light_target'
     state: 'off'
 
+  - condition: 'numeric_state'
+    entity_id: !input 'illuminance_sensor'
+    below: !input 'illuminance_threshold'
+
 action:
   - service: 'light.turn_on'
-    data:
-      entity_id: !input 'light_target'
+    entity_id: !input 'light_target'
   - wait_for_trigger:
       platform: 'state'
-      entity_id: !input 'occupancy_sensor'
+      entity_id: !input 'trigger_sensor'
       from: 'on'
       to: 'off'
       for: !input 'off_delay'
   - service: 'light.turn_off'
-    data:
-      entity_id: !input 'light_target'
+    entity_id: !input 'light_target'
+
+mode: 'single'
+max_exceeded: 'silent'

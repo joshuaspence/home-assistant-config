@@ -3,9 +3,9 @@ alias: 'Front Door Light'
 id: 'cd95cfc9-d7c5-4556-bbe9-5e9e17e7090d'
 use_blueprint:
   input:
+    trigger_sensor: 'binary_sensor.front_yard_occupancy'
+    light_target: 'light.front_door'
     illuminance_sensor: 'sensor.front_yard_illuminance'
     illuminance_threshold: 100
-    light_target: 'light.front_door'
-    occupancy_sensor: 'binary_sensor.front_yard_occupancy'
     off_delay: 300
-  path: 'occupancy_light.yaml'
+  path: 'motion_lights.yaml'
