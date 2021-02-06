@@ -4,8 +4,8 @@ alias: 'Trigger alarm while armed away'
 trigger:
   platform: 'state'
   entity_id:
-    - 'binary_sensor.front_door_position'
-    - 'binary_sensor.laundry_door_position'
+    - 'binary_sensor.front_door'
+    - 'binary_sensor.laundry_door'
   to: 'on'
 condition:
   condition: 'state'

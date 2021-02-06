@@ -1,0 +1,79 @@
+---
+blueprint:
+  name: 'Door-Activated Lights'
+  description: >-
+    Turn lights on/off based on door closure and ambient light.
+
+    The targeted lights will turn on when the door is opened, unless the
+    ambient light level exceeds a configured threshold. The targeted lights
+    will turn off when the door is closed for a duration of `off_delay`.
+  domain: 'automation'
+  input:
+    trigger_sensor:
+      name: 'Door Sensor'
+      selector:
+        entity:
+          domain: 'binary_sensor'
+          device_class: 'door'
+    light_target:
+      name: 'Target Lights'
+      selector:
+        entity:
+          domain: 'light'
+
+    # TODO: This input should be optional.
+    illuminance_sensor:
+      name: 'Illuminance Sensor'
+      selector:
+        entity:
+          domain: 'sensor'
+          device_class: 'illuminance'
+    illuminance_threshold:
+      name: 'Illuminance Threshold'
+      default: 50
+      selector:
+        number:
+          min: 0
+          max: 1000
+          step: 10
+          unit_of_measurement: 'lx'
+
+    off_delay:
+      name: 'Off Delay'
+      default: 0
+      selector:
+        number:
+          min: 0
+          max: 3600
+          unit_of_measurement: 'seconds'
+
+trigger:
+  platform: 'state'
+  entity_id: !input 'trigger_sensor'
+  from: 'off'
+  to: 'on'
+
+condition:
+  # If the target light is already on then it must've been turned on manually.
+  - condition: 'state'
+    entity_id: !input 'light_target'
+    state: 'off'
+
+  - condition: 'numeric_state'
+    entity_id: !input 'illuminance_sensor'
+    below: !input 'illuminance_threshold'
+
+action:
+  - service: 'light.turn_on'
+    entity_id: !input 'light_target'
+  - wait_for_trigger:
+      platform: 'state'
+      entity_id: !input 'trigger_sensor'
+      from: 'on'
+      to: 'off'
+      for: !input 'off_delay'
+  - service: 'light.turn_off'
+    entity_id: !input 'light_target'
+
+mode: 'single'
+max_exceeded: 'silent'

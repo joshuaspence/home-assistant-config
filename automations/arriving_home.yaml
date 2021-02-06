@@ -22,7 +22,7 @@ action:
   # Wait for the door to be opened.
   - wait_for_trigger:
       platform: 'state'
-      entity_id: 'binary_sensor.front_door_position'
+      entity_id: 'binary_sensor.front_door'
       from: 'off'
       to: 'on'
     timeout: 900
@@ -31,7 +31,7 @@ action:
   # Turn some lights off after the door is closed.
   - wait_for_trigger:
       platform: 'state'
-      entity_id: 'binary_sensor.front_door_position'
+      entity_id: 'binary_sensor.front_door'
       from: 'on'
       to: 'off'
     timeout: 300

@@ -10,5 +10,5 @@ cards:
     title: 'Doors'
     icon: 'mdi:door'
     entities:
-      - 'binary_sensor.front_door_position'
-      - 'binary_sensor.laundry_door_position'
+      - 'binary_sensor.front_door'
+      - 'binary_sensor.laundry_door'

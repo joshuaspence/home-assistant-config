@@ -18,8 +18,10 @@ homeassistant:
   customize: !include 'customize.yaml'
   customize_domain: {}
   customize_glob:
-    automation.*_night_light:
-      icon: 'mdi:flashlight'
+    automation.*_motion_lights:
+      icon: 'mdi:motion-sensor'
+    binary_sensor.*_door:
+      device_class: 'door'
     light.bedroom_*:
       icon: 'mdi:ceiling-light'
     light.living_room_*_*:
