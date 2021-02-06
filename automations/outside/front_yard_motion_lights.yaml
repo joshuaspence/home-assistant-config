@@ -1,11 +1,11 @@
 ---
-alias: 'Front Door Light'
 id: 'cd95cfc9-d7c5-4556-bbe9-5e9e17e7090d'
+alias: 'Front Yard Motion-Activated Lights'
 use_blueprint:
+  path: 'motion_lights.yaml'
   input:
     trigger_sensor: 'binary_sensor.front_yard_occupancy'
     light_target: 'light.front_door'
     illuminance_sensor: 'sensor.front_yard_illuminance'
     illuminance_threshold: 100
     off_delay: 300
-  path: 'motion_lights.yaml'
