@@ -1,0 +1,13 @@
+---
+title: 'Automations'
+icon: 'mdi:robot'
+path: 'automation'
+cards:
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+    filter:
+      include:
+        - domain: 'automation'
+          options:
+            secondary_info: 'last-triggered'
