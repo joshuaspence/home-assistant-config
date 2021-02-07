@@ -1,0 +1,12 @@
+---
+id: '178c2bbd-e7e4-418b-b565-debf64e7c9d6'
+alias: 'Back Door Lights'
+use_blueprint:
+  path: 'door_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.back_door'
+    light_target:
+      - 'light.outside_ene'
+      - 'light.outside_ese'
+    illuminance_sensor: 'sensor.front_yard_illuminance'
+    illuminance_threshold: 100
