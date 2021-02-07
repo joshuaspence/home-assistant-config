@@ -18,7 +18,7 @@ cards:
         entities: &downstairs_temperature_entities
           - entity: 'sensor.kitchen_temperature'
             name: 'Kitchen'
-          - entity: 'sensor.laundry_door_temperature'
+          - entity: 'sensor.back_door_temperature'
             name: 'Laundry'
           - entity: 'sensor.living_room_temperature'
             name: 'Living Room'

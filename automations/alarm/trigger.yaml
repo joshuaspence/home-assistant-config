@@ -5,7 +5,7 @@ trigger:
   platform: 'state'
   entity_id:
     - 'binary_sensor.front_door'
-    - 'binary_sensor.laundry_door'
+    - 'binary_sensor.back_door'
   to: 'on'
 condition:
   condition: 'state'
