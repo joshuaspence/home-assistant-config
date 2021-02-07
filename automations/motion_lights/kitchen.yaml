@@ -9,4 +9,3 @@ use_blueprint:
       - 'light.kitchen'
       - 'light.dining_room'
     illuminance_sensor: 'sensor.kitchen_illuminance'
-    off_delay: 300

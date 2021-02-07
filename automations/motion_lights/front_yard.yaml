@@ -8,4 +8,3 @@ use_blueprint:
     light_target: 'light.front_door'
     illuminance_sensor: 'sensor.front_yard_illuminance'
     illuminance_threshold: 100
-    off_delay: 300
