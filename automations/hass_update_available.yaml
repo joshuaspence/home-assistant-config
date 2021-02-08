@@ -2,6 +2,7 @@
 id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
 alias: 'Home Assistant Update Available'
 trigger:
+  # TODO: Check for supervisor updates as well (see https://community.home-assistant.io/t/update-notifications-core-hacs-supervisor-and-addons/182295).
   platform: 'state'
   entity_id: 'binary_sensor.updater'
   from: 'off'
