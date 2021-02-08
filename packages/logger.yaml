@@ -1,6 +1,4 @@
 ---
 logger:
   default: 'warning'
-  logs:
-    # NOTE: This doesn't seem to work reliably, see https://github.com/home-assistant/core/issues/36426#issuecomment-638881411.
-    homeassistant.loader: 'error'
+  logs: {}
