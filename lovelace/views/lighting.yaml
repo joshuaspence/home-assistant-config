@@ -80,3 +80,17 @@ cards:
     icon: 'mdi:toilet'
     entities:
       - 'light.toilet'
+
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Automations'
+      icon: 'mdi:robot'
+    filter:
+      include:
+        - entity_id: 'automation.*_door_lights'
+          options:
+            secondary_info: 'last-triggered'
+        - entity_id: 'automation.*_motion_lights'
+          options:
+            secondary_info: 'last-triggered'
