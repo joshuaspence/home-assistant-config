@@ -8,8 +8,3 @@ homeassistant:
       friendly_name: 'Weather'
     weather.home_hourly:
       friendly_name: 'Weather (Hourly)'
-recorder:
-  exclude:
-    domains:
-      - 'sun'
-      - 'weather'

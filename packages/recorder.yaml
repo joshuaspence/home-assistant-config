@@ -2,12 +2,10 @@
 history: {}
 logbook: {}
 recorder:
+  purge_keep_days: 30
   commit_interval: 300
   exclude:
     domains: []
-    entities:
-      - 'sensor.snapshot_backup'
-      - 'switch.dishwasher'
-      - 'switch.washing_machine'
+    entities: []
     entity_globs: []
-  purge_keep_days: 30
+    event_types: []
