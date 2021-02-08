@@ -1,0 +1,13 @@
+---
+id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
+alias: 'Home Assistant Update Available'
+trigger:
+  platform: 'state'
+  entity_id: 'binary_sensor.updater'
+  from: 'off'
+  to: 'on'
+action:
+  service: 'persistent_notification.create'
+  data:
+    title: 'Update Available'
+    message: 'Home Assistant {{ trigger.to_state.attributes.newest_version }} is available.'
