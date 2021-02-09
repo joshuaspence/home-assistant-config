@@ -8,6 +8,102 @@ cards:
   - type: 'media-control'
     entity: 'media_player.living_room_speaker'
   - type: 'media-control'
-    entity: 'media_player.living_room_tv'
-  - type: 'media-control'
     entity: 'media_player.office_display'
+
+  - type: 'vertical-stack'
+    cards:
+      - type: 'media-control'
+        entity: 'media_player.living_room_tv'
+      - type: 'entities'
+        title: 'Living Room TV'
+        icon: 'mdi:television'
+        entities:
+          - type: 'button'
+            name: 'Power Off'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.turn_off'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+          - type: 'button'
+            name: 'Power On'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.turn_on'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+
+          - type: 'button'
+            name: 'Volume Down'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.volume_down'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+          - type: 'button'
+            name: 'Volume Up'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.volume_up'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+          - type: 'button'
+            name: 'Volume Mute'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.volume_mute'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+
+          - type: 'button'
+            name: 'Play'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.media_play'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+          - type: 'button'
+            name: 'Pause'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.media_pause'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+          - type: 'button'
+            name: 'Stop'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.media_stop'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+          - type: 'button'
+            name: 'Previous'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.media_previous_track'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+          - type: 'button'
+            name: 'Next'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.media_next_track'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+
+          - type: 'button'
+            name: 'Netflix'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.select_source'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                source: 'Netflix'
+          - type: 'button'
+            name: 'YouTube'
+            tap_action:
+              action: 'call-service'
+              service: 'media_player.select_source'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                source: 'YouTube'
