@@ -35,6 +35,10 @@ cards:
         icon_height: '40px'
       - type: 'glance'
         entities: &upstairs_temperature_entities
+          - entity: 'sensor.bedroom_1_temperature'
+            name: 'Bedroom 1'
+          - entity: 'sensor.bedroom_2_temperature'
+            name: 'Bedroom 2'
           - entity: 'sensor.front_door_temperature'
             name: 'Front Door'
           - entity: 'sensor.hallway_temperature'
