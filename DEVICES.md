@@ -3,13 +3,15 @@
 | Name                          | ID                               | Manufacturer   | Model                                                                  | Area        |
 |-------------------------------|----------------------------------|----------------|------------------------------------------------------------------------|-------------|
 | Air Conditioner               | 21804eade0d3eaf7fed4f56bfbcc7cca | Daikin         | NOTSUPPORT                                                             | None        |
-| Attic Fan                     | 9177ea25fc6409ee3020c4d7d25fa063 | Philips        | LOM005                                                                 | attic       |
 | Attic Lower                   | 2a0c9b2b2dc2fe378d1c9fa1633b42d5 | LUMI           | lumi.weather                                                           | attic       |
 | Attic Upper                   | 4342f0cce4c6a08a07b15f9d793b809d | LUMI           | lumi.weather                                                           | attic       |
+| Back Door                     | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin         | multi                                                                  | laundry     |
 | Basement East                 | caea1628a5a11768281d39c2c375440c | LUMI           | lumi.weather                                                           | basement    |
 | Basement West                 | 31c46f54af521c07627724ab684613e6 | LUMI           | lumi.weather                                                           | basement    |
+| Bedroom 1                     | af672ce73486f80f49cd78490be533a0 | LUMI           | lumi.weather                                                           | bedroom_1   |
 | Bedroom 1 Light               | 526fe85c6b1adc2a587190d5424b9b74 | Philips        | LWA001                                                                 | bedroom_1   |
 | Bedroom 1 Speaker             | 9cfad6d54caa5d07fb669ac0c50770cd | Google Inc.    | Google Home Mini                                                       | bedroom_1   |
+| Bedroom 2                     | 32dda390777ef2b0f04fc81404574505 | LUMI           | lumi.weather                                                           | bedroom_2   |
 | Bedroom 2 Light               | d3061b994adb52a5c52f160fff8065e1 | Philips        | LWA001                                                                 | bedroom_2   |
 | Dehumidifier                  | 0b0837ae5dbd3add9f4a0b843e1fb581 | TP-Link        | HS110(AU)                                                              | basement    |
 | Dining Room Light             | 6d050213abc44f0534906d8ecbeb5e6c | LDS            | ZBT-DIMLight-GLS0044                                                   | dining_room |
@@ -24,7 +26,6 @@
 | Kitchen Display               | a2cb11e64399a5728466224e8c101b54 | Google Inc.    | Google Nest Hub                                                        | kitchen     |
 | Kitchen Light                 | 02581d13d43f5efb44cc810004c419f4 | Shelly         | Shelly 1                                                               | kitchen     |
 | Kitchen Motion Sensor         | 02f28a1e50600275c7752272b54bd902 | Philips        | SML001                                                                 | kitchen     |
-| Laundry Door                  | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin         | multi                                                                  | laundry     |
 | Laundry Light                 | 8c5a42521b8953f724c39a342f37d330 | Philips        | LTW013                                                                 | laundry     |
 | Lily's Phone                  | dcf9afe490d1bcc3c100b0d3f3cc6f1f | Google         | Pixel 2 XL                                                             | None        |
 | Living Room Lower East Light  | 58a4f6bda31916c80c0f1f527dede3b0 | Philips        | LCA001                                                                 | living_room |
@@ -41,6 +42,8 @@
 | Outside North-northwest Light | 32096630c1890c2b926055ee921ebb82 | Philips        | LCA001                                                                 | outside     |
 | Outside South-southeast Light | 6715cac52e975a6196b87b5ca3edfbc3 | Philips        | LCA001                                                                 | outside     |
 | Outside South-southwest Light | bf6a0b44595912412b6814c7de195143 | Philips        | LCA001                                                                 | outside     |
+| Spa Bath                      | dad2316d50f213bd4d048c6c4994ae27 | TP-Link        | KP115(AU)                                                              | bathroom    |
+| Spa Bath Water Leak           | 18b988d9d9d6ac9dca32e7f17b891477 | Samjin         | water                                                                  | bathroom    |
 | Toilet Light                  | b85d6cca8ba25328dd7bb5831dac069d | Philips        | LTD011                                                                 | toilet      |
 | Washing Machine               | 28c5facd8c549c053beb8f1a324f9299 | TP-Link        | KP115(AU)                                                              | laundry     |
 | Weather Forecast              | 3e617b22f36c672e07d81fd4afd9dbec | Met.no         | Forecast                                                               | None        |
