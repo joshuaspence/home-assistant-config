@@ -8,14 +8,14 @@ on:
 jobs:
   home-assistant:
     runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        version:
+          - 'beta'
+          - 'stable'
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'frenck/action-home-assistant@v1'
         with:
           secrets: '.github/stubs/secrets.yaml'
           version: '${{ matrix.version }}'
-    strategy:
-      matrix:
-        version:
-          - 'beta'
-          - 'stable'
