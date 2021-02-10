@@ -79,7 +79,7 @@ cards:
                   sendevent /dev/input/event3 0 0 0
 
           - type: 'button'
-            name: 'Channel DOwn'
+            name: 'Channel Down'
             tap_action:
               action: 'call-service'
               service: 'androidtv.adb_command'
