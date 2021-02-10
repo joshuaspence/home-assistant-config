@@ -152,6 +152,9 @@ cards:
         name: 'Ping'
         graph: 'line'
 
+  - type: 'entity'
+    entity: 'sensor.myip'
+
   - type: 'custom:zha-network-card'
     title: 'Zigbee Devices'
     sort_by: 'status'
