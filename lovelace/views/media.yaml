@@ -37,73 +37,271 @@ cards:
             name: 'Volume Down'
             tap_action:
               action: 'call-service'
-              service: 'media_player.volume_down'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786666 &&
+                  sendevent /dev/input/event3 1 114 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786666 &&
+                  sendevent /dev/input/event3 1 114 0 &&
+                  sendevent /dev/input/event3 0 0 0
           - type: 'button'
             name: 'Volume Up'
             tap_action:
               action: 'call-service'
-              service: 'media_player.volume_up'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event0 4 4 10510144 &&
+                  sendevent /dev/input/event0 1 115 1 &&
+                  sendevent /dev/input/event0 0 0 0 &&
+                  sendevent /dev/input/event0 1 115 0 &&
+                  sendevent /dev/input/event0 0 0 0 &&
+                  sendevent /dev/input/event3 20 0 0 &&
+                  sendevent /dev/input/event3 20 1 0 &&
+                  sendevent /dev/input/event3 0 0 0
           - type: 'button'
             name: 'Volume Mute'
             tap_action:
               action: 'call-service'
-              service: 'media_player.volume_mute'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786658 &&
+                  sendevent /dev/input/event3 1 113 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786658 &&
+                  sendevent /dev/input/event3 1 113 0 &&
+                  sendevent /dev/input/event3 0 0 0
+
+          - type: 'button'
+            name: 'Channel DOwn'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 0 &&
+                  sendevent /dev/input/event3 0 0 0
+          - type: 'button'
+            name: 'Channel Up'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 0 &&
+                  sendevent /dev/input/event3 0 0 0
 
           - type: 'button'
             name: 'Play'
             tap_action:
               action: 'call-service'
-              service: 'media_player.media_play'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786608 &&
+                  sendevent /dev/input/event3 1 207 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786608 &&
+                  sendevent /dev/input/event3 1 207 0 &&
+                  sendevent /dev/input/event3 0 0 0
           - type: 'button'
             name: 'Pause'
             tap_action:
               action: 'call-service'
-              service: 'media_player.media_pause'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786609 &&
+                  sendevent /dev/input/event3 1 119 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786609 &&
+                  sendevent /dev/input/event3 1 119 0 &&
+                  sendevent /dev/input/event3 0 0 0
           - type: 'button'
             name: 'Stop'
             tap_action:
               action: 'call-service'
-              service: 'media_player.media_stop'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786982 &&
+                  sendevent /dev/input/event3 1 128 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786982 &&
+                  sendevent /dev/input/event3 1 128 0 &&
+                  sendevent /dev/input/event3 0 0 0
           - type: 'button'
             name: 'Previous'
             tap_action:
               action: 'call-service'
-              service: 'media_player.media_previous_track'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786982 &&
+                  sendevent /dev/input/event3 1 128 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786982 &&
+                  sendevent /dev/input/event3 1 128 0 &&
+                  sendevent /dev/input/event3 0 0 0
           - type: 'button'
             name: 'Next'
             tap_action:
               action: 'call-service'
-              service: 'media_player.media_next_track'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786611 &&
+                  sendevent /dev/input/event3 1 208 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786611 &&
+                  sendevent /dev/input/event3 1 208 0 &&
+                  sendevent /dev/input/event3 0 0 0
 
           - type: 'button'
             name: 'Netflix'
             tap_action:
               action: 'call-service'
-              service: 'media_player.select_source'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
-                source: 'Netflix'
+                command: >-
+                  sendevent /dev/input/event3 4 4 458820 &&
+                  sendevent /dev/input/event3 1 87 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 458820 &&
+                  sendevent /dev/input/event3 1 87 0 &&
+                  sendevent /dev/input/event3 0 0 0
           - type: 'button'
             name: 'YouTube'
             tap_action:
               action: 'call-service'
-              service: 'media_player.select_source'
+              service: 'androidtv.adb_command'
               service_data:
                 entity_id: 'media_player.living_room_tv'
-                source: 'YouTube'
+                command: >-
+                  sendevent /dev/input/event3 4 4 458838 &&
+                  sendevent /dev/input/event3 1 74 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 458838 &&
+                  sendevent /dev/input/event3 1 74 0 &&
+                  sendevent /dev/input/event3 0 0 0
+
+          - type: 'button'
+            name: 'Up'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786498 &&
+                  sendevent /dev/input/event3 1 103 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786498 &&
+                  sendevent /dev/input/event3 1 103 0 &&
+                  sendevent /dev/input/event3 0 0 0
+          - type: 'button'
+            name: 'Down'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786498 &&
+                  sendevent /dev/input/event3 1 103 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786498 &&
+                  sendevent /dev/input/event3 1 103 0 &&
+                  sendevent /dev/input/event3 0 0 0'
+          - type: 'button'
+            name: 'Left'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 20 0 0 &&
+                  sendevent /dev/input/event3 20 1 0 &&
+                  sendevent /dev/input/event3 4 4 786500 &&
+                  sendevent /dev/input/event3 1 105 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786500 &&
+                  sendevent /dev/input/event3 1 105 0 &&
+                  sendevent /dev/input/event3 0 0 0
+          - type: 'button'
+            name: 'Right'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786501 &&
+                  sendevent /dev/input/event3 1 106 0 &&
+                  sendevent /dev/input/event3 0 0 0
+
+          - type: 'button'
+            name: 'OK'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786497 &&
+                  sendevent /dev/input/event3 1 353 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786497 &&
+                  sendevent /dev/input/event3 1 353 0 &&
+                  sendevent /dev/input/event3 0 0 0
+          - type: 'button'
+            name: 'Back'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 0 &&
+                  sendevent /dev/input/event3 0 0 0
+          - type: 'button'
+            name: 'Home'
+            tap_action:
+              action: 'call-service'
+              service: 'androidtv.adb_command'
+              service_data:
+                entity_id: 'media_player.living_room_tv'
+                command: >-
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 1 &&
+                  sendevent /dev/input/event3 0 0 0 &&
+                  sendevent /dev/input/event3 4 4 786980 &&
+                  sendevent /dev/input/event3 1 158 0 &&
+                  sendevent /dev/input/event3 0 0 0
