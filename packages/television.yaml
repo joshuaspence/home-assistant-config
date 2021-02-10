@@ -1,14 +1,37 @@
 ---
 media_player:
-  - apps:
-      com.google.android.youtube.tvkids: 'YouTube Kids'
-    exclude_unnamed_apps: true
+  - platform: 'androidtv'
     host: &living_room_tv_host '10.158.145.163'
     name: 'Living Room TV'
-    platform: 'androidtv'
+    turn_on_command: >-
+      sendevent /dev/input/event0 4 4 10510108 &&
+      sendevent /dev/input/event0 1 116 1 &&
+      sendevent /dev/input/event0 0 0 0 &&
+      sendevent /dev/input/event0 1 116 0 &&
+      sendevent /dev/input/event0 0 0 0 &&
+      sendevent /dev/input/event3 20 0 0 &&
+      sendevent /dev/input/event3 20 1 0 &&
+      sendevent /dev/input/event3 0 0 0
+    turn_off_command: >-
+      sendevent /dev/input/event0 20 1 200 &&
+      sendevent /dev/input/event0 20 0 0 &&
+      sendevent /dev/input/event0 20 1 0 &&
+      sendevent /dev/input/event0 4 4 10510108 &&
+      sendevent /dev/input/event0 1 116 1 &&
+      sendevent /dev/input/event0 0 0 0 &&
+      sendevent /dev/input/event0 1 116 0 &&
+      sendevent /dev/input/event0 0 0 0 &&
+      sendevent /dev/input/event3 20 0 0 &&
+      sendevent /dev/input/event3 20 1 0 &&
+      sendevent /dev/input/event3 0 0 0
+
+    # TODO: Check these settings.
+    apps:
+      com.google.android.youtube.tvkids: 'YouTube Kids'
+    exclude_unnamed_apps: true
     state_detection_rules: {}
 
 notify:
-  - host: *living_room_tv_host
+  - platform: 'nfandroidtv'
     name: 'Living Room TV'
-    platform: 'nfandroidtv'
+    host: *living_room_tv_host
