@@ -24,6 +24,10 @@ cards:
             name: 'Living Room'
       - type: 'history-graph'
         entities: *downstairs_temperature_entities
+      - type: 'glance'
+        entities: &downstairs_humidity_entities []
+      - type: 'history-graph'
+        entities: *downstairs_humidity_entities
 
   - type: 'vertical-stack'
     title: 'Upstairs'
@@ -45,6 +49,14 @@ cards:
             name: 'Hallway'
       - type: 'history-graph'
         entities: *upstairs_temperature_entities
+      - type: 'glance'
+        entities: &upstairs_humidity_entities
+          - entity: 'sensor.bedroom_1_humidity'
+            name: 'Bedroom 1'
+          - entity: 'sensor.bedroom_2_humidity'
+            name: 'Bedroom 2'
+      - type: 'history-graph'
+        entities: *upstairs_humidity_entities
 
   - type: 'vertical-stack'
     title: 'Outside'
