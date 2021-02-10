@@ -1,0 +1,14 @@
+---
+id: '45cff086-bd5b-44f3-9c31-d53564cc7899'
+alias: 'Side Door Lights'
+use_blueprint:
+  path: 'door_lights.yaml'
+  input:
+    trigger_sensor:
+      - 'binary_sensor.dining_room_sliding_door'
+      - 'binary_sensor.living_room_sliding_door'
+    light_target:
+      - 'light.outside_nne'
+      - 'light.outside_nnw'
+    illuminance_sensor: 'sensor.front_yard_illuminance'
+    illuminance_threshold: 100
