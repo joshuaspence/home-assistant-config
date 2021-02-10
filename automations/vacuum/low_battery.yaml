@@ -3,7 +3,7 @@ alias: 'Vacuum Low Battery'
 id: '77a8cf42-1126-4741-be4a-17869fadcabb'
 trigger:
   - platform: 'numeric_state'
-    entity_id: &entity_id 'vacuum.deebot'
+    entity_id: &entity_id 'vacuum.downstairs'
     attribute: 'battery_level'
     below: 20
 condition:
@@ -32,7 +32,7 @@ action:
   # TODO: Handle failure.
   - wait_for_trigger:
       platform: 'state'
-      entity_id: 'vacuum.deebot'
+      entity_id: 'vacuum.downstairs'
       attribute: 'status'
       to: 'charging'
     timeout: 600

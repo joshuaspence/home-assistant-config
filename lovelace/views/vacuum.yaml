@@ -4,7 +4,7 @@ icon: 'mdi:robot-vacuum'
 path: 'vacuum'
 cards:
   - type: 'custom:vacuum-card'
-    entity: 'vacuum.deebot'
+    entity: 'vacuum.downstairs'
 
   - type: 'custom:auto-entities'
     card:

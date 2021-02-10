@@ -3,7 +3,7 @@ alias: 'Vacuum Error'
 id: '10a065f5-f820-42d7-aa54-ceae3e8a4993'
 trigger:
   - platform: 'state'
-    entity_id: 'vacuum.deebot'
+    entity_id: 'vacuum.downstairs'
     attribute: 'error'
     from: null
 action:
