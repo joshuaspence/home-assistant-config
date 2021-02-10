@@ -18,4 +18,4 @@ action:
           }
         %}
         {% set error_code = trigger.to_state.attributes.error %}
-        {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred.' }}
+        {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred ({{ error_code }}).' }}
