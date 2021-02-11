@@ -47,6 +47,8 @@ cards:
             name: 'Front Door'
           - entity: 'sensor.hallway_temperature'
             name: 'Hallway'
+          - entity: 'sensor.toilet_temperature'
+            name: 'Toilet'
       - type: 'history-graph'
         entities: *upstairs_temperature_entities
       - type: 'glance'
@@ -55,6 +57,8 @@ cards:
             name: 'Bedroom 1'
           - entity: 'sensor.bedroom_2_humidity'
             name: 'Bedroom 2'
+          - entity: 'sensor.toilet_humidity'
+            name: 'Toilet'
       - type: 'history-graph'
         entities: *upstairs_humidity_entities
 
