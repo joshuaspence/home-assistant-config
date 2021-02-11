@@ -1,4 +1,8 @@
 ---
 logger:
   default: 'warning'
-  logs: {}
+  logs:
+    # Temporary logging to debug "quota exceeded" warnings (see https://github.com/home-assistant/core/issues/44497).
+    hass_nabucasa: 'debug'
+    homeassistant.components.cloud: 'debug'
+    homeassistant.components.cloud.iot: 'debug'
