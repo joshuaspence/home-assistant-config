@@ -15,6 +15,7 @@
 | Bedroom 2 Light               | d3061b994adb52a5c52f160fff8065e1 | Philips        | LWA001                                                                 | bedroom_2   |
 | Dehumidifier                  | 0b0837ae5dbd3add9f4a0b843e1fb581 | TP-Link        | HS110(AU)                                                              | basement    |
 | Dining Room Light             | 6d050213abc44f0534906d8ecbeb5e6c | LDS            | ZBT-DIMLight-GLS0044                                                   | dining_room |
+| Dining Room Sliding Door      | 6af29120358a594825de9e3c6ad34952 | LUMI           | lumi.sensor_magnet.aq2                                                 | dining_room |
 | Dishwasher                    | 7131616138d08e980c8b8550ffbbcda4 | TP-Link        | HS110(AU)                                                              | kitchen     |
 | Front Door                    | 6c09c18cf318d4285195da0edddee190 | Samjin         | multi                                                                  | hallway     |
 | Front Door Light              | 02f9d192c85d064249ea6cb33d7a3bbe | Philips        | LCT007                                                                 | outside     |
@@ -31,6 +32,7 @@
 | Living Room Lower East Light  | 58a4f6bda31916c80c0f1f527dede3b0 | Philips        | LCA001                                                                 | living_room |
 | Living Room Lower West Light  | 299af845a1144e43d1e3251178c4d890 | Philips        | LCA001                                                                 | living_room |
 | Living Room Motion Sensor     | 857c02e66f8caa4183fa0720ace1ccef | Philips        | SML001                                                                 | living_room |
+| Living Room Sliding Door      | 5a1642ae1dd6b09a3a15cf2a92600578 | LUMI           | lumi.sensor_magnet.aq2                                                 | living_room |
 | Living Room Speaker           | 87d702e9cbdb16a41f447c99ed956c20 | Google Inc.    | Google Home                                                            | living_room |
 | Living Room TV                | 7f7915983b8e35b78a2f76bb7f37a0a4 | Google Inc.    | Hitachi 4K Android TV                                                  | living_room |
 | Living Room Upper East Light  | c965b7bde5fe53f58fcb7939c56732a6 | Philips        | LCA001                                                                 | living_room |
@@ -44,6 +46,7 @@
 | Outside South-southwest Light | bf6a0b44595912412b6814c7de195143 | Philips        | LCA001                                                                 | outside     |
 | Spa Bath                      | dad2316d50f213bd4d048c6c4994ae27 | TP-Link        | KP115(AU)                                                              | bathroom    |
 | Spa Bath Water Leak           | 18b988d9d9d6ac9dca32e7f17b891477 | Samjin         | water                                                                  | bathroom    |
+| Toilet                        | 74fa3c31cc45f9d689ebb8807355e720 | LUMI           | lumi.weather                                                           | toilet      |
 | Toilet Light                  | b85d6cca8ba25328dd7bb5831dac069d | Philips        | LTD011                                                                 | toilet      |
 | Washing Machine               | 28c5facd8c549c053beb8f1a324f9299 | TP-Link        | KP115(AU)                                                              | laundry     |
 | Weather Forecast              | 3e617b22f36c672e07d81fd4afd9dbec | Met.no         | Forecast                                                               | None        |
