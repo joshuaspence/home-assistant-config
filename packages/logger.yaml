@@ -2,12 +2,6 @@
 logger:
   default: 'warning'
   logs:
-    # Temporary logging to debug "quota exceeded" warnings (see https://github.com/home-assistant/core/issues/44497).
-    hass_nabucasa: 'debug'
-    homeassistant.components.cloud: 'debug'
-    homeassistant.components.cloud.google_config: 'debug'
-    homeassistant.components.cloud.iot: 'debug'
-
     # Temporary logging to debug ADB timeouts.
     androidtv.adb_manager.adb_manager_async: 'debug'
     homeassistant.components.androidtv.media_player: 'debug'
