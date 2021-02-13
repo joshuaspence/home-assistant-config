@@ -1,0 +1,7 @@
+---
+notify:
+  - platform: 'html5'
+    name: 'Browser'
+    vapid_pub_key: !secret 'firebase.public_key'
+    vapid_prv_key: !secret 'firebase.private_key'
+    vapid_email: !secret 'firebase.email'
