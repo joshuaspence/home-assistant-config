@@ -5,24 +5,7 @@ substitutions:
   output_name: 'Kitchen Light'
 
 # Common configuration
-esphome:
-  name: '${device_name}'
-  platform: 'ESP8266'
-  board: 'esp01_1m'
-  build_path: 'build/${device_name}'
-
-wifi:
-  ssid: !secret 'wifi.ssid'
-  password: !secret 'wifi.password'
-
-  ap:
-    ssid: '${device_name} Fallback Hotspot'
-    password: !secret 'fallback_hotspot.password'
-
-api: {}
-captive_portal: {}
-logger: {}
-ota: {}
+<<: !include 'common/common.yaml'
 
 # Inputs
 binary_sensor:

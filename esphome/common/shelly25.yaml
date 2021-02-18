@@ -1,0 +1,9 @@
+---
+i2c:
+  sda: 'GPIO12'
+  scl: 'GPIO14'
+
+status_led:
+  pin:
+    number: 'GPIO0'
+    inverted: true
