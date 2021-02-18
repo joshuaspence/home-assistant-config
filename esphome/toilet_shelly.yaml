@@ -9,7 +9,6 @@ substitutions:
 # Common configuration
 esphome:
   name: '${device_name}'
-  comment: 'Shelly 2.5'
   platform: 'ESP8266'
   board: 'esp01_1m'
   build_path: 'build/${device_name}'

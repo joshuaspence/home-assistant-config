@@ -1,0 +1,47 @@
+---
+substitutions:
+  device_name: 'kitchen_shelly'
+  input_name: 'Kitchen Switch'
+  output_name: 'Kitchen Light'
+
+# Common configuration
+esphome:
+  name: '${device_name}'
+  platform: 'ESP8266'
+  board: 'esp01_1m'
+  build_path: 'build/${device_name}'
+
+wifi:
+  ssid: !secret 'wifi.ssid'
+  password: !secret 'wifi.password'
+
+  ap:
+    ssid: '${device_name} Fallback Hotspot'
+    password: !secret 'fallback_hotspot.password'
+
+api: {}
+captive_portal: {}
+logger: {}
+ota: {}
+
+# Inputs
+binary_sensor:
+  - platform: 'gpio'
+    pin: 'GPIO5'
+    name: '${input_name}'
+    on_state:
+      then:
+        - light.toggle: 'output_1'
+    internal: true
+
+# Outputs
+output:
+  - platform: 'gpio'
+    pin: 'GPIO4'
+    id: 'relay'
+
+light:
+  - platform: 'binary'
+    output: 'relay'
+    name: '${output_name}'
+    id: 'output_1'
