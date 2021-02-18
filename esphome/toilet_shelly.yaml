@@ -6,6 +6,7 @@ substitutions:
   output1_name: 'Toilet Light'
   output2_name: 'Toilet Fan'
 
+# Common configuration
 esphome:
   name: '${device_name}'
   comment: 'Shelly 2.5'
@@ -22,16 +23,14 @@ wifi:
     password: !secret 'fallback_hotspot.password'
 
 api: {}
-
 captive_portal: {}
+logger: {}
+ota: {}
 
+# Device-specific configuration
 i2c:
   sda: 'GPIO12'
   scl: 'GPIO14'
-
-logger: {}
-
-ota: {}
 
 status_led:
   pin:
