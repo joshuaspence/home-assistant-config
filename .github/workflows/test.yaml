@@ -6,6 +6,18 @@ on:
   schedule:
     - cron: '0 0 * * *'
 jobs:
+  esphome:
+    runs-on: 'ubuntu-latest'
+    container:
+      image: 'esphome/esphome:1.16.1'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'canastro/copy-action@0.0.2'
+        with:
+          source: '.github/stubs/esphome_secrets.yaml'
+          target: 'esphome/secrets.yaml'
+      - run: 'find esphome -type f -name "*.yaml" -not -name secrets.yaml -exec esphome {} config \;'
+
   home-assistant:
     runs-on: 'ubuntu-latest'
     strategy:
@@ -17,5 +29,5 @@ jobs:
       - uses: 'actions/checkout@v2'
       - uses: 'frenck/action-home-assistant@v1'
         with:
-          secrets: '.github/stubs/secrets.yaml'
+          secrets: '.github/stubs/hass_secrets.yaml'
           version: '${{ matrix.version }}'
