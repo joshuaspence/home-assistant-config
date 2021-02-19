@@ -1,0 +1,5 @@
+---
+platform: 'gpio'
+pin: 'GPIO16'
+name: 'ADE7953 IRQ'
+internal: true

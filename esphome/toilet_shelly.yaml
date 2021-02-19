@@ -5,6 +5,7 @@ substitutions:
   input2_name: 'Toilet Lower Button'
   output1_name: 'Toilet Light'
   output2_name: 'Toilet Fan'
+  <<: !include 'common/substitutions/shelly25.yaml'
 
 <<: !include 'common/common.yaml'
 <<: !include 'common/shelly25.yaml'
@@ -12,38 +13,35 @@ substitutions:
 # Inputs
 binary_sensor:
   - platform: 'gpio'
-    pin: 'GPIO13'
+    pin: '${input1_gpio}'
     name: '${input1_name}'
   - platform: 'gpio'
-    pin: 'GPIO5'
+    pin: '${input2_gpio}'
     name: '${input2_name}'
     on_press:
       then:
         - fan.toggle: 'output_2'
-  - platform: 'gpio'
-    pin: 'GPIO16'
-    name: 'ADE7953 IRQ'
-    internal: true
+  - !include 'common/binary_sensor/shelly25.yaml'
 
 # Outputs
 output:
   - platform: 'gpio'
-    pin: 'GPIO15'
+    pin: '${output1_gpio}'
     id: 'relay_1'
   - platform: 'gpio'
-    pin: 'GPIO4'
+    pin: '${output2_gpio}'
     id: 'relay_2'
 
 light:
   - platform: 'binary'
-    output: 'relay_2'
     name: '${output1_name}'
+    output: 'relay_2'
     id: 'output_1'
     restore_mode: 'ALWAYS_ON'
     internal: true
 
 fan:
   - platform: 'binary'
-    output: 'relay_1'
     name: '${output2_name}'
+    output: 'relay_1'
     id: 'output_2'
