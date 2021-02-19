@@ -3,8 +3,8 @@ substitutions:
   device_name: 'toilet_shelly'
   input1_name: 'Toilet Upper Button'
   input2_name: 'Toilet Lower Button'
-  output1_name: 'Toilet Light'
-  output2_name: 'Toilet Fan'
+  output1_name: 'Toilet'
+  output2_name: 'Toilet'
   <<: !include 'common/substitutions/shelly25.yaml'
 
 <<: !include 'common/common.yaml'

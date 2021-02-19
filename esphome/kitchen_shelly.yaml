@@ -2,7 +2,7 @@
 substitutions:
   device_name: 'kitchen_shelly'
   input1_name: 'Kitchen Button'
-  output1_name: 'Kitchen Light'
+  output1_name: 'Kitchen'
   <<: !include 'common/substitutions/shelly1.yaml'
 
 <<: !include 'common/common.yaml'
