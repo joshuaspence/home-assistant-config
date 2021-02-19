@@ -1,5 +1,5 @@
 ---
 input1_gpio: 'GPIO13'
 input2_gpio: 'GPIO5'
-output1_gpio: 'GPIO15'
-output2_gpio: 'GPIO4'
+output1_gpio: 'GPIO4'
+output2_gpio: 'GPIO15'

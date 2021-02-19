@@ -35,7 +35,7 @@ output:
 light:
   - platform: 'binary'
     name: '${output1_name}'
-    output: 'relay_2'
+    output: 'relay_1'
     id: 'output_1'
     restore_mode: 'ALWAYS_ON'
     internal: true
@@ -43,5 +43,5 @@ light:
 fan:
   - platform: 'binary'
     name: '${output2_name}'
-    output: 'relay_1'
+    output: 'relay_2'
     id: 'output_2'
