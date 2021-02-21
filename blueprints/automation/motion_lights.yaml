@@ -55,15 +55,15 @@ trigger:
   to: 'on'
 
 condition:
-  # If the target light is already on then it must've been turned on manually.
-  # TODO: Add a `force_on` input to bypass this check.
-  - condition: 'state'
-    entity_id: !input 'light_target'
-    state: 'off'
-
   - condition: 'numeric_state'
     entity_id: !input 'illuminance_sensor'
     below: !input 'illuminance_threshold'
+
+  # If the target light is already on then it must've been turned on manually.
+  # TODO: Add a `force_on` input parameter to bypass this check.
+  - condition: 'state'
+    entity_id: !input 'light_target'
+    state: 'off'
 
 action:
   - service: 'light.turn_on'
