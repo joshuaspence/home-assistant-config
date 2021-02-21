@@ -37,7 +37,7 @@ blueprint:
           min: 0
           max: 1000
           step: 10
-          unit_of_measurement: 'lx'
+          unit_of_measurement: 'lux'
 
     off_delay:
       name: 'Off Delay'
@@ -56,6 +56,7 @@ trigger:
 
 condition:
   # If the target light is already on then it must've been turned on manually.
+  # TODO: Add a `force_on` input to bypass this check.
   - condition: 'state'
     entity_id: !input 'light_target'
     state: 'off'
