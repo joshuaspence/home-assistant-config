@@ -9,4 +9,3 @@ use_blueprint:
       - 'light.outside_ene'
       - 'light.outside_ese'
     illuminance_sensor: 'sensor.front_yard_illuminance'
-    illuminance_threshold: 100
