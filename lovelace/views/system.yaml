@@ -3,8 +3,10 @@ title: 'System'
 icon: 'mdi:server-network'
 path: 'system'
 cards:
-  - type: 'entity'
-    entity: 'sensor.uptime'
+  - type: 'entities'
+    entities:
+      - entity: 'sensor.uptime'
+        format: 'relative'
 
   - type: 'entities'
     title: 'Home Assistant'
