@@ -209,5 +209,3 @@ cards:
         to: ''
       - from: 'Power'
         to: ''
-
-  - type: 'custom:unused-card'
