@@ -5,6 +5,8 @@ path: 'system'
 cards:
   - type: 'entities'
     entities:
+      - entity: 'sensor.last_boot'
+        format: 'relative'
       - entity: 'sensor.uptime'
         format: 'relative'
 
