@@ -1,0 +1,17 @@
+---
+title: 'Weather'
+icon: 'mdi:weather-cloudy'
+path: 'weather'
+cards:
+  - type: 'weather-forecast'
+    entity: 'weather.home'
+
+  - type: 'entities'
+    title: 'Sun'
+    icon: 'mdi:weather-sunny'
+    entities:
+      - 'sun.sun'
+      - entity: 'sun.sun'
+        attribute: 'next_rising'
+      - entity: 'sun.sun'
+        attribute: 'next_setting'
