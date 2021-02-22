@@ -55,6 +55,12 @@ cards:
         name: 'Upper West'
 
   - type: 'entities'
+    title: 'Office'
+    icon: 'mdi:office-building'
+    entities:
+      - 'light.office'
+
+  - type: 'entities'
     title: 'Outside'
     icon: 'mdi:tree'
     show_header_toggle: false

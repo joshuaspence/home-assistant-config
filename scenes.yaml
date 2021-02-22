@@ -10,6 +10,7 @@
     light.living_room:
       brightness: 25
       state: 'on'
+    light.office: 'off'
     light.toilet:
       brightness: 25
       state: 'on'
