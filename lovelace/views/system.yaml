@@ -162,6 +162,7 @@ cards:
 
   - type: 'entity'
     entity: 'sensor.myip'
+    name: 'Public IP'
 
   - type: 'custom:zha-network-card'
     title: 'Zigbee Devices'
