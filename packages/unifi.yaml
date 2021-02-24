@@ -1,0 +1,6 @@
+---
+sensor:
+  - platform: 'unifigateway'
+    host: 'localhost'
+    username: !secret 'unifi.username'
+    password: !secret 'unifi.password'
