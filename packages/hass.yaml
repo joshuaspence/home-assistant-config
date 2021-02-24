@@ -1,0 +1,13 @@
+---
+sensor:
+  - platform: 'command_line'
+    command: 'curl --header "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" http://supervisor/info | jq .data'
+    name: 'Current Version'
+    value_template: '{{ value_json.homeassistant }}'
+    scan_interval: 600
+    json_attributes:
+      - 'hassos'
+      - 'supervisor'
+
+  - platform: 'version'
+    source: 'hassio'

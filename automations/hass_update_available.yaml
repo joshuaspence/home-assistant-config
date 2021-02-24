@@ -2,13 +2,49 @@
 id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
 alias: 'Home Assistant Update Available'
 trigger:
-  # TODO: Check for supervisor updates as well (see https://community.home-assistant.io/t/update-notifications-core-hacs-supervisor-and-addons/182295).
   platform: 'state'
-  entity_id: 'binary_sensor.updater'
-  from: 'off'
-  to: 'on'
+  entity_id:
+    - 'sensor.current_version'
+    - 'sensor.latest_version'
 action:
-  service: 'persistent_notification.create'
-  data:
-    title: 'Update Available'
-    message: 'Home Assistant {{ trigger.to_state.attributes.newest_version }} is available.'
+  - choose:
+      - conditions: >-
+          {{ states('sensor.current_version') != states('sensor.latest_version') }}
+        sequence:
+          - service: 'persistent_notification.create'
+            data:
+              title: 'Update Available'
+              message: 'Home Assistant {{ states.sensor.latest_version }} is available.'
+              notification_id: 'update_available_homeassistant'
+    default:
+      - service: 'persistent_notification.dismiss'
+        data:
+          notification_id: 'update_available_homeassistant'
+
+  - choose:
+      - conditions: >-
+          {{ state_attr('sensor.current_version', 'hassos') != state_attr('sensor.latest_version', 'hassos') }}
+        sequence:
+          - service: 'persistent_notification.create'
+            data:
+              title: 'Update Available'
+              message: 'HassOS {{ states.sensor.latest_version.attributes.hassos }} is available.'
+              notification_id: 'update_available_hassos'
+    default:
+      - service: 'persistent_notification.dismiss'
+        data:
+          notification_id: 'update_available_hassos'
+
+  - choose:
+      - conditions: >-
+          {{ state_attr('sensor.current_version', 'supervisor') != state_attr('sensor.latest_version', 'supervisor') }}'
+        sequence:
+          - service: 'persistent_notification.create'
+            data:
+              title: 'Update Available'
+              message: 'Supervisor {{ states.sensor.latest_version.attributes.supervisor }} is available.'
+              notification_id: 'update_available_supervisor'
+    default:
+      - service: 'persistent_notification.dismiss'
+        data:
+          notification_id: 'update_available_supervisor'
