@@ -1,7 +1,7 @@
 ---
 media_player:
   - platform: 'androidtv'
-    host: &living_room_tv_host '10.158.145.163'
+    host: &living_room_tv_host '192.168.1.25'
     name: 'Living Room TV'
     turn_on_command: >-
       sendevent /dev/input/event0 4 4 10510108 &&
