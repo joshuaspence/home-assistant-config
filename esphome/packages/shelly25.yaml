@@ -1,0 +1,21 @@
+---
+substitutions:
+  input1_gpio: 'GPIO13'
+  input2_gpio: 'GPIO5'
+  output1_gpio: 'GPIO4'
+  output2_gpio: 'GPIO15'
+
+i2c:
+  sda: 'GPIO12'
+  scl: 'GPIO14'
+
+status_led:
+  pin:
+    number: 'GPIO0'
+    inverted: true
+
+binary_sensor:
+  - platform: 'gpio'
+    pin: 'GPIO16'
+    name: 'ADE7953 IRQ'
+    internal: true

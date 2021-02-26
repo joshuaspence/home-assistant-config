@@ -3,9 +3,10 @@ substitutions:
   device_name: 'kitchen_shelly'
   input1_name: 'Kitchen Button'
   output1_name: 'Kitchen'
-  <<: !include 'common/substitutions/shelly1.yaml'
 
-<<: !include 'common/common.yaml'
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly1.yaml'
 
 # Inputs
 binary_sensor:

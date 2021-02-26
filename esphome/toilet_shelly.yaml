@@ -5,10 +5,10 @@ substitutions:
   input2_name: 'Toilet Lower Button'
   output1_name: 'Toilet'
   output2_name: 'Toilet'
-  <<: !include 'common/substitutions/shelly25.yaml'
 
-<<: !include 'common/common.yaml'
-<<: !include 'common/shelly25.yaml'
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly25.yaml'
 
 # Inputs
 binary_sensor:
@@ -21,7 +21,6 @@ binary_sensor:
     on_press:
       then:
         - fan.toggle: 'output_2'
-  - !include 'common/binary_sensor/shelly25.yaml'
 
 # Outputs
 output:
