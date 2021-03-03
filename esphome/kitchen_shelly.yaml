@@ -1,31 +1,29 @@
 ---
 substitutions:
   device_name: 'kitchen_shelly'
-  input1_name: 'Kitchen Button'
   output1_name: 'Kitchen'
 
 packages:
   common: !include 'packages/common.yaml'
   device: !include 'packages/shelly1.yaml'
 
-# Inputs
 binary_sensor:
   - platform: 'gpio'
     pin: '${input1_gpio}'
-    name: '${input1_name}'
+    id: 'input1'
     on_state:
       then:
-        - light.toggle: 'output_1'
+        light.toggle: 'output1'
     internal: true
 
-# Outputs
+# TODO: Move this to `packages/shelly1.yaml`.
 output:
   - platform: 'gpio'
     pin: '${output1_gpio}'
-    id: 'relay_1'
+    id: 'relay1'
 
 light:
   - platform: 'binary'
     name: '${output1_name}'
-    output: 'relay_1'
-    id: 'output_1'
+    output: 'relay1'
+    id: 'output1'
