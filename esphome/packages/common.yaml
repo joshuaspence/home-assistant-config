@@ -13,7 +13,7 @@ wifi:
     ssid: '${device_name} Hotspot'
     password: !secret 'fallback_hotspot.password'
 
+ota: {}
+logger: {}
 api: {}
 captive_portal: {}
-logger: {}
-ota: {}
