@@ -13,6 +13,9 @@ wifi:
     ssid: '${device_name} Hotspot'
     password: !secret 'fallback_hotspot.password'
 
+time:
+  - platform: 'homeassistant'
+
 ota: {}
 logger: {}
 api: {}
