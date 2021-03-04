@@ -2,7 +2,6 @@
 substitutions:
   device_name: 'kitchen_shelly'
   output1_name: 'Kitchen'
-  output1_type: 'light'
 
 packages:
   common: !include 'packages/common.yaml'
@@ -14,7 +13,7 @@ binary_sensor:
     id: 'input1'
     on_state:
       then:
-        '${output1_type}.toggle': 'output1'
+        light.toggle: 'output1'
     internal: true
 
 output:
@@ -22,7 +21,7 @@ output:
     pin: '${output1_gpio}'
     id: 'relay1'
 
-'${output1_type}':
+light:
   - platform: 'binary'
     name: '${output1_name}'
     output: 'relay1'
