@@ -8,7 +8,6 @@ packages:
   common: !include 'packages/common.yaml'
   device: !include 'packages/shelly25.yaml'
 
-# Inputs
 binary_sensor:
   - platform: 'gpio'
     pin: '${input1_gpio}'
@@ -22,7 +21,6 @@ binary_sensor:
         fan.toggle: 'output2'
     internal: true
 
-# TODO: Move this to `packages/shelly25.yaml`.
 output:
   - platform: 'gpio'
     pin: '${output1_gpio}'
