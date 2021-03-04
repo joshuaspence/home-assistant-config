@@ -12,6 +12,12 @@ binary_sensor:
   - platform: 'gpio'
     pin: '${input1_gpio}'
     id: 'input1'
+    on_press:
+      then:
+        homeassistant.service:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.toilet'
     internal: true
   - platform: 'gpio'
     pin: '${input2_gpio}'
@@ -29,7 +35,7 @@ output:
     pin: '${output2_gpio}'
     id: 'relay2'
 
-# Output 1 is connected to `light.toilet` so that it can be power cycled if
+# Output 1 is connected to a smart bulb so that it can be power cycled if
 # necessary (without turning off mains power). Since this should be almost
 # never need to be done, output 1 should be permanently on.
 light:
