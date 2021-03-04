@@ -10,7 +10,7 @@ wifi:
   password: !secret 'wifi.password'
 
   ap:
-    ssid: '${device_name} Fallback Hotspot'
+    ssid: '${device_name} Hotspot'
     password: !secret 'fallback_hotspot.password'
 
 api: {}
