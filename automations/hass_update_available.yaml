@@ -14,7 +14,7 @@ action:
           - service: 'persistent_notification.create'
             data:
               title: 'Update Available'
-              message: 'Home Assistant {{ states.sensor.latest_version }} is available.'
+              message: 'Home Assistant {{ states.sensor.latest_version.state }} is available.'
               notification_id: 'update_available_homeassistant'
     default:
       - service: 'persistent_notification.dismiss'
