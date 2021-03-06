@@ -4,6 +4,14 @@ icon: 'mdi:flashlight'
 path: 'lights'
 cards:
   - type: 'entities'
+    title: 'Bathroom'
+    icon: 'mdi:shower'
+    entities:
+      - 'light.bathroom'
+      - 'fan.bathroom'
+      - 'light.bathroom_heat'
+
+  - type: 'entities'
     title: 'Bedrooms'
     icon: 'mdi:bed'
     entities:
@@ -86,6 +94,7 @@ cards:
     icon: 'mdi:toilet'
     entities:
       - 'light.toilet'
+      - 'fan.toilet'
 
   - type: 'custom:auto-entities'
     card:

@@ -7,10 +7,17 @@ cards:
     entity: 'alarm_control_panel.alarm'
 
   - type: 'entities'
-    title: 'Doors'
+    title: 'Exterior Doors'
     icon: 'mdi:door'
     entities:
       - 'binary_sensor.front_door'
       - 'binary_sensor.back_door'
       - 'binary_sensor.living_room_sliding_door'
       - 'binary_sensor.dining_room_sliding_door'
+
+  - type: 'entities'
+    title: 'Interior Doors'
+    icon: 'mdi:door'
+    entities:
+      - 'binary_sensor.bedroom_1_door'
+      - 'binary_sensor.toilet_door'

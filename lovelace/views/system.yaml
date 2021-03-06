@@ -214,3 +214,13 @@ cards:
         to: ''
       - from: 'Power'
         to: ''
+
+  - type: 'entities'
+    title: 'Unifi'
+    icon: 'mdi:router-network'
+    entities:
+      - 'sensor.unifi_gateway_alerts'
+      - 'sensor.unifi_gateway_lan'
+      - 'sensor.unifi_gateway_vpn'
+      - 'sensor.unifi_gateway_wlan'
+      - 'sensor.unifi_gateway_www'
