@@ -9,11 +9,6 @@ i2c:
   sda: 'GPIO12'
   scl: 'GPIO14'
 
-status_led:
-  pin:
-    number: 'GPIO0'
-    inverted: true
-
 binary_sensor:
   # Without this input the device will overheat, see
   # https://savjee.be/2020/11/shelly25-esphome-potential-fire-hazard-fix/.
@@ -21,3 +16,29 @@ binary_sensor:
     pin: 'GPIO16'
     name: 'ADE7953 IRQ'
     internal: true
+
+sensor:
+  - platform: 'adc'
+    pin: 'A0'
+    id: 'temperature_adc'
+  - platform: 'resistance'
+    sensor: 'temperature_adc'
+    configuration: 'DOWNSTREAM'
+    resistor: '32kOhm'
+    id: 'temperature_resistance'
+
+  - platform: 'ntc'
+    name: "${device_name} Temperature"
+    sensor: 'temperature_resistance'
+    calibration:
+      b_constant: 3350
+      reference_temperature: '298.15K'
+      reference_resistance: '10kOhm'
+    unit_of_measurement: '°C'
+    icon: 'mdi:thermometer'
+    accuracy_decimals: 1
+
+status_led:
+  pin:
+    number: 'GPIO0'
+    inverted: true
