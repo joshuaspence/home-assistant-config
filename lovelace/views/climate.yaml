@@ -14,20 +14,33 @@ cards:
         show_name: false
         show_state: true
         icon_height: '40px'
+
       - type: 'glance'
         entities: &downstairs_temperature_entities
+          - entity: 'sensor.laundry_temperature'
+            name: 'Back Door'
           - entity: 'sensor.kitchen_temperature'
             name: 'Kitchen'
-          - entity: 'sensor.back_door_temperature'
+          - entity: 'sensor.laundry_temperature'
             name: 'Laundry'
           - entity: 'sensor.living_room_temperature'
             name: 'Living Room'
       - type: 'history-graph'
         entities: *downstairs_temperature_entities
+
       - type: 'glance'
-        entities: &downstairs_humidity_entities []
+        entities: &downstairs_humidity_entities
+          - entity: 'sensor.laundry_humidity'
+            name: 'Laundry'
       - type: 'history-graph'
         entities: *downstairs_humidity_entities
+
+      - type: 'glance'
+        entities: &downstairs_pressure_entities
+          - entity: 'sensor.laundry_pressure'
+            name: 'Laundry'
+      - type: 'history-graph'
+        entities: *downstairs_pressure_entities
 
   - type: 'vertical-stack'
     title: 'Upstairs'
@@ -37,6 +50,7 @@ cards:
         show_name: false
         show_state: true
         icon_height: '40px'
+
       - type: 'glance'
         entities: &upstairs_temperature_entities
           - entity: 'sensor.bedroom_1_temperature'
@@ -47,20 +61,38 @@ cards:
             name: 'Front Door'
           - entity: 'sensor.hallway_temperature'
             name: 'Hallway'
+          - entity: 'sensor.office_temperature'
+            name: 'Office'
           - entity: 'sensor.toilet_temperature'
             name: 'Toilet'
       - type: 'history-graph'
         entities: *upstairs_temperature_entities
+
       - type: 'glance'
         entities: &upstairs_humidity_entities
           - entity: 'sensor.bedroom_1_humidity'
             name: 'Bedroom 1'
           - entity: 'sensor.bedroom_2_humidity'
             name: 'Bedroom 2'
+          - entity: 'sensor.office_humidity'
+            name: 'Office'
           - entity: 'sensor.toilet_humidity'
             name: 'Toilet'
       - type: 'history-graph'
         entities: *upstairs_humidity_entities
+
+      - type: 'glance'
+        entities: &upstairs_pressure_entities
+          - entity: 'sensor.bedroom_1_pressure'
+            name: 'Bedroom 1'
+          - entity: 'sensor.bedroom_2_pressuire'
+            name: 'Bedroom 2'
+          - entity: 'sensor.office_pressure'
+            name: 'Office'
+          - entity: 'sensor.toilet_pressure'
+            name: 'Toilet'
+      - type: 'history-graph'
+        entities: *upstairs_pressure_entities
 
   - type: 'vertical-stack'
     title: 'Outside'
@@ -96,6 +128,15 @@ cards:
       - type: 'history-graph'
         entities: *attic_humidity_entities
 
+      - type: 'glance'
+        entities: &attic_pressure_entities
+          - entity: 'sensor.attic_lower_pressure'
+            name: 'Lower'
+          - entity: 'sensor.attic_upper_pressure'
+            name: 'Upper'
+      - type: 'history-graph'
+        entities: *attic_pressure_entities
+
   - type: 'vertical-stack'
     title: 'Basement'
     cards:
@@ -116,3 +157,12 @@ cards:
             name: 'West'
       - type: 'history-graph'
         entities: *basement_humidity_entities
+
+      - type: 'glance'
+        entities: &basement_pressure_entities
+          - entity: 'sensor.basement_east_pressure'
+            name: 'East'
+          - entity: 'sensor.basement_west_pressure'
+            name: 'West'
+      - type: 'history-graph'
+        entities: *basement_pressure_entities

@@ -10,6 +10,7 @@ cards:
       - 'light.bathroom'
       - 'fan.bathroom'
       - 'light.bathroom_heat'
+      - 'light.bathroom_mirror'
 
   - type: 'entities'
     title: 'Bedrooms'

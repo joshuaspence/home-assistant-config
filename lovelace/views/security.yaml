@@ -20,4 +20,5 @@ cards:
     icon: 'mdi:door'
     entities:
       - 'binary_sensor.bedroom_1_door'
+      - 'binary_sensor.office_door'
       - 'binary_sensor.toilet_door'
