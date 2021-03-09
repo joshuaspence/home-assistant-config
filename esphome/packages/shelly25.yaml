@@ -28,7 +28,7 @@ sensor:
     id: 'temperature_resistance'
 
   - platform: 'ntc'
-    name: "${device_name} Temperature"
+    name: '${device_name} Temperature'
     sensor: 'temperature_resistance'
     calibration:
       b_constant: 3350
