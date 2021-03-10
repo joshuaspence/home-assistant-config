@@ -30,6 +30,9 @@
   name: 'Day Time'
   icon: 'mdi:white-balance-sunny'
   entities:
+    light.laundry:
+      brightness: 255
+      state: 'on'
     light.living_room:
       brightness: 255
       state: 'on'
