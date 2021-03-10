@@ -30,12 +30,14 @@
   name: 'Day Time'
   icon: 'mdi:white-balance-sunny'
   entities:
+    light.front_door: 'off'
     light.laundry:
       brightness: 255
       state: 'on'
     light.living_room:
       brightness: 255
       state: 'on'
+    light.outside_wall: 'off'
     light.toilet:
       brightness: 255
       state: 'on'
