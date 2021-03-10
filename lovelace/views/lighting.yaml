@@ -4,6 +4,14 @@ icon: 'mdi:flashlight'
 path: 'lights'
 cards:
   - type: 'entities'
+    title: 'Attic'
+    icon: 'mdi:home-roof'
+    entities:
+      - 'light.attic_1'
+      - 'light.attic_2'
+      - 'light.attic_3'
+
+  - type: 'entities'
     title: 'Bathroom'
     icon: 'mdi:shower'
     entities:
