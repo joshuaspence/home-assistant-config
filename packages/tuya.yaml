@@ -9,7 +9,7 @@ localtuya:
         friendly_name: 'Attic Main'
         id: 20
 
-  - host: '192.168.1.117'
+  - host: '192.168.20.16'
     device_id: !secret 'tuya.attic_1.device_id'
     local_key: !secret 'tuya.attic_1.local_key'
     friendly_name: 'Attic Light Strip 1'
@@ -18,7 +18,7 @@ localtuya:
         friendly_name: 'Attic 1'
         id: 20
 
-  - host: '192.168.1.105'
+  - host: '192.168.20.17'
     device_id: !secret 'tuya.attic_2.device_id'
     local_key: !secret 'tuya.attic_2.local_key'
     friendly_name: 'Attic Light Strip 2'
@@ -27,7 +27,7 @@ localtuya:
         friendly_name: 'Attic 2'
         id: 20
 
-  - host: '192.168.1.119'
+  - host: '192.168.20.18'
     device_id: !secret 'tuya.attic_3.device_id'
     local_key: !secret 'tuya.attic_3.local_key'
     friendly_name: 'Attic Light Strip 3'
