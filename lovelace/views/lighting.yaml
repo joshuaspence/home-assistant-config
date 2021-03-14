@@ -7,6 +7,7 @@ cards:
     title: 'Attic'
     icon: 'mdi:home-roof'
     entities:
+      - 'light.attic_main'
       - 'light.attic_1'
       - 'light.attic_2'
       - 'light.attic_3'
