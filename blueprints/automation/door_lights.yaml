@@ -21,9 +21,9 @@ blueprint:
         entity:
           domain: 'light'
 
-    # TODO: This input should be optional.
     illuminance_sensor:
       name: 'Illuminance Sensor'
+      default: []
       selector:
         entity:
           domain: 'sensor'
