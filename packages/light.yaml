@@ -1,23 +1,33 @@
 ---
 light:
-  - entities:
+  - platform: 'group'
+    name: 'Attic'
+    entities:
+      - 'light.attic_main'
+      - 'light.attic_1'
+      - 'light.attic_2'
+      - 'light.attic_3'
+
+  - platform: 'group'
+    name: 'Hallway'
+    entities:
       - 'light.hallway_east'
       - 'light.hallway_west'
-    name: 'Hallway'
-    platform: 'group'
-  - entities:
+
+  - platform: 'group'
+    name: 'Living Room'
+    entities:
       - 'light.living_room_lower_east'
       - 'light.living_room_lower_west'
       - 'light.living_room_upper_east'
       - 'light.living_room_upper_west'
-    name: 'Living Room'
-    platform: 'group'
-  - entities:
+
+  - platform: 'group'
+    name: 'Outside Wall'
+    entities:
       - 'light.outside_ene'
       - 'light.outside_ese'
       - 'light.outside_nne'
       - 'light.outside_nnw'
       - 'light.outside_sse'
       - 'light.outside_ssw'
-    name: 'Outside Wall'
-    platform: 'group'
