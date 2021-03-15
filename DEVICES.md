@@ -3,6 +3,7 @@
 | Name                                    | ID                               | Manufacturer             | Model                                                                  | Area        |
 |-----------------------------------------|----------------------------------|--------------------------|------------------------------------------------------------------------|-------------|
 | Air Conditioner                         | f20acfb3d77256e4b3f0f34bf90a9967 | Daikin                   | NOTSUPPORT                                                             | None        |
+| Attic Door Sensor                       | b546829da855d5c08d4d7ccb81be06dc | LUMI                     | lumi.sensor_magnet.aq2                                                 | attic       |
 | Attic Lower Temperature Sensor          | 2a0c9b2b2dc2fe378d1c9fa1633b42d5 | LUMI                     | lumi.weather                                                           | attic       |
 | Attic Upper Temperature Sensor          | 4342f0cce4c6a08a07b15f9d793b809d | LUMI                     | lumi.weather                                                           | attic       |
 | Back Door Contact Sensor                | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin                   | multi                                                                  | laundry     |
@@ -12,6 +13,7 @@
 | Bathroom Mirror Light                   | 20f47acdef3f893928c9345ffcde045b | Philips                  | LTW013                                                                 | bathroom    |
 | Bathroom Shelly 1                       | b21886b5fb8f582ee48e582b8b1ac4c3 | espressif                | PLATFORMIO_ESP01_1M                                                    | bathroom    |
 | Bathroom Shelly 2                       | 029cd9f582d4df929ef569467951d617 | espressif                | PLATFORMIO_ESP01_1M                                                    | bathroom    |
+| Bathroom Temperature Sensor             | 6735e72a849e72f32124e6db33fc55c5 | LUMI                     | lumi.weather                                                           | bathroom    |
 | Bedroom 1 Door Contact Sensor           | b53bd04fd9b645be552acf2c51c89193 | LUMI                     | lumi.sensor_magnet.aq2                                                 | bedroom_1   |
 | Bedroom 1 Light                         | 2ab6502683246b3112d622c914c97aa9 | Signify Netherlands B.V. | LCA001                                                                 | bedroom_1   |
 | Bedroom 1 Speaker                       | 9cfad6d54caa5d07fb669ac0c50770cd | Google Inc.              | Google Home Mini                                                       | bedroom_1   |

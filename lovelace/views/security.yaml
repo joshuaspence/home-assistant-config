@@ -19,6 +19,7 @@ cards:
     title: 'Interior Doors'
     icon: 'mdi:door'
     entities:
+      - 'binary_sensor.attic_door'
       - 'binary_sensor.bedroom_1_door'
       - 'binary_sensor.office_door'
       - 'binary_sensor.toilet_door'

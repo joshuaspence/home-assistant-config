@@ -53,6 +53,8 @@ cards:
 
       - type: 'glance'
         entities: &upstairs_temperature_entities
+          - entity: 'sensor.bathroom_temperature'
+            name: 'Bathroom'
           - entity: 'sensor.bedroom_1_temperature'
             name: 'Bedroom 1'
           - entity: 'sensor.bedroom_2_temperature'
@@ -70,6 +72,8 @@ cards:
 
       - type: 'glance'
         entities: &upstairs_humidity_entities
+          - entity: 'sensor.bathroom_humidity'
+            name: 'Bathroom'
           - entity: 'sensor.bedroom_1_humidity'
             name: 'Bedroom 1'
           - entity: 'sensor.bedroom_2_humidity'
@@ -83,6 +87,8 @@ cards:
 
       - type: 'glance'
         entities: &upstairs_pressure_entities
+          - entity: 'sensor.bathroom_pressure'
+            name: 'Bathroom'
           - entity: 'sensor.bedroom_1_pressure'
             name: 'Bedroom 1'
           - entity: 'sensor.bedroom_2_pressuire'
