@@ -1,0 +1,9 @@
+---
+id: '94569be1-91e2-4952-a329-5c6160b56536'
+alias: 'Attic Door Lights'
+use_blueprint:
+  path: 'door_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.attic_door'
+    light_target: 'light.attic'
+    off_delay: 0
