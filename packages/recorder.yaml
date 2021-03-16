@@ -1,6 +1,11 @@
 ---
 history:
   exclude:
+    entities:
+      - 'sensor.disk_use_percent'
+      - 'sensor.memory_use_percent'
+      - 'sensor.processor_temperature'
+      - 'sensor.processor_use_percent'
     entity_globs:
       - 'sensor.*_phone_*'
       - 'sensor.*_sensor_power'
