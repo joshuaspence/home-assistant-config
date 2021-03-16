@@ -1,6 +1,16 @@
 ---
-history: {}
-logbook: {}
+history:
+  exclude:
+    entity_globs:
+      - 'sensor.*_phone_*'
+      - 'sensor.*_sensor_power'
+
+logbook:
+  exclude:
+    entity_globs:
+      - 'binary_sensor.*_phone_*'
+      - 'sensor.*_phone_*'
+
 recorder:
   purge_keep_days: 30
   commit_interval: 300
