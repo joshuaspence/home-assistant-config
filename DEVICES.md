@@ -2,9 +2,13 @@
 
 | Name                                    | ID                               | Manufacturer             | Model                                                                  | Area        |
 |-----------------------------------------|----------------------------------|--------------------------|------------------------------------------------------------------------|-------------|
-| Air Conditioner                         | f20acfb3d77256e4b3f0f34bf90a9967 | Daikin                   | NOTSUPPORT                                                             | None        |
+| Air Conditioner                         | 2d654b5bc7d64280c72254ca1ef1eef1 | Daikin                   | NOTSUPPORT                                                             | None        |
 | Attic Door Sensor                       | b546829da855d5c08d4d7ccb81be06dc | LUMI                     | lumi.sensor_magnet.aq2                                                 | attic       |
+| Attic Light Strip 1                     | 43d07c57652009e72264fd3d82516122 | Unknown                  | Tuya generic                                                           | attic       |
+| Attic Light Strip 2                     | 722f77486d367a4eafa719ed0c0ef78f | Unknown                  | Tuya generic                                                           | attic       |
+| Attic Light Strip 3                     | 97a04846ba63875a6b1c0a9fb4ab2aaf | Unknown                  | Tuya generic                                                           | attic       |
 | Attic Lower Temperature Sensor          | 2a0c9b2b2dc2fe378d1c9fa1633b42d5 | LUMI                     | lumi.weather                                                           | attic       |
+| Attic Ridge Light Strip                 | 2c371e52fff7bd448d7af105a9f24a7d | Unknown                  | Tuya generic                                                           | attic       |
 | Attic Upper Temperature Sensor          | 4342f0cce4c6a08a07b15f9d793b809d | LUMI                     | lumi.weather                                                           | attic       |
 | Back Door Contact Sensor                | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin                   | multi                                                                  | laundry     |
 | Basement East Temperature Sensor        | caea1628a5a11768281d39c2c375440c | LUMI                     | lumi.weather                                                           | basement    |
@@ -32,14 +36,12 @@
 | Hallway West Light                      | 064c683ea72a74adf1f6f51991b8eada | Signify Netherlands B.V. | LTD011                                                                 | hallway     |
 | Josh's Laptop                           | 8433945dc4d2fecb9f3b8c94b10b33b3 | IntelCor                 | None                                                                   | None        |
 | Josh's Phone                            | 1a1ae37612503fec83045a03106bdeb2 | Google                   | Pixel 4 XL                                                             | None        |
-| Josh's Phone                            | 581b454cabd84cdb868d83bc37fb1094 | Google                   | None                                                                   | None        |
 | Kitchen Display                         | a2cb11e64399a5728466224e8c101b54 | Google Inc.              | Google Nest Hub                                                        | kitchen     |
 | Kitchen Motion Sensor                   | 02f28a1e50600275c7752272b54bd902 | Philips                  | SML001                                                                 | kitchen     |
 | Kitchen Shelly                          | 02581d13d43f5efb44cc810004c419f4 | espressif                | PLATFORMIO_ESP01_1M                                                    | kitchen     |
 | Laundry Light                           | 8c5a42521b8953f724c39a342f37d330 | Philips                  | LTW013                                                                 | laundry     |
 | Laundry Temperature Sensor              | 5e621f67f83ab3d6f5bcd307d93200f0 | LUMI                     | lumi.weather                                                           | laundry     |
 | Lily's Phone                            | dcf9afe490d1bcc3c100b0d3f3cc6f1f | Google                   | Pixel 2 XL                                                             | None        |
-| Lily's Phone                            | 05c59474abedbc32557e7a1b9b4c4d6a |                          | None                                                                   | None        |
 | Living Room Lower East Light            | 58a4f6bda31916c80c0f1f527dede3b0 | Philips                  | LCA001                                                                 | living_room |
 | Living Room Lower West Light            | 299af845a1144e43d1e3251178c4d890 | Philips                  | LCA001                                                                 | living_room |
 | Living Room Motion Sensor               | 857c02e66f8caa4183fa0720ace1ccef | Philips                  | SML001                                                                 | living_room |
