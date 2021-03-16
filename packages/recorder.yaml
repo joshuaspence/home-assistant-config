@@ -4,6 +4,7 @@ history:
     entity_globs:
       - 'sensor.*_phone_*'
       - 'sensor.*_sensor_power'
+      - 'sensor.*_shelly*_temperature'
 
 logbook:
   exclude:
