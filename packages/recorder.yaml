@@ -23,5 +23,6 @@ recorder:
   exclude:
     domains: []
     entities: []
-    entity_globs: []
+    entity_globs:
+      - 'sensor.*_phone_last_notification'
     event_types: []
