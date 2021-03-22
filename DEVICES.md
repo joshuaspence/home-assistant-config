@@ -13,7 +13,8 @@
 | Back Door Contact Sensor                | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin                   | multi                                                                  | laundry     |
 | Basement East Temperature Sensor        | caea1628a5a11768281d39c2c375440c | LUMI                     | lumi.weather                                                           | basement    |
 | Basement West Temperature Sensor        | 31c46f54af521c07627724ab684613e6 | LUMI                     | lumi.weather                                                           | basement    |
-| Bathroom Light                          | 6d050213abc44f0534906d8ecbeb5e6c | LDS                      | ZBT-DIMLight-GLS0044                                                   | bathroom    |
+| Bathroom Door Contact Sensor            | e407252d2d5416baaf8bd56e5a8e1b6a | LUMI                     | lumi.sensor_magnet.aq2                                                 | bathroom    |
+| Bathroom Light                          | dc9c69b4093508c4ce5f9f51c3dd7ed5 | Philips                  | LCT010                                                                 | bathroom    |
 | Bathroom Mirror Light                   | 20f47acdef3f893928c9345ffcde045b | Philips                  | LTW013                                                                 | bathroom    |
 | Bathroom Shelly 1                       | b21886b5fb8f582ee48e582b8b1ac4c3 | espressif                | PLATFORMIO_ESP01_1M                                                    | bathroom    |
 | Bathroom Shelly 2                       | 029cd9f582d4df929ef569467951d617 | espressif                | PLATFORMIO_ESP01_1M                                                    | bathroom    |
@@ -22,10 +23,11 @@
 | Bedroom 1 Light                         | 2ab6502683246b3112d622c914c97aa9 | Signify Netherlands B.V. | LCA001                                                                 | bedroom_1   |
 | Bedroom 1 Speaker                       | 9cfad6d54caa5d07fb669ac0c50770cd | Google Inc.              | Google Home Mini                                                       | bedroom_1   |
 | Bedroom 1 Temperature Sensor            | af672ce73486f80f49cd78490be533a0 | LUMI                     | lumi.weather                                                           | bedroom_1   |
-| Bedroom 2 Light                         | d3061b994adb52a5c52f160fff8065e1 | Philips                  | LWA001                                                                 | bedroom_2   |
+| Bedroom 2 Door Contact Sensor           | f3ba7d4afae04793dc03e022da93ae0e | LUMI                     | lumi.sensor_magnet.aq2                                                 | bedroom_2   |
+| Bedroom 2 Light                         | cc07533da66c5c37dfcf739c3a84c2ff | Signify Netherlands B.V. | LCA001                                                                 | bedroom_2   |
 | Bedroom 2 Temperature Sensor            | 32dda390777ef2b0f04fc81404574505 | LUMI                     | lumi.weather                                                           | bedroom_2   |
 | Dehumidifier                            | 0b0837ae5dbd3add9f4a0b843e1fb581 | TP-Link                  | HS110(AU)                                                              | basement    |
-| Dining Room Light                       | cc07533da66c5c37dfcf739c3a84c2ff | Signify Netherlands B.V. | LCA001                                                                 | dining_room |
+| Dining Room Light                       | b5a925a9e082ce9f89acb040a63be33e | Philips                  | LCT010                                                                 | dining_room |
 | Dining Room Sliding Door Contact Sensor | 6af29120358a594825de9e3c6ad34952 | LUMI                     | lumi.sensor_magnet.aq2                                                 | dining_room |
 | Dishwasher                              | 7131616138d08e980c8b8550ffbbcda4 | TP-Link                  | HS110(AU)                                                              | kitchen     |
 | Front Door Contact Sensor               | 6c09c18cf318d4285195da0edddee190 | Samjin                   | multi                                                                  | hallway     |
@@ -37,8 +39,10 @@
 | Josh's Laptop                           | 8433945dc4d2fecb9f3b8c94b10b33b3 | IntelCor                 | None                                                                   | None        |
 | Josh's Phone                            | 1a1ae37612503fec83045a03106bdeb2 | Google                   | Pixel 4 XL                                                             | None        |
 | Kitchen Display                         | a2cb11e64399a5728466224e8c101b54 | Google Inc.              | Google Nest Hub                                                        | kitchen     |
+| Kitchen Door Contact Sensor             | 0669c7b046dcf22c20460152c84817fc | LUMI                     | lumi.sensor_magnet.aq2                                                 | kitchen     |
 | Kitchen Motion Sensor                   | 02f28a1e50600275c7752272b54bd902 | Philips                  | SML001                                                                 | kitchen     |
 | Kitchen Shelly                          | 02581d13d43f5efb44cc810004c419f4 | espressif                | PLATFORMIO_ESP01_1M                                                    | kitchen     |
+| Laundry Door Contact Sensor             | b0efc30e85132cfd7bacf09b3b82a305 | LUMI                     | lumi.sensor_magnet.aq2                                                 | laundry     |
 | Laundry Light                           | 8c5a42521b8953f724c39a342f37d330 | Philips                  | LTW013                                                                 | laundry     |
 | Laundry Temperature Sensor              | 5e621f67f83ab3d6f5bcd307d93200f0 | LUMI                     | lumi.weather                                                           | laundry     |
 | Lily's Phone                            | dcf9afe490d1bcc3c100b0d3f3cc6f1f | Google                   | Pixel 2 XL                                                             | None        |
@@ -49,10 +53,10 @@
 | Living Room Speaker                     | 87d702e9cbdb16a41f447c99ed956c20 | Google Inc.              | Google Home                                                            | living_room |
 | Living Room TV                          | 7f7915983b8e35b78a2f76bb7f37a0a4 | Google Inc.              | Hitachi 4K Android TV                                                  | living_room |
 | Living Room Upper East Light            | c965b7bde5fe53f58fcb7939c56732a6 | Philips                  | LCA001                                                                 | living_room |
-| Living Room Upper West Light            | 82f261b960d522effa8809434a4915c1 | Philips                  | LCA001                                                                 | living_room |
+| Living Room Upper West                  | 82f261b960d522effa8809434a4915c1 | Philips                  | LCA001                                                                 | living_room |
 | Office Display                          | ef7b46f25ceb69a7afab34dfe702015a | Google Inc.              | Google Nest Hub Max                                                    | office      |
 | Office Door Sensor                      | 743ad3aa3f2e27daf66c0ca1a9271283 | LUMI                     | lumi.sensor_magnet.aq2                                                 | office      |
-| Office Light                            | 526fe85c6b1adc2a587190d5424b9b74 | Philips                  | LWA001                                                                 | office      |
+| Office Light                            | df4f1822e77145fe8e68eb3d54944a82 | Philips                  | LCT010                                                                 | office      |
 | Office Temperature Sensor               | c936933603abc9fb1d036fe781433c70 | LUMI                     | lumi.weather                                                           | office      |
 | Outside East-northeast Light            | a8259594cc0dcbd3a4393f715831840a | Philips                  | LCA001                                                                 | outside     |
 | Outside East-southeast Light            | e9734bce05d69dafebe1ab08f11a9ba3 | Philips                  | LCA001                                                                 | outside     |
