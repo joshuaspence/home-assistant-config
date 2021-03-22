@@ -9,8 +9,6 @@
   type: 'module'
 - url: '/hacsfiles/mini-graph-card/mini-graph-card-bundle.js'
   type: 'module'
-- url: '/hacsfiles/scheduler-card/scheduler-card.js'
-  type: 'module'
 - url: '/hacsfiles/vacuum-card/vacuum-card.js'
   type: 'module'
 - url: '/hacsfiles/zha-network-card/zha-network-card.js'
