@@ -3,5 +3,4 @@ tplink:
   discovery: false
   switch:
     - host: '192.168.20.11'
-    - host: '192.168.20.13'
     - host: '192.168.20.14'
