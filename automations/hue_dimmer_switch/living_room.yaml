@@ -1,0 +1,25 @@
+---
+id: '36c22479-ad44-4841-afe9-1f7da0c5663a'
+alias: 'Living Room Dimmer Switch'
+use_blueprint:
+  path: 'hue_dimmer_switch.yaml'
+  input:
+    remote: '11eb20cda1cd0e89f55040fa840db686'
+    button_1_single_press:
+      service: 'light.turn_on'
+      data:
+        entity_id: 'light.living_room'
+    button_2_single_press:
+      service: 'light.turn_on'
+      data:
+        entity_id: 'light.living_room'
+        brightness_step: 32
+    button_3_single_press:
+      service: 'light.turn_on'
+      data:
+        entity_id: 'light.living_room'
+        brightness_step: -32
+    button_4_single_press:
+      service: 'light.turn_off'
+      data:
+        entity_id: 'light.living_room'

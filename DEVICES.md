@@ -46,6 +46,7 @@
 | Laundry Temperature Sensor              | 5e621f67f83ab3d6f5bcd307d93200f0 | LUMI                     | lumi.weather                                                           | laundry      |
 | Lily's Phone                            | dcf9afe490d1bcc3c100b0d3f3cc6f1f | Google                   | Pixel 2 XL                                                             | None         |
 | Linen Closet Door Contact Sensor        | d8aa1dab4a0e24e5364fde780c0c5ad4 | LUMI                     | lumi.sensor_magnet.aq2                                                 | linen_closet |
+| Living Room Dimmer Switch               | 11eb20cda1cd0e89f55040fa840db686 | Philips                  | RWL021                                                                 | living_room  |
 | Living Room Lower East Light            | 58a4f6bda31916c80c0f1f527dede3b0 | Philips                  | LCA001                                                                 | living_room  |
 | Living Room Lower West Light            | 299af845a1144e43d1e3251178c4d890 | Philips                  | LCA001                                                                 | living_room  |
 | Living Room Motion Sensor               | 857c02e66f8caa4183fa0720ace1ccef | Philips                  | SML001                                                                 | living_room  |
