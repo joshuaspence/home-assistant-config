@@ -55,6 +55,7 @@
 | Living Room TV                          | 7f7915983b8e35b78a2f76bb7f37a0a4 | Google Inc.              | Hitachi 4K Android TV                                                  | living_room  |
 | Living Room Upper East Light            | c965b7bde5fe53f58fcb7939c56732a6 | Philips                  | LCA001                                                                 | living_room  |
 | Living Room Upper West Light            | 82f261b960d522effa8809434a4915c1 | Philips                  | LCA001                                                                 | living_room  |
+| Michael's Phone                         | 193beac23d3adceb1ea8a327ffc581e8 | Apple                    | None                                                                   | None         |
 | Office Display                          | ef7b46f25ceb69a7afab34dfe702015a | Google Inc.              | Google Nest Hub Max                                                    | office       |
 | Office Door Sensor                      | 743ad3aa3f2e27daf66c0ca1a9271283 | LUMI                     | lumi.sensor_magnet.aq2                                                 | office       |
 | Office Light                            | df4f1822e77145fe8e68eb3d54944a82 | Philips                  | LCT010                                                                 | office       |
