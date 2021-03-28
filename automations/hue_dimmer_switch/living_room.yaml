@@ -5,21 +5,21 @@ use_blueprint:
   path: 'hue_dimmer_switch.yaml'
   input:
     remote: '11eb20cda1cd0e89f55040fa840db686'
-    on_button:
+    on_press:
       service: 'light.turn_on'
       data:
         entity_id: 'light.living_room'
-    up_button:
+    up_press:
       service: 'light.turn_on'
       data:
         entity_id: 'light.living_room'
         brightness_step: 32
-    down_button:
+    down_press:
       service: 'light.turn_on'
       data:
         entity_id: 'light.living_room'
         brightness_step: -32
-    off_button:
+    off_press:
       service: 'light.turn_off'
       data:
         entity_id: 'light.living_room'

@@ -11,59 +11,20 @@ blueprint:
           manufacturer: 'Philips'
           model: 'RWL021'
 
-    on_button:
-      name: 'On Button'
+    on_press:
+      name: 'On Press'
       <<: &common_config
         default: []
         selector:
           action: {}
-    on_button_short_release:
-      name: 'On Button Single Press'
+    up_press:
+      name: 'Up Press'
       <<: *common_config
-    on_button_hold:
-      name: 'On Button Long Press'
+    down_press:
+      name: 'Down Press'
       <<: *common_config
-    on_button_double_press:
-      name: 'On Button Double Press'
-      <<: *common_config
-
-    up_button:
-      name: 'Up Button'
-      <<: *common_config
-    up_button_short_release:
-      name: 'Up Button Single Press'
-      <<: *common_config
-    up_button_hold:
-      name: 'Up Button Long Press'
-      <<: *common_config
-    up_button_double_press:
-      name: 'Up Button Double Press'
-      <<: *common_config
-
-    down_button:
-      name: 'Down Button'
-      <<: *common_config
-    down_button_short_release:
-      name: 'Down Button Single Press'
-      <<: *common_config
-    down_button_hold:
-      name: 'Down Button Long Press'
-      <<: *common_config
-    down_button_double_press:
-      name: 'Down Button Double Press'
-      <<: *common_config
-
-    off_button:
-      name: 'Off Button'
-      <<: *common_config
-    off_button_short_release:
-      name: 'Off Button Single Press'
-      <<: *common_config
-    off_button_hold:
-      name: 'Off Button Long Press'
-      <<: *common_config
-    off_button_double_press:
-      name: 'Off Button Double Press'
+    off_press:
+      name: 'Off Press'
       <<: *common_config
 
 trigger:
@@ -77,56 +38,17 @@ action:
       command: '{{ trigger.event.data.command }}'
   - choose:
       - conditions: >-
-          {{ command == 'on' }}
-        sequence: !input 'on_button'
+          {{ command == 'on_press' }}
+        sequence: !input 'on_press'
       - conditions: >-
-          {{ command == 'on_short_release' }}
-        sequence: !input 'on_button_short_release'
+          {{ command == 'up_press' }}
+        sequence: !input 'up_press'
       - conditions: >-
-          {{ command == 'on_hold' }}
-        sequence: !input 'on_button_hold'
+          {{ command == 'down_press' }}
+        sequence: !input 'down_press'
       - conditions: >-
-          {{ command == 'on_double_press' }}
-        sequence: !input 'on_button_double_press'
-
-      - conditions: >-
-          {{ command == 'up' }}
-        sequence: !input 'up_button'
-      - conditions: >-
-          {{ command == 'up_short_release' }}
-        sequence: !input 'up_button_short_release'
-      - conditions: >-
-          {{ command == 'up_hold' }}
-        sequence: !input 'up_button_hold'
-      - conditions: >-
-          {{ command == 'up_double_press' }}
-        sequence: !input 'up_button_double_press'
-
-      - conditions: >-
-          {{ command == 'down' }}
-        sequence: !input 'down_button'
-      - conditions: >-
-          {{ command == 'down_short_release' }}
-        sequence: !input 'down_button_short_release'
-      - conditions: >-
-          {{ command == 'down_hold' }}
-        sequence: !input 'down_button_hold'
-      - conditions: >-
-          {{ command == 'down_double_press' }}
-        sequence: !input 'down_button_double_press'
-
-      - conditions: >-
-          {{ command == 'off' }}
-        sequence: !input 'off_button'
-      - conditions: >-
-          {{ command == 'off_short_release' }}
-        sequence: !input 'off_button_short_release'
-      - conditions: >-
-          {{ command == 'off_hold' }}
-        sequence: !input 'off_button_hold'
-      - conditions: >-
-          {{ command == 'off_double_press' }}
-        sequence: !input 'off_button_double_press'
+          {{ command == 'off_press' }}
+        sequence: !input 'off_press'
 
 mode: 'queued'
 max_exceeded: 'silent'
