@@ -43,6 +43,7 @@
 | Kitchen Shelly                          | 02581d13d43f5efb44cc810004c419f4 | espressif                | PLATFORMIO_ESP01_1M                                                    | kitchen      |
 | Laundry Door Contact Sensor             | b0efc30e85132cfd7bacf09b3b82a305 | LUMI                     | lumi.sensor_magnet.aq2                                                 | laundry      |
 | Laundry Light                           | 8c5a42521b8953f724c39a342f37d330 | Philips                  | LTW013                                                                 | laundry      |
+| Laundry Motion Sensor                   | 81f4980c7afc656492bfdb69c11363cd | Philips                  | SML001                                                                 | laundry      |
 | Laundry Temperature Sensor              | 5e621f67f83ab3d6f5bcd307d93200f0 | LUMI                     | lumi.weather                                                           | laundry      |
 | Lily's Phone                            | dcf9afe490d1bcc3c100b0d3f3cc6f1f | Google                   | Pixel 2 XL                                                             | None         |
 | Linen Closet Door Contact Sensor        | d8aa1dab4a0e24e5364fde780c0c5ad4 | LUMI                     | lumi.sensor_magnet.aq2                                                 | linen_closet |
@@ -55,6 +56,8 @@
 | Living Room TV                          | 7f7915983b8e35b78a2f76bb7f37a0a4 | Google Inc.              | Hitachi 4K Android TV                                                  | living_room  |
 | Living Room Upper East Light            | c965b7bde5fe53f58fcb7939c56732a6 | Philips                  | LCA001                                                                 | living_room  |
 | Living Room Upper West Light            | 82f261b960d522effa8809434a4915c1 | Philips                  | LCA001                                                                 | living_room  |
+| Mailbox Door Contact Sensor             | 8a338d25b85f8d540531a64329e61e89 | LUMI                     | lumi.sensor_magnet.aq2                                                 | outside      |
+| Mailbox Vibration Sensor                | 68f22b8d3b58a7d405f7ae0056432a8b | LUMI                     | lumi.vibration.aq1                                                     | outside      |
 | Michael's Phone                         | 193beac23d3adceb1ea8a327ffc581e8 | Apple                    | None                                                                   | None         |
 | Office Display                          | ef7b46f25ceb69a7afab34dfe702015a | Google Inc.              | Google Nest Hub Max                                                    | office       |
 | Office Door Sensor                      | 743ad3aa3f2e27daf66c0ca1a9271283 | LUMI                     | lumi.sensor_magnet.aq2                                                 | office       |
