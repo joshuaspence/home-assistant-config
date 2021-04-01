@@ -35,19 +35,21 @@ trigger:
 
 action:
   - variables:
+      button: '{{ trigger.event.data.args.button }}'
       command: '{{ trigger.event.data.command }}'
+      press_type: '{{ trigger.event.data.args.button }}'
   - choose:
       - conditions: >-
-          {{ command == 'on_press' }}
+          {{ button == 'on' and press_type != 'short_release' }}
         sequence: !input 'on_press'
       - conditions: >-
-          {{ command == 'up_press' }}
+          {{ button == 'up' and press_type != 'short_release' }}
         sequence: !input 'up_press'
       - conditions: >-
-          {{ command == 'down_press' }}
+          {{ button == 'eown' and press_type != 'short_release' }}
         sequence: !input 'down_press'
       - conditions: >-
-          {{ command == 'off_press' }}
+          {{ button == 'off' and press_type != 'short_release' }}
         sequence: !input 'off_press'
 
 mode: 'queued'
