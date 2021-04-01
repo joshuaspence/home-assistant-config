@@ -1,5 +1,9 @@
 ---
 sensor:
+  - platform: 'statistics'
+    entity_id: 'sensor.bathroom_humidity'
+    name: 'Bathroom Humidity Statistics'
+
   - platform: 'min_max'
     entity_ids:
       - 'sensor.kitchen_temperature'
@@ -9,17 +13,17 @@ sensor:
 
   - platform: 'min_max'
     entity_ids:
+      - 'sensor.bedroom_1_humidity'
+      - 'sensor.bedroom_2_humidity'
+      - 'sensor.office_humidity'
+    type: 'mean'
+    name: 'Upstairs Humidity'
+
+  - platform: 'min_max'
+    entity_ids:
       - 'sensor.bedroom_1_temperature'
       - 'sensor.bedroom_2_temperature'
       - 'sensor.hallway_temperature'
       - 'sensor.office_temperature'
     type: 'mean'
     name: 'Upstairs Temperature'
-
-  - platform: 'min_max'
-    entity_ids:
-      - 'sensor.bedroom_1_humidity'
-      - 'sensor.bedroom_2_humidity'
-      - 'sensor.office_humidity'
-    type: 'mean'
-    name: 'Upstairs Humidity'
