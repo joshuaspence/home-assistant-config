@@ -1,0 +1,9 @@
+---
+id: 'e02baf5c-8f91-4676-9168-4b5a2b4b7491'
+alias: 'Laundry Motion-Activated Lights'
+use_blueprint:
+  path: 'motion_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.laundry_occupancy'
+    light_target: 'light.laundry'
+    illuminance_sensor: 'sensor.laundry_illuminance'
