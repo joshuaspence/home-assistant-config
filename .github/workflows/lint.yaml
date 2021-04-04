@@ -17,10 +17,9 @@ jobs:
       - uses: 'actions/checkout@v2'
       - uses: 'ricardochaves/python-lint@v1.3.0'
         with:
-          extra-flake8-options: '--config pyscript/.flake8'
+          extra-flake8-options: '--config pyscript/setup.cfg'
           python-root-list: 'pyscript'
           use-black: false
-          use-isort: false
           use-mypy: false
           use-pycodestyle: false
           use-pylint: false
