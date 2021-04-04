@@ -1,0 +1,5 @@
+[flake8]
+builtins =
+  log,
+  service
+indent_size = 2

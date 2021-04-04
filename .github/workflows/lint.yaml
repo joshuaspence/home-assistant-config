@@ -11,6 +11,19 @@ jobs:
       - uses: 'avto-dev/markdown-lint@v1'
         with:
           args: '.'
+  pyscript:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: 'actions/checkout@v2'
+      - uses: 'ricardochaves/python-lint@v1.3.0'
+        with:
+          extra-flake8-options: '--config pyscript/.flake8'
+          python-root-list: 'pyscript'
+          use-black: false
+          use-isort: false
+          use-mypy: false
+          use-pycodestyle: false
+          use-pylint: false
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
