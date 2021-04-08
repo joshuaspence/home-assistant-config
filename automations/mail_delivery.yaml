@@ -6,6 +6,16 @@ trigger:
   entity_id: 'binary_sensor.mailbox_top_door'
   from: 'off'
   to: 'on'
+condition:
+  condition: 'time'
+  after: '08:00:00'
+  before: '18:00:00'
+  weekday:
+    - 'mon'
+    - 'tue'
+    - 'wed'
+    - 'thu'
+    - 'fri'
 action:
   service: 'notify.mobile_app_josh_phone'
   data:
