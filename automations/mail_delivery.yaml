@@ -7,7 +7,7 @@ trigger:
   from: 'off'
   to: 'on'
 action:
-  service: 'notify.mobile_app_josh_space'
+  service: 'notify.mobile_app_josh_phone'
   data:
     title: 'Mailbox Activity'
     message: 'Mailbox door was opened.'
