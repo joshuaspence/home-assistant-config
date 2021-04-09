@@ -3,6 +3,7 @@
   name: 'Bed Time'
   icon: 'mdi:bed'
   entities:
+    light.bathroom: 'off'
     light.dining_room: 'off'
     light.hallway: 'off'
     light.kitchen: 'off'
