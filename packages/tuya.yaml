@@ -1,12 +1,12 @@
 ---
 localtuya:
   - host: '192.168.20.12'
-    device_id: !secret 'tuya.attic_main.device_id'
-    local_key: !secret 'tuya.attic_main.local_key'
-    friendly_name: 'Attic Main Light Strip'
+    device_id: !secret 'tuya.attic_ridge.device_id'
+    local_key: !secret 'tuya.attic_ridge.local_key'
+    friendly_name: 'Attic Ridge Light Strip'
     entities:
       - platform: 'light'
-        friendly_name: 'Attic Main'
+        friendly_name: 'Attic Ridge'
         color: 24
         <<: &common_config
           id: 20

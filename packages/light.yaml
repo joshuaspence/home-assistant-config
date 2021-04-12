@@ -3,7 +3,7 @@ light:
   - platform: 'group'
     name: 'Attic'
     entities:
-      - 'light.attic_main'
+      - 'light.attic_ridge'
       - 'light.attic_1'
       - 'light.attic_2'
       - 'light.attic_3'
