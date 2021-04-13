@@ -4,10 +4,12 @@ logger:
   logs: {}
   filters:
     # TODO: Investigate/fix these issues.
+    aiohttp.server:
+      - 'ValueError: count must be a positive integer'
     androidtv.adb_manager.adb_manager_async:
-      - 'TcpTimeoutException: Connecting to (?:[0-9]{1,3}\.){3}[0-9]{1,3}:\d+ timed out'
+      - 'TcpTimeoutException: (Connecting to|Reading from) (?:\d{1,3}\.){3}\d{1,3}:\d+ timed out'
     homeassistant.components.androidtv.media_player:
-      - 'Error: Reading from (?:[0-9]{1,3}\.){3}[0-9]{1,3}:\d+ timed out'
+      - 'Error: Reading from (?:\d{1,3}\.){3}\d{1,3}:\d+ timed out'
     homeassistant.components.media_player:
       - '^Updating androidtv media_player took longer than the scheduled update interval'
     homeassistant.components.sensor:
