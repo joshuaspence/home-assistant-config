@@ -4,7 +4,9 @@ alias: 'Kitchen Motion-Activated Lights'
 use_blueprint:
   path: 'motion_lights.yaml'
   input:
-    trigger_sensor: 'binary_sensor.kitchen_occupancy'
+    trigger_sensor:
+      - 'binary_sensor.dining_room_occupancy'
+      - 'binary_sensor.kitchen_occupancy'
     light_target:
       - 'light.kitchen'
       - 'light.dining_room'
