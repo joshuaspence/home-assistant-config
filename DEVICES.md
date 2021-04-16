@@ -28,14 +28,16 @@
 | Bedroom 2 Light                         | cc07533da66c5c37dfcf739c3a84c2ff | Signify Netherlands B.V. | LCA001                                                                 | bedroom_2    |
 | Bedroom 2 Temperature Sensor            | 32dda390777ef2b0f04fc81404574505 | LUMI                     | lumi.weather                                                           | bedroom_2    |
 | Dining Room Light                       | b5a925a9e082ce9f89acb040a63be33e | Philips                  | LCT010                                                                 | dining_room  |
+| Dining Room Motion Sensor               | 15fd97c300251bfaafc86674b48573dd | Philips                  | SML001                                                                 | dining_room  |
 | Dining Room Sliding Door Contact Sensor | 6af29120358a594825de9e3c6ad34952 | LUMI                     | lumi.sensor_magnet.aq2                                                 | dining_room  |
 | Dishwasher Smart Plug                   | 7131616138d08e980c8b8550ffbbcda4 | TP-Link                  | HS110(AU)                                                              | kitchen      |
 | Front Door Contact Sensor               | 6c09c18cf318d4285195da0edddee190 | Samjin                   | multi                                                                  | hallway      |
 | Front Door Light                        | 02f9d192c85d064249ea6cb33d7a3bbe | Philips                  | LCT007                                                                 | outside      |
 | Front Yard Motion Sensor                | 0ff7f209d4b441cc9f8bbc40f7c64328 | Philips                  | SML002                                                                 | outside      |
 | Hallway East Light                      | 061d581bfeba93d0ce50b53bcb87782e | Philips                  | LTD011                                                                 | hallway      |
-| Hallway Motion Sensor                   | 91655f25d135d9b7ac6d882e6eaab151 | Philips                  | SML001                                                                 | hallway      |
+| Hallway East Motion Sensor              | 91655f25d135d9b7ac6d882e6eaab151 | Philips                  | SML001                                                                 | hallway      |
 | Hallway West Light                      | 064c683ea72a74adf1f6f51991b8eada | Signify Netherlands B.V. | LTD011                                                                 | hallway      |
+| Hallway West Motion Sensor              | 7c826402063b0551336722c8b5f265a3 | Philips                  | SML001                                                                 | None         |
 | Homelab Smart Plug                      | 5be671f042730799b9ecbd79c2803624 | TP-Link                  | HS110(AU)                                                              | office       |
 | Josh's Laptop                           | 8433945dc4d2fecb9f3b8c94b10b33b3 | IntelCor                 | None                                                                   | None         |
 | Josh's Phone                            | 1a1ae37612503fec83045a03106bdeb2 | Google                   | Pixel 4 XL                                                             | None         |
@@ -78,6 +80,7 @@
 | Spa Bath Water Leak Sensor              | 18b988d9d9d6ac9dca32e7f17b891477 | Samjin                   | water                                                                  | bathroom     |
 | Toilet Door Contact Sensor              | 18d93823c5a167439d2adf8bfa346483 | LUMI                     | lumi.sensor_magnet.aq2                                                 | toilet       |
 | Toilet Light                            | b85d6cca8ba25328dd7bb5831dac069d | Philips                  | LTD011                                                                 | toilet       |
+| Toilet Motion Sensor                    | f4e2188344b245f7ca51a2bbf701e5cd | Philips                  | SML001                                                                 | toilet       |
 | Toilet Shelly                           | 4e1310a3cb83785eee90b0a689fd1213 | espressif                | PLATFORMIO_ESP01_1M                                                    | toilet       |
 | Toilet Temperature Sensor               | 74fa3c31cc45f9d689ebb8807355e720 | LUMI                     | lumi.weather                                                           | toilet       |
 | Washing Machine Smart Plug              | 28c5facd8c549c053beb8f1a324f9299 | TP-Link                  | KP115(AU)                                                              | laundry      |

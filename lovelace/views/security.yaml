@@ -25,5 +25,6 @@ cards:
       - 'binary_sensor.bedroom_2_door'
       - 'binary_sensor.kitchen_door'
       - 'binary_sensor.laundry_door'
+      - 'binary_sensor.linen_closet_door'
       - 'binary_sensor.office_door'
       - 'binary_sensor.toilet_door'

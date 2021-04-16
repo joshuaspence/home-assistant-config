@@ -17,7 +17,7 @@ cards:
 
       - type: 'glance'
         entities: &downstairs_temperature_entities
-          - entity: 'sensor.laundry_temperature'
+          - entity: 'sensor.back_door_temperature'
             name: 'Back Door'
           - entity: 'sensor.kitchen_temperature'
             name: 'Kitchen'
@@ -30,15 +30,23 @@ cards:
 
       - type: 'glance'
         entities: &downstairs_humidity_entities
+          - entity: 'sensor.kitchen_humidity'
+            name: 'Kitchen'
           - entity: 'sensor.laundry_humidity'
             name: 'Laundry'
+          - entity: 'sensor.living_room_humidity'
+            name: 'Living Room'
       - type: 'history-graph'
         entities: *downstairs_humidity_entities
 
       - type: 'glance'
         entities: &downstairs_pressure_entities
+          - entity: 'sensor.kitchen_pressure'
+            name: 'Kitchen'
           - entity: 'sensor.laundry_pressure'
             name: 'Laundry'
+          - entity: 'sensor.living_room_pressure'
+            name: 'Living Room'
       - type: 'history-graph'
         entities: *downstairs_pressure_entities
 

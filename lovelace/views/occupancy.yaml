@@ -18,14 +18,22 @@ cards:
     title: 'Room Occupancy'
     show_state: false
     entities:
+      - entity: 'binary_sensor.dining_room_occupancy'
+        name: 'Dining Room'
       - entity: 'binary_sensor.front_yard_occupancy'
         name: 'Front Yard'
-      - entity: 'binary_sensor.hallway_occupancy'
-        name: 'Hallway'
+      - entity: 'binary_sensor.hallway_east_occupancy'
+        name: 'Hallway (East)'
+      - entity: 'binary_sensor.hallway_west_occupancy'
+        name: 'Hallway (West)'
       - entity: 'binary_sensor.kitchen_occupancy'
         name: 'Kitchen'
+      - entity: 'binary_sensor.laundry_occupancy'
+        name: 'Laundry'
       - entity: 'binary_sensor.living_room_occupancy'
         name: 'Living Room'
+      - entity: 'binary_sensor.toilet_occupancy'
+        name: 'Toilet'
 
   - type: 'map'
     entities:
