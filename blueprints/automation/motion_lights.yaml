@@ -62,10 +62,11 @@ condition:
   # If the target light is already on then it must've been turned on manually.
   #
   # TODO: Add a `force_on` input parameter to bypass this check.
-  # TODO: Consider unavailable lights as off.
   - condition: 'state'
     entity_id: !input 'light_target'
-    state: 'off'
+    state:
+      - 'off'
+      - 'unavailable'
 
 action:
   - service: 'light.turn_on'
