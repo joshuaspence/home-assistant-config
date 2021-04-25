@@ -30,7 +30,7 @@
 | Dining Room Light                       | b5a925a9e082ce9f89acb040a63be33e | Philips                  | LCT010                                                                 | dining_room  |
 | Dining Room Motion Sensor               | 15fd97c300251bfaafc86674b48573dd | Philips                  | SML001                                                                 | dining_room  |
 | Dining Room Sliding Door Contact Sensor | 6af29120358a594825de9e3c6ad34952 | LUMI                     | lumi.sensor_magnet.aq2                                                 | dining_room  |
-| Dishwasher Smart Plug                   | 7131616138d08e980c8b8550ffbbcda4 | TP-Link                  | HS110(AU)                                                              | kitchen      |
+| Dishwasher Smart Plug                   | dd8cd05fc33b9871a433c695765a903b | TP-Link                  | KP115(AU)                                                              | kitchen      |
 | Front Door Contact Sensor               | 6c09c18cf318d4285195da0edddee190 | Samjin                   | multi                                                                  | hallway      |
 | Front Door Light                        | 02f9d192c85d064249ea6cb33d7a3bbe | Philips                  | LCT007                                                                 | outside      |
 | Front Yard Motion Sensor                | 0ff7f209d4b441cc9f8bbc40f7c64328 | Philips                  | SML002                                                                 | outside      |
@@ -46,6 +46,7 @@
 | Kitchen Motion Sensor                   | 02f28a1e50600275c7752272b54bd902 | Philips                  | SML001                                                                 | kitchen      |
 | Kitchen Shelly                          | 02581d13d43f5efb44cc810004c419f4 | espressif                | PLATFORMIO_ESP01_1M                                                    | kitchen      |
 | Kitchen Temperature Sensor              | 2481133f1e5f88c8e9a505670de28473 | LUMI                     | lumi.weather                                                           | kitchen      |
+| Kitchen West Motion Sensor              | 6b916469e4f6d64d9f658ef14cbf4f17 | Philips                  | SML001                                                                 | kitchen      |
 | Laundry Door Contact Sensor             | b0efc30e85132cfd7bacf09b3b82a305 | LUMI                     | lumi.sensor_magnet.aq2                                                 | laundry      |
 | Laundry Light                           | 8e807fddca0f23a8c404b1d647c7bb95 | Philips                  | LTD011                                                                 | laundry      |
 | Laundry Motion Sensor                   | 81f4980c7afc656492bfdb69c11363cd | Philips                  | SML001                                                                 | laundry      |
@@ -56,9 +57,10 @@
 | Living Room Lower East Light            | 58a4f6bda31916c80c0f1f527dede3b0 | Philips                  | LCA001                                                                 | living_room  |
 | Living Room Lower West Light            | 299af845a1144e43d1e3251178c4d890 | Philips                  | LCA001                                                                 | living_room  |
 | Living Room Motion Sensor               | 857c02e66f8caa4183fa0720ace1ccef | Philips                  | SML001                                                                 | living_room  |
+| Living Room North Motion Sensor         | 1be44f973ae2977a9f6c626c547c4423 | Philips                  | SML001                                                                 | living_room  |
 | Living Room Sliding Door Contact Sensor | 5a1642ae1dd6b09a3a15cf2a92600578 | LUMI                     | lumi.sensor_magnet.aq2                                                 | living_room  |
 | Living Room Speaker                     | 87d702e9cbdb16a41f447c99ed956c20 | Google Inc.              | Google Home                                                            | living_room  |
-| Living Room TV                          | 7f7915983b8e35b78a2f76bb7f37a0a4 | Google Inc.              | Hitachi 4K Android TV                                                  | living_room  |
+| Living Room TV                          | 7f7915983b8e35b78a2f76bb7f37a0a4 | google_home              | Hitachi 4K Android TV                                                  | living_room  |
 | Living Room Temperature Sensor          | db8d3b37e8c7f69743e6d7a103dfbb16 | LUMI                     | lumi.weather                                                           | living_room  |
 | Living Room Upper East Light            | c965b7bde5fe53f58fcb7939c56732a6 | Philips                  | LCA001                                                                 | living_room  |
 | Living Room Upper West Light            | 82f261b960d522effa8809434a4915c1 | Philips                  | LCA001                                                                 | living_room  |
@@ -66,7 +68,7 @@
 | Mailbox Top Door Contact Sensor         | b1147417f1eb59421139517f4db32ebd | LUMI                     | lumi.sensor_magnet.aq2                                                 | outside      |
 | Mailbox Vibration Sensor                | 68f22b8d3b58a7d405f7ae0056432a8b | LUMI                     | lumi.vibration.aq1                                                     | outside      |
 | Michael's Phone                         | 193beac23d3adceb1ea8a327ffc581e8 | Apple                    | None                                                                   | None         |
-| Office Display                          | ef7b46f25ceb69a7afab34dfe702015a | Google Inc.              | Google Nest Hub Max                                                    | office       |
+| Office Display                          | ef7b46f25ceb69a7afab34dfe702015a | google_home              | Google Nest Hub Max                                                    | office       |
 | Office Door Sensor                      | 743ad3aa3f2e27daf66c0ca1a9271283 | LUMI                     | lumi.sensor_magnet.aq2                                                 | office       |
 | Office Light                            | df4f1822e77145fe8e68eb3d54944a82 | Philips                  | LCT010                                                                 | office       |
 | Office Temperature Sensor               | c936933603abc9fb1d036fe781433c70 | LUMI                     | lumi.weather                                                           | office       |
@@ -77,6 +79,7 @@
 | Outside South-southeast Light           | 6715cac52e975a6196b87b5ca3edfbc3 | Philips                  | LCA001                                                                 | outside      |
 | Outside South-southwest Light           | bf6a0b44595912412b6814c7de195143 | Philips                  | LCA001                                                                 | outside      |
 | Outside Temperature Sensor              | 02805f6957d30f264f29603b55fbd4dc | LUMI                     | lumi.weather                                                           | outside      |
+| Refrigerator Smart Plug                 | 7131616138d08e980c8b8550ffbbcda4 | TP-Link                  | HS110(AU)                                                              | kitchen      |
 | Spa Bath Water Leak Sensor              | 18b988d9d9d6ac9dca32e7f17b891477 | Samjin                   | water                                                                  | bathroom     |
 | Toilet Door Contact Sensor              | 18d93823c5a167439d2adf8bfa346483 | LUMI                     | lumi.sensor_magnet.aq2                                                 | toilet       |
 | Toilet Light                            | b85d6cca8ba25328dd7bb5831dac069d | Philips                  | LTD011                                                                 | toilet       |
@@ -85,7 +88,6 @@
 | Toilet Temperature Sensor               | 74fa3c31cc45f9d689ebb8807355e720 | LUMI                     | lumi.weather                                                           | toilet       |
 | Washing Machine Smart Plug              | 28c5facd8c549c053beb8f1a324f9299 | TP-Link                  | KP115(AU)                                                              | laundry      |
 | Zigbee Coordinator                      | 63f7b0afefff8a784c859d55945e45a4 | ZHA                      | deCONZ = dresden elektronik deCONZ protocol: ConBee I/II, RaspBee I/II | office       |
-| None                                    | dd8cd05fc33b9871a433c695765a903b | Tp-LinkT                 | None                                                                   | None         |
 | None                                    | c34c162b0be74423474583b872bd4b0e | core                     | Home Assistant Add-on                                                  | None         |
 | None                                    | afb1f8c0c0393a65f6cb085f82773714 | cebe7a76                 | Home Assistant Add-on                                                  | None         |
 | None                                    | 70072ce2c4bf2619436905bd1f3a265a | a0d7b954                 | Home Assistant Add-on                                                  | None         |

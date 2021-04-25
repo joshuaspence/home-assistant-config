@@ -7,6 +7,7 @@ use_blueprint:
     trigger_sensor:
       - 'binary_sensor.dining_room_occupancy'
       - 'binary_sensor.kitchen_occupancy'
+      - 'binary_sensor.kitchen_west_occupancy'
     light_target:
       - 'light.kitchen'
       - 'light.dining_room'
