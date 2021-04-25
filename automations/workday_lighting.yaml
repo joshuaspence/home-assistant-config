@@ -18,8 +18,7 @@ action:
           before: '10:00'
       sequence:
         - service: 'light.turn_on'
-          target:
-            area: 'office'
+          entity_id: 'light.office'
 
     - conditions:
         - condition: 'time'
@@ -27,5 +26,4 @@ action:
           before: '20:00'
       sequence:
         - service: 'light.turn_off'
-          target:
-            area: 'office'
+          entity_id: 'light.office'
