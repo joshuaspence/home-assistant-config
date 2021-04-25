@@ -1,0 +1,6 @@
+---
+binary_sensor:
+  - platform: 'workday'
+    name: 'Workday'
+    country: 'Australia'
+    province: 'NSW'
