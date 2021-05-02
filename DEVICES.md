@@ -12,6 +12,8 @@
 | Attic Ridge Light Strip                 | 2c371e52fff7bd448d7af105a9f24a7d | Unknown                  | Tuya generic                                                           | attic        |
 | Attic Upper Temperature Sensor          | 4342f0cce4c6a08a07b15f9d793b809d | LUMI                     | lumi.weather                                                           | attic        |
 | Back Door Contact Sensor                | 1b5be3f8cf7352fc290a902cf0846f97 | Samjin                   | multi                                                                  | laundry      |
+| Back Yard Motion Sensor                 | 6e307ebf658295c01d293b77b0c5bc6b | Philips                  | SML002                                                                 | outside      |
+| Basement Dehumidifier Smart Plug        | f12e18d8864b34370fdcd698c61e3758 | TP-Link                  | KP115(AU)                                                              | basement     |
 | Basement East Temperature Sensor        | caea1628a5a11768281d39c2c375440c | LUMI                     | lumi.weather                                                           | basement     |
 | Basement West Temperature Sensor        | 31c46f54af521c07627724ab684613e6 | LUMI                     | lumi.weather                                                           | basement     |
 | Bathroom Door Contact Sensor            | e407252d2d5416baaf8bd56e5a8e1b6a | LUMI                     | lumi.sensor_magnet.aq2                                                 | bathroom     |
@@ -72,14 +74,16 @@
 | Office Door Sensor                      | 743ad3aa3f2e27daf66c0ca1a9271283 | LUMI                     | lumi.sensor_magnet.aq2                                                 | office       |
 | Office Light                            | df4f1822e77145fe8e68eb3d54944a82 | Philips                  | LCT010                                                                 | office       |
 | Office Temperature Sensor               | c936933603abc9fb1d036fe781433c70 | LUMI                     | lumi.weather                                                           | office       |
-| Outside East-northeast Light            | a8259594cc0dcbd3a4393f715831840a | Philips                  | LCA001                                                                 | outside      |
+| Outside East-northeast Light            | 07e24db025717680a20b607e0946dc8c | Signify Netherlands B.V. | LCA001                                                                 | outside      |
 | Outside East-southeast Light            | e9734bce05d69dafebe1ab08f11a9ba3 | Philips                  | LCA001                                                                 | outside      |
 | Outside North-northeast Light           | fe0e72cf37572c7e939c0353a8eabc21 | Philips                  | LCA001                                                                 | outside      |
 | Outside North-northwest Light           | 32096630c1890c2b926055ee921ebb82 | Philips                  | LCA001                                                                 | outside      |
 | Outside South-southeast Light           | 6715cac52e975a6196b87b5ca3edfbc3 | Philips                  | LCA001                                                                 | outside      |
 | Outside South-southwest Light           | bf6a0b44595912412b6814c7de195143 | Philips                  | LCA001                                                                 | outside      |
 | Outside Temperature Sensor              | 02805f6957d30f264f29603b55fbd4dc | LUMI                     | lumi.weather                                                           | outside      |
+| Pantry Door Conact Sensor               | 0def32d22cbb6dc6e16fa89851b5e86c | LUMI                     | lumi.sensor_magnet.aq2                                                 | pantry       |
 | Refrigerator Smart Plug                 | 7131616138d08e980c8b8550ffbbcda4 | TP-Link                  | HS110(AU)                                                              | kitchen      |
+| Side Yard Motion Sensor                 | 017b54ed0e51a701fe47a4c045910b22 | Philips                  | SML002                                                                 | outside      |
 | Spa Bath Water Leak Sensor              | 18b988d9d9d6ac9dca32e7f17b891477 | Samjin                   | water                                                                  | bathroom     |
 | Toilet Door Contact Sensor              | 18d93823c5a167439d2adf8bfa346483 | LUMI                     | lumi.sensor_magnet.aq2                                                 | toilet       |
 | Toilet Light                            | b85d6cca8ba25328dd7bb5831dac069d | Philips                  | LTD011                                                                 | toilet       |
@@ -94,3 +98,4 @@
 | None                                    | a2365fcf4d04f45dc99072c74422e776 | a0d7b954                 | Home Assistant Add-on                                                  | None         |
 | None                                    | 564bdcc1edf6f32eb826082634983cfd | a0d7b954                 | Home Assistant Add-on                                                  | None         |
 | None                                    | d22287616c790edee77e5906d2c7c968 | Home Assistant           | Home Assistant Operating System                                        | None         |
+| None                                    | 13b54eda7560e011b4bb7ceb42addf83 | Apple                    | None                                                                   | None         |

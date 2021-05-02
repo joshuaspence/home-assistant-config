@@ -10,4 +10,4 @@ use_blueprint:
     light_target:
       - 'light.outside_nne'
       - 'light.outside_nnw'
-    illuminance_sensor: 'sensor.front_yard_illuminance'
+    illuminance_sensor: 'sensor.back_yard_illuminance'

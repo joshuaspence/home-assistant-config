@@ -1,0 +1,11 @@
+---
+id: '8a402213-9f7f-4ff7-8538-b974982ba414'
+alias: 'Side Yard Motion-Activated Lights'
+use_blueprint:
+  path: 'motion_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.side_yard_occupancy'
+    light_target:
+      - 'light.outside_sse'
+      - 'light.outside_ssw'
+    illuminance_sensor: 'sensor.side_yard_illuminance'

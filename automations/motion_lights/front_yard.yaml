@@ -7,4 +7,3 @@ use_blueprint:
     trigger_sensor: 'binary_sensor.front_yard_occupancy'
     light_target: 'light.front_door'
     illuminance_sensor: 'sensor.front_yard_illuminance'
-    illuminance_threshold: 100
