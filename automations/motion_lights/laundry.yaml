@@ -1,6 +1,6 @@
 ---
 id: 'e02baf5c-8f91-4676-9168-4b5a2b4b7491'
-alias: 'Laundry Motion-Activated Lights'
+alias: 'Laundry Motion Lights'
 use_blueprint:
   path: 'motion_lights.yaml'
   input:

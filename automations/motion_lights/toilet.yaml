@@ -1,6 +1,6 @@
 ---
 id: 'c363bc72-7c75-44ee-9f2a-4c96a2bb9e91'
-alias: 'Toilet Motion-Activated Lights'
+alias: 'Toilet Motion Lights'
 use_blueprint:
   path: 'motion_lights.yaml'
   input:

@@ -1,6 +1,6 @@
 ---
 id: 'e549335f-7426-4297-8d26-370ebe19febd'
-alias: 'Back Yard Motion-Activated Lights'
+alias: 'Back Yard Motion Lights'
 use_blueprint:
   path: 'motion_lights.yaml'
   input:
