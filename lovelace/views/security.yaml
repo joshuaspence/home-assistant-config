@@ -6,25 +6,42 @@ cards:
   - type: 'alarm-panel'
     entity: 'alarm_control_panel.alarm'
 
-  - type: 'entities'
-    title: 'Exterior Doors'
-    icon: 'mdi:door'
-    entities:
-      - 'binary_sensor.front_door'
-      - 'binary_sensor.back_door'
-      - 'binary_sensor.living_room_sliding_door'
-      - 'binary_sensor.dining_room_sliding_door'
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Exterior Doors'
+      icon: 'mdi:door'
+    filter:
+      include: &exterior_doors
+        - entity_id: 'binary_sensor.front_door'
+        - entity_id: 'binary_sensor.back_door'
+        - entity_id: 'binary_sensor.living_room_sliding_door'
+        - entity_id: 'binary_sensor.dining_room_sliding_door'
 
-  - type: 'entities'
-    title: 'Interior Doors'
-    icon: 'mdi:door'
-    entities:
-      - 'binary_sensor.attic_door'
-      - 'binary_sensor.bathroom_door'
-      - 'binary_sensor.bedroom_1_door'
-      - 'binary_sensor.bedroom_2_door'
-      - 'binary_sensor.kitchen_door'
-      - 'binary_sensor.laundry_door'
-      - 'binary_sensor.linen_closet_door'
-      - 'binary_sensor.office_door'
-      - 'binary_sensor.toilet_door'
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Interior Doors'
+      icon: 'mdi:door'
+    filter:
+      include:
+        - domain: 'binary_sensor'
+          entity_id: 'binary_sensor.*_door'
+          attributes:
+            device_class: 'door'
+          options:
+            type: 'custom:template-entity-row'
+            name: >-
+              {{ state_attr(config.entity, 'friendly_name') | replace(' Door', '') }}
+            state: >-
+              {% if config.entity.state == "on" %}
+                Open
+              {% else %}
+                Closed
+              {% endif %}
+      exclude:
+        - area: 'outside'
+        - entity_id: 'binary_sensor.mailbox_*_door'
+        - or: *exterior_doors
+    sort:
+      method: 'name'

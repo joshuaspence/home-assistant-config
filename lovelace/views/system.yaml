@@ -30,7 +30,7 @@ cards:
         name: 'HVACs'
         icon: 'mdi:thermostat'
         state: '{{ states.climate | count }}'
-      - type: 'custom:template-entity-row'
+      - type: 'custoDm:template-entity-row'
         name: 'Covers'
         icon: 'mdi:window-open'
         state: '{{ states.cover | count }}'
@@ -265,7 +265,7 @@ cards:
         - name: 'entity_id'
           value: '*_battery_level'
         - name: 'entity_id'
-          value: '*_power'
+          value: '*_sensor_power'
         - name: 'attributes.device_class'
           value: 'battery'
     bulk_rename:

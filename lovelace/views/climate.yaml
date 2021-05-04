@@ -17,8 +17,6 @@ cards:
 
       - type: 'glance'
         entities: &downstairs_temperature_entities
-          - entity: 'sensor.back_door_temperature'
-            name: 'Back Door'
           - entity: 'sensor.kitchen_temperature'
             name: 'Kitchen'
           - entity: 'sensor.laundry_temperature'
@@ -39,17 +37,6 @@ cards:
       - type: 'history-graph'
         entities: *downstairs_humidity_entities
 
-      - type: 'glance'
-        entities: &downstairs_pressure_entities
-          - entity: 'sensor.kitchen_pressure'
-            name: 'Kitchen'
-          - entity: 'sensor.laundry_pressure'
-            name: 'Laundry'
-          - entity: 'sensor.living_room_pressure'
-            name: 'Living Room'
-      - type: 'history-graph'
-        entities: *downstairs_pressure_entities
-
   - type: 'vertical-stack'
     title: 'Upstairs'
     cards:
@@ -67,8 +54,6 @@ cards:
             name: 'Bedroom 1'
           - entity: 'sensor.bedroom_2_temperature'
             name: 'Bedroom 2'
-          - entity: 'sensor.front_door_temperature'
-            name: 'Front Door'
           - entity: 'sensor.hallway_temperature'
             name: 'Hallway'
           - entity: 'sensor.office_temperature'
@@ -93,21 +78,6 @@ cards:
       - type: 'history-graph'
         entities: *upstairs_humidity_entities
 
-      - type: 'glance'
-        entities: &upstairs_pressure_entities
-          - entity: 'sensor.bathroom_pressure'
-            name: 'Bathroom'
-          - entity: 'sensor.bedroom_1_pressure'
-            name: 'Bedroom 1'
-          - entity: 'sensor.bedroom_2_pressuire'
-            name: 'Bedroom 2'
-          - entity: 'sensor.office_pressure'
-            name: 'Office'
-          - entity: 'sensor.toilet_pressure'
-            name: 'Toilet'
-      - type: 'history-graph'
-        entities: *upstairs_pressure_entities
-
   - type: 'vertical-stack'
     title: 'Outside'
     cards:
@@ -116,8 +86,14 @@ cards:
         show_forecast: false
       - type: 'glance'
         entities: &outside_temperature_entities
+          - entity: 'sensor.back_yard_temperature'
+            name: 'Back Yard'
           - entity: 'sensor.front_yard_temperature'
             name: 'Front Yard'
+          - entity: 'sensor.side_yard_temperature'
+            name: 'Side Yard'
+          - entity: 'sensor.outside_temperature'
+            name: 'Verandah'
       - type: 'history-graph'
         entities: *outside_temperature_entities
 
@@ -142,15 +118,6 @@ cards:
       - type: 'history-graph'
         entities: *attic_humidity_entities
 
-      - type: 'glance'
-        entities: &attic_pressure_entities
-          - entity: 'sensor.attic_lower_pressure'
-            name: 'Lower'
-          - entity: 'sensor.attic_upper_pressure'
-            name: 'Upper'
-      - type: 'history-graph'
-        entities: *attic_pressure_entities
-
   - type: 'vertical-stack'
     title: 'Basement'
     cards:
@@ -172,11 +139,3 @@ cards:
       - type: 'history-graph'
         entities: *basement_humidity_entities
 
-      - type: 'glance'
-        entities: &basement_pressure_entities
-          - entity: 'sensor.basement_east_pressure'
-            name: 'East'
-          - entity: 'sensor.basement_west_pressure'
-            name: 'West'
-      - type: 'history-graph'
-        entities: *basement_pressure_entities
