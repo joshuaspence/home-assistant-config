@@ -258,6 +258,19 @@ cards:
       - name: 'Type'
         attr: 'device_type'
 
+      # See dmulcahey/zha-network-card#25.
+      - name: 'Neighbours'
+        attr: 'neighbors'
+        modify: >-
+          x.map((n, idx) => {
+            let s = "";
+            if (idx > 0) {
+              s = "<br />";
+            }
+            s = s + n.relationship + " " + n.ieee;
+            return s;
+          });
+
   - type: 'custom:battery-state-card'
     title: 'Battery Levels'
     filter:
