@@ -30,7 +30,7 @@ cards:
         name: 'HVACs'
         icon: 'mdi:thermostat'
         state: '{{ states.climate | count }}'
-      - type: 'custoDm:template-entity-row'
+      - type: 'custom:template-entity-row'
         name: 'Covers'
         icon: 'mdi:window-open'
         state: '{{ states.cover | count }}'
