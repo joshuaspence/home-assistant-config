@@ -138,4 +138,3 @@ cards:
             name: 'West'
       - type: 'history-graph'
         entities: *basement_humidity_entities
-
