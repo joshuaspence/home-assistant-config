@@ -34,8 +34,6 @@ sensor:
       b_constant: 3350
       reference_temperature: '298.15K'
       reference_resistance: '10kOhm'
-    unit_of_measurement: '°C'
-    icon: 'mdi:thermometer'
     accuracy_decimals: 1
 
 status_led:
