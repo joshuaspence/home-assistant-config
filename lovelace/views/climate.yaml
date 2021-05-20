@@ -84,18 +84,32 @@ cards:
       - type: 'weather-forecast'
         entity: 'weather.home'
         show_forecast: false
+
       - type: 'glance'
         entities: &outside_temperature_entities
-          - entity: 'sensor.back_yard_temperature'
-            name: 'Back Yard'
-          - entity: 'sensor.front_yard_temperature'
-            name: 'Front Yard'
-          - entity: 'sensor.side_yard_temperature'
-            name: 'Side Yard'
+          - entity: 'sensor.downstairs_temperature'
+            name: 'Downstairs'
+          - entity: 'sensor.inside_temperature'
+            name: 'Inside'
           - entity: 'sensor.outside_temperature'
-            name: 'Verandah'
+            name: 'Outside'
+          - entity: 'sensor.upstairs_temperature'
+            name: 'Upstairs'
       - type: 'history-graph'
         entities: *outside_temperature_entities
+
+      - type: 'glance'
+        entities: &outside_humidity_entities
+          - entity: 'sensor.downstairs_humidity'
+            name: 'Downstairs'
+          - entity: 'sensor.inside_humidity'
+            name: 'Inside'
+          - entity: 'sensor.outside_humidity'
+            name: 'Outside'
+          - entity: 'sensor.upstairs_humidity'
+            name: 'Upstairs'
+      - type: 'history-graph'
+        entities: *outside_humidity_entities
 
   - type: 'vertical-stack'
     title: 'Attic'

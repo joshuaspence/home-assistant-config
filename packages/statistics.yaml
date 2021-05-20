@@ -34,3 +34,24 @@ sensor:
       - 'sensor.office_temperature'
     type: 'mean'
     name: 'Upstairs Temperature'
+
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.bedroom_1_humidity'
+      - 'sensor.bedroom_2_humidity'
+      - 'sensor.kitchen_humidity'
+      - 'sensor.living_room_humidity'
+      - 'sensor.office_humidity'
+    type: 'mean'
+    name: 'Inside Humidity'
+
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.bedroom_1_temperature'
+      - 'sensor.bedroom_2_temperature'
+      - 'sensor.hallway_temperature'
+      - 'sensor.kitchen_temperature'
+      - 'sensor.living_room_temperature'
+      - 'sensor.office_temperature'
+    type: 'mean'
+    name: 'Inside Temperature'
