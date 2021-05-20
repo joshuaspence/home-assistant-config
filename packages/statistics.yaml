@@ -6,6 +6,13 @@ sensor:
 
   - platform: 'min_max'
     entity_ids:
+      - 'sensor.kitchen_humidity'
+      - 'sensor.living_room_humidity'
+    type: 'mean'
+    name: 'Downstairs Humidity'
+
+  - platform: 'min_max'
+    entity_ids:
       - 'sensor.kitchen_temperature'
       - 'sensor.living_room_temperature'
     type: 'mean'
