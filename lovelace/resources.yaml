@@ -5,6 +5,8 @@
   type: 'module'
 - url: '/hacsfiles/lovelace-auto-entities/auto-entities.js'
   type: 'module'
+- url: '/hacsfiles/lovelace-collapsable-cards/collapsable-cards.js'
+  type: 'module'
 - url: '/hacsfiles/lovelace-template-entity-row/template-entity-row.js'
   type: 'module'
 - url: '/hacsfiles/mini-graph-card/mini-graph-card-bundle.js'
