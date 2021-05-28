@@ -1,0 +1,9 @@
+---
+id: '6154f2b2-f20f-420d-a79d-23aeabab6044'
+alias: 'Dining Room Motion Lights'
+use_blueprint:
+  path: 'motion_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.dining_room_occupancy'
+    light_target: 'light.dining_room'
+    illuminance_sensor: 'sensor.dining_room_illuminance'

@@ -1,0 +1,9 @@
+---
+id: '40994dc5-ba03-46b8-aa75-dc024b37920e'
+alias: 'Bathroom Motion Lights'
+use_blueprint:
+  path: 'motion_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.bathroom_occupancy'
+    light_target: 'light.bathroom_mirror'
+    illuminance_sensor: 'sensor.bathroom_illuminance'
