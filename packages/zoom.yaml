@@ -1,0 +1,5 @@
+---
+zoom:
+  client_id: !secret 'zoom.client_id'
+  client_secret: !secret 'zoom.client_secret'
+  verification_token: !secret 'zoom.verification_token'
