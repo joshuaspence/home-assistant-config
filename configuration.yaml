@@ -22,6 +22,8 @@ homeassistant:
       icon: 'mdi:motion-sensor'
     binary_sensor.*_door:
       device_class: 'door'
+    binary_sensor.*_window:
+      device_class: 'window'
     light.bedroom_*:
       icon: 'mdi:ceiling-light'
     light.living_room_*_*:
