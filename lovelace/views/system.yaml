@@ -310,3 +310,26 @@ cards:
             name: 'Toilet Shelly'
       - type: 'history-graph'
         entities: *device_temperature_entities
+
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Entities without Area'
+      show_header_toggle: false
+    filter:
+      include:
+        # - domain: 'binary_sensor'
+        # - domain: 'climate'
+        - domain: 'fan'
+        - domain: 'light'
+        - domain: 'media_player'
+        # - domain: 'sensor'
+        # - domain: 'switch'
+      exclude:
+        - area: '*'
+
+        # Exclude entities without a unique ID.
+        - entity_id: 'light.attic'
+        - entity_id: 'light.hallway'
+        - entity_id: 'light.living_room'
+        - entity_id: 'light.outside_wall'
