@@ -9,7 +9,7 @@ jobs:
   esphome:
     runs-on: 'ubuntu-latest'
     container:
-      image: 'esphome/esphome:1.16.1'
+      image: 'esphome/esphome:latest'
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'canastro/copy-action@0.0.2'
