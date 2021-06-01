@@ -1,0 +1,31 @@
+---
+substitutions:
+  device_name: 'laundry_shelly'
+  output1_name: 'Laundry'
+  output2_name: 'Outside'
+
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly25.yaml'
+
+output:
+  - platform: 'gpio'
+    pin: '${output1_gpio}'
+    id: 'relay1'
+  - platform: 'gpio'
+    pin: '${output2_gpio}'
+    id: 'relay2'
+
+light:
+  - platform: 'binary'
+    name: '${output1_name}'
+    output: 'relay1'
+    id: 'output1'
+    restore_mode: 'ALWAYS_ON'
+    internal: true
+  - platform: 'binary'
+    name: '${output2_name}'
+    output: 'relay2'
+    id: 'output2'
+    restore_mode: 'ALWAYS_ON'
+    internal: true

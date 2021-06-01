@@ -1,0 +1,21 @@
+---
+substitutions:
+  device_name: 'office_shelly'
+  output1_name: 'Office'
+
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly1.yaml'
+
+output:
+  - platform: 'gpio'
+    pin: '${output1_gpio}'
+    id: 'relay1'
+
+light:
+  - platform: 'binary'
+    name: '${output1_name}'
+    output: 'relay1'
+    id: 'output1'
+    restore_mode: 'ALWAYS_ON'
+    internal: true

@@ -1,0 +1,8 @@
+---
+substitutions:
+  device_name: 'basement_shelly'
+  output1_name: 'Basement'
+
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly1.yaml'

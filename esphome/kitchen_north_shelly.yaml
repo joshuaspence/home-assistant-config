@@ -1,0 +1,9 @@
+---
+substitutions:
+  device_name: 'kitchen_north_shelly'
+  output1_name: 'Kitchen Sink'
+  output2_name: 'Kitchen Cupboards'
+
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly25.yaml'
