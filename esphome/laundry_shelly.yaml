@@ -2,11 +2,37 @@
 substitutions:
   device_name: 'laundry_shelly'
   output1_name: 'Laundry'
-  output2_name: 'Outside'
+  output2_name: 'Outside East'
 
 packages:
   common: !include 'packages/common.yaml'
   device: !include 'packages/shelly25.yaml'
+
+binary_sensor:
+  - platform: 'gpio'
+    pin: '${input1_gpio}'
+    id: 'input1'
+    on_state:
+      then:
+        homeassistant.service:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.laundry'
+    internal: true
+  - platform: 'gpio'
+    pin: '${input2_gpio}'
+    id: 'input2'
+    on_state:
+      then:
+        - homeassistant.service:
+            service: 'light.toggle'
+            data:
+              entity_id: 'light.outside_ene'
+        - homeassistant.service:
+            service: 'light.toggle'
+            data:
+              entity_id: 'light.outside_ese'
+    internal: true
 
 output:
   - platform: 'gpio'
