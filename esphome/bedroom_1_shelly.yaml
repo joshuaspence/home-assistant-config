@@ -7,6 +7,17 @@ packages:
   common: !include 'packages/common.yaml'
   device: !include 'packages/shelly1.yaml'
 
+binary_sensor:
+  - platform: 'gpio'
+    pin: '${input1_gpio}'
+    id: 'input1'
+    on_state:
+      then:
+        homeassistant.service:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bedroom_1'
+
 output:
   - platform: 'gpio'
     pin: '${output1_gpio}'

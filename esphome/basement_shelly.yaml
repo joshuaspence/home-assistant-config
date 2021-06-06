@@ -6,3 +6,23 @@ substitutions:
 packages:
   common: !include 'packages/common.yaml'
   device: !include 'packages/shelly1.yaml'
+
+binary_sensor:
+  - platform: 'gpio'
+    pin: '${input1_gpio}'
+    id: 'input1'
+    on_state:
+      then:
+        light.toggle: 'output1'
+    internal: true
+
+output:
+  - platform: 'gpio'
+    pin: '${output1_gpio}'
+    id: 'relay1'
+
+light:
+  - platform: 'binary'
+    name: '${output1_name}'
+    output: 'relay1'
+    id: 'output1'
