@@ -59,8 +59,8 @@
       brightness: 100
       state: 'on'
     light.hallway:
-      brightness: 36
+      brightness: 100
       state: 'on'
     light.living_room:
-      brightness: 36
+      brightness: 100
       state: 'on'
