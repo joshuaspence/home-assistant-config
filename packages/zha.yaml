@@ -1,2 +1,3 @@
 ---
-zha: {}
+zha:
+  custom_quirks_path: '/config/custom_zha_quirks/'
