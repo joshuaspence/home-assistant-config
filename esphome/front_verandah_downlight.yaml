@@ -1,0 +1,8 @@
+---
+substitutions:
+  device_name: 'front_verandah_downlight'
+  output_name: 'Front Verandah'
+
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/zemismart_rgbw_downlight.yaml'
