@@ -11,6 +11,7 @@ sensor:
           {{
             states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) |
             rejectattr('domain', 'eq', 'group') |
+            rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
             list | count
           }}
         attribute_templates:
@@ -18,8 +19,17 @@ sensor:
             {{
               states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) |
               rejectattr('domain', 'eq', 'group') |
+              rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
               map(attribute='entity_id') | list
             }}
+
+group:
+  ignored_entities:
+    entities:
+      - 'media_player.bedroom_2_speaker'
+      - 'media_player.hallway_speaker'
+      - 'media_player.kitchen_display'
+      - 'media_player.living_room_speaker'
 
 automation:
   - alias: 'Device Offline'
@@ -44,9 +54,9 @@ automation:
           data:
             title: 'Device(s) Offline'
             message: >-
-              Home Assistant devices are offline.
+              {{ trigger.to_state.state }} devices are offline.
 
-              - {{ expand(state_attr('sensor.unavailable_entities', 'entities')) | map(attribute='entity_id') | join('\n- ') }}
+              - {{ expand(trigger.to_state.attributes['entities']) | map(attribute='entity_id') | join('\n- ') }}
             data:
               tag: 'devices-offline'
     mode: 'restart'
