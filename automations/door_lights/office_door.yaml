@@ -1,0 +1,10 @@
+---
+id: '16b40f6d-74ca-4f15-9382-394a681d2e40'
+alias: 'Office Door Lights'
+use_blueprint:
+  path: 'door_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.office_door'
+    light_target: 'light.office'
+    illuminance_sensor: 'sensor.office_illuminance'
+    off_delay: 600
