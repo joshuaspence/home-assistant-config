@@ -148,7 +148,7 @@ cards:
         name: 'Window'
         state: '{{ states.binary_sensor | selectattr("attributes.device_class", "eq", "window") | list | count }}'
 
-  - type: entities
+  - type: 'entities'
     entities:
       - entity: 'sensor.unavailable_entities'
       - type: 'attribute'
