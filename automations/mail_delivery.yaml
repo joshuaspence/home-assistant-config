@@ -21,3 +21,4 @@ action:
   data:
     title: 'Mailbox Activity'
     message: 'Mailbox door was opened.'
+    tag: 'mail-delivery'

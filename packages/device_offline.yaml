@@ -1,0 +1,52 @@
+---
+sensor:
+  - platform: 'template'
+    sensors:
+      unavailable_entities:
+        friendly_name: 'Unavailable Entities'
+        unit_of_measurement: 'entities'
+        icon_template: >-
+          {{ 'mdi:check-circle' if is_state('sensor.unavailable_entities','0') else 'mdi:alert-circle' }}
+        value_template: >-
+          {{
+            states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) |
+            rejectattr('domain', 'eq', 'group') |
+            list | count
+          }}
+        attribute_templates:
+          entities: >-
+            {{
+              states | selectattr('state', 'in', ['unavailable', 'unknown', 'none']) |
+              rejectattr('domain', 'eq', 'group') |
+              map(attribute='entity_id') | list
+            }}
+
+automation:
+  - alias: 'Device Offline'
+    id: '7fa5aace-5294-4181-a6f3-4720b1fe1fde'
+    trigger:
+      platform: 'state'
+      entity_id: 'sensor.unavailable_entities'
+    action:
+      choose:
+        conditions:
+          - condition: 'numeric_state'
+            entity_id: 'sensor.unavailable_entities'
+            below: 1
+        sequence:
+          - service: 'notify.mobile_app_josh_phone'
+            data:
+              message: 'clear_notification'
+              data:
+                tag: 'devices-offline'
+      default:
+        - service: 'notify.mobile_app_josh_phone'
+          data:
+            title: 'Device(s) Offline'
+            message: >-
+              Home Assistant devices are offline.
+
+              - {{ expand(state_attr('sensor.unavailable_entities', 'entities')) | map(attribute='entity_id') | join('\n- ') }}
+            data:
+              tag: 'devices-offline'
+    mode: 'restart'
