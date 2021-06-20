@@ -76,7 +76,7 @@ action:
         for: !input 'off_delay'
       - platform: 'state'
         entity_id: !input 'light_target'
-        state: 'off'
+        to: 'off'
   - service: 'light.turn_off'
     entity_id: !input 'light_target'
 
