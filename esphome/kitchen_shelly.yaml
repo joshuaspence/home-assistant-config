@@ -11,7 +11,7 @@ binary_sensor:
   - platform: 'gpio'
     pin: '${input1_gpio}'
     id: 'input1'
-    on_state:
+    on_click:
       then:
         homeassistant.service:
           service: 'light.toggle'
