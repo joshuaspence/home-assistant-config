@@ -8,6 +8,8 @@ logger:
       - 'ValueError: count must be a positive integer'
     androidtv.adb_manager.adb_manager_async:
       - 'TcpTimeoutException: (Connecting to|Reading from) (?:\d{1,3}\.){3}\d{1,3}:\d+ timed out'
+    custom_components.zoom.binary_sensor:
+      - 'Error retrieving initial zoom status, restoring state'
     homeassistant.components.androidtv.media_player:
       - 'Error: Reading from (?:\d{1,3}\.){3}\d{1,3}:\d+ timed out'
     homeassistant.components.media_player:
