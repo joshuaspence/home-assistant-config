@@ -1,5 +1,4 @@
-"""This won't be needed after zigpy/zha-device-handlers#919."""
-
+"""Philips LTD011 device."""
 from zigpy.profiles import zha
 from zigpy.quirks import CustomDevice
 from zigpy.zcl.clusters.general import (
@@ -12,6 +11,7 @@ from zigpy.zcl.clusters.general import (
     Ota,
     Scenes,
 )
+from zigpy.zcl.clusters.lighting import Color
 from zigpy.zcl.clusters.lightlink import LightLink
 
 from zhaquirks.const import (
@@ -31,6 +31,8 @@ from zhaquirks.philips import (
 
 
 class PhilipsLTD011(CustomDevice):
+    """Philips LTD011 device."""
+
     signature = {
         MODELS_INFO: [
             (PHILIPS, "LTD011"),
@@ -48,9 +50,8 @@ class PhilipsLTD011(CustomDevice):
                     OnOff.cluster_id,
                     LevelControl.cluster_id,
                     LightLink.cluster_id,
-                    768,
-                    4096,
                     64514,
+                    Color.cluster_id,
                 ],
                 OUTPUT_CLUSTERS: [Ota.cluster_id],
             },
@@ -76,9 +77,8 @@ class PhilipsLTD011(CustomDevice):
                     PhilipsOnOffCluster,
                     PhilipsLevelControlCluster,
                     LightLink.cluster_id,
-                    768,
-                    4096,
                     64514,
+                    Color.cluster_id,
                 ],
                 OUTPUT_CLUSTERS: [Ota.cluster_id],
             },
