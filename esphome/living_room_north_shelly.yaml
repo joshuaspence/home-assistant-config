@@ -1,6 +1,6 @@
 ---
 substitutions:
-  device_name: 'living_room_east_shelly'
+  device_name: 'living_room_north_shelly'
   output1_name: 'Outside Verandah'
 
 packages:
