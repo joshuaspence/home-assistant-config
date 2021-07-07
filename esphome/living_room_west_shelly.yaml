@@ -1,0 +1,53 @@
+---
+substitutions:
+  device_name: 'living_room_west_shelly'
+  output1_name: 'Living Room Upper West'
+  output2_name: 'Living Room Lower West'
+
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly25.yaml'
+
+binary_sensor:
+  - platform: 'gpio'
+    pin: '${input1_gpio}'
+    id: 'input1'
+    on_click:
+      then:
+        homeassistant.service:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.living_room_upper_west'
+    internal: true
+  - platform: 'gpio'
+    pin: '${input2_gpio}'
+    id: 'input2'
+    on_click:
+      then:
+        - homeassistant.service:
+            service: 'light.toggle'
+            data:
+              entity_id: 'light.living_room_lower_west'
+    internal: true
+
+output:
+  - platform: 'gpio'
+    pin: '${output1_gpio}'
+    id: 'relay1'
+  - platform: 'gpio'
+    pin: '${output2_gpio}'
+    id: 'relay2'
+
+light:
+  - platform: 'binary'
+    name: '${output1_name}'
+    output: 'relay1'
+    id: 'output1'
+    restore_mode: 'ALWAYS_ON'
+    internal: true
+  - platform: 'binary'
+    name: '${output2_name}'
+    output: 'relay2'
+    id: 'output2'
+    restore_mode: 'ALWAYS_ON'
+    internal: true

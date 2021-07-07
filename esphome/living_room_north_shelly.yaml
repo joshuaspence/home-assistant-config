@@ -1,0 +1,37 @@
+---
+substitutions:
+  device_name: 'living_room_east_shelly'
+  output1_name: 'Outside Verandah'
+
+packages:
+  common: !include 'packages/common.yaml'
+  device: !include 'packages/shelly25.yaml'
+
+binary_sensor:
+  - platform: 'gpio'
+    pin: '${input1_gpio}'
+    id: 'input1'
+    on_click:
+      then:
+        - homeassistant.service:
+            service: 'light.toggle'
+            data:
+              entity_id: 'light.outside_nnw'
+        - homeassistant.service:
+            service: 'light.toggle'
+            data:
+              entity_id: 'light.outside_nne'
+    internal: true
+
+output:
+  - platform: 'gpio'
+    pin: '${output1_gpio}'
+    id: 'relay1'
+
+light:
+  - platform: 'binary'
+    name: '${output1_name}'
+    output: 'relay1'
+    id: 'output1'
+    restore_mode: 'ALWAYS_ON'
+    internal: true
