@@ -78,6 +78,7 @@ cards:
     icon: 'mdi:office-building'
     entities:
       - 'light.office'
+      - 'light.office_desk'
 
   - type: 'entities'
     title: 'Outside'
