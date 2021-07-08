@@ -1,0 +1,11 @@
+---
+media_player:
+  - platform: 'group'
+    name: 'All'
+    entities:
+      - 'media_player.bedroom_1_speaker'
+      - 'media_player.bedroom_2_speaker'
+      - 'media_player.hallway_speaker'
+      - 'media_player.kitchen_display'
+      - 'media_player.living_room_tv'
+      - 'media_player.office_display'
