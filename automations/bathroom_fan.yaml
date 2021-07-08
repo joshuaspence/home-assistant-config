@@ -3,20 +3,26 @@ id: 'bc91c7b0-9a04-4d7c-8d11-2c0d6173e9fd'
 alias: 'Bathroom Fan'
 trigger:
   - platform: 'template'
-    value_template: &high_humidity >-
+    id: 'high_humidity'
+    value_template: >-
       {{ states('sensor.bathroom_humidity') | float >= states('sensor.toilet_humidity') | float + 5 }}
   - platform: 'template'
-    value_template: &low_humidity >-
+    id: 'low_humidity'
+    value_template: >-
       {{ states('sensor.bathroom_humidity') | float < states('sensor.toilet_humidity') | float + 3 }}
     for: 600
 action:
   choose:
-    - conditions: *high_humidity
+    - conditions:
+        condition: 'trigger'
+        id: 'high_humidity'
       sequence:
         - service: 'fan.turn_on'
           target:
             entity_id: 'fan.bathroom'
-    - conditions: *low_humidity
+    - conditions:
+        condition: 'trigger'
+        id: 'low_humidity'
       sequence:
         - service: 'fan.turn_off'
           target:
