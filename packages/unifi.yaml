@@ -2,5 +2,6 @@
 sensor:
   - platform: 'unifigateway'
     host: 'localhost'
+    port: 8443
     username: !secret 'unifi.username'
     password: !secret 'unifi.password'
