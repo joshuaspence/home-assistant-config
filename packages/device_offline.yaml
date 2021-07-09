@@ -4,9 +4,8 @@ sensor:
     sensors:
       unavailable_entities:
         friendly_name: 'Unavailable Entities'
+        unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
         unit_of_measurement: 'entities'
-        icon_template: >-
-          {{ 'mdi:check-circle' if is_state('sensor.unavailable_entities', '0') else 'mdi:alert-circle' }}
         value_template: >-
           {{
             states | selectattr('state', 'in', ['unavailable', 'unknown']) |
@@ -15,6 +14,12 @@ sensor:
             rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
             list | count
           }}
+        icon_template: >-
+          {% if is_state('sensor.unavailable_entities', '0') %}
+            mdi:check-circle
+          {% else %}
+            mdi:alert-circle
+          {% endif %}
         attribute_templates:
           entities: >-
             {{
