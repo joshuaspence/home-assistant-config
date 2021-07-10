@@ -17,13 +17,13 @@ action:
         condition: 'trigger'
         id: 'high_humidity'
       sequence:
-        - service: 'fan.turn_on'
-          target:
-            entity_id: 'fan.bathroom'
+        service: 'fan.turn_on'
+        target:
+          entity_id: 'fan.bathroom'
     - conditions:
         condition: 'trigger'
         id: 'low_humidity'
       sequence:
-        - service: 'fan.turn_off'
-          target:
-            entity_id: 'fan.bathroom'
+        service: 'fan.turn_off'
+        target:
+          entity_id: 'fan.bathroom'

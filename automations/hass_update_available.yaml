@@ -11,40 +11,40 @@ action:
       - conditions: >-
           {{ states('sensor.current_version') != states('sensor.latest_version') }}
         sequence:
-          - service: 'persistent_notification.create'
-            data:
-              title: 'Update Available'
-              message: 'Home Assistant {{ states.sensor.latest_version.state }} is available.'
-              notification_id: 'update_available_homeassistant'
+          service: 'persistent_notification.create'
+          data:
+            title: 'Update Available'
+            message: 'Home Assistant {{ states.sensor.latest_version.state }} is available.'
+            notification_id: 'update_available_homeassistant'
     default:
-      - service: 'persistent_notification.dismiss'
-        data:
-          notification_id: 'update_available_homeassistant'
+      service: 'persistent_notification.dismiss'
+      data:
+        notification_id: 'update_available_homeassistant'
 
   - choose:
       - conditions: >-
           {{ state_attr('sensor.current_version', 'hassos') != state_attr('sensor.latest_version', 'hassos') }}
         sequence:
-          - service: 'persistent_notification.create'
-            data:
-              title: 'Update Available'
-              message: 'HassOS {{ states.sensor.latest_version.attributes.hassos }} is available.'
-              notification_id: 'update_available_hassos'
+          service: 'persistent_notification.create'
+          data:
+            title: 'Update Available'
+            message: 'HassOS {{ states.sensor.latest_version.attributes.hassos }} is available.'
+            notification_id: 'update_available_hassos'
     default:
-      - service: 'persistent_notification.dismiss'
-        data:
-          notification_id: 'update_available_hassos'
+      service: 'persistent_notification.dismiss'
+      data:
+        notification_id: 'update_available_hassos'
 
   - choose:
       - conditions: >-
           {{ state_attr('sensor.current_version', 'supervisor') != state_attr('sensor.latest_version', 'supervisor') }}'
         sequence:
-          - service: 'persistent_notification.create'
-            data:
-              title: 'Update Available'
-              message: 'Supervisor {{ states.sensor.latest_version.attributes.supervisor }} is available.'
-              notification_id: 'update_available_supervisor'
+          service: 'persistent_notification.create'
+          data:
+            title: 'Update Available'
+            message: 'Supervisor {{ states.sensor.latest_version.attributes.supervisor }} is available.'
+            notification_id: 'update_available_supervisor'
     default:
-      - service: 'persistent_notification.dismiss'
-        data:
-          notification_id: 'update_available_supervisor'
+      service: 'persistent_notification.dismiss'
+      data:
+        notification_id: 'update_available_supervisor'

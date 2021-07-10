@@ -9,7 +9,7 @@ trigger:
   for:
     minutes: 30
 action:
-  - service: 'notify.mobile_app_josh_phone'
-    data:
-      title: 'Vacuum Stuck'
-      message: 'Vaccum has been returning to base for 30 minutes and is likely stuck.'
+  service: 'notify.mobile_app_josh_phone'
+  data:
+    title: 'Vacuum Stuck'
+    message: 'Vaccum has been returning to base for 30 minutes and is likely stuck.'
