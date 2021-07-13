@@ -4,12 +4,10 @@ alias: 'Bathroom Fan'
 trigger:
   - platform: 'template'
     id: 'high_humidity'
-    value_template: >-
-      {{ states('sensor.bathroom_humidity') | float >= states('sensor.toilet_humidity') | float + 5 }}
+    value_template: '{{ states("sensor.bathroom_humidity") | float >= states("sensor.toilet_humidity") | float + 5 }}'
   - platform: 'template'
     id: 'low_humidity'
-    value_template: >-
-      {{ states('sensor.bathroom_humidity') | float < states('sensor.toilet_humidity') | float + 3 }}
+    value_template: '{{ states("sensor.bathroom_humidity") | float < states("sensor.toilet_humidity") | float + 3 }}'
     for: 600
 action:
   choose:

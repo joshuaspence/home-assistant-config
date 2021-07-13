@@ -29,8 +29,7 @@ sensor:
               rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
               map(attribute='entity_id') | list
             }}
-        availability_template: >-
-          {{ (now() - states('sensor.uptime') | as_datetime).seconds > 120 }}
+        availability_template: '{{ (now() - states("sensor.uptime") | as_datetime).seconds > 120 }}'
 
 group:
   ignored_entities:
@@ -67,7 +66,7 @@ automation:
           message: >-
             {{ trigger.to_state.state }} devices are offline.
 
-            - {{ expand(trigger.to_state.attributes['entities']) | map(attribute='entity_id') | join('\n- ') }}
+            - {{ expand(trigger.to_state.attributes.entities) | map(attribute="entity_id") | join("\n- ") }}
           data:
             tag: 'devices-offline'
     mode: 'restart'
