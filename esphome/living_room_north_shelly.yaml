@@ -13,14 +13,10 @@ binary_sensor:
     id: 'input1'
     on_click:
       then:
-        - homeassistant.service:
-            service: 'light.toggle'
-            data:
-              entity_id: 'light.outside_nnw'
-        - homeassistant.service:
-            service: 'light.toggle'
-            data:
-              entity_id: 'light.outside_nne'
+        homeassistant.service:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.outside_nne,light.outside_nnw'
     internal: true
 
 output:
