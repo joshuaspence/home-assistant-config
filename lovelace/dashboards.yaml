@@ -1,0 +1,7 @@
+---
+home-advanced:
+  mode: 'yaml'
+  filename: 'lovelace/advanced/dashboard.yaml'
+  title: 'Advanced'
+  icon: 'mdi:home-assistant'
+  show_in_sidebar: true

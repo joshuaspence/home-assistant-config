@@ -43,9 +43,8 @@ homeassistant:
 http:
   server_port: 80
 lovelace:
-  dashboards: {}
-  mode: 'yaml'
-  resources: !include 'lovelace/resources.yaml'
+  mode: 'storage'
+  dashboards: !include 'lovelace/dashboards.yaml'
 person:
   # TODO: Specify `picture`.
   - id: 'josh'
