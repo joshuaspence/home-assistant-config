@@ -1,0 +1,41 @@
+---
+title: 'Lights'
+icon: 'mdi:flashlight'
+path: 'lights'
+cards:
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Scenes'
+      icon: 'mdi:palette'
+    filter:
+      include:
+        - domain: 'scene'
+
+  - type: 'entities'
+    title: 'Downstairs'
+    show_header_toggle: false
+    entities:
+      - 'light.dining_room'
+      - 'light.kitchen'
+      - 'light.laundry'
+      - 'light.living_room'
+
+  - type: 'entities'
+    title: 'Upstairs'
+    show_header_toggle: false
+    entities:
+      - 'light.attic'
+      - 'light.bathroom'
+      - 'light.bedroom_1'
+      - 'light.bedroom_2'
+      - 'light.hallway'
+      - 'light.office'
+      - 'light.toilet'
+
+  - type: 'entities'
+    title: 'Outside'
+    show_header_toggle: false
+    entities:
+      - 'light.front_door'
+      - 'light.outside_wall'

@@ -1,0 +1,4 @@
+---
+views:
+  - !include 'views/lighting.yaml'
+  - !include 'views/climate.yaml'

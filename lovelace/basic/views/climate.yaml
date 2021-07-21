@@ -1,0 +1,46 @@
+---
+title: 'Climate'
+icon: 'mdi:fan'
+path: 'climate'
+cards:
+  - type: 'thermostat'
+    entity: 'climate.aircon'
+
+  - type: 'entities'
+    title: 'Downstairs'
+    entities:
+      - entity: 'switch.aircon_downstairs'
+        name: 'Aircon'
+      - type: 'divider'
+      - entity: 'sensor.kitchen_temperature'
+        name: 'Kitchen'
+      - entity: 'sensor.laundry_temperature'
+        name: 'Laundry'
+      - entity: 'sensor.living_room_temperature'
+        name: 'Living Room'
+
+  - type: 'entities'
+    title: 'Upstairs'
+    entities:
+      - entity: 'switch.aircon_upstairs'
+        name: 'Aircon'
+      - type: 'divider'
+      - entity: 'sensor.bathroom_temperature'
+        name: 'Bathroom'
+      - entity: 'sensor.bedroom_1_temperature'
+        name: 'Bedroom 1'
+      - entity: 'sensor.bedroom_2_temperature'
+        name: 'Bedroom 2'
+      - entity: 'sensor.hallway_temperature'
+        name: 'Hallway'
+      - entity: 'sensor.office_temperature'
+        name: 'Office'
+      - entity: 'sensor.toilet_temperature'
+        name: 'Toilet'
+
+  - type: 'entities'
+    title: 'Outside'
+    entities:
+      - 'weather.home'
+      - entity: 'sensor.outside_temperature'
+        name: 'Temperature'

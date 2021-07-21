@@ -1,4 +1,11 @@
 ---
+home-basic:
+  mode: 'yaml'
+  filename: 'lovelace/basic/dashboard.yaml'
+  title: 'Basic'
+  icon: 'mdi:home'
+  show_in_sidebar: true
+
 home-advanced:
   mode: 'yaml'
   filename: 'lovelace/advanced/dashboard.yaml'
