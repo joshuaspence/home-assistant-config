@@ -11,14 +11,6 @@ i2c:
   sda: 'GPIO12'
   scl: 'GPIO14'
 
-binary_sensor:
-  # Without this input the device will overheat, see
-  # https://savjee.be/2020/11/shelly25-esphome-potential-fire-hazard-fix/.
-  - platform: 'gpio'
-    pin: 'GPIO16'
-    name: 'ADE7953 IRQ'
-    internal: true
-
 sensor:
   # Temperature
   - platform: 'adc'
@@ -52,6 +44,7 @@ sensor:
 
   # Power
   - platform: 'ade7953'
+    irq_pin: 'GPIO16'
     voltage:
       name: '${device_name} Voltage'
       internal: true
