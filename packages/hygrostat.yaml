@@ -1,6 +1,0 @@
----
-climate:
-  - platform: 'generic_hygrostat'
-    name: 'Basement'
-    dryer: 'switch.basement_dehumidifier'
-    target_sensor: 'sensor.basement_east_humidity'
