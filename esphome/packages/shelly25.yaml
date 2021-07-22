@@ -4,6 +4,7 @@ substitutions:
   input2_gpio: 'GPIO5'
   output1_gpio: 'GPIO4'
   output2_gpio: 'GPIO15'
+  max_temp: '70.0'
 
 i2c:
   sda: 'GPIO12'
@@ -35,6 +36,17 @@ sensor:
       reference_temperature: '298.15K'
       reference_resistance: '10kOhm'
     accuracy_decimals: 1
+    on_value_range:
+      above: '${max_temp}'
+      then:
+        - output.turn_off: 'relay1'
+        - output.turn_off: 'relay2'
+        - homeassistant.service:
+            service: 'persistent_notification.create'
+            data:
+              title: '${device_name} Overheated'
+            data_template:
+              message: 'Switch turned off because temperature exceeded ${max_temp}°C'
 
 status_led:
   pin:
