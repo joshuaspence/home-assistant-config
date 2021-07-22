@@ -1,7 +1,13 @@
 ---
-home-advanced:
+lovelace-advanced:
   mode: 'yaml'
   filename: 'lovelace/advanced/dashboard.yaml'
   title: 'Advanced'
   icon: 'mdi:home-assistant'
-  show_in_sidebar: true
+
+hass-admin:
+  mode: 'yaml'
+  filename: 'lovelace/admin/dashboard.yaml'
+  title: 'Admin'
+  icon: 'mdi:cog'
+  require_admin: true

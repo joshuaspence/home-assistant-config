@@ -1,0 +1,7 @@
+---
+views:
+  - !include 'views/system.yaml'
+  - !include 'views/hass.yaml'
+  - !include 'views/zigbee.yaml'
+  - !include 'views/devices.yaml'
+  - !include 'views/network.yaml'

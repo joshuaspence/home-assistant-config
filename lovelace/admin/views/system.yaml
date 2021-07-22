@@ -1,0 +1,30 @@
+---
+title: 'System'
+icon: 'mdi:server-network'
+path: 'system'
+cards:
+  - type: 'entities'
+    entities:
+      - entity: 'sensor.last_boot'
+        format: 'relative'
+      - entity: 'sensor.uptime'
+        format: 'relative'
+
+  - type: 'grid'
+    title: 'Host'
+    columns: 4
+    cards:
+      - type: 'gauge'
+        entity: 'sensor.processor_use_percent'
+        name: 'Processor'
+      - type: 'gauge'
+        entity: 'sensor.memory_use_percent'
+        name: 'Memory'
+      - type: 'gauge'
+        entity: 'sensor.disk_use_percent'
+        name: 'Disk'
+      - type: 'gauge'
+        entity: 'sensor.processor_temperature'
+        name: 'Temperature'
+        min: 20
+        max: 80

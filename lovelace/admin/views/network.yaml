@@ -1,0 +1,35 @@
+---
+title: 'Network'
+icon: 'mdi:network'
+path: 'network'
+cards:
+  - type: 'grid'
+    title: 'Network'
+    columns: 3
+    cards:
+      - type: 'sensor'
+        entity: 'sensor.speedtest_download'
+        name: 'Download'
+        graph: 'line'
+      - type: 'sensor'
+        entity: 'sensor.speedtest_upload'
+        name: 'Upload'
+        graph: 'line'
+      - type: 'sensor'
+        entity: 'sensor.speedtest_ping'
+        name: 'Ping'
+        graph: 'line'
+
+  - type: 'entity'
+    entity: 'sensor.myip'
+    name: 'Public IP'
+
+  - type: 'entities'
+    title: 'Unifi'
+    icon: 'mdi:router-network'
+    entities:
+      - 'sensor.unifi_gateway_alerts'
+      - 'sensor.unifi_gateway_lan'
+      - 'sensor.unifi_gateway_vpn'
+      - 'sensor.unifi_gateway_wlan'
+      - 'sensor.unifi_gateway_www'

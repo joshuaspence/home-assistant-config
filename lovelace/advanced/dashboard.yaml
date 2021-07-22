@@ -8,4 +8,3 @@ views:
   - !include 'views/vacuum.yaml'
   - !include 'views/media.yaml'
   - !include 'views/occupancy.yaml'
-  - !include 'views/system.yaml'

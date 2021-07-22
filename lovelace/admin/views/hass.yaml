@@ -1,15 +1,8 @@
 ---
-title: 'System'
-icon: 'mdi:server-network'
-path: 'system'
+title: 'Home Assistant'
+icon: 'mdi:home-assistant'
+path: 'hass'
 cards:
-  - type: 'entities'
-    entities:
-      - entity: 'sensor.last_boot'
-        format: 'relative'
-      - entity: 'sensor.uptime'
-        format: 'relative'
-
   - type: 'entities'
     title: 'Home Assistant'
     icon: 'mdi:home-assistant'
@@ -177,147 +170,6 @@ cards:
         - attributes:
             restored: true
 
-  - type: 'entity'
-    entity: 'binary_sensor.remote_ui'
-
-  - type: 'entities'
-    title: 'Updates'
-    entities:
-      - 'binary_sensor.updater'
-      - 'sensor.hacs'
-
-  - type: 'entities'
-    title: 'Snapshots'
-    icon: 'mdi:backup-restore'
-    entities:
-      - entity: 'binary_sensor.snapshots_stale'
-        name: 'Staleness'
-      - entity: 'sensor.snapshot_backup'
-        name: 'State'
-
-  - type: 'grid'
-    title: 'Host'
-    columns: 4
-    cards:
-      - type: 'gauge'
-        entity: 'sensor.processor_use_percent'
-        name: 'Processor'
-      - type: 'gauge'
-        entity: 'sensor.memory_use_percent'
-        name: 'Memory'
-      - type: 'gauge'
-        entity: 'sensor.disk_use_percent'
-        name: 'Disk'
-      - type: 'gauge'
-        entity: 'sensor.processor_temperature'
-        name: 'Temperature'
-        min: 20
-        max: 80
-
-  - type: 'grid'
-    title: 'Network'
-    columns: 3
-    cards:
-      - type: 'sensor'
-        entity: 'sensor.speedtest_download'
-        name: 'Download'
-        graph: 'line'
-      - type: 'sensor'
-        entity: 'sensor.speedtest_upload'
-        name: 'Upload'
-        graph: 'line'
-      - type: 'sensor'
-        entity: 'sensor.speedtest_ping'
-        name: 'Ping'
-        graph: 'line'
-
-  - type: 'entity'
-    entity: 'sensor.myip'
-    name: 'Public IP'
-
-  - type: 'custom:zha-network-card'
-    title: 'Zigbee Devices'
-    sort_by: 'status'
-    clickable: true
-    columns:
-      - name: 'Name'
-        prop: 'name'
-      - name: 'Status'
-        attr: 'available'
-        id: 'status'
-        modify: 'x && "Online" || "Offline"'
-
-      - name: 'Manufacturer'
-        attr: 'manufacturer'
-      - name: 'Model'
-        attr: 'model'
-
-      - name: 'IEEE'
-        attr: 'ieee'
-      - name: 'NWK'
-        prop: 'nwk'
-      - name: 'RSSI'
-        attr: 'rssi'
-      - name: 'LQI'
-        attr: 'lqi'
-      - name: 'Last Seen'
-        attr: 'last_seen'
-      - name: 'Type'
-        attr: 'device_type'
-
-      # See dmulcahey/zha-network-card#25.
-      - name: 'Neighbours'
-        attr: 'neighbors'
-        modify: >-
-          x.map((n, idx) => {
-            let s = "";
-            if (idx > 0) {
-              s = "<br />";
-            }
-            s = s + n.relationship + " " + n.ieee;
-            return s;
-          });
-
-  - type: 'custom:battery-state-card'
-    title: 'Battery Levels'
-    filter:
-      include:
-        - name: 'entity_id'
-          value: '*_battery_level'
-        - name: 'entity_id'
-          value: '*_sensor_power'
-        - name: 'attributes.device_class'
-          value: 'battery'
-    bulk_rename:
-      - from: 'Battery Level'
-        to: ''
-      - from: 'Power'
-        to: ''
-
-  - type: 'entities'
-    title: 'Unifi'
-    icon: 'mdi:router-network'
-    entities:
-      - 'sensor.unifi_gateway_alerts'
-      - 'sensor.unifi_gateway_lan'
-      - 'sensor.unifi_gateway_vpn'
-      - 'sensor.unifi_gateway_wlan'
-      - 'sensor.unifi_gateway_www'
-
-  - type: 'vertical-stack'
-    title: 'Device Temperature'
-    cards:
-      - type: 'glance'
-        entities: &device_temperature_entities
-          - entity: 'sensor.bathroom_shelly_1_temperature'
-            name: 'Bathroom Shelly 1'
-          - entity: 'sensor.bathroom_shelly_2_temperature'
-            name: 'Bathroom Shelly 2'
-          - entity: 'sensor.toilet_shelly_temperature'
-            name: 'Toilet Shelly'
-      - type: 'history-graph'
-        entities: *device_temperature_entities
-
   - type: 'custom:auto-entities'
     card:
       type: 'entities'
@@ -340,3 +192,21 @@ cards:
         - entity_id: 'light.hallway'
         - entity_id: 'light.living_room'
         - entity_id: 'light.outside_wall'
+
+  - type: 'entity'
+    entity: 'binary_sensor.remote_ui'
+
+  - type: 'entities'
+    title: 'Updates'
+    entities:
+      - 'binary_sensor.updater'
+      - 'sensor.hacs'
+
+  - type: 'entities'
+    title: 'Snapshots'
+    icon: 'mdi:backup-restore'
+    entities:
+      - entity: 'binary_sensor.snapshots_stale'
+        name: 'Staleness'
+      - entity: 'sensor.snapshot_backup'
+        name: 'State'

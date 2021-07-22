@@ -1,0 +1,44 @@
+---
+title: 'Devices'
+icon: 'mdi:devices'
+path: 'devices'
+cards:
+  - type: 'custom:battery-state-card'
+    title: 'Battery Levels'
+    filter:
+      include:
+        - name: 'entity_id'
+          value: '*_battery_level'
+        - name: 'entity_id'
+          value: '*_sensor_power'
+        - name: 'attributes.device_class'
+          value: 'battery'
+    bulk_rename:
+      - from: 'Battery Level'
+        to: ''
+      - from: 'Power'
+        to: ''
+
+  - type: 'vertical-stack'
+    title: 'Device Temperature'
+    cards:
+      - type: 'glance'
+        entities: &device_temperature_entities
+          - entity: 'sensor.bathroom_shelly_1_temperature'
+            name: 'Bathroom Shelly 1'
+          - entity: 'sensor.bathroom_shelly_2_temperature'
+            name: 'Bathroom Shelly 2'
+          - entity: 'sensor.hallway_west_shelly_temperature'
+            name: 'Hallway West Shelly'
+          - entity: 'sensor.living_room_east_shelly_temperature'
+            name: 'Living Room East Shelly'
+          - entity: 'sensor.living_room_north_shelly_temperature'
+            name: 'Living Room North Shelly'
+          - entity: 'sensor.living_room_west_shelly_temperature'
+            name: 'Living Room West Shelly'
+          - entity: 'sensor.laundry_shelly_temperature'
+            name: 'Laundry Shelly'
+          - entity: 'sensor.toilet_shelly_temperature'
+            name: 'Toilet Shelly'
+      - type: 'history-graph'
+        entities: *device_temperature_entities
