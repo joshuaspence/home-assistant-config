@@ -1,8 +1,8 @@
 ---
 substitutions:
   device_name: 'kitchen_north_shelly'
-  output1_name: 'Kitchen Sink'
-  output2_name: 'Kitchen Cupboards'
+  output1_name: 'Kitchen Cupboards'
+  output2_name: 'Kitchen Sink'
 
 packages:
   common: !include 'packages/common.yaml'
@@ -12,14 +12,14 @@ binary_sensor:
   - platform: 'gpio'
     pin: '${input1_gpio}'
     id: 'input1'
-    on_state:
+    on_click:
       then:
         light.toggle: 'output1'
     internal: true
   - platform: 'gpio'
     pin: '${input2_gpio}'
     id: 'input2'
-    on_state:
+    on_click:
       then:
         light.toggle: 'output2'
     internal: true
