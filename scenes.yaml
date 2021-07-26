@@ -4,13 +4,12 @@
   icon: 'mdi:bed'
   entities:
     light.bathroom: 'off'
+    light.bathroom_mirror: 'off'
     light.dining_room: 'off'
     light.hallway: 'off'
     light.kitchen: 'off'
     light.laundry: 'off'
-    light.living_room:
-      brightness: 25
-      state: 'on'
+    light.living_room: 'off'
     light.office: 'off'
     light.toilet:
       brightness: 25
@@ -32,9 +31,6 @@
   icon: 'mdi:white-balance-sunny'
   entities:
     light.front_door: 'off'
-    light.living_room:
-      brightness: 255
-      state: 'on'
     light.outside_wall: 'off'
     light.toilet:
       brightness: 255
