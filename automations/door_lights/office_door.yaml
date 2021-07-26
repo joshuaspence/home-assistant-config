@@ -5,6 +5,6 @@ use_blueprint:
   path: 'door_lights.yaml'
   input:
     trigger_sensor: 'binary_sensor.office_door'
-    light_target: 'light.office'
+    light_target: 'light.office_main'
     illuminance_sensor: 'sensor.office_illuminance'
     off_delay: 600

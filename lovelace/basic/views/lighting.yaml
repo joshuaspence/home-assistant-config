@@ -17,7 +17,7 @@ cards:
     show_header_toggle: false
     entities:
       - 'light.dining_room'
-      - 'light.kitchen'
+      - 'light.kitchen_main'
       - 'light.laundry'
       - 'light.living_room'
 

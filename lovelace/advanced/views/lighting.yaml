@@ -48,7 +48,9 @@ cards:
     title: 'Kitchen'
     icon: 'mdi:fridge'
     entities:
-      - 'light.kitchen'
+      - 'light.kitchen_cupboards'
+      - 'light.kitchen_main'
+      - 'light.kitchen_sink'
 
   - type: 'entities'
     title: 'Laundry'
@@ -77,8 +79,8 @@ cards:
     title: 'Office'
     icon: 'mdi:office-building'
     entities:
-      - 'light.office'
       - 'light.office_desk'
+      - 'light.office_main'
 
   - type: 'entities'
     title: 'Outside'
