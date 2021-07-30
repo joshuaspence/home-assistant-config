@@ -5,5 +5,7 @@ use_blueprint:
   path: 'door_lights.yaml'
   input:
     trigger_sensor: 'binary_sensor.front_door'
-    light_target: 'light.front_door'
+    light_target:
+      - 'light.front_door'
+      - 'light.front_patio'
     illuminance_sensor: 'sensor.front_yard_illuminance'

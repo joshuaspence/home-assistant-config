@@ -88,6 +88,7 @@ cards:
     show_header_toggle: false
     entities:
       - 'light.front_door'
+      - 'light.front_patio'
       - 'light.outside_wall'
       - type: 'divider'
       - entity: 'light.outside_nne'
