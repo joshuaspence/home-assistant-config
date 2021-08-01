@@ -53,6 +53,7 @@
 | ESPHome Add-On                          | 70072ce2c4bf2619436905bd1f3a265a | Home Assistant Community Add-ons              | Home Assistant Add-on                                                  | None         |
 | Front Door Contact Sensor               | 22f6066a30eb8a393ffb09c5fb93ff85 | LUMI                                          | lumi.sensor_magnet.aq2                                                 | hallway      |
 | Front Door Light                        | 02f9d192c85d064249ea6cb33d7a3bbe | Philips                                       | LCT007                                                                 | outside      |
+| Front Patio Light                       | 1d0ddbc31a229887aa7007e917728ad5 | Philips                                       | 1743530P7                                                              | outside      |
 | Front Verandah Downlight                | 016c4fba2c8bc24f2287ed14319c9710 | espressif                                     | PLATFORMIO_ESP01_1M                                                    | outside      |
 | Front Yard Motion Sensor                | 0ff7f209d4b441cc9f8bbc40f7c64328 | Philips                                       | SML002                                                                 | outside      |
 | Google Drive Backup Add-On              | afb1f8c0c0393a65f6cb085f82773714 | Home Assistant Google Drive Backup Repository | Home Assistant Add-on                                                  | None         |
@@ -101,7 +102,6 @@
 | Mailbox Front Door Contact Sensor       | 8a338d25b85f8d540531a64329e61e89 | LUMI                                          | lumi.sensor_magnet.aq2                                                 | outside      |
 | Mailbox Top Door Contact Sensor         | b1147417f1eb59421139517f4db32ebd | LUMI                                          | lumi.sensor_magnet.aq2                                                 | outside      |
 | Michael's Phone                         | 193beac23d3adceb1ea8a327ffc581e8 | Apple                                         | None                                                                   | None         |
-| Mosquitto Add-On                        | 7e7032e255770787a6e0e89e25304eea | Official add-ons                              | Home Assistant Add-on                                                  | None         |
 | Office Desk Light                       | 6d050213abc44f0534906d8ecbeb5e6c | LDS                                           | ZBT-DIMLight-GLS0044                                                   | office       |
 | Office Display                          | ef7b46f25ceb69a7afab34dfe702015a | Google Inc.                                   | Google Nest Hub Max                                                    | office       |
 | Office Door Sensor                      | 743ad3aa3f2e27daf66c0ca1a9271283 | LUMI                                          | lumi.sensor_magnet.aq2                                                 | office       |
@@ -115,7 +115,7 @@
 | Outside North-northeast Light           | fe0e72cf37572c7e939c0353a8eabc21 | Philips                                       | LCA001                                                                 | outside      |
 | Outside North-northwest Light           | 32096630c1890c2b926055ee921ebb82 | Philips                                       | LCA001                                                                 | outside      |
 | Outside South-southeast Light           | 6715cac52e975a6196b87b5ca3edfbc3 | Philips                                       | LCA001                                                                 | outside      |
-| Outside South-southwest Light           | bf6a0b44595912412b6814c7de195143 | Philips                                       | LCA001                                                                 | outside      |
+| Outside South-southwest Light           | bf6a0b44595912412b6814c7de195143 | Signify Netherlands B.V.                      | LCA001                                                                 | outside      |
 | Outside Temperature Sensor              | 02805f6957d30f264f29603b55fbd4dc | LUMI                                          | lumi.weather                                                           | outside      |
 | Pantry Door Conact Sensor               | 0def32d22cbb6dc6e16fa89851b5e86c | LUMI                                          | lumi.sensor_magnet.aq2                                                 | pantry       |
 | Refrigerator Smart Plug                 | 7131616138d08e980c8b8550ffbbcda4 | TP-Link                                       | HS110(AU)                                                              | kitchen      |
