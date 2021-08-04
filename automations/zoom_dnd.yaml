@@ -1,0 +1,18 @@
+---
+alias: 'Zoom Do Not Disturb'
+id: 'adb46aca-b371-4216-812b-a536325735f2'
+trigger:
+  platform: 'state'
+  entity_id: &entity_id 'binary_sensor.zoom_atlassian'
+variables:
+  command: >-
+    {% if states("binary_sensor.zoom_atlassian") == "on" %}
+      priority_only
+    {% else %}
+      off
+    {% endif %}
+action:
+  service: 'notify.mobile_app_josh_phone'
+  data:
+    message: 'command_dnd'
+    title: '{{ command }}'
