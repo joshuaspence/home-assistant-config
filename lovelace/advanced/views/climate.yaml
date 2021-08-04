@@ -17,6 +17,8 @@ cards:
 
       - type: 'glance'
         entities: &downstairs_temperature_entities
+          - entity: 'sensor.dining_room_temperature'
+            name: 'Dining Room'
           - entity: 'sensor.kitchen_temperature'
             name: 'Kitchen'
           - entity: 'sensor.laundry_temperature'
@@ -28,6 +30,8 @@ cards:
 
       - type: 'glance'
         entities: &downstairs_humidity_entities
+          - entity: 'sensor.dining_room_humidity'
+            name: 'Dining Room'
           - entity: 'sensor.kitchen_humidity'
             name: 'Kitchen'
           - entity: 'sensor.laundry_humidity'

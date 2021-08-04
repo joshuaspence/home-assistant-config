@@ -14,6 +14,21 @@ cards:
       title: 'Home'
       show_state: false
 
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Device Trackers'
+      icon: 'mdi:devices'
+    filter:
+      include:
+        - domain: 'device_tracker'
+        - entity_id: 'binary_sensor.zoom_atlassian'
+          options:
+            type: 'attribute'
+            attribute: 'status'
+      exclude:
+        - entity_id: 'device_tracker.michael_phone'
+
   - type: 'glance'
     title: 'Room Occupancy'
     show_state: false
@@ -32,10 +47,10 @@ cards:
         name: 'Kitchen'
       - entity: 'binary_sensor.laundry_occupancy'
         name: 'Laundry'
-      - entity: 'binary_sensor.living_room__north_occupancy'
+      - entity: 'binary_sensor.living_room_north_occupancy'
         name: 'Living Room (North)'
-      - entity: 'binary_sensor.living_room_occupancy'
-        name: 'Living Room'
+      - entity: 'binary_sensor.living_room_south_occupancy'
+        name: 'Living Room (South)'
       - entity: 'binary_sensor.side_yard_occupancy'
         name: 'Side Yard'
       - entity: 'binary_sensor.toilet_occupancy'

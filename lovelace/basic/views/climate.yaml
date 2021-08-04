@@ -12,6 +12,8 @@ cards:
       - entity: 'switch.aircon_downstairs'
         name: 'Aircon'
       - type: 'divider'
+      - entity: 'sensor.dining_room_temperature'
+        name: 'Dining Room'
       - entity: 'sensor.kitchen_temperature'
         name: 'Kitchen'
       - entity: 'sensor.laundry_temperature'
