@@ -2,6 +2,7 @@
 light:
   - platform: 'group'
     name: 'Attic'
+    unique_id: '9ae3db8f-8f65-471b-b471-d9c016484f7c'
     entities:
       - 'light.attic_main'
       - 'light.attic_ridge'
@@ -11,12 +12,14 @@ light:
 
   - platform: 'group'
     name: 'Hallway'
+    unique_id: 'de703f08-9754-4862-b6c8-9b1160604015'
     entities:
       - 'light.hallway_east'
       - 'light.hallway_west'
 
   - platform: 'group'
     name: 'Kitchen'
+    unique_id: '3b8bfca1-6066-4b9f-b6cc-687dd8196b65'
     entities:
       - 'light.kitchen_cupboards'
       - 'light.kitchen_main'

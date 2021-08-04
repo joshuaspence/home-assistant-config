@@ -2,6 +2,7 @@
 media_player:
   - platform: 'group'
     name: 'All'
+    unique_id: '2bf38dd8-7edc-4374-917e-c74a23e8e89c'
     entities:
       - 'media_player.bedroom_1_speaker'
       - 'media_player.bedroom_2_speaker'
