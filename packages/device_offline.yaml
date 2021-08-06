@@ -21,6 +21,8 @@ sensor:
           {% endfor %}
 
           {{ unavailable.devices | list | count }}
+        availability_template: >-
+          {{ states('sensor.unavailable_entities') != 'unavailable' }}
         icon_template: >-
           {% if is_state('sensor.unavailable_devices', '0') %}
             mdi:check-circle
