@@ -10,9 +10,8 @@ sensor:
           {{
             states | selectattr('state', 'in', ['unavailable', 'unknown']) |
             rejectattr('domain', 'eq', 'group') |
-            rejectattr('entity_id', 'eq', 'sensor.unavailable_entities') |
             rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
-            list | count
+            map(attribute='entity_id') | list | count
           }}
         icon_template: >-
           {% if is_state('sensor.unavailable_entities', '0') %}
@@ -25,11 +24,9 @@ sensor:
             {{
               states | selectattr('state', 'in', ['unavailable', 'unknown']) |
               rejectattr('domain', 'eq', 'group') |
-              rejectattr('entity_id', 'eq', 'sensor.unavailable_entities') |
               rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
               map(attribute='entity_id') | list
             }}
-        availability_template: '{{ (now() - states("sensor.uptime") | as_datetime).seconds > 120 }}'
 
 group:
   ignored_entities:
@@ -39,6 +36,7 @@ group:
       - 'media_player.kitchen_display'
       - 'media_player.living_room_speaker'
       - 'media_player.living_room_tv'
+      - 'sensor.unavailable_entities'
       - 'vacuum.downstairs'
 
 automation:
@@ -47,6 +45,11 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.unavailable_entities'
+    condition:
+      condition: 'numeric_state'
+      entity_id: 'sensor.uptime'
+      value_template: '(now() - state.state | as_datetime).seconds'
+      above: 120
     action:
       choose:
         conditions:
