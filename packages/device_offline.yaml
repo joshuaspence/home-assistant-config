@@ -2,6 +2,48 @@
 sensor:
   - platform: 'template'
     sensors:
+      unavailable_devices:
+        friendly_name: 'Unavailable Devices'
+        unique_id: 'dea4dcc4-d18e-4954-a0af-64879b6c2e39'
+        unit_of_measurement: 'devices'
+        value_template: >-
+          {% set unavailable = namespace(entities=[], devices={}) %}
+          {% set unavailable.entities = state_attr('sensor.unavailable_entities', 'entities') %}
+
+          {% for entity in unavailable.entities %}
+          {%   set device = device_id(entity) %}
+          {%   if device is not none %}
+          {%     if device not in unavailable.devices %}
+          {%       set unavailable.devices = dict(unavailable.devices, **{ device: [] }) %}
+          {%     endif %}
+          {%     set unavailable.devices = dict(unavailable.devices, **{ device: unavailable.devices[device] + [entity] }) %}
+          {%   endif %}
+          {% endfor %}
+
+          {{ unavailable.devices | list | count }}
+        icon_template: >-
+          {% if is_state('sensor.unavailable_devices', '0') %}
+            mdi:check-circle
+          {% else %}
+            mdi:alert-circle
+          {% endif %}
+        attribute_templates:
+          devices: >-
+            {% set unavailable = namespace(entities=[], devices={}) %}
+            {% set unavailable.entities = state_attr('sensor.unavailable_entities', 'entities') %}
+
+            {% for entity in unavailable.entities %}
+            {%   set device = device_id(entity) %}
+            {%   if device is not none %}
+            {%     if device not in unavailable.devices %}
+            {%       set unavailable.devices = dict(unavailable.devices, **{ device: [] }) %}
+            {%     endif %}
+            {%     set unavailable.devices = dict(unavailable.devices, **{ device: unavailable.devices[device] + [entity] }) %}
+            {%   endif %}
+            {% endfor %}
+
+            {{ unavailable.devices | list }}
+
       unavailable_entities:
         friendly_name: 'Unavailable Entities'
         unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
@@ -36,6 +78,7 @@ group:
       - 'media_player.kitchen_display'
       - 'media_player.living_room_speaker'
       - 'media_player.living_room_tv'
+      - 'sensor.unavailable_devices'
       - 'sensor.unavailable_entities'
       - 'vacuum.downstairs'
 
@@ -44,7 +87,9 @@ automation:
     id: '7fa5aace-5294-4181-a6f3-4720b1fe1fde'
     trigger:
       platform: 'state'
-      entity_id: 'sensor.unavailable_entities'
+      entity_id:
+        - 'sensor.unavailable_devices'
+        - 'sensor.unavailable_entities'
     condition:
       condition: 'numeric_state'
       entity_id: 'sensor.uptime'
@@ -67,9 +112,9 @@ automation:
         data:
           title: 'Device(s) Offline'
           message: >-
-            {{ trigger.to_state.state }} devices are offline.
+            {{ states('sensor.unavailable_devices') }} devices are offline.
 
-            - {{ expand(trigger.to_state.attributes.entities) | map(attribute="entity_id") | join("\n- ") }}
+            - {{ expand(state_attr('sensor.unavailable_entities', 'entities')) | join("\n- ") }}
           data:
             tag: 'devices-offline'
     mode: 'restart'
