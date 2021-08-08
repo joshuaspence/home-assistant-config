@@ -21,6 +21,8 @@ light:
     name: 'Kitchen'
     unique_id: '3b8bfca1-6066-4b9f-b6cc-687dd8196b65'
     entities:
+      - 'light.kitchen_benchtop'
+      - 'light.kitchen_cooktop'
       - 'light.kitchen_cupboards'
       - 'light.kitchen_main'
       - 'light.kitchen_sink'

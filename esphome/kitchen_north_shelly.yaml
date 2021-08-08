@@ -2,7 +2,7 @@
 substitutions:
   device_name: 'kitchen_north_shelly'
   output1_name: 'Kitchen Cupboards'
-  output2_name: 'Kitchen Sink'
+  output2_name: 'Kitchen Spotlights'
 
 packages:
   common: !include 'packages/common.yaml'
@@ -21,7 +21,10 @@ binary_sensor:
     id: 'input2'
     on_click:
       then:
-        light.toggle: 'output2'
+        homeassistant.service:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.kitchen_benchtop,light.kitchen_cooktop,light.kitchen_sink'
     internal: true
 
 output:
@@ -41,3 +44,5 @@ light:
     name: '${output2_name}'
     output: 'relay2'
     id: 'output2'
+    restore_mode: 'ALWAYS_ON'
+    internal: true

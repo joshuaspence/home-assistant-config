@@ -48,9 +48,15 @@ cards:
     title: 'Kitchen'
     icon: 'mdi:fridge'
     entities:
-      - 'light.kitchen_cupboards'
+      - entity: 'light.kitchen_benchtop'
+        name: 'Benchtop'
+      - entity: 'light.kitchen_cooktop'
+        name: 'Cooktop'
+      - entity: 'light.kitchen_cupboards'
+        name: 'Cupboards'
       - 'light.kitchen_main'
-      - 'light.kitchen_sink'
+      - entity: 'light.kitchen_sink'
+        name: 'Sink'
 
   - type: 'entities'
     title: 'Laundry'
