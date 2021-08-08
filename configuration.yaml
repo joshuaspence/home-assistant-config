@@ -15,6 +15,7 @@ homeassistant:
     - type: 'totp'
   auth_providers:
     - type: 'homeassistant'
+  currency: 'AUD'
   customize: !include 'customize.yaml'
   customize_domain: {}
   customize_glob:
