@@ -24,11 +24,6 @@ output:
     pin: '${output1_gpio}'
     id: 'relay1'
 
-  # TODO: This is unused.
-  - platform: 'gpio'
-    pin: '${output2_gpio}'
-    id: 'relay2'
-
 light:
   - platform: 'binary'
     name: '${output1_name}'

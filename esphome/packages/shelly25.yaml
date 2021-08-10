@@ -33,8 +33,17 @@ sensor:
     on_value_range:
       above: '${max_temp}'
       then:
-        - output.turn_off: 'relay1'
-        - output.turn_off: 'relay2'
+        - lambda: |-
+            output::BinaryOutput *output1 = id(relay1);
+            output::BinaryOutput *output2 = id(relay2);
+
+            if (output1 != NULL) {
+              output1->turn_off();
+            }
+
+            if (output2 != NULL) {
+              output2->turn_off();
+            }
         - homeassistant.service:
             service: 'persistent_notification.create'
             data:
