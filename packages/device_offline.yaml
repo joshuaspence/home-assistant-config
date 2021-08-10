@@ -95,7 +95,7 @@ automation:
     condition:
       condition: 'numeric_state'
       entity_id: 'sensor.uptime'
-      value_template: '(now() - as_datetime(state.state)).seconds'
+      value_template: '{{ (now() - as_datetime(state.state)).seconds }}'
       above: 120
     action:
       choose:
