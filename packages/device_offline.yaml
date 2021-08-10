@@ -8,7 +8,7 @@ sensor:
         unit_of_measurement: 'devices'
         value_template: >-
           {% set unavailable = namespace(entities=[], devices={}) %}
-          {% set unavailable.entities = state_attr('sensor.unavailable_entities', 'entities') %}
+          {% set unavailable.entities = state_attr('sensor.unavailable_entities', 'entities') | default([]) %}
 
           {% for entity in unavailable.entities %}
           {%   set device = device_id(entity) %}
@@ -32,7 +32,7 @@ sensor:
         attribute_templates:
           devices: >-
             {% set unavailable = namespace(entities=[], devices={}) %}
-            {% set unavailable.entities = state_attr('sensor.unavailable_entities', 'entities') %}
+            {% set unavailable.entities = state_attr('sensor.unavailable_entities', 'entities') | default([]) %}
 
             {% for entity in unavailable.entities %}
             {%   set device = device_id(entity) %}
