@@ -65,8 +65,6 @@ sensor:
       internal: true
     active_power_a:
       name: '${device_name} Output2 Power'
-      filters:
-        multiply: -1
       on_value_range:
         above: '${max_power}'
         then:
