@@ -20,7 +20,7 @@ sensor:
           {%   endif %}
           {% endfor %}
 
-          {{ unavailable.devices | list | count }}
+          {{ unavailable.devices | count }}
         availability_template: >-
           {{ states('sensor.unavailable_entities') != 'unavailable' }}
         icon_template: >-
@@ -55,7 +55,7 @@ sensor:
             states | selectattr('state', 'in', ['unavailable', 'unknown']) |
             rejectattr('domain', 'eq', 'group') |
             rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
-            map(attribute='entity_id') | list | count
+            map(attribute='entity_id') | count
           }}
         icon_template: >-
           {% if is_state('sensor.unavailable_entities', '0') %}
@@ -116,7 +116,9 @@ automation:
           message: >-
             {{ states('sensor.unavailable_devices') }} devices are offline.
 
-            - {{ expand(state_attr('sensor.unavailable_entities', 'entities')) | join("\n- ") }}
+            {% for entity in state_attr('sensor.unavailable_entities', 'entities') -%}
+            - {{ entity }}
+            {% endfor %}
           data:
             tag: 'devices-offline'
     mode: 'restart'
