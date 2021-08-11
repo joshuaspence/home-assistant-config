@@ -1,7 +1,7 @@
 ---
 media_player:
   - platform: 'androidtv'
-    host: &living_room_tv_host '192.168.10.12'
+    host: '192.168.10.12'
     name: 'Living Room TV'
     turn_on_command: >-
       sendevent /dev/input/event0 4 4 10510108 &&
@@ -30,8 +30,3 @@ media_player:
       com.google.android.youtube.tvkids: 'YouTube Kids'
     exclude_unnamed_apps: true
     state_detection_rules: {}
-
-notify:
-  - platform: 'nfandroidtv'
-    name: 'Living Room TV'
-    host: *living_room_tv_host
