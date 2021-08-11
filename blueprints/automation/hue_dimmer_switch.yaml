@@ -33,6 +33,11 @@ trigger:
   event_data:
     device_id: !input 'remote'
 
+condition:
+  condition: 'template'
+  value_template: >-
+    {{ 'button' in trigger.event.data.args }}
+
 action:
   - variables:
       button: '{{ trigger.event.data.args.button }}'
