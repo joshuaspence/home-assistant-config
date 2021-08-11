@@ -5,3 +5,37 @@ sensor:
     port: 8443
     username: !secret 'unifi.username'
     password: !secret 'unifi.password'
+
+automation:
+  - alias: 'Unifi Alerts'
+    id: 'e1448032-b0ca-4b23-a8b1-2c044e441426'
+    trigger:
+      platform: 'state'
+      entity_id: 'sensor.unifi_gateway_alerts'
+    action:
+      choose:
+        conditions:
+          condition: 'numeric_state'
+          entity_id: 'sensor.unifi_gateway_alerts'
+          below: 1
+        sequence:
+          service: 'notify.mobile_app_josh_phone'
+          data:
+            message: 'clear_notification'
+            data:
+              tag: 'unifi-alert'
+      default:
+        service: 'notify.mobile_app_josh_phone'
+        data:
+          title: 'Unifi Alerts'
+          message: >-
+            There are {{ trigger.to_state.state }} gateway alerts.
+
+            {% for key, value in trigger.to_state.attributes.items() -%}
+            {%   if key | int(-1) != -1 -%}
+            - {{ value.msg }}
+            {%   endif -%}
+            {% endfor %}
+          data:
+            tag: 'unifi-alert'
+    mode: 'restart'
