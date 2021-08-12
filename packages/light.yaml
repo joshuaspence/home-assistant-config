@@ -29,6 +29,7 @@ light:
 
   - platform: 'group'
     name: 'Living Room'
+    unique_id: '7fbc140b-a594-4a1f-b6e2-d97369531d18'
     entities:
       - 'light.living_room_lower_east'
       - 'light.living_room_lower_west'
