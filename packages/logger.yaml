@@ -20,6 +20,7 @@ logger:
       - '^Failed to connect:'
     notifications_android_tv.notifications:
       - 'Failed to establish a new connection: \[Errno 113\] Host is unreachable'
+      - 'Max retries exceeded with url'
 
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
@@ -31,6 +32,9 @@ logger:
     homeassistant.components.media_player:
       - '^Platform androidtv not ready yet: None'
       - '^Updating androidtv media_player took longer than the scheduled update interval'
+    homeassistant.components.template.template_entity:
+      - '^Template loop detected while processing event: <Event state_changed[L]:
+ entity_id=sensor\.unavailable_entities,'
     homeassistant.components.webhook:
       - '^Received message for unregistered webhook'
     homeassistant.helpers.entity:
