@@ -16,7 +16,7 @@ logger:
     homeassistant.components.media_player:
       - '^Updating androidtv media_player took longer than the scheduled update interval'
     homeassistant.components.nfandroidtv:
-      - '^Failed to connect:$'
+      - '^Failed to connect:'
     homeassistant.components.webhook:
       - '^Received message for unregistered webhook'
     homeassistant.helpers.entity:
