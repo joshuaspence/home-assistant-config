@@ -1,0 +1,57 @@
+---
+blueprint:
+  name: 'Add-on Update Notification'
+  domain: 'automation'
+  input:
+    addon:
+      name: 'Add-on'
+      selector:
+        addon: {}
+    name:
+      name: 'Add-on name'
+      selector:
+        text: {}
+    update_available_sensor:
+      name: 'Update Available sensor'
+      selector:
+        entity:
+          domain: 'binary_sensor'
+          integration: 'hassio'
+    current_version_sensor:
+      name: 'Current Version sensor'
+      selector:
+        entity:
+          domain: 'sensor'
+          integration: 'hassio'
+    newest_version_sensor:
+      name: 'Newest Version sensor'
+      selector:
+        entity:
+          domain: 'sensor'
+          integration: 'hassio'
+
+trigger:
+  platform: 'state'
+  entity_id: !input 'update_available_sensor'
+variables:
+  addon: !input 'addon'
+  current_version_sensor: !input 'current_version_sensor'
+  newest_version_sensor: !input 'newest_version_sensor'
+  name: !input 'name'
+action:
+  choose:
+    - conditions: '{{ trigger.to_state.state == "on" }}'
+      sequence:
+        service: 'persistent_notification.create'
+        data:
+          title: '{{ name }} Update Available'
+          message: >-
+            An update is available for [{{ name }} add-on](/hassio/addon/{{ addon }}/info).
+
+            **Current Version:** {{ states(current_version_sensor)}}
+            **Newest Version:** {{ states(newest_version_sensor) }}
+          notification_id: 'update_available_{{ addon }}'
+  default:
+    service: 'persistent_notification.dismiss'
+    data:
+      notification_id: 'update_available_{{ addon }}'

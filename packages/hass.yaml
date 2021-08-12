@@ -11,3 +11,102 @@ sensor:
 
   - platform: 'version'
     source: 'hassio'
+
+automation:
+  - id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
+    alias: 'Home Assistant Update Available'
+    trigger:
+      platform: 'state'
+      entity_id:
+        - 'sensor.current_version'
+        - 'sensor.latest_version'
+    action:
+      - choose:
+          - conditions: '{{ states("sensor.current_version") != states("sensor.latest_version") }}'
+            sequence:
+              service: 'persistent_notification.create'
+              data:
+                title: 'Update Available'
+                message: 'Home Assistant {{ states("sensor.latest_version") }} is available.'
+                notification_id: 'update_available_homeassistant'
+        default:
+          service: 'persistent_notification.dismiss'
+          data:
+            notification_id: 'update_available_homeassistant'
+
+      - choose:
+          - conditions: '{{ state_attr("sensor.current_version", "hassos") != state_attr("sensor.latest_version", "os") }}'
+            sequence:
+              service: 'persistent_notification.create'
+              data:
+                title: 'Update Available'
+                message: 'HassOS {{ state_attr("sensor.latest_version", "os") }} is available.'
+                notification_id: 'update_available_hassos'
+        default:
+          service: 'persistent_notification.dismiss'
+          data:
+            notification_id: 'update_available_hassos'
+
+      - choose:
+          - conditions: '{{ state_attr("sensor.current_version", "supervisor") != state_attr("sensor.latest_version", "supervisor") }}'
+            sequence:
+              service: 'persistent_notification.create'
+              data:
+                title: 'Update Available'
+                message: 'Supervisor {{ state_attr("sensor.latest_version", "supervisor") }} is available.'
+                notification_id: 'update_available_supervisor'
+        default:
+          service: 'persistent_notification.dismiss'
+          data:
+            notification_id: 'update_available_supervisor'
+
+  - id: '2524b7b2-a8dd-4bc8-b6d2-2d05adbe4534'
+    alias: 'Chrony Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: 'a0d7b954_chrony'
+        name: 'Chrony'
+        update_available_sensor: 'binary_sensor.chrony_update_available'
+        current_version_sensor: 'sensor.chrony_version'
+        newest_version_sensor: 'sensor.chrony_newest_version'
+  - id: 'ec311ea9-3c96-4505-9bf3-b393d9e7e1f2'
+    alias: 'ESPHome Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: 'a0d7b954_esphome'
+        name: 'ESPHome'
+        update_available_sensor: 'binary_sensor.esphome_update_available'
+        current_version_sensor: 'sensor.esphome_version'
+        newest_version_sensor: 'sensor.esphome_newest_version'
+  - id: '1d219271-b31c-455b-b37e-1064c935d2fe'
+    alias: 'Google Drive Backup Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: 'cebe7a76_hassio_google_drive_backup'
+        name: 'Google Drive Backup'
+        update_available_sensor: 'binary_sensor.google_drive_backup_update_available'
+        current_version_sensor: 'sensor.google_drive_backup_version'
+        newest_version_sensor: 'sensor.google_drive_backup_newest_version'
+  - id: 'cdfd7283-2c2a-4afd-a7e5-a5c08a6ba193'
+    alias: 'Terminal SSH Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: 'core_ssh'
+        name: 'Terminal & SSH'
+        update_available_sensor: 'binary_sensor.terminal_ssh_update_available'
+        current_version_sensor: 'sensor.terminal_ssh_version'
+        newest_version_sensor: 'sensor.terminal_ssh_newest_version'
+  - id: '643ea7a5-d351-44ec-b98b-2243a43df826'
+    alias: 'UniFi Controller Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: 'a0d7b954_unifi'
+        name: 'UniFi Controller'
+        update_available_sensor: 'binary_sensor.unifi_controller_update_available'
+        current_version_sensor: 'sensor.unifi_controller_version'
+        newest_version_sensor: 'sensor.unifi_controller_newest_version'
