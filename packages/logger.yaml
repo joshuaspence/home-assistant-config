@@ -11,10 +11,17 @@ logger:
     androidtv.adb_manager.adb_manager_async:
       - 'TcpTimeoutException: (Connecting to|Reading from) (?:\d{1,3}\.){3}\d{1,3}:\d+ timed out'
     homeassistant.components.androidtv.media_player:
+      - 'Could not connect to Living Room TV'
       - 'Error: Reading from (?:\d{1,3}\.){3}\d{1,3}:\d+ timed out'
     homeassistant.components.media_player:
       - '^Updating androidtv media_player took longer than the scheduled update interval'
+    homeassistant.components.nfandroidtv:
+      - '^Failed to connect:$'
+    homeassistant.components.webhook:
+      - '^Received message for unregistered webhook'
     homeassistant.helpers.entity:
       - '^Update of media_player\.\w+ is taking over 10 seconds$'
+    notifications_android_tv.notifications:
+      - 'Failed to establish a new connection: \[Errno 113\] Host is unreachable'
     zigpy_deconz.api:
       - '^No response to ''Command\.aps_data_indication'' command with seq id ''0x[0-9a-f]{2}'''
