@@ -20,3 +20,7 @@ ota: {}
 logger: {}
 api: {}
 captive_portal: {}
+
+switch:
+  - platform: 'restart'
+    name: '${device_name}'
