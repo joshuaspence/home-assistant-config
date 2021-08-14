@@ -1,0 +1,85 @@
+---
+sensor:
+  - platform: 'template'
+    sensors:
+      low_battery:
+        friendly_name: 'Low Battery'
+        unique_id: '2dbdee74-5c79-4f10-ae67-e6c8aead4d61'
+        unit_of_measurement: 'devices'
+        value_template: >-
+          {% set ns = namespace(entities=[]) %}
+            {%
+              set sensors = states.sensor
+                | selectattr('attributes.device_class', 'eq', 'battery')
+                | rejectattr('state', 'in', ['unavailable', 'unknown'])
+                | rejectattr('entity_id', 'in', state_attr('group.ignored_battery_sensors', 'entity_id'))
+            %}
+
+            {% for sensor in sensors %}
+              {% if sensor.state | int(-1) < 25 %}
+                {% set ns.entities = ns.entities + [sensor] %}
+              {% endif %}
+            {% endfor %}
+
+            {{ ns.entities | list | count }}
+        icon_template: >-
+          {% if is_state('sensor.low_battery_devices', '0') %}
+            mdi:battery
+          {% else %}
+            mdi:battery-alert
+          {% endif %}
+        attribute_templates:
+          entities: >-
+            {% set ns = namespace(entities=[]) %}
+            {%
+              set sensors = states.sensor
+                | selectattr('attributes.device_class', 'eq', 'battery')
+                | rejectattr('state', 'in', ['unavailable', 'unknown'])
+                | rejectattr('entity_id', 'in', state_attr('group.ignored_battery_sensors', 'entity_id'))
+            %}
+
+            {% for sensor in sensors %}
+              {% if sensor.state | int(-1) < 25 %}
+                {% set ns.entities = ns.entities + [sensor] %}
+              {% endif %}
+            {% endfor %}
+
+            {{ ns.entities | map(attribute='entity_id') | list }}
+
+group:
+  ignored_battery_sensors:
+    entities:
+      - 'sensor.josh_phone_battery_level'
+      - 'sensor.lily_phone_battery_level'
+
+automation:
+  - alias: 'Low Battery'
+    id: '685c0eb4-1d80-4ca3-8b5f-46a5e4e20c27'
+    trigger:
+      platform: 'state'
+      entity_id: 'sensor.low_battery'
+    action:
+      choose:
+        conditions:
+          condition: 'numeric_state'
+          entity_id: 'sensor.low_battery'
+          below: 1
+        sequence:
+          service: 'notify.mobile_app_josh_phone'
+          data:
+            message: 'clear_notification'
+            data:
+              tag: 'low-battery'
+      default:
+        service: 'notify.mobile_app_josh_phone'
+        data:
+          title: 'Low Battery'
+          message: >-
+            {{ states('sensor.low_battery') }} devices with low battery.
+
+            {% for entity in state_attr('sensor.low_battery', 'entities') -%}
+            - {{ entity }}
+            {% endfor %}
+          data:
+            tag: 'low-battery'
+    mode: 'restart'
