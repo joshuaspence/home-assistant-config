@@ -7,21 +7,28 @@ sensor:
         unique_id: '2dbdee74-5c79-4f10-ae67-e6c8aead4d61'
         unit_of_measurement: 'devices'
         value_template: >-
-          {% set ns = namespace(entities=[]) %}
-            {%
-              set sensors = states.sensor
-                | selectattr('attributes.device_class', 'eq', 'battery')
-                | rejectattr('state', 'in', ['unavailable', 'unknown'])
-                | rejectattr('entity_id', 'in', state_attr('group.ignored_battery_sensors', 'entity_id'))
-            %}
+          {% set ns = namespace(entities=[], mobile_app_sensors=[]) %}
+          {%
+            set sensors = states.sensor
+              | selectattr('attributes.device_class', 'eq', 'battery')
+              | rejectattr('state', 'in', ['unavailable', 'unknown'])
+              | list
+          %}
 
-            {% for sensor in sensors %}
-              {% if sensor.state | int(-1) < 25 %}
-                {% set ns.entities = ns.entities + [sensor] %}
-              {% endif %}
-            {% endfor %}
+          {% for sensor in sensors %}
+            {% if 'mobile_app' in device_attr(sensor.entity_id, 'identifiers') | map(attribute=0) %}
+              {% set ns.mobile_app_sensors = ns.mobile_app_sensors + [sensor.entity_id] %}
+            {% endif %}
+          {% endfor %}
+          {% set sensors = sensors | rejectattr('entity_id', 'in', ns.mobile_app_sensors) %}
 
-            {{ ns.entities | list | count }}
+          {% for sensor in sensors %}
+            {% if sensor.state | int(-1) < 25 %}
+              {% set ns.entities = ns.entities + [sensor] %}
+            {% endif %}
+          {% endfor %}
+
+          {{ ns.entities | count }}
         icon_template: >-
           {% if is_state('sensor.low_battery_devices', '0') %}
             mdi:battery
@@ -30,13 +37,20 @@ sensor:
           {% endif %}
         attribute_templates:
           entities: >-
-            {% set ns = namespace(entities=[]) %}
+            {% set ns = namespace(entities=[], mobile_app_sensors=[]) %}
             {%
               set sensors = states.sensor
                 | selectattr('attributes.device_class', 'eq', 'battery')
                 | rejectattr('state', 'in', ['unavailable', 'unknown'])
-                | rejectattr('entity_id', 'in', state_attr('group.ignored_battery_sensors', 'entity_id'))
+                | list
             %}
+
+            {% for sensor in sensors %}
+              {% if 'mobile_app' in device_attr(sensor.entity_id, 'identifiers') | map(attribute=0) %}
+                {% set ns.mobile_app_sensors = ns.mobile_app_sensors + [sensor.entity_id] %}
+              {% endif %}
+            {% endfor %}
+            {% set sensors = sensors | rejectattr('entity_id', 'in', ns.mobile_app_sensors) %}
 
             {% for sensor in sensors %}
               {% if sensor.state | int(-1) < 25 %}
@@ -45,12 +59,6 @@ sensor:
             {% endfor %}
 
             {{ ns.entities | map(attribute='entity_id') | list }}
-
-group:
-  ignored_battery_sensors:
-    entities:
-      - 'sensor.josh_phone_battery_level'
-      - 'sensor.lily_phone_battery_level'
 
 automation:
   - alias: 'Low Battery'
