@@ -8,6 +8,21 @@ cards:
     icon: 'mdi:home-assistant'
     entities:
       - type: 'custom:template-entity-row'
+        name: 'Areas'
+        icon: 'mdi:home-search'
+        state: >-
+          {% set devices = states | map(attribute='entity_id') | map('device_id') | reject('none') | unique %}
+          {% set ns = namespace(areas=[]) %}
+
+          {% for device in devices %}
+            {% set area = device_attr(device, 'area_id') %}
+            {% if area not in ns.areas %}
+              {% set ns.areas = ns.areas + [area] %}
+            {% endif %}
+          {% endfor %}
+
+          {{ ns.areas | count }}
+      - type: 'custom:template-entity-row'
         name: 'Automations'
         icon: 'mdi:robot'
         state: '{{ states.automation | count }}'
