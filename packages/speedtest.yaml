@@ -1,0 +1,29 @@
+---
+# Workaround for home-assistant/core#47263.
+automation:
+  - alias: 'Speedtest Unavailable'
+    id: 'c142089f-4826-4de4-b813-c188885e874f'
+    trigger:
+      platform: 'state'
+      entity_id: &entity_id
+        - 'sensor.speedtest_download'
+        - 'sensor.speedtest_ping'
+        - 'sensor.speedtest_upload'
+      to: &state 'unavailable'
+    condition:
+      condition: 'state'
+      entity_id: *entity_id
+      state: *state
+    action:
+      repeat:
+        while:
+          - condition: 'state'
+            entity_id: *entity_id
+            state: *state
+          - condition: 'template'
+            value_template: '{{ repeat.index <= 24 }}'
+        sequence:
+          - service: 'speedtestdotnet.speedtest'
+          - delay: 300
+    mode: 'single'
+    max_exceeded: 'silent'
