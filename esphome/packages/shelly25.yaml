@@ -30,6 +30,8 @@ sensor:
       reference_temperature: '298.15K'
       reference_resistance: '10kOhm'
     accuracy_decimals: 1
+
+    # TODO: Move this to a Home Assistant automation.
     on_value_range:
       above: '${max_temp}'
       then:
@@ -56,6 +58,8 @@ sensor:
       internal: true
     active_power_a:
       name: '${device_name} Output2 Power'
+
+      # TODO: Move this to a Home Assistant automation.
       on_value_range:
         above: '${max_power}'
         then:
@@ -70,6 +74,8 @@ sensor:
       name: '${device_name} Output1 Power'
       filters:
         multiply: -1
+
+      # TODO: Move this to a Home Assistant automation.
       on_value_range:
         above: '${max_power}'
         then:
