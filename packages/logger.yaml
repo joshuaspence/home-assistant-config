@@ -13,15 +13,6 @@ logger:
     snitun.client.client_peer:
       - '^Challenge/Response error with SniTun server$'
 
-    # See home-assistant/core#53798.
-    homeassistant.config_entries:
-      - '^Config entry ''Living Room TV'' for nfandroidtv integration not ready yet'
-    homeassistant.components.nfandroidtv:
-      - '^Failed to connect:'
-    notifications_android_tv.notifications:
-      - 'Failed to establish a new connection: \[Errno 113\] Host is unreachable'
-      - 'Max retries exceeded with url'
-
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
       - 'OSError: Connect call failed'
