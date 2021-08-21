@@ -53,6 +53,7 @@
 | ESPHome Add-On                          | 70072ce2c4bf2619436905bd1f3a265a | Home Assistant Community Add-ons              | Home Assistant Add-on                                                  | None         |
 | Front Door Contact Sensor               | 22f6066a30eb8a393ffb09c5fb93ff85 | LUMI                                          | lumi.sensor_magnet.aq2                                                 | hallway      |
 | Front Door Light                        | 02f9d192c85d064249ea6cb33d7a3bbe | Philips                                       | LCT007                                                                 | outside      |
+| Front Door Lock                         | a563f1bd6116e59f9265606686f334db | Yale                                          | YRD226 TSDB                                                            | hallway      |
 | Front Patio Light                       | 1d0ddbc31a229887aa7007e917728ad5 | Philips                                       | 1743530P7                                                              | outside      |
 | Front Verandah Downlight                | 016c4fba2c8bc24f2287ed14319c9710 | espressif                                     | PLATFORMIO_ESP01_1M                                                    | outside      |
 | Front Yard Motion Sensor                | 0ff7f209d4b441cc9f8bbc40f7c64328 | Philips                                       | SML002                                                                 | outside      |
