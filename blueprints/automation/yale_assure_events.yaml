@@ -1,0 +1,57 @@
+---
+blueprint:
+  name: 'Yale Assure Events'
+  domain: 'automation'
+  input:
+    lock:
+      name: 'Lock'
+      selector:
+        device:
+          integration: 'zha'
+          manufacturer: 'Yale'
+          model: 'YRD226 TSDB'
+
+    keypad_unlock:
+      name: 'Keypad Unlock'
+      <<: &common_config
+        default: []
+        selector:
+          action: {}
+    manual_lock:
+      name: 'Manual Lock'
+      <<: *common_config
+    touch_lock:
+      name: 'Touch Lock'
+      <<: *common_config
+
+trigger:
+  platform: 'event'
+  event_type: 'zha_event'
+  event_data:
+    device_id: !input 'lock'
+    command: 'operation_event_notification'
+
+action:
+  - variables:
+      source: '{{ trigger.event.data.args.source }}'
+      operation: '{{ trigger.event.data.args.operation }}'
+      code_slot: '{{ trigger.event.data.args.code_slot }}'
+  - choose:
+      - conditions: '{{ source == "Keypad" and operation == "Unlock" }}'
+        sequence: !input 'keypad_unlock'
+      - conditions: '{{ source == "Manual" and operation == "Manual_Lock" and code_slot == 65536 }}'
+        sequence: !input 'manual_lock'
+      - conditions: '{{ source == "Manual" and operation == "OnTouchLock" and code_slot == 65536 }}'
+        sequence: !input 'touch_lock'
+
+      # Lock was triggered by Home Assistant.
+      - conditions: '{{ source == "RF" and code_slot == 65536 }}'
+        sequence: []
+    default:
+      service: 'system_log.write'
+      data:
+        message: 'Unexpected zha_event from Yale Assure device: {{ trigger.event.data }}'
+        level: 'warning'
+
+mode: 'queued'
+max_exceeded: 'silent'

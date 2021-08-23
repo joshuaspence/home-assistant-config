@@ -1,0 +1,25 @@
+---
+id: ''
+alias: 'Front Door ZHA Events'
+use_blueprint:
+  path: 'yale_assure_events.yaml'
+  input:
+    lock: 'a563f1bd6116e59f9265606686f334db'
+    keypad_unlock:
+      service: 'logbook.log'
+      data:
+        message: 'was unlocked by code slot {{ trigger.event.data.args.code_slot }}'
+        <<: &common_data
+          name: 'Front Door'
+          entity_id: 'lock.front_door'
+          domain: 'lock'
+    manual_lock:
+      service: 'logbook.log'
+      data:
+        message: 'was locked manually'
+        <<: *common_data
+    touch_lock:
+      service: 'logbook.log'
+      data:
+        message: 'was locked by touchscreen'
+        <<: *common_data
