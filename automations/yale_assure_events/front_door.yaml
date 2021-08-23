@@ -6,13 +6,23 @@ use_blueprint:
   input:
     lock: 'a563f1bd6116e59f9265606686f334db'
     keypad_unlock:
-      service: 'logbook.log'
-      data:
-        message: 'was unlocked by code slot {{ trigger.event.data.args.code_slot }}'
-        <<: &common_data
-          name: 'Front Door'
-          entity_id: 'lock.front_door'
-          domain: 'lock'
+      - variables:
+          code_slots:
+            - 'josh'
+            - 'lily'
+          friendly_name: >-
+            {% if code_slot == 1 %}
+              master code
+            {% else %}
+              {{ state_attr('person.' ~ code_slots[code_slot - 2], 'friendly_name') }}
+            {% endif %}
+      - service: 'logbook.log'
+        data:
+          message: 'was unlocked by {{ friendly_name }}'
+          <<: &common_data
+            name: 'Front Door'
+            entity_id: 'lock.front_door'
+            domain: 'lock'
     manual_lock:
       service: 'logbook.log'
       data:
