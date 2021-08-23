@@ -18,6 +18,11 @@ use_blueprint:
       data:
         message: 'was locked manually'
         <<: *common_data
+    manual_unlock:
+      service: 'logbook.log'
+      data:
+        message: 'was unlocked manually'
+        <<: *common_data
     touch_lock:
       service: 'logbook.log'
       data:

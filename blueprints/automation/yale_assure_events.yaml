@@ -20,6 +20,9 @@ blueprint:
     manual_lock:
       name: 'Manual Lock'
       <<: *common_config
+    manual_unlock:
+      name: 'Manual Unlock'
+      <<: *common_config
     touch_lock:
       name: 'Touch Lock'
       <<: *common_config
@@ -41,6 +44,8 @@ action:
         sequence: !input 'keypad_unlock'
       - conditions: '{{ source == "Manual" and operation == "Manual_Lock" and code_slot == 65536 }}'
         sequence: !input 'manual_lock'
+      - conditions: '{{ source == "Manual" and operation == "Manual_Unlock" and code_slot == 65536 }}'
+        sequence: !input 'manual_unlock'
       - conditions: '{{ source == "Manual" and operation == "OnTouchLock" and code_slot == 65536 }}'
         sequence: !input 'touch_lock'
 
