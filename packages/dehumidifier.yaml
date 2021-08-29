@@ -1,6 +1,0 @@
----
-generic_hygrostat:
-  - name: 'Basement Dehumidifier'
-    humidifier: 'switch.basement_dehumidifier'
-    target_sensor: 'sensor.basement_east_humidity'
-    device_class: 'dehumidifier'

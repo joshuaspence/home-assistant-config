@@ -256,7 +256,6 @@ cards:
         - domain: 'zone'
 
         # Entities without a unique ID.
-        - entity_id: 'humidifier.basement_dehumidifier'
         - entity_id: 'sensor.bathroom_humidity_statistics'
 
   - type: 'entity'
