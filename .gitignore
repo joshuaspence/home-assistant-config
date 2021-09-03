@@ -17,3 +17,6 @@ __pycache__/
 # ZHA
 /zigbee.db
 /zigbee.db-journal
+
+# Zigbee2MQTT
+/zigbee2mqtt/
