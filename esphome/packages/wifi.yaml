@@ -1,0 +1,10 @@
+---
+wifi:
+  ssid: !secret 'wifi.ssid'
+  password: !secret 'wifi.password'
+
+  ap:
+    ssid: '${device_name} Hotspot'
+    password: !secret 'fallback_hotspot.password'
+
+captive_portal: {}
