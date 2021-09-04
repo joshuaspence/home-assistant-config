@@ -5,21 +5,12 @@ esphome:
   board: '${device_board}'
   build_path: 'build/${device_name}'
 
-wifi:
-  ssid: !secret 'wifi.ssid'
-  password: !secret 'wifi.password'
-
-  ap:
-    ssid: '${device_name} Hotspot'
-    password: !secret 'fallback_hotspot.password'
-
 time:
   - platform: 'homeassistant'
 
 ota: {}
 logger: {}
 api: {}
-captive_portal: {}
 
 switch:
   - platform: 'restart'

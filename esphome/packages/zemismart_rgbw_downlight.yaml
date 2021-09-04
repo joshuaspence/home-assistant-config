@@ -3,6 +3,9 @@ substitutions:
   device_board: 'esp01_1m'
   device_platform: 'ESP8266'
 
+packages:
+  wifi: !include 'wifi.yaml'
+
 output:
   - platform: 'esp8266_pwm'
     pin: 14
