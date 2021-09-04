@@ -1,8 +1,8 @@
 ---
 esphome:
   name: '${device_name}'
-  platform: 'ESP8266'
-  board: 'esp01_1m'
+  platform: '${device_platform}'
+  board: '${device_board}'
   build_path: 'build/${device_name}'
 
 wifi:
