@@ -1,6 +1,7 @@
 # Home Assistant
 /.cloud/
 /home-assistant.log
+/home-assistant.log.*
 /html5_push_registrations.conf
 /ip_bans.yaml
 /known_devices.yaml
