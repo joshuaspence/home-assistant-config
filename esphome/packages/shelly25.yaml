@@ -1,5 +1,7 @@
 ---
 substitutions:
+  device_board: 'esp01_1m'
+  device_platform: 'ESP8266'
   input1_gpio: 'GPIO13'
   input2_gpio: 'GPIO5'
   output1_gpio: 'GPIO4'
