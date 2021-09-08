@@ -20,4 +20,11 @@ __pycache__/
 /zigbee.db-journal
 
 # Zigbee2MQTT
-/zigbee2mqtt/
+/zigbee2mqtt/.configuration.yaml.bk
+/zigbee2mqtt/coordinator_backup.json
+/zigbee2mqtt/database.db
+/zigbee2mqtt/database.db.backup
+/zigbee2mqtt/devices.yaml
+/zigbee2mqtt/groups.yaml
+/zigbee2mqtt/log/
+/zigbee2mqtt/state.json
