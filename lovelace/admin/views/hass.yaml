@@ -202,6 +202,7 @@ cards:
       exclude:
         - area: '*'
         - entity_id: 'binary_sensor.*_update_available'
+        - entity_id: 'binary_sensor.backups_stale'
         - entity_id: 'binary_sensor.josh_phone_*'
         - entity_id: 'binary_sensor.lily_phone_*'
         - entity_id: 'binary_sensor.remote_ui'
@@ -212,6 +213,7 @@ cards:
         - entity_id: 'media_player.all'
         - entity_id: 'sensor.*_newest_version'
         - entity_id: 'sensor.*_version'
+        - entity_id: 'sensor.backup_state'
         - entity_id: 'sensor.daikin_ac_inside_temperature'
         - entity_id: 'sensor.disk_use_percent'
         - entity_id: 'sensor.downstairs_*'
@@ -261,7 +263,7 @@ cards:
     title: 'Snapshots'
     icon: 'mdi:backup-restore'
     entities:
-      - entity: 'binary_sensor.snapshots_stale'
+      - entity: 'binary_sensor.backups_stale'
         name: 'Staleness'
-      - entity: 'sensor.snapshot_backup'
+      - entity: 'sensor.backups_state'
         name: 'State'

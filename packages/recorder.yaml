@@ -7,6 +7,7 @@ history:
       - 'binary_sensor.remote_ui'
       - 'binary_sensor.updater'
       - 'binary_sensor.workday'
+      - 'sensor.backup_state'
       - 'sensor.disk_use_percent'
       - 'sensor.hacs'
       - 'sensor.low_battery'
