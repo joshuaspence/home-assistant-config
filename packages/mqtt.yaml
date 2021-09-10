@@ -1,0 +1,5 @@
+---
+mqtt:
+  broker: 'core-mosquitto'
+  username: 'homeassistant'
+  password: !secret 'mqtt.password'
