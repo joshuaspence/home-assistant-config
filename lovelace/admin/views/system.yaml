@@ -28,3 +28,21 @@ cards:
         name: 'Temperature'
         min: 20
         max: 80
+
+  - type: 'grid'
+    title: 'Rack'
+    columns: 4
+    cards:
+      - type: 'gauge'
+        entity: 'sensor.homelab_power'
+        name: 'Power'
+      - type: 'gauge'
+        entity: 'sensor.homelab_temperature'
+        name: 'Temperature'
+      - type: 'gauge'
+        entity: 'sensor.homelab_humidity'
+        name: 'Humidity'
+      - type: 'entity'
+        entity: 'switch.homelab_fan'
+        name: 'Fan'
+
