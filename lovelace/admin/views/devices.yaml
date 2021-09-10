@@ -19,6 +19,23 @@ cards:
       - from: 'Power'
         to: ''
 
+  - type: 'entities'
+    title: 'Device Controls'
+    show_header_toggle: false
+    entities:
+      - 'switch.bathroom_shelly_1'
+      - 'switch.bathroom_shelly_2'
+      - 'switch.dining_room_shelly'
+      - 'switch.hallway_west_shelly'
+      - 'switch.kitchen_north_shelly'
+      - 'switch.kitchen_shelly'
+      - 'switch.laundry_shelly'
+      - 'switch.living_room_east_shelly'
+      - 'switch.living_room_north_shelly'
+      - 'switch.living_room_west_shelly'
+      - 'switch.office_shelly'
+      - 'switch.toilet_shelly'
+
   - type: 'vertical-stack'
     title: 'Device Temperature'
     cards:
