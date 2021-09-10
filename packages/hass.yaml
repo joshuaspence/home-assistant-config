@@ -80,6 +80,16 @@ automation:
         update_available_sensor: 'binary_sensor.esphome_update_available'
         current_version_sensor: 'sensor.esphome_version'
         newest_version_sensor: 'sensor.esphome_newest_version'
+  - id: 'ce796450-90d0-4c2d-9b64-d00141206ed2'
+    alias: 'Git Pull Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: 'core_git_pull'
+        name: 'Git pull'
+        update_available_sensor: 'binary_sensor.git_pull_update_available'
+        current_version_sensor: 'sensor.git_pull_version'
+        newest_version_sensor: 'sensor.git_pull_newest_version'
   - id: '1d219271-b31c-455b-b37e-1064c935d2fe'
     alias: 'Google Drive Backup Add-on Update Notification'
     use_blueprint:
@@ -90,6 +100,16 @@ automation:
         update_available_sensor: 'binary_sensor.google_drive_backup_update_available'
         current_version_sensor: 'sensor.google_drive_backup_version'
         newest_version_sensor: 'sensor.google_drive_backup_newest_version'
+  - id: '96e43b0a-bc91-42ba-9eb1-f63ec14e976d'
+    alias: 'Mosquitto Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: 'core_mosquitto'
+        name: 'Mosquitto broker'
+        update_available_sensor: 'binary_sensor.mosquitto_broker_update_available'
+        current_version_sensor: 'sensor.mosquitto_broker_version'
+        newest_version_sensor: 'sensor.mosquitto_broker_newest_version'
   - id: 'cdfd7283-2c2a-4afd-a7e5-a5c08a6ba193'
     alias: 'Terminal SSH Add-on Update Notification'
     use_blueprint:
@@ -110,3 +130,13 @@ automation:
         update_available_sensor: 'binary_sensor.unifi_controller_update_available'
         current_version_sensor: 'sensor.unifi_controller_version'
         newest_version_sensor: 'sensor.unifi_controller_newest_version'
+  - id: '7a6bc69a-2632-40d3-848c-fe8d6006b840'
+    alias: 'Zigbee2MQTT Add-on Update Notification'
+    use_blueprint:
+      path: 'addon_update_notification.yaml'
+      input:
+        addon: '45df7312_zigbee2mqtt'
+        name: 'Zigbee2mqtt'
+        update_available_sensor: 'binary_sensor.zigbee2mqtt_update_available'
+        current_version_sensor: 'sensor.zigbee2mqtt_version'
+        newest_version_sensor: 'sensor.zigbee2mqtt_newest_version'
