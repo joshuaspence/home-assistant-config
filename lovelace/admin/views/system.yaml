@@ -10,39 +10,58 @@ cards:
       - entity: 'sensor.uptime'
         format: 'relative'
 
-  - type: 'grid'
+  - type: 'vertical-stack'
     title: 'Host'
-    columns: 4
     cards:
-      - type: 'gauge'
-        entity: 'sensor.processor_use_percent'
-        name: 'Processor'
-      - type: 'gauge'
-        entity: 'sensor.memory_use_percent'
-        name: 'Memory'
-      - type: 'gauge'
-        entity: 'sensor.disk_use_percent'
-        name: 'Disk'
-      - type: 'gauge'
-        entity: 'sensor.processor_temperature'
-        name: 'Temperature'
-        min: 20
-        max: 80
+      - type: 'grid'
+        columns: 4
+        cards:
+          - type: 'gauge'
+            entity: 'sensor.processor_use_percent'
+            name: 'Processor'
+          - type: 'gauge'
+            entity: 'sensor.memory_use_percent'
+            name: 'Memory'
+          - type: 'gauge'
+            entity: 'sensor.disk_use_percent'
+            name: 'Disk'
+          - type: 'gauge'
+            entity: 'sensor.processor_temperature'
+            name: 'Temperature'
+            min: 20
+            max: 80
+      - type: 'history-graph'
+        entities:
+          - entity: 'sensor.processor_use_percent'
+            name: 'Processor'
+          - entity: 'sensor.memory_use_percent'
+            name: 'Memory'
+          - entity: 'sensor.disk_use_percent'
+            name: 'Disk'
+          - entity: 'sensor.processor_temperature'
+            name: 'Temperature'
 
-  - type: 'grid'
+  - type: 'vertical-stack'
     title: 'Rack'
-    columns: 4
     cards:
-      - type: 'gauge'
-        entity: 'sensor.homelab_power'
-        name: 'Power'
-      - type: 'gauge'
-        entity: 'sensor.homelab_temperature'
-        name: 'Temperature'
-      - type: 'gauge'
-        entity: 'sensor.homelab_humidity'
-        name: 'Humidity'
-      - type: 'entity'
-        entity: 'switch.homelab_fan'
-        name: 'Fan'
-
+      - type: 'grid'
+        columns: 4
+        cards:
+          - type: 'gauge'
+            entity: 'sensor.homelab_power'
+            name: 'Power'
+          - type: 'gauge'
+            entity: 'sensor.homelab_temperature'
+            name: 'Temperature'
+          - type: 'gauge'
+            entity: 'sensor.homelab_humidity'
+            name: 'Humidity'
+          - type: 'entity'
+            entity: 'switch.homelab_fan'
+            name: 'Fan'
+      - type: 'history-graph'
+        entities:
+          - entity: 'sensor.homelab_power'
+            name: 'Power'
+          - entity: 'sensor.homelab_temperature'
+            name: 'Temperature'
