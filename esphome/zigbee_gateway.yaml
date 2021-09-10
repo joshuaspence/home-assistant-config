@@ -38,7 +38,6 @@ switch:
     restore_mode: 'ALWAYS_OFF'
     inverted: true
   - platform: 'template'
-    name: 'zRST'
     id: 'zRST'
     turn_on_action:
       - switch.turn_on: 'zRST_gpio'
@@ -47,7 +46,6 @@ switch:
 
   - platform: 'gpio'
     pin: 32
-    name: 'zBSL'
     id: 'zBSL'
     restore_mode: 'ALWAYS_OFF'
     inverted: true
