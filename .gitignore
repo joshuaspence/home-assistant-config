@@ -24,7 +24,5 @@ __pycache__/
 /zigbee2mqtt/coordinator_backup.json
 /zigbee2mqtt/database.db
 /zigbee2mqtt/database.db.backup
-/zigbee2mqtt/devices.yaml
-/zigbee2mqtt/groups.yaml
 /zigbee2mqtt/log/
 /zigbee2mqtt/state.json
