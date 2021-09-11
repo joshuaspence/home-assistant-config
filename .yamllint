@@ -7,7 +7,6 @@ ignore: |-
   /secrets.yaml
   /themes/
   /www/community/
-  /zigbee2mqtt/configuration.yaml
 
 rules:
   braces:
@@ -23,6 +22,7 @@ rules:
     present: false
   document-start:
     level: 'error'
+    ignore: '/zigbee2mqtt/'
   empty-lines:
     max: 1
   empty-values: 'enable'
@@ -32,6 +32,7 @@ rules:
   octal-values: 'enable'
   quoted-strings:
     quote-type: 'single'
+    ignore: '/zigbee2mqtt/'
   truthy:
     check-keys: false
     level: 'error'
