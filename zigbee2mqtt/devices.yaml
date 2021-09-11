@@ -6,3 +6,9 @@
   friendly_name: Office Desk Light
 '0x001788010293c25b':
   friendly_name: Office Light
+'0x00158d00068b8cec':
+  friendly_name: Office Door Contact Sensor
+'0x00158d0006c4b7fc':
+  friendly_name: Office Window Contact Sensor
+'0x001788010916c04a':
+  friendly_name: Office Motion Sensor
