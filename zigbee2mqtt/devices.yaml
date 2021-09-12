@@ -12,3 +12,5 @@
   friendly_name: Office Window Contact Sensor
 '0x001788010916c04a':
   friendly_name: Office Motion Sensor
+'0x000d6f0011193abb':
+  friendly_name: Front Door Lock
