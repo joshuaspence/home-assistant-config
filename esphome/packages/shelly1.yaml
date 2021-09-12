@@ -4,6 +4,7 @@ substitutions:
   device_platform: 'ESP8266'
   input1_gpio: 'GPIO5'
   output1_gpio: 'GPIO4'
+  wifi_power_save_mode: 'high'
 
 packages:
   wifi: !include 'wifi.yaml'

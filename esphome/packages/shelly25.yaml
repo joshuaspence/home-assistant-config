@@ -8,6 +8,7 @@ substitutions:
   output2_gpio: 'GPIO15'
   max_power: '2000.0'
   max_temp: '70.0'
+  wifi_power_save_mode: 'high'
 
 packages:
   wifi: !include 'wifi.yaml'
