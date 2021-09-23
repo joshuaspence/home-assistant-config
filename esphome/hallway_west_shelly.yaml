@@ -26,7 +26,7 @@ binary_sensor:
         homeassistant.service:
           service: 'light.toggle'
           data:
-            entity_id: 'light.hallway_east,light.hallway_west'
+            entity_id: 'light.hallway'
 
 output:
   - platform: 'gpio'
