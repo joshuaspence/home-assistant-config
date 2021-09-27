@@ -7,3 +7,4 @@ use_blueprint:
     trigger_sensor: 'binary_sensor.toilet_occupancy'
     light_target: 'light.toilet'
     illuminance_sensor: 'sensor.toilet_illuminance'
+    off_delay: 600
