@@ -1,0 +1,39 @@
+---
+sensor:
+  - platform: 'template'
+    sensors:
+      firmware_updates_available:
+        friendly_name: 'Firmware Updates Available'
+        unique_id: '51576e42-ce49-429a-8351-2142de129a26'
+        value_template: >-
+          {% set ns = namespace(sensors = []) %}
+          {% for sensor in states.sensor %}
+          {%   if "_update_state" in sensor.entity_id and sensor.state in ["available"] %}
+          {%     set ns.sensors = ns.sensors + [sensor.entity_id] %}
+          {%   endif %}
+          {% endfor %}
+
+          {{ ns.sensors | count }}
+
+automation:
+  - alias: 'Firmware Updates Available'
+    id: '9fa74084-47b9-492c-9731-e4b09ea61556'
+    trigger:
+      platform: 'state'
+      entity_id: 'sensor.firmware_updates_available'
+    action:
+      choose:
+        conditions:
+          condition: 'numeric_state'
+          entity_id: 'sensor.firmware_updates_available'
+          above: 0
+        sequence:
+          service: 'persistent_notification.create'
+          data:
+            message: 'There are {{ states.sensor.firmware_updates_available.state }} firmware updates available.'
+            title: 'Firmware Update Available'
+            notification_id: 'firmware-updates-available'
+      default:
+        service: 'persistent_notification.dismiss'
+        data:
+          notification_id: 'firmware-updates-available'
