@@ -29,6 +29,14 @@ cards:
       exclude:
         - entity_id: 'device_tracker.michael_phone'
 
+  - type: 'map'
+    entities:
+      - entity: 'device_tracker.josh_phone_app'
+      - entity: 'device_tracker.lily_phone_app'
+      - entity: 'person.josh'
+      - entity: 'person.lily'
+    hours_to_show: 3
+
   - type: 'glance'
     title: 'Room Occupancy'
     show_state: false
