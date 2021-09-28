@@ -8,4 +8,4 @@ use_blueprint:
       - 'binary_sensor.kitchen_north_occupancy'
       - 'binary_sensor.kitchen_south_occupancy'
     light_target: 'light.kitchen_main'
-    illuminance_sensor: 'sensor.kitchen_illuminance'
+    illuminance_sensor: 'sensor.kitchen_north_illuminance'
