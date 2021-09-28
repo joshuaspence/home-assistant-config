@@ -1,4 +1,5 @@
 ---
+# TODO: Update this for Z2M.
 blueprint:
   name: 'Yale Assure Events'
   domain: 'automation'
