@@ -13,5 +13,3 @@
   type: 'module'
 - url: '/hacsfiles/vacuum-card/vacuum-card.js'
   type: 'module'
-- url: '/hacsfiles/zha-network-card/zha-network-card.js'
-  type: 'module'

@@ -2,46 +2,4 @@
 title: 'Zigbee'
 icon: 'mdi:zigbee'
 path: 'zigbee'
-cards:
-  - type: 'custom:zha-network-card'
-    title: 'Zigbee Devices'
-    sort_by: 'status'
-    clickable: true
-    columns:
-      - name: 'Name'
-        prop: 'name'
-      - name: 'Status'
-        attr: 'available'
-        id: 'status'
-        modify: 'x && "Online" || "Offline"'
-
-      - name: 'Manufacturer'
-        attr: 'manufacturer'
-      - name: 'Model'
-        attr: 'model'
-
-      - name: 'IEEE'
-        attr: 'ieee'
-      - name: 'NWK'
-        prop: 'nwk'
-      - name: 'RSSI'
-        attr: 'rssi'
-      - name: 'LQI'
-        attr: 'lqi'
-      - name: 'Last Seen'
-        attr: 'last_seen'
-      - name: 'Type'
-        attr: 'device_type'
-
-      # See dmulcahey/zha-network-card#25.
-      - name: 'Neighbours'
-        attr: 'neighbors'
-        modify: >-
-          x.map((n, idx) => {
-            let s = "";
-            if (idx > 0) {
-              s = "<br />";
-            }
-            s = s + n.relationship + " " + n.ieee;
-            return s;
-          });
+cards: []
