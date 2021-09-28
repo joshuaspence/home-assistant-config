@@ -52,3 +52,121 @@
   friendly_name: Linen Closet Door Contact Sensor
 '0x00158d0006ca2ba6':
   friendly_name: Hallway Temperature Sensor
+'0x00158d0006b0f386':
+  friendly_name: Bathroom Door Contact Sensor
+'0x00158d000678e181':
+  friendly_name: Bathroom Temperature Sensor
+'0x0017880109164863':
+  friendly_name: Bathroom Motion Sensor
+'0x00158d00053f566d':
+  friendly_name: Living Room Temperature Sensor
+'0x001788010965e470':
+  friendly_name: Living Room Dimmer Switch
+'0x00158d0006c4bce4':
+  friendly_name: Front Door Contact Sensor
+'0x00178801090aff0c':
+  friendly_name: Hallway East Light
+'0x00178801025ceaa8':
+  friendly_name: Front Door Light
+'0x00178801067d0483':
+  friendly_name: Front Patio Light
+'0x001788010293c16d':
+  friendly_name: Bathroom Light
+'0x0017880104c361fc':
+  friendly_name: Bathroom Mirror Light
+'0x00158d0006a0a724':
+  friendly_name: Mailbox Front Door Contact Sensor
+'0x00158d0006b0d601':
+  friendly_name: Mailbox Top Door Contact Sensor
+'0x286d97000108ff62':
+  friendly_name: Spa Bath Water Leak Sensor
+'0x0017880108af0507':
+  friendly_name: Outside South-southeast Light
+'0x00178801093c115e':
+  friendly_name: Outside South-southwest Light
+'0x0017880108af0440':
+  friendly_name: Living Room Lower West Light
+'0x0017880108af07b4':
+  friendly_name: Living Room Lower East Light
+'0x0017880108a99eff':
+  friendly_name: Living Room Upper East Light
+'0x0017880108ae3f28':
+  friendly_name: Living Room Upper West Light
+'0x0017880102d95ade':
+  friendly_name: Kitchen Light
+'0x0017880109727622':
+  friendly_name: Kitchen Sink Light
+'0x0017880104703d75':
+  friendly_name: Kitchen Cooktop Light
+'0x0017880104c3fea5':
+  friendly_name: Kitchen Benchtop Light
+'0x0017880102d95245':
+  friendly_name: Dining Room Light
+'0x0017880108af04bd':
+  friendly_name: Outside North-northwest Light
+'0x0017880108b39317':
+  friendly_name: Outside North-northeast Light
+'0x00178801095f6fad':
+  friendly_name: Laundry Light
+'0x0017880108af0622':
+  friendly_name: Outside East-southeast Light
+'0x00158d0004a97174':
+  friendly_name: Dining Room Sliding Door Contact Sensor
+'0x0017880108af06e2':
+  friendly_name: Outside East-northeast Light
+'0x00158d0006c4fdf7':
+  friendly_name: Dining Room Temperature Sensor
+'0x00158d000320ac26':
+  friendly_name: Kitchen Temperature Sensor
+'0x00158d0006a0916c':
+  friendly_name: Kitchen Door Contact Sensor
+'0x00158d00053ea25b':
+  friendly_name: Living Room Sliding Door Contact Sensor
+'0x00158d0006a092b3':
+  friendly_name: Laundry Door Contact Sensor
+'0x00158d0006c4cf5a':
+  friendly_name: Laundry Window Contact Sensor
+'0x00158d0006bee4d9':
+  friendly_name: Kitchen Window Contact Sensor
+'0x00158d00067954ae':
+  friendly_name: Laundry Temperature Sensor
+'0x00158d0006b0f596':
+  friendly_name: Pantry Door Contact Sensor
+'0x00158d0006ffcbd9':
+  friendly_name: Back Door Contact Sensor
+'0x00158d0006c4cc5e':
+  friendly_name: Basement Door Contact Sensor
+'0x0017880109172d0f':
+  friendly_name: Hallway West Motion Sensor
+'0x001788010867ce35':
+  friendly_name: Hallway East Motion Sensor
+'0x0017880108231df9':
+  friendly_name: Attic Main Light
+'0x00158d0005408afa':
+  friendly_name: Attic Lower Temperature Sensor
+'0x00158d00032d525e':
+  friendly_name: Attic Upper Temperature Sensor
+'0x0017880109164817':
+  friendly_name: Laundry Motion Sensor
+'0x0017880106470948':
+  friendly_name: Clothes Line Motion Sensor
+'0x00178801064750f8':
+  friendly_name: Front Yard Motion Sensor
+'0x00178801064716e9':
+  friendly_name: Side Yard Motion Sensor
+'0x00178801064706f8':
+  friendly_name: Back Yard Motion Sensor
+'0x00158d00068b4108':
+  friendly_name: Outside Temperature Sensor
+'0x001788010916debb':
+  friendly_name: Dining Room Motion Sensor
+'0x00158d000542699c':
+  friendly_name: Basement West Temperature Sensor
+'0x001788010867bee1':
+  friendly_name: Living Room North Motion Sensor
+'0x001788010916463f':
+  friendly_name: Living Room South Motion Sensor
+'0x0017880109172d19':
+  friendly_name: Kitchen South Motion Sensor
+'0x001788010867c410':
+  friendly_name: Kitchen North Motion Sensor
