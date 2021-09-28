@@ -8,6 +8,7 @@ use_blueprint:
       - 'binary_sensor.dining_room_sliding_door'
       - 'binary_sensor.living_room_sliding_door'
     light_target:
+      - 'light.front_patio'
       - 'light.outside_nne'
       - 'light.outside_nnw'
     illuminance_sensor: 'sensor.back_yard_illuminance'
