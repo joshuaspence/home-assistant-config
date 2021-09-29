@@ -8,18 +8,18 @@ use_blueprint:
     on_press:
       service: 'light.turn_on'
       data:
-        entity_id: 'light.living_room'
+        entity_id: 'light.office'
     up_press:
       service: 'light.turn_on'
       data:
-        entity_id: 'light.living_room'
+        entity_id: 'light.office'
         brightness_step: 32
     down_press:
       service: 'light.turn_on'
       data:
-        entity_id: 'light.living_room'
+        entity_id: 'light.office'
         brightness_step: -32
     off_press:
       service: 'light.turn_off'
       data:
-        entity_id: 'light.living_room'
+        entity_id: 'light.office'
