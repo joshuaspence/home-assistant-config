@@ -4,8 +4,7 @@ alias: 'Living Room Dimmer Switch'
 use_blueprint:
   path: 'hue_dimmer_switch.yaml'
   input:
-    remote: 'f5a4d414d5d1ae1a8c387d0a5be14be6'
-    discovery_prefix: '0x001788010965e470'
+    remote: 'Living Room Dimmer Switch'
     on_press:
       service: 'light.turn_on'
       data:

@@ -6,14 +6,6 @@ blueprint:
     remote:
       name: 'Remote'
       selector:
-        device:
-          integration: 'mqtt'
-          manufacturer: 'Philips'
-          model: 'Hue dimmer switch (324131092621)'
-
-    # TODO: Why is this needed?
-    discovery_prefix:
-      selector:
         text: {}
 
     on_press:
@@ -33,33 +25,11 @@ blueprint:
       <<: *common_config
 
 trigger_variables:
-  discovery_prefix: !input 'discovery_prefix'
+  device_friendly_name: !input 'remote'
 
 trigger:
-  - platform: 'device'
-    domain: 'mqtt'
-    device_id: !input 'remote'
-    type: 'action'
-    subtype: 'on-press'
-    discovery_id: '{{ discovery_prefix ~ " action_on-press" }}'
-  - platform: 'device'
-    domain: 'mqtt'
-    device_id: !input 'remote'
-    type: 'action'
-    subtype: 'up-press'
-    discovery_id: '{{ discovery_prefix ~ " action_up-press" }}'
-  - platform: 'device'
-    domain: 'mqtt'
-    device_id: !input 'remote'
-    type: 'action'
-    subtype: 'down-press'
-    discovery_id: '{{ discovery_prefix ~ " action_down-press" }}'
-  - platform: 'device'
-    domain: 'mqtt'
-    device_id: !input 'remote'
-    type: 'action'
-    subtype: 'off-press'
-    discovery_id: '{{ discovery_prefix ~ " action_off-press" }}'
+  platform: 'mqtt'
+  topic: 'zigbee2mqtt/{{ device_friendly_name }}/action'
 
 action:
   - choose:
