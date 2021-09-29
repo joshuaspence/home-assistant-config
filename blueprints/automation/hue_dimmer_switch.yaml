@@ -1,5 +1,4 @@
 ---
-# TODO: Update this for Z2M.
 blueprint:
   name: 'Hue Dimmer Switch'
   domain: 'automation'
@@ -8,9 +7,14 @@ blueprint:
       name: 'Remote'
       selector:
         device:
-          integration: 'zha'
+          integration: 'mqtt'
           manufacturer: 'Philips'
-          model: 'RWL021'
+          model: 'Hue dimmer switch (324131092621)'
+
+    # TODO: Why is this needed?
+    discovery_prefix:
+      selector:
+        text: {}
 
     on_press:
       name: 'On Press'
@@ -28,30 +32,44 @@ blueprint:
       name: 'Off Press'
       <<: *common_config
 
-trigger:
-  platform: 'event'
-  event_type: 'zha_event'
-  event_data:
-    device_id: !input 'remote'
+trigger_variables:
+  discovery_prefix: !input 'discovery_prefix'
 
-condition:
-  condition: 'template'
-  value_template: >-
-    {{ 'button' in trigger.event.data.args }}
+trigger:
+  - platform: 'device'
+    domain: 'mqtt'
+    device_id: !input 'remote'
+    type: 'action'
+    subtype: 'on-press'
+    discovery_id: '{{ discovery_prefix ~ " action_on-press" }}'
+  - platform: 'device'
+    domain: 'mqtt'
+    device_id: !input 'remote'
+    type: 'action'
+    subtype: 'up-press'
+    discovery_id: '{{ discovery_prefix ~ " action_up-press" }}'
+  - platform: 'device'
+    domain: 'mqtt'
+    device_id: !input 'remote'
+    type: 'action'
+    subtype: 'down-press'
+    discovery_id: '{{ discovery_prefix ~ " action_down-press" }}'
+  - platform: 'device'
+    domain: 'mqtt'
+    device_id: !input 'remote'
+    type: 'action'
+    subtype: 'off-press'
+    discovery_id: '{{ discovery_prefix ~ " action_off-press" }}'
 
 action:
-  - variables:
-      button: '{{ trigger.event.data.args.button }}'
-      command: '{{ trigger.event.data.command }}'
-      press_type: '{{ trigger.event.data.args.button }}'
   - choose:
-      - conditions: '{{ button == "on" and press_type != "short_release" }}'
+      - conditions: '{{ trigger.payload == "on-press" }}'
         sequence: !input 'on_press'
-      - conditions: '{{ button == "up" and press_type != "short_release" }}'
+      - conditions: '{{ trigger.payload == "up-press" }}'
         sequence: !input 'up_press'
-      - conditions: '{{ button == "down" and press_type != "short_release" }}'
+      - conditions: '{{ trigger.payload == "down-press" }}'
         sequence: !input 'down_press'
-      - conditions: '{{ button == "off" and press_type != "short_release" }}'
+      - conditions: '{{ trigger.payload == "off-press" }}'
         sequence: !input 'off_press'
 
 mode: 'queued'
