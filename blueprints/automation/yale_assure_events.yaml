@@ -1,5 +1,4 @@
 ---
-# TODO: Update this for Z2M.
 blueprint:
   name: 'Yale Assure Events'
   domain: 'automation'
@@ -7,10 +6,7 @@ blueprint:
     lock:
       name: 'Lock'
       selector:
-        device:
-          integration: 'zha'
-          manufacturer: 'Yale'
-          model: 'YRD226 TSDB'
+        text: {}
 
     keypad_unlock:
       name: 'Keypad Unlock'
@@ -28,35 +24,36 @@ blueprint:
       name: 'Touch Lock'
       <<: *common_config
 
+trigger_variables:
+  device_friendly_name: !input 'remote'
+
 trigger:
-  platform: 'event'
-  event_type: 'zha_event'
-  event_data:
-    device_id: !input 'lock'
-    command: 'operation_event_notification'
+  platform: 'mqtt'
+  topic: 'zigbee2mqtt/{{ device_friendly_name }}'
 
 action:
   - variables:
-      source: '{{ trigger.event.data.args.source }}'
-      operation: '{{ trigger.event.data.args.operation }}'
-      code_slot: '{{ trigger.event.data.args.code_slot }}'
+      action: '{{ trigger.payload_json.action }}'
+      source: '{{ trigger.payload_json.action_source_name }}'
+      user: '{{ trigger.payload_json.action_user }}'
   - choose:
-      - conditions: '{{ source == "Keypad" and operation == "Unlock" }}'
+      - conditions: '{{ source == "keypad" and action == "unlock" }}'
         sequence: !input 'keypad_unlock'
-      - conditions: '{{ source == "Manual" and operation == "Manual_Lock" and code_slot == 65536 }}'
+      - conditions: '{{ source == "manual" and action == "manual_lock" and code_slot == 65535 }}'
         sequence: !input 'manual_lock'
-      - conditions: '{{ source == "Manual" and operation == "Manual_Unlock" and code_slot == 65536 }}'
+      - conditions: '{{ source == "manual" and action == "manual_unlock" and user == 65535 }}'
         sequence: !input 'manual_unlock'
-      - conditions: '{{ source == "Manual" and operation == "OnTouchLock" and code_slot == 65536 }}'
+      - conditions: '{{ source == "manual" and action == "one_touch_lock" and user == 65535 }}'
         sequence: !input 'touch_lock'
 
       # Lock was triggered by Home Assistant.
-      - conditions: '{{ source == "RF" and code_slot == 65536 }}'
+      # TODO
+      - conditions: '{{ source == "rf" and code_slot == 65535 }}'
         sequence: []
     default:
       service: 'system_log.write'
       data:
-        message: 'Unexpected zha_event from Yale Assure device: {{ trigger.event.data }}'
+        message: 'Unexpected event from Yale Assure device: {{ trigger.payload }}'
         level: 'warning'
 
 mode: 'queued'

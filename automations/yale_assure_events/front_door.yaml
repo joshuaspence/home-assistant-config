@@ -1,10 +1,10 @@
 ---
 id: 'b8ac47a4-7b1c-4baf-b891-15b7242a0e8c'
-alias: 'Front Door ZHA Events'
+alias: 'Front Door Events'
 use_blueprint:
   path: 'yale_assure_events.yaml'
   input:
-    lock: 'a563f1bd6116e59f9265606686f334db'
+    lock: 'Front Door Lock'
     keypad_unlock:
       - variables:
           code_slots:
