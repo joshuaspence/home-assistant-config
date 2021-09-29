@@ -15,10 +15,6 @@ __pycache__/
 /home-assistant_v2.db-shm
 /home-assistant_v2.db-wal
 
-# ZHA
-/zigbee.db
-/zigbee.db-journal
-
 # Zigbee2MQTT
 /zigbee2mqtt/.configuration.yaml.bk
 /zigbee2mqtt/coordinator_backup.json
