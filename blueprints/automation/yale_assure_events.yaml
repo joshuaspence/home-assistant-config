@@ -25,7 +25,7 @@ blueprint:
       <<: *common_config
 
 trigger_variables:
-  device_friendly_name: !input 'remote'
+  device_friendly_name: !input 'lock'
 
 trigger:
   platform: 'mqtt'
