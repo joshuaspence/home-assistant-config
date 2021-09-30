@@ -31,7 +31,7 @@ trigger:
   platform: 'mqtt'
   topic: 'zigbee2mqtt/{{ device_friendly_name }}'
 
-conditon:
+condition:
   condition: 'template'
   value_template: >-
     {{ 'action' in trigger.payload_json }}
@@ -52,7 +52,6 @@ action:
         sequence: !input 'touch_lock'
 
       # Lock was triggered by Home Assistant.
-      # TODO
       - conditions: '{{ source == "rf" and code_slot == 65535 }}'
         sequence: []
     default:
