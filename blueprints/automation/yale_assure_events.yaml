@@ -31,6 +31,11 @@ trigger:
   platform: 'mqtt'
   topic: 'zigbee2mqtt/{{ device_friendly_name }}'
 
+conditon:
+  condition: 'template'
+  value_template: >-
+    {{ 'action' in trigger.payload_json }}
+
 action:
   - variables:
       action: '{{ trigger.payload_json.action }}'
