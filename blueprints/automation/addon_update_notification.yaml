@@ -55,3 +55,6 @@ action:
     service: 'persistent_notification.dismiss'
     data:
       notification_id: 'update_available_{{ addon }}'
+
+mode: 'single'
+max_exceeded: 'silent'
