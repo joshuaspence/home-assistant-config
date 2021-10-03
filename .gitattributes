@@ -6,5 +6,8 @@
 # Home Assistant
 /secrets.yaml diff=git-crypt filter=git-crypt
 
+# Room Assistant
+/room_assistant/default.yaml diff=git-crypt filter=git-crypt
+
 # Zigbee2MQTT
 /zigbee2mqtt/configuration.yaml diff=git-crypt filter=git-crypt
