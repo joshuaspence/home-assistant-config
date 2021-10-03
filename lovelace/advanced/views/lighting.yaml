@@ -14,6 +14,11 @@ cards:
       - 'light.attic_3'
 
   - type: 'entities'
+    title: 'Basement'
+    entities:
+      - 'light.basement'
+
+  - type: 'entities'
     title: 'Bathroom'
     icon: 'mdi:shower'
     entities:

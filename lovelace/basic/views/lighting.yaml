@@ -16,6 +16,7 @@ cards:
     title: 'Downstairs'
     show_header_toggle: false
     entities:
+      - 'light.basement'
       - 'light.dining_room'
       - 'light.kitchen_main'
       - 'light.laundry'
