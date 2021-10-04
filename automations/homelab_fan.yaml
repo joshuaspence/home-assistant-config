@@ -1,0 +1,31 @@
+---
+id: 'b42bf8be-5bf8-439a-b872-460c5cf8c76b'
+alias: 'homelab_fan'
+trigger:
+  - id: 'no_occupancy'
+    platform: 'state'
+    entity_id: 'binary_sensor.office_occupancy'
+    to: 'off'
+    for: 600
+  - id: 'occupancy'
+    platform: 'state'
+    entity_id: 'binary_sensor.office_occupancy'
+    to: 'on'
+  - id: 'zoom'
+    platform: 'state'
+    entity_id: 'binary_sensor.zoom_atlassian'
+    to: 'on'
+action:
+  choose:
+    - conditions: '{{ trigger.id == "no_occupancy" }}'
+      sequence:
+        service: 'switch.turn_on'
+        entity_id: &fan_entity 'switch.homelab_fan'
+    - conditions: '{{ trigger.id == "occupancy" }}'
+      sequence:
+        service: 'switch.turn_off'
+        entity_id: *fan_entity
+    - conditions: '{{ trigger.id == "zoom" }}'
+      sequence:
+        service: 'switch.turn_off'
+        entity_id: *fan_entity
