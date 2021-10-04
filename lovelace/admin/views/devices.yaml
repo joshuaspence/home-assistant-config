@@ -23,6 +23,7 @@ cards:
     title: 'Device Controls'
     show_header_toggle: false
     entities:
+      - 'switch.basement_shelly'
       - 'switch.bathroom_shelly_1'
       - 'switch.bathroom_shelly_2'
       - 'switch.dining_room_shelly'
@@ -39,8 +40,10 @@ cards:
   - type: 'vertical-stack'
     title: 'Device Temperature'
     cards:
-      - type: 'glance'
+      - type: 'history-graph'
         entities: &device_temperature_entities
+          - entity: 'sensor.basement_shelly_temperature'
+            name: 'Basement Shelly'
           - entity: 'sensor.bathroom_shelly_1_temperature'
             name: 'Bathroom Shelly 1'
           - entity: 'sensor.bathroom_shelly_2_temperature'
