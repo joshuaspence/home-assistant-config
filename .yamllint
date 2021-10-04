@@ -3,10 +3,13 @@ extends: 'default'
 
 ignore: |-
   /custom_components/
-  /esphome/secrets.yaml
-  /secrets.yaml
   /themes/
   /www/community/
+
+  # Encrypted files.
+  /esphome/secrets.yaml
+  /room_assistant/default.yaml
+  /secrets.yaml
   /zigbee2mqtt/configuration.yaml
 
 rules:
