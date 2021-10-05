@@ -6,7 +6,8 @@ trigger:
     platform: 'state'
     entity_id: 'binary_sensor.office_occupancy'
     to: 'off'
-    for: 600
+    for:
+      minutes: 30
   - id: 'occupancy'
     platform: 'state'
     entity_id: 'binary_sensor.office_occupancy'
