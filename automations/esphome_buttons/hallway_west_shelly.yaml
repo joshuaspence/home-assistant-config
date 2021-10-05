@@ -2,7 +2,7 @@
 id: '33b809fa-ed36-4fef-a5a8-73ad91d7eb64'
 alias: 'hallway_west_shelly Buttons'
 use_blueprint:
-  path: 'shelly_buttons.yaml'
+  path: 'esphome_buttons.yaml'
   input:
     device: 'hallway_west_shelly'
     button1_click:

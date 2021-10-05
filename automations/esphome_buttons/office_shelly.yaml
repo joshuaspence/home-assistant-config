@@ -2,7 +2,7 @@
 id: '1c2ddeeb-3389-44a9-938f-0100c5485628'
 alias: 'office_shelly Buttons'
 use_blueprint:
-  path: 'shelly_buttons.yaml'
+  path: 'esphome_buttons.yaml'
   input:
     device: 'office_shelly'
     button1_click:

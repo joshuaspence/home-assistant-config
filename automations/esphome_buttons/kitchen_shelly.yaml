@@ -2,7 +2,7 @@
 id: 'fc38dbdd-1b4e-490d-85fe-0c252c1190cd'
 alias: 'kitchen_shelly Buttons'
 use_blueprint:
-  path: 'shelly_buttons.yaml'
+  path: 'esphome_buttons.yaml'
   input:
     device: 'kitchen_shelly'
     button1_click:

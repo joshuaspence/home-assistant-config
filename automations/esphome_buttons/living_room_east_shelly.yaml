@@ -2,7 +2,7 @@
 id: '9be293a3-53e7-4cd2-ad3f-d3bf0d6dfa76'
 alias: 'living_room_east_shelly Buttons'
 use_blueprint:
-  path: 'shelly_buttons.yaml'
+  path: 'esphome_buttons.yaml'
   input:
     device: 'living_room_east_shelly'
     button1_click:

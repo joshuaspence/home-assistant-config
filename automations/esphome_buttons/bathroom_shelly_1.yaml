@@ -2,7 +2,7 @@
 id: '7ce09039-e2aa-4824-8e2d-f51fad2a6f68'
 alias: 'bathroom_shelly_1 Buttons'
 use_blueprint:
-  path: 'shelly_buttons.yaml'
+  path: 'esphome_buttons.yaml'
   input:
     device: 'bathroom_shelly_1'
     button1_click:

@@ -1,6 +1,6 @@
 ---
 blueprint:
-  name: 'Shelly Buttons'
+  name: 'ESPHome Buttons'
   domain: 'automation'
   input:
     device:
@@ -36,7 +36,7 @@ trigger_variables:
 
 trigger:
   platform: 'event'
-  event_type: 'esphome.shelly_button'
+  event_type: 'esphome.button'
   event_data:
     device: '{{ device }}'
 

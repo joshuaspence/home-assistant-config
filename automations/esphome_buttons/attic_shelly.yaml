@@ -2,7 +2,7 @@
 id: 'c1fa5c32-230d-44e2-bd89-d748be8745ed'
 alias: 'attic_shelly Buttons'
 use_blueprint:
-  path: 'shelly_buttons.yaml'
+  path: 'esphome_buttons.yaml'
   input:
     device: 'attic_shelly'
     button1_click:
