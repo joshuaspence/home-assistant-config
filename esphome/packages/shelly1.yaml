@@ -15,9 +15,9 @@ binary_sensor:
   - platform: 'gpio'
     pin: '${input1_gpio}'
     id: 'input1'
-    on_click:
-      - min_length: '${button_click_min_length}'
-        max_length: '${button_click_max_length}'
+    on_multi_click:
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
         then:
           homeassistant.event:
             event: &button_event 'esphome.shelly_button'
@@ -25,8 +25,8 @@ binary_sensor:
               device: '${device_name}'
               button: '1'
               action: 'click'
-      - min_length: '${button_hold_min_length}'
-        max_length: '${button_hold_max_length}'
+      - timing:
+          - 'ON for ${button_hold_min_length} to ${button_hold_max_length}'
         then:
           homeassistant.event:
             event: *button_event
@@ -34,14 +34,15 @@ binary_sensor:
               device: '${device_name}'
               button: '1'
               action: 'hold'
-    on_double_click:
-      min_length: '${button_click_min_length}'
-      max_length: '${button_click_max_length}'
-      then:
-        homeassistant.event:
-          event: *button_event
-          data:
-            device: '${device_name}'
-            button: '1'
-            action: 'double-click'
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+          - 'OFF for ${button_click_min_length} to ${button_click_max_length}'
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '1'
+              action: 'double-click'
     internal: true
