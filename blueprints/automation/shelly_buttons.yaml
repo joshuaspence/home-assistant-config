@@ -1,0 +1,68 @@
+---
+blueprint:
+  name: 'Shelly Buttons'
+  domain: 'automation'
+  input:
+    device:
+      name: 'Device'
+      selector:
+        text: {}
+    
+    button1_click:
+      name: 'Button 1 Click'
+      <<: &common_config
+        default: []
+        selector:
+          action: {}
+    button1_hold:
+      name: 'Button 1 Hold'
+      <<: *common_config
+    button1_double_click:
+      name: 'Button 1 Double Click'
+      <<: *common_config
+    
+    button2_click:
+      name: 'Button 2 Click'
+      <<: *common_config
+    button2_hold:
+      name: 'Button 2 Hold'
+      <<: *common_config
+    button2_double_click:
+      name: 'Button 2 Double Click'
+      <<: *common_config
+
+trigger_variables:
+  device: !input 'device'
+
+trigger:
+  platform: 'event'
+  event_type: 'shelly.button'
+  event_data:
+    device: '{{ device }}'
+
+action:
+  - variables:
+      action: '{{ trigger.event.data.action }}'
+      button: '{{ trigger.event.data.button }}'
+  - choose:
+      - conditions: '{{ button == 1 and action == "click" }}'
+        sequence: !input 'button1_click'
+      - conditions: '{{ button == 1 and action == "hold" }}'
+        sequence: !input 'button1_hold'
+      - conditions: '{{ button == 1 and action == "double-click" }}'
+        sequence: !input 'button1_double_click'
+      
+      - conditions: '{{ button == 2 and action == "click" }}'
+        sequence: !input 'button2_click'
+      - conditions: '{{ button == 2 and action == "hold" }}'
+        sequence: !input 'button2_hold'
+      - conditions: '{{ button == 2 and action == "double-click" }}'
+        sequence: !input 'button2_double_click'
+    default:
+      service: 'system_log.write'
+      data:
+        message: 'Unexpected {{ trigger.event.event_type }} event: {{ trigger.event.data }}'
+        level: 'warning'
+
+mode: 'queued'
+max_exceeded: 'silent'
