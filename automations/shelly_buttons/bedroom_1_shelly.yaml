@@ -1,0 +1,11 @@
+---
+id: 'fbf009e5-c2bb-4d81-b433-b2ea16e2fd29'
+alias: 'bedroom_1_shelly Buttons'
+use_blueprint:
+  path: 'shelly_buttons.yaml'
+  input:
+    device: 'bedroom_1_shelly'
+    button1_click:
+      service: 'light.toggle'
+      data:
+        entity_id: 'light.bedroom_1'

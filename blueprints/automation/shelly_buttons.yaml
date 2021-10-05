@@ -7,7 +7,7 @@ blueprint:
       name: 'Device'
       selector:
         text: {}
-    
+
     button1_click:
       name: 'Button 1 Click'
       <<: &common_config
@@ -20,7 +20,7 @@ blueprint:
     button1_double_click:
       name: 'Button 1 Double Click'
       <<: *common_config
-    
+
     button2_click:
       name: 'Button 2 Click'
       <<: *common_config
@@ -36,7 +36,7 @@ trigger_variables:
 
 trigger:
   platform: 'event'
-  event_type: 'shelly.button'
+  event_type: 'esphome.shelly_button'
   event_data:
     device: '{{ device }}'
 
@@ -51,7 +51,7 @@ action:
         sequence: !input 'button1_hold'
       - conditions: '{{ button == 1 and action == "double-click" }}'
         sequence: !input 'button1_double_click'
-      
+
       - conditions: '{{ button == 2 and action == "click" }}'
         sequence: !input 'button2_click'
       - conditions: '{{ button == 2 and action == "hold" }}'

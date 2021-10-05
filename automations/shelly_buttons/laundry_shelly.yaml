@@ -1,0 +1,17 @@
+---
+id: '19583dc9-8c4a-4090-baaf-9a492f572d1a'
+alias: 'laundry_shelly Buttons'
+use_blueprint:
+  path: 'shelly_buttons.yaml'
+  input:
+    device: 'laundry_shelly'
+    button1_click:
+      service: 'light.toggle'
+      data:
+        entity_id: 'light.laundry'
+    button2_click:
+      service: 'light.toggle'
+      data:
+        entity_id:
+          - 'light.outside_ene'
+          - 'light.outside_ese'

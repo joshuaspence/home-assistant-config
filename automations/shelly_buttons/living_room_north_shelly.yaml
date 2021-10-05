@@ -1,0 +1,13 @@
+---
+id: '2a679f20-660f-4424-b6f6-a6c031aff07f'
+alias: 'living_room_north_shelly Buttons'
+use_blueprint:
+  path: 'shelly_buttons.yaml'
+  input:
+    device: 'living_room_north_shelly'
+    button1_click:
+      service: 'light.toggle'
+      data:
+        entity_id:
+          - 'light.outside_nne'
+          - 'light.outside_nnw'

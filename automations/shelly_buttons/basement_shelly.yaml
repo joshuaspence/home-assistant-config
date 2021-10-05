@@ -1,0 +1,11 @@
+---
+id: 'c41b6567-10de-4c5e-8773-ca2530afac2e'
+alias: 'basement_shelly Buttons'
+use_blueprint:
+  path: 'shelly_buttons.yaml'
+  input:
+    device: 'basement_shelly'
+    button1_click:
+      service: 'light.toggle'
+      data:
+        entity_id: 'light.basement'

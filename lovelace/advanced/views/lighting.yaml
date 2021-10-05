@@ -135,3 +135,6 @@ cards:
         - entity_id: 'automation.*_motion_lights'
           options:
             secondary_info: 'last-triggered'
+        - entity_id: 'automation.*_shelly*_buttons'
+          options:
+            secondary_info: 'last-triggered'

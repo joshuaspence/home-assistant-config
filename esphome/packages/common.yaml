@@ -1,4 +1,10 @@
 ---
+substitutions:
+  button_click_min_length: '50ms'
+  button_click_max_length: '350ms'
+  button_hold_min_length: '500ms'
+  button_hold_max_length: '1000ms'
+
 esphome:
   name: '${device_name}'
   platform: '${device_platform}'

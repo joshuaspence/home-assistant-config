@@ -8,25 +8,6 @@ packages:
   common: !include 'packages/common.yaml'
   device: !include 'packages/shelly25.yaml'
 
-binary_sensor:
-  - platform: 'gpio'
-    pin: '${input1_gpio}'
-    id: 'input1'
-    on_click:
-      then:
-        light.toggle: 'output1'
-    internal: true
-  - platform: 'gpio'
-    pin: '${input2_gpio}'
-    id: 'input2'
-    on_click:
-      then:
-        homeassistant.service:
-          service: 'light.toggle'
-          data:
-            entity_id: 'light.kitchen_benchtop,light.kitchen_cooktop,light.kitchen_sink'
-    internal: true
-
 output:
   - platform: 'gpio'
     pin: '${output1_gpio}'
