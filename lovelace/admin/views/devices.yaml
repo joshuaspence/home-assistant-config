@@ -46,8 +46,6 @@ cards:
     cards:
       - type: 'history-graph'
         entities: &device_temperature_entities
-          - entity: 'sensor.basement_shelly_temperature'
-            name: 'Basement Shelly'
           - entity: 'sensor.bathroom_shelly_1_temperature'
             name: 'Bathroom Shelly 1'
           - entity: 'sensor.bathroom_shelly_2_temperature'
