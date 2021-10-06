@@ -35,7 +35,7 @@ cards:
             name: >-
               {{ state_attr(config.entity, 'friendly_name') | replace(' Door', '') }}
             state: >-
-              {% if config.entity.state == "on" %}
+              {% if states(config.entity) == "on" %}
                 Open
               {% else %}
                 Closed
