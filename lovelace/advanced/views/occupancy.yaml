@@ -67,9 +67,3 @@ cards:
         name: 'Side Yard'
       - entity: 'binary_sensor.toilet_occupancy'
         name: 'Toilet'
-
-  - type: 'map'
-    entities:
-      - 'person.josh'
-      - 'person.lily'
-      - 'zone.home'
