@@ -11,6 +11,8 @@
   type: 'module'
 - url: '/hacsfiles/lovelace-fold-entity-row/fold-entity-row.js'
   type: 'module'
+- url: '/hacsfiles/lovelace-multiple-entity-row/multiple-entity-row.js'
+  type: 'module'
 - url: '/hacsfiles/lovelace-template-entity-row/template-entity-row.js'
   type: 'module'
 - url: '/hacsfiles/mini-graph-card/mini-graph-card-bundle.js'
