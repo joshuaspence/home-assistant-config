@@ -3,6 +3,8 @@
   type: 'module'
 - url: '/hacsfiles/ha-floorplan/floorplan.js'
   type: 'module'
+- url: '/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js'
+  type: 'module'
 - url: '/hacsfiles/lovelace-auto-entities/auto-entities.js'
   type: 'module'
 - url: '/hacsfiles/lovelace-collapsable-cards/collapsable-cards.js'
