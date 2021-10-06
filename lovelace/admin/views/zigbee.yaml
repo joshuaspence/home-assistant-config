@@ -2,6 +2,7 @@
 title: 'Zigbee'
 icon: 'mdi:zigbee'
 path: 'zigbee'
+panel: true
 cards:
   - type: 'custom:zigbee2mqtt-networkmap'
     entity: 'sensor.zigbee2mqtt_network_map'
