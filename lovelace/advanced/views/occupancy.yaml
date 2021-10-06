@@ -28,6 +28,8 @@ cards:
             attribute: 'status'
       exclude:
         - entity_id: 'device_tracker.michael_phone'
+    sort:
+      method: 'name'
 
   - type: 'map'
     entities:
