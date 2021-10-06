@@ -8,4 +8,4 @@ use_blueprint:
     button1_click:
       service: 'light.toggle'
       data:
-        entity_id: 'light.kitchen'
+        entity_id: 'light.kitchen_main'
