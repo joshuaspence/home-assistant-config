@@ -80,16 +80,6 @@ automation:
         update_available_sensor: 'binary_sensor.esphome_update_available'
         current_version_sensor: 'sensor.esphome_version'
         newest_version_sensor: 'sensor.esphome_newest_version'
-  - id: 'ce796450-90d0-4c2d-9b64-d00141206ed2'
-    alias: 'Git Pull Add-on Update Notification'
-    use_blueprint:
-      path: 'addon_update_notification.yaml'
-      input:
-        addon: 'core_git_pull'
-        name: 'Git pull'
-        update_available_sensor: 'binary_sensor.git_pull_update_available'
-        current_version_sensor: 'sensor.git_pull_version'
-        newest_version_sensor: 'sensor.git_pull_newest_version'
   - id: '1d219271-b31c-455b-b37e-1064c935d2fe'
     alias: 'Google Drive Backup Add-on Update Notification'
     use_blueprint:
