@@ -144,7 +144,7 @@ binary_sensor:
           - 'ON for ${button_click_min_length} to ${button_click_max_length}'
         then:
           homeassistant.event:
-            event: &button_event 'esphome.button'
+            event: *button_event
             data:
               device: '${device_name}'
               button: '2'
