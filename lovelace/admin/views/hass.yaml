@@ -143,6 +143,7 @@ cards:
         state: '{{ states.sensor | selectattr("attributes.device_class", "eq", "pressure") | list | count }}'
       - type: 'custom:template-entity-row'
         name: 'Problem'
+        icon: 'mdi:alert-circle'
         state: '{{ states.binary_sensor | selectattr("attributes.device_class", "eq", "problem") | list | count }}'
       - type: 'custom:template-entity-row'
         name: 'Temperature'
