@@ -95,7 +95,7 @@
 | Living Room Lower East Light            | 3a8527b9df4024d9befd2db5c7c27d55 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | living_room |
 | Living Room Lower West Light            | cfb290a4919d2fdd2e41599588aeed11 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | living_room |
 | Living Room North Motion Sensor         | f6ccf2464e707b20c0348016550f77a7 | Philips                                       | Hue motion sensor (9290012607)                                  | living_room |
-| Living Room North Shelly                | 63aa14a3740c1a25a45ffb8ec1d4e3a6 | espressif                                     | PLATFORMIO_ESP01_1M                                             | living_room |
+| Living Room North Shelly                | 63aa14a3740c1a25a45ffb8ec1d4e3a6 | espressif                                     | esp01_1m                                                        | living_room |
 | Living Room Sliding Door Contact Sensor | 7d3b49bed3bb6dfaeca905081901d860 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | living_room |
 | Living Room South Motion Sensor         | 71a5676c799d1ac95a860c67d1aad1e5 | Philips                                       | Hue motion sensor (9290012607)                                  | living_room |
 | Living Room Speaker                     | 87d702e9cbdb16a41f447c99ed956c20 | Google Inc.                                   | Google Home                                                     | living_room |
@@ -103,7 +103,7 @@
 | Living Room Temperature Sensor          | 90714716d0529c7aad606d8352fae2e1 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | living_room |
 | Living Room Upper East Light            | af71baf9137091e05cf759450bd76ca5 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | living_room |
 | Living Room Upper West Light            | 7a5113295e824b2f62fbe0ec6d719882 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | living_room |
-| Living Room West Shelly                 | d8fc0f1b5df20fe5247743869a8961bf | espressif                                     | PLATFORMIO_ESP01_1M                                             | living_room |
+| Living Room West Shelly                 | d8fc0f1b5df20fe5247743869a8961bf | espressif                                     | esp01_1m                                                        | living_room |
 | Mailbox Front Door Contact Sensor       | 2c91e406fa67802093ac6b9d4bad7304 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | outside     |
 | Mailbox Top Door Contact Sensor         | 13d285905466010643e9fd858657d71b | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | outside     |
 | Michael's Phone                         | 193beac23d3adceb1ea8a327ffc581e8 | Apple                                         | None                                                            | None        |
@@ -125,15 +125,19 @@
 | Outside Temperature Sensor              | b0ddeaf6144aefbaabf790515a2ea7f3 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | outside     |
 | Pantry Door Contact Sensor              | f4ade31574566554c3f6b74357f4fa8c | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | pantry      |
 | Refrigerator Smart Plug                 | 7131616138d08e980c8b8550ffbbcda4 | TP-Link                                       | HS110(AU)                                                       | kitchen     |
+| Room Assistant                          | 16ce20dc128b01c5fbff236f7fb22222 |                                               | Docker Container                                                | None        |
+| Room Assistant Add-on                   | a0f1e8e5c65d0869c30c5a5e9a6a7172 | Hass.io Addons by mKeRix                      | Home Assistant Add-on                                           | None        |
 | Side Yard Motion Sensor                 | e4273431c46f446d1524c765d806fd43 | Philips                                       | Hue motion outdoor sensor (9290019758)                          | outside     |
 | Spa Bath Water Leak Sensor              | b3305b417533677e2dfa6d1868623a75 | SmartThings                                   | Water leak sensor (2018 model) (IM6001-WLP01)                   | bathroom    |
+| SpeedTest                               | d1817d075db7a6166b36f06bf66fe151 | None                                          | None                                                            | None        |
 | Terminal & SSH Add-On                   | c34c162b0be74423474583b872bd4b0e | Official add-ons                              | Home Assistant Add-on                                           | None        |
 | Toilet Door Contact Sensor              | 9ef7701ae19f230d3f5f17ef61fa6100 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | toilet      |
 | Toilet Light                            | 7287574a80ad5479c2f4a22f862723bb | Philips                                       | Garnea downlight (5110131H5)                                    | toilet      |
 | Toilet Motion Sensor                    | 7800e2f977c716523475357f3e091626 | Philips                                       | Hue motion sensor (9290012607)                                  | toilet      |
-| Toilet Shelly                           | 4e1310a3cb83785eee90b0a689fd1213 | espressif                                     | PLATFORMIO_ESP01_1M                                             | toilet      |
+| Toilet Shelly                           | 4e1310a3cb83785eee90b0a689fd1213 | espressif                                     | esp01_1m                                                        | toilet      |
 | Toilet Temperature Sensor               | a9026472f0a5fab16582a6bdea27ecab | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | toilet      |
 | UniFi Controller Add-on                 | a2365fcf4d04f45dc99072c74422e776 | Home Assistant Community Add-ons              | Home Assistant Add-on                                           | None        |
+| Visual Studio Code Add-on               | 7e03db91aff0fa0b5b6acf381b0d8d73 | Home Assistant Community Add-ons              | Home Assistant Add-on                                           | None        |
 | Washing Machine Smart Plug              | 28c5facd8c549c053beb8f1a324f9299 | TP-Link                                       | KP115(AU)                                                       | laundry     |
-| Zigbee Gateway                          | 0ff43e606d05602b4dcc719cf825bf6d | espressif                                     | Espressif ESP-WROVER-KIT                                        | office      |
+| Zigbee Gateway                          | 0ff43e606d05602b4dcc719cf825bf6d | espressif                                     | esp-wrover-kit                                                  | office      |
 | Zigbee2mqtt Add-on                      | 4b18a38caf5c51f7544f294f1ad3666e | Home Assistant Add-on: Zigbee2mqtt            | Home Assistant Add-on                                           | None        |
