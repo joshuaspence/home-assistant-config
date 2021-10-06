@@ -23,3 +23,5 @@
   type: 'module'
 - url: '/hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js'
   type: 'module'
+- url: '/hacsfiles/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js'
+  type: 'module'

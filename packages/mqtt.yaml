@@ -6,6 +6,13 @@ mqtt:
 
 sensor:
   - platform: 'mqtt'
+    name: 'Zigbee2MQTT Network Map'
+    unique_id: 'f6ec75b3-c952-4c8f-9a62-a07f0eb063b2'
+    state_topic: 'zigbee2mqtt/bridge/response/networkmap'
+    value_template: '{{ now().strftime("%Y-%m-%d %H:%M:%S") }}'
+    json_attributes_topic: 'zigbee2mqtt/bridge/response/networkmap'
+    json_attributes_template: '{{ value_json.data.value | tojson }}'
+  - platform: 'mqtt'
     state_topic: 'zigbee2mqtt/bridge/state'
     name: 'Zigbee2MQTT State'
     unique_id: '0e78cda4-e06a-4174-a663-1badfc31f315'
