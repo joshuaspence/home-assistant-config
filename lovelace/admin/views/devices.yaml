@@ -13,11 +13,15 @@ cards:
           value: '*_sensor_power'
         - name: 'attributes.device_class'
           value: 'battery'
+      exclude:
+        - entity_id: 'sensor.*_phone_battery_level'
     bulk_rename:
       - from: 'Battery Level'
         to: ''
       - from: 'Power'
         to: ''
+    sort:
+      method: 'name'
 
   - type: 'entities'
     title: 'Device Controls'
