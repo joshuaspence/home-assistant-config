@@ -268,5 +268,5 @@ cards:
     entities:
       - entity: 'binary_sensor.backups_stale'
         name: 'Staleness'
-      - entity: 'sensor.backups_state'
+      - entity: 'sensor.backup_state'
         name: 'State'
