@@ -46,3 +46,17 @@ cards:
         - or: *exterior_doors
     sort:
       method: 'name'
+
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Windows'
+      icon: 'mdi:window'
+    filter:
+      include:
+        - domain: 'binary_sensor'
+          entity_id: 'binary_sensor.*_window'
+          attributes:
+            device_class: 'window'
+    sort:
+      method: 'name'
