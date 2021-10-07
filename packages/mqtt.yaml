@@ -16,3 +16,17 @@ sensor:
     state_topic: 'zigbee2mqtt/bridge/state'
     name: 'Zigbee2MQTT State'
     unique_id: '0e78cda4-e06a-4174-a663-1badfc31f315'
+
+automation:
+  - alias: 'Zigbee2MQTT Network Map'
+    id: '2b67c904-fb8f-41d3-983d-a013f7c510ba'
+    trigger:
+      - platform: 'homeassistant'
+        event: 'start'
+      - platform: 'time_pattern'
+        hours: '*'
+    action:
+      service: 'mqtt.publish'
+      data:
+        topic: 'zigbee2mqtt/bridge/request/networkmap'
+        payload: 'raw'
