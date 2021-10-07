@@ -32,8 +32,7 @@ cards:
             device_class: 'door'
           options:
             type: 'custom:template-entity-row'
-            name: >-
-              {{ state_attr(config.entity, 'friendly_name') | replace(' Door', '') }}
+            name: '{{ state_attr(config.entity, "friendly_name") | replace(" Door", "") }}'
             state: >-
               {% if states(config.entity) == "on" %}
                 Open
@@ -58,5 +57,14 @@ cards:
           entity_id: 'binary_sensor.*_window'
           attributes:
             device_class: 'window'
+          options:
+            type: 'custom:template-entity-row'
+            name: '{{ state_attr(config.entity, "friendly_name") | replace(" Window", "") }}'
+            state: >-
+              {% if states(config.entity) == "on" %}
+                Open
+              {% else %}
+                Closed
+              {% endif %}
     sort:
       method: 'name'
