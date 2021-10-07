@@ -87,7 +87,7 @@ cards:
     cards:
       - type: 'weather-forecast'
         entity: 'weather.home'
-        show_forecast: false
+      - type: 'custom:sun-card'
 
       - type: 'glance'
         entities: &outside_temperature_entities

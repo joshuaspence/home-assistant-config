@@ -1,8 +1,0 @@
----
-title: 'Weather'
-icon: 'mdi:weather-cloudy'
-path: 'weather'
-cards:
-  - type: 'weather-forecast'
-    entity: 'weather.home'
-  - type: 'custom:sun-card'

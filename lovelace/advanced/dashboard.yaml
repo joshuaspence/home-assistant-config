@@ -3,7 +3,6 @@ views:
   - !include 'views/overview.yaml'
   - !include 'views/lighting.yaml'
   - !include 'views/climate.yaml'
-  - !include 'views/weather.yaml'
   - !include 'views/security.yaml'
   - !include 'views/vacuum.yaml'
   - !include 'views/occupancy.yaml'
