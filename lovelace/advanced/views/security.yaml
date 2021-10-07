@@ -6,65 +6,59 @@ cards:
   - type: 'alarm-panel'
     entity: 'alarm_control_panel.alarm'
 
-  - type: 'custom:auto-entities'
-    card:
-      type: 'entities'
-      title: 'Exterior Doors'
-      icon: 'mdi:door'
-    filter:
-      include: &exterior_doors
-        - entity_id: 'binary_sensor.front_door'
-        - entity_id: 'lock.front_door'
-        - entity_id: 'binary_sensor.back_door'
-        - entity_id: 'binary_sensor.living_room_sliding_door'
-        - entity_id: 'binary_sensor.dining_room_sliding_door'
-
-  - type: 'custom:auto-entities'
-    card:
-      type: 'entities'
-      title: 'Interior Doors'
-      icon: 'mdi:door'
-    filter:
-      include:
-        - domain: 'binary_sensor'
-          entity_id: 'binary_sensor.*_door'
-          attributes:
-            device_class: 'door'
-          options:
-            type: 'custom:template-entity-row'
-            name: '{{ state_attr(config.entity, "friendly_name") | replace(" Door", "") }}'
-            state: >-
-              {% if states(config.entity) == "on" %}
-                Open
-              {% else %}
-                Closed
-              {% endif %}
-      exclude:
-        - area: 'outside'
-        - entity_id: 'binary_sensor.mailbox_*_door'
-        - or: *exterior_doors
-    sort:
-      method: 'name'
-
-  - type: 'custom:auto-entities'
-    card:
-      type: 'entities'
-      title: 'Windows'
-      icon: 'mdi:window'
-    filter:
-      include:
-        - domain: 'binary_sensor'
-          entity_id: 'binary_sensor.*_window'
-          attributes:
-            device_class: 'window'
-          options:
-            type: 'custom:template-entity-row'
-            name: '{{ state_attr(config.entity, "friendly_name") | replace(" Window", "") }}'
-            state: >-
-              {% if states(config.entity) == "on" %}
-                Open
-              {% else %}
-                Closed
-              {% endif %}
-    sort:
-      method: 'name'
+  - type: 'entities'
+    entities:
+      - 'lock.front_door'
+      - type: 'custom:fold-entity-row'
+        head:
+          type: 'section'
+          label: 'Exterior Doors'
+        entities:
+          - 'binary_sensor.front_door'
+          - 'binary_sensor.back_door'
+          - 'binary_sensor.living_room_sliding_door'
+          - 'binary_sensor.dining_room_sliding_door'
+      - type: 'custom:fold-entity-row'
+        head:
+          type: 'section'
+          label: 'Interior Doors'
+        entities:
+          - entity: 'binary_sensor.attic_door'
+            name: 'Attic'
+          - entity: 'binary_sensor.basement_door'
+            name: 'Basement'
+          - entity: 'binary_sensor.bathroom_door'
+            name: 'Bathroom'
+          - entity: 'binary_sensor.bedroom_1_door'
+            name: 'Bedroom 1'
+          - entity: 'binary_sensor.bedroom_2_door'
+            name: 'Bedroom 2'
+          - entity: 'binary_sensor.kitchen_door'
+            name: 'Kitchen'
+          - entity: 'binary_sensor.laundry_door'
+            name: 'Laundry'
+          - entity: 'binary_sensor.linen_closet_door'
+            name: 'Linen closet'
+          - entity: 'binary_sensor.office_door'
+            name: 'Office'
+          - entity: 'binary_sensor.pantry_door'
+            name: 'Pantry'
+          - entity: 'binary_sensor.toilet_door'
+            name: 'Toilet'
+      - type: 'custom:fold-entity-row'
+        head:
+          type: 'section'
+          label: 'Windows'
+        entities:
+          - entity: 'binary_sensor.bedroom_1_east_window'
+            name: 'Bedroom 1 (East)'
+          - entity: 'binary_sensor.bedroom_1_south_window'
+            name: 'Bedroom 1 (South)'
+          - entity: 'binary_sensor.bedroom_2_window'
+            name: 'Bedroom 2'
+          - entity: 'binary_sensor.kitchen_window'
+            name: 'Kitchen'
+          - entity: 'binary_sensor.laundry_window'
+            name: 'Laundry'
+          - entity: 'binary_sensor.office_window'
+            name: 'Office'
