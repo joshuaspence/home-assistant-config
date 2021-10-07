@@ -6,3 +6,6 @@ panel: true
 cards:
   - type: 'custom:zigbee2mqtt-networkmap'
     entity: 'sensor.zigbee2mqtt_network_map'
+    force: 2000
+    height: 800
+    link_width: 1
