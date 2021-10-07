@@ -4,6 +4,15 @@ icon: 'mdi:flashlight'
 path: 'lights'
 cards:
   - type: 'entities'
+    title: 'Scenes'
+    icon: 'mdi:palette'
+    entities:
+      - 'scene.bed_time'
+      - 'scene.arriving_home'
+      - 'scene.day_time'
+      - 'scene.dim'
+
+  - type: 'entities'
     title: 'Downstairs'
     show_header_toggle: false
     entities:
