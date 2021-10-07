@@ -1,0 +1,40 @@
+---
+binary_sensor:
+  - platform: 'group'
+    name: 'All Windows'
+    unique_id: '6df77c0b-2557-4c0a-b9cc-708f14a57cde'
+    device_class: 'window'
+    entities:
+      - 'binary_sensor.bedroom_1_east_window'
+      - 'binary_sensor.bedroom_1_south_window'
+      - 'binary_sensor.bedroom_2_window'
+      - 'binary_sensor.kitchen_window'
+      - 'binary_sensor.laundry_window'
+      - 'binary_sensor.office_window'
+
+  - platform: 'group'
+    name: 'Exterior Doors'
+    unique_id: 'e2a45096-93a4-4cb8-ba63-37fc83082b1d'
+    device_class: 'door'
+    entities:
+      - 'binary_sensor.back_door'
+      - 'binary_sensor.dining_room_sliding_door'
+      - 'binary_sensor.front_door'
+      - 'binary_sensor.living_room_sliding_door'
+
+  - platform: 'group'
+    name: 'Interior Doors'
+    unique_id: 'b554e98a-3b64-4a15-99b3-ea7bb72e0290'
+    device_class: 'door'
+    entities:
+      - 'binary_sensor.attic_door'
+      - 'binary_sensor.basement_door'
+      - 'binary_sensor.bathroom_door'
+      - 'binary_sensor.bedroom_1_door'
+      - 'binary_sensor.bedroom_2_door'
+      - 'binary_sensor.kitchen_door'
+      - 'binary_sensor.laundry_door'
+      - 'binary_sensor.linen_closet_door'
+      - 'binary_sensor.office_door'
+      - 'binary_sensor.pantry_door'
+      - 'binary_sensor.toilet_door'
