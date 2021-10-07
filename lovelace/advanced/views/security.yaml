@@ -11,7 +11,21 @@ cards:
       - 'lock.front_door'
       - type: 'custom:fold-entity-row'
         head: 'binary_sensor.exterior_doors'
+        <<: &common_config
+          group_config:
+            secondary_info: 'last-changed'
       - type: 'custom:fold-entity-row'
         head: 'binary_sensor.interior_doors'
+        <<: *common_config
       - type: 'custom:fold-entity-row'
         head: 'binary_sensor.all_windows'
+        <<: *common_config
+
+  - type: 'entities'
+    entities:
+      - type: 'custom:fold-entity-row'
+        head: 'binary_sensor.inside_occupancy'
+        <<: *common_config
+      - type: 'custom:fold-entity-row'
+        head: 'binary_sensor.outside_occupancy'
+        <<: *common_config
