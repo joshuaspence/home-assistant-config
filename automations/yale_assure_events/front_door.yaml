@@ -7,14 +7,14 @@ use_blueprint:
     lock: 'Front Door Lock'
     keypad_unlock:
       - variables:
-          code_slots:
+          users:
             - 'josh'
             - 'lily'
           friendly_name: >-
-            {% if code_slot == 1 %}
+            {% if user == 1 %}
               master code
             {% else %}
-              {{ state_attr('person.' ~ code_slots[code_slot - 2], 'friendly_name') }}
+              {{ state_attr('person.' ~ users[user - 2], 'friendly_name') }}
             {% endif %}
       - service: 'logbook.log'
         data:
