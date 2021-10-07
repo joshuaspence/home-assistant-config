@@ -31,13 +31,3 @@ cards:
     filter:
       include:
         - domain: 'scene'
-
-  - type: 'custom:floorplan-card'
-    full_height: false
-    config:
-      image: '/local/floorplan.svg'
-      stylesheet: '/local/floorplan.css'
-      log_level: 'info'
-      console_log_level: 'info'
-      defaults: {}
-      rules: []
