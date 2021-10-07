@@ -109,8 +109,6 @@ cards:
           - 'light.attic_2'
           - 'light.attic_3'
 
-
-
   - type: 'entities'
     title: 'Automations'
     icon: 'mdi:robot'
