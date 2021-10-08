@@ -4,28 +4,39 @@ icon: 'mdi:security'
 path: 'security'
 cards:
   - type: 'alarm-panel'
-    entity: 'alarm_control_panel.alarm'
+    entity: &alarm 'alarm_control_panel.alarm'
 
   - type: 'entities'
     entities:
       - 'lock.front_door'
       - type: 'custom:fold-entity-row'
-        head: 'binary_sensor.external_doors'
-        <<: &common_config
-          group_config:
-            secondary_info: 'last-changed'
+        head: &external_doors 'binary_sensor.external_doors'
+
+      # TODO: Remove "Door" suffix from names.
       - type: 'custom:fold-entity-row'
-        head: 'binary_sensor.internal_doors'
-        <<: *common_config
+        head: &internal_doors 'binary_sensor.internal_doors'
+
+      # TODO: Remove "Window" suffix from names.
       - type: 'custom:fold-entity-row'
-        head: 'binary_sensor.all_windows'
-        <<: *common_config
+        head: &all_windows 'binary_sensor.all_windows'
 
   - type: 'entities'
     entities:
       - type: 'custom:fold-entity-row'
-        head: 'binary_sensor.external_occupancy'
-        <<: *common_config
+        head: &external_occupancy 'binary_sensor.external_occupancy'
       - type: 'custom:fold-entity-row'
-        head: 'binary_sensor.internal_occupancy'
-        <<: *common_config
+        head: &internal_occupancy 'binary_sensor.internal_occupancy'
+
+  - type: 'custom:auto-entities'
+    card:
+      type: 'logbook'
+      hours_to_show: 6
+    filter:
+      include:
+        - domain: 'alarm'
+        - domain: 'lock'
+        - group: *all_windows
+        - group: *external_doors
+        - group: *external_occupancy
+        - group: *internal_doors
+        - group: *internal_occupancy
