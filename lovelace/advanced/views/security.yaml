@@ -8,7 +8,8 @@ cards:
 
   - type: 'entities'
     entities:
-      - 'lock.front_door'
+      - type: 'custom:fold-entity-row'
+        head: &all_locks 'group.all_locks'
       - type: 'custom:fold-entity-row'
         head: &external_doors 'binary_sensor.external_doors'
 
@@ -33,8 +34,8 @@ cards:
       hours_to_show: 6
     filter:
       include:
-        - domain: 'alarm'
-        - domain: 'lock'
+        - entity_id: *alarm
+        - group: *all_locks
         - group: *all_windows
         - group: *external_doors
         - group: *external_occupancy

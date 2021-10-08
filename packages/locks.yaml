@@ -1,0 +1,7 @@
+---
+group:
+  all_locks:
+    entities:
+      - 'lock.front_door'
+    icon: 'mdi:lock'
+    name: 'All Locks'
