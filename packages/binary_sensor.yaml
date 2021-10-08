@@ -23,6 +23,14 @@ binary_sensor:
       - 'binary_sensor.living_room_sliding_door'
 
   - platform: 'group'
+    name: 'Hallway Occupancy'
+    unique_id: 'b51864e4-8ad0-435a-9b6a-d6b4656cc643'
+    device_class: 'motion'
+    entities:
+      - 'binary_sensor.hallway_east_occupancy'
+      - 'binary_sensor.hallway_west_occupancy'
+
+  - platform: 'group'
     name: 'Inside Occupancy'
     unique_id: 'b205d8cb-5dc4-41fb-9720-7a47a0ea63d3'
     device_class: 'motion'
@@ -31,13 +39,10 @@ binary_sensor:
       - 'binary_sensor.bedroom_1_occupancy'
       - 'binary_sensor.bedroom_2_occupancy'
       - 'binary_sensor.dining_room_occupancy'
-      - 'binary_sensor.hallway_east_occupancy'
-      - 'binary_sensor.hallway_west_occupancy'
-      - 'binary_sensor.kitchen_north_occupancy'
-      - 'binary_sensor.kitchen_south_occupancy'
+      - 'binary_sensor.hallway_occupancy'
+      - 'binary_sensor.kitchen_occupancy'
       - 'binary_sensor.laundry_occupancy'
-      - 'binary_sensor.living_room_north_occupancy'
-      - 'binary_sensor.living_room_south_occupancy'
+      - 'binary_sensor.living_room_occupancy'
       - 'binary_sensor.office_occupancy'
       - 'binary_sensor.toilet_occupancy'
 
@@ -57,6 +62,22 @@ binary_sensor:
       - 'binary_sensor.office_door'
       - 'binary_sensor.pantry_door'
       - 'binary_sensor.toilet_door'
+
+  - platform: 'group'
+    name: 'Kitchen Occupancy'
+    unique_id: '87788c48-7ac1-49e1-949c-14aa1d6f7a41'
+    device_class: 'motion'
+    entities:
+      - 'binary_sensor.kitchen_north_occupancy'
+      - 'binary_sensor.kitchen_south_occupancy'
+
+  - platform: 'group'
+    name: 'Living Room Occupancy'
+    unique_id: 'd3b33bf0-abab-429b-94eb-21120ec6a7cf'
+    device_class: 'motion'
+    entities:
+      - 'binary_sensor.living_room_north_occupancy'
+      - 'binary_sensor.living_room_south_occupancy'
 
   - platform: 'group'
     name: 'Outside Occupancy'
