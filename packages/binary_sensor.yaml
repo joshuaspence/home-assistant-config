@@ -25,7 +25,6 @@ binary_sensor:
       - 'binary_sensor.living_room_north_occupancy'
       - 'binary_sensor.living_room_south_occupancy'
 
-
   # Doors
   - platform: 'group'
     name: 'External Doors'
