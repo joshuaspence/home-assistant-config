@@ -9,7 +9,9 @@ cards:
   - type: 'entities'
     entities:
       - type: 'custom:fold-entity-row'
-        head: &all_locks 'group.all_locks'
+        head:
+          entity: &all_locks 'group.all_locks'
+          name: 'Locks'
       - type: 'custom:fold-entity-row'
         head: &external_doors 'binary_sensor.external_doors'
 
@@ -19,7 +21,9 @@ cards:
 
       # TODO: Remove "Window" suffix from names.
       - type: 'custom:fold-entity-row'
-        head: &all_windows 'binary_sensor.all_windows'
+        head:
+          entity: &all_windows 'binary_sensor.all_windows'
+          name: 'Windows'
 
   - type: 'entities'
     entities:
