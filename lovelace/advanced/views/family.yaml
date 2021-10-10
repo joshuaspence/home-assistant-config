@@ -1,0 +1,46 @@
+---
+title: 'Family'
+icon: 'mdi:human-male-female'
+path: 'family'
+cards:
+  - type: 'entities'
+    entities:
+      - type: 'custom:fold-entity-row'
+        head: &family 'group.family'
+        open: true
+        padding: 0
+        entities:
+          - type: 'custom:fold-entity-row'
+            head: 'person.josh'
+            entities:
+              - entity: 'device_tracker.josh_laptop'
+                name: 'Laptop'
+              - entity: 'device_tracker.josh_phone_app'
+                name: 'Phone (App)'
+              - entity: 'device_tracker.josh_phone_roomassistant'
+                name: 'Phone (Room Assistant)'
+              - entity: 'device_tracker.josh_phone_unifi'
+                name: 'Phone (Unifi)'
+              - type: 'attribute'
+                entity: 'binary_sensor.zoom_atlassian'
+                attribute: 'status'
+                name: 'Zoom'
+          - type: 'custom:fold-entity-row'
+            head: 'person.lily'
+            entities:
+              - entity: 'device_tracker.lily_phone_app'
+                name: 'Phone (App)'
+              - entity: 'device_tracker.lily_phone_roomassistant'
+                name: 'Phone (Room Assistant)'
+              - entity: 'device_tracker.lily_phone_unifi'
+                name: 'Phone (Unifi)'
+
+  - type: 'custom:auto-entities'
+    card:
+      type: 'map'
+      hours_to_show: 6
+    filter:
+      include:
+        - domain: 'device_tracker'
+        - domain: 'zone'
+        - group: *family

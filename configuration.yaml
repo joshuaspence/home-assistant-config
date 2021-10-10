@@ -25,6 +25,14 @@ homeassistant:
       device_class: 'door'
     binary_sensor.*_window:
       device_class: 'window'
+    device_tracker.*_laptop:
+      icon: 'mdi:laptop'
+    device_tracker.*_laptop_*:
+      icon: 'mdi:laptop'
+    device_tracker.*_phone:
+      icon: 'mdi:cellphone'
+    device_tracker.*_phone_*:
+      icon: 'mdi:cellphone'
     light.bedroom_*:
       icon: 'mdi:ceiling-light'
     light.living_room_*_*:

@@ -3,4 +3,4 @@ views:
   - !include 'views/lighting.yaml'
   - !include 'views/climate.yaml'
   - !include 'views/security.yaml'
-  - !include 'views/occupancy.yaml'
+  - !include 'views/family.yaml'
