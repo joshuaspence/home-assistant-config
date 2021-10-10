@@ -2,7 +2,7 @@
 template:
   - trigger:
       platform: 'time_pattern'
-      minutes: 1
+      minutes: '*'
     sensor:
       - name: 'Unavailable Entities'
         unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
