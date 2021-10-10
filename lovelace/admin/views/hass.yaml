@@ -200,7 +200,12 @@ cards:
       exclude:
         - area: '*'
         - entity_id: 'binary_sensor.*_update_available'
+        - entity_id: 'binary_sensor.all_windows'
         - entity_id: 'binary_sensor.backups_stale'
+        - entity_id: 'binary_sensor.external_doors'
+        - entity_id: 'binary_sensor.external_occupancy'
+        - entity_id: 'binary_sensor.internal_doors'
+        - entity_id: 'binary_sensor.internal_occupancy'
         - entity_id: 'binary_sensor.josh_phone_*'
         - entity_id: 'binary_sensor.lily_phone_*'
         - entity_id: 'binary_sensor.remote_ui'
