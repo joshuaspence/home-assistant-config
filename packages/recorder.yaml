@@ -16,7 +16,6 @@ history:
       - 'sensor.processor_temperature'
       - 'sensor.processor_use_percent'
       - 'sensor.snapshot_backup'
-      - 'sensor.unavailable_devices'
       - 'sensor.unavailable_entities'
       - 'sensor.uptime'
     entity_globs:

@@ -160,11 +160,6 @@ cards:
 
   - type: 'entities'
     entities:
-      - entity: 'sensor.unavailable_devices'
-      - type: 'attribute'
-        entity: 'sensor.unavailable_devices'
-        attribute: 'devices'
-
       - entity: 'sensor.unavailable_entities'
       - type: 'attribute'
         entity: 'sensor.unavailable_entities'
@@ -231,7 +226,6 @@ cards:
         - entity_id: 'sensor.processor_use_percent'
         - entity_id: 'sensor.room_assistant_*'
         - entity_id: 'sensor.speedtest_*'
-        - entity_id: 'sensor.unavailable_devices'
         - entity_id: 'sensor.unavailable_entities'
         - entity_id: 'sensor.unifi_gateway_*'
         - entity_id: 'sensor.upstairs_*'
