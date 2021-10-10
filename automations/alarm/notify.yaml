@@ -1,6 +1,6 @@
 ---
 id: 'c9e5b5d8-3d97-404c-8158-50956278fb72'
-alias: 'Send notification when alarm triggered'
+alias: 'Alarm Notify'
 trigger:
   platform: 'state'
   entity_id: 'alarm_control_panel.alarm'
