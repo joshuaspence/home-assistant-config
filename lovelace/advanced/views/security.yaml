@@ -23,10 +23,22 @@ cards:
           entity: &external_doors 'binary_sensor.external_doors'
           <<: *head_config
 
+      # TODO: Remove "Occupancy" suffix from names.
+      - type: 'custom:fold-entity-row'
+        head:
+          entity: &external_occupancy 'binary_sensor.external_occupancy'
+          <<: *head_config
+
       # TODO: Remove "Door" suffix from names.
       - type: 'custom:fold-entity-row'
         head:
           entity: &internal_doors 'binary_sensor.internal_doors'
+          <<: *head_config
+
+      # TODO: Remove "Occupancy" suffix from names.
+      - type: 'custom:fold-entity-row'
+        head:
+          entity: &internal_occupancy 'binary_sensor.internal_occupancy'
           <<: *head_config
 
       # TODO: Remove "Window" suffix from names.
@@ -36,24 +48,10 @@ cards:
           name: 'Windows'
           <<: *head_config
 
-  - type: 'entities'
-    entities:
-      # TODO: Remove "Occupancy" suffix from names.
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &external_occupancy 'binary_sensor.external_occupancy'
-          <<: *head_config
-
-      # TODO: Remove "Occupancy" suffix from names.
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &internal_occupancy 'binary_sensor.internal_occupancy'
-          <<: *head_config
-
   - type: 'custom:auto-entities'
     card:
       type: 'logbook'
-      hours_to_show: 2
+      hours_to_show: 1
     filter:
       include:
         - entity_id: *alarm
