@@ -175,6 +175,8 @@ cards:
       include:
         - state: 'unavailable'
         - state: 'unknown'
+      exclude:
+        - group: 'group.ignored_entities'
 
   - type: 'custom:auto-entities'
     card:
