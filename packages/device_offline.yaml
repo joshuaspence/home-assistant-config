@@ -47,7 +47,7 @@ automation:
     trigger:
       - platform: 'state'
         entity_id: 'sensor.unavailable_entities'
-        to: 0
+        to: '0'
         id: 'available'
       - platform: 'numeric_state'
         entity_id: 'sensor.unavailable_entities'
