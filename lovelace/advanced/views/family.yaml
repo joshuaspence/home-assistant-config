@@ -2,6 +2,30 @@
 title: 'Family'
 icon: 'mdi:human-male-female'
 path: 'family'
+anchors:
+  phone: &phone
+    type: 'custom:config-template-card'
+    entities:
+      - &phone_app '${"device_tracker." + id + "_phone_app"}'
+      - &phone_roomassistant '${"device_tracker." + id + "_phone_roomassistant"}'
+      - &phone_unifi '${"device_tracker." + id + "_phone_unifi"}'
+    card:
+      type: 'custom:fold-entity-row'
+      head:
+        type: 'custom:template-entity-row'
+        icon: 'mdi:cellphone'
+        name: 'Phone'
+      open: true
+      entities:
+        - entity: *phone_app
+          name: 'App'
+          icon: 'mdi:home-assistant'
+        - entity: *phone_roomassistant
+          name: 'Room Assistant'
+          icon: 'mdi:bluetooth'
+        - entity: *phone_unifi
+          name: 'Unifi'
+          icon: 'mdi:wifi'
 cards:
   - type: 'entities'
     entities:
@@ -14,19 +38,9 @@ cards:
             entities:
               - entity: 'device_tracker.josh_laptop'
                 name: 'Laptop'
-              - type: 'custom:fold-entity-row'
-                head:
-                  type: 'custom:template-entity-row'
-                  icon: 'mdi:cellphone'
-                  name: 'Phone'
-                open: true
-                entities:
-                  - entity: 'device_tracker.josh_phone_app'
-                    name: 'App'
-                  - entity: 'device_tracker.josh_phone_roomassistant'
-                    name: 'Room Assistant'
-                  - entity: 'device_tracker.josh_phone_unifi'
-                    name: 'Unifi'
+              - <<: *phone
+                variables:
+                  id: '"josh"'
               - type: 'attribute'
                 entity: 'binary_sensor.zoom_atlassian'
                 attribute: 'status'
@@ -34,19 +48,9 @@ cards:
           - type: 'custom:fold-entity-row'
             head: 'person.lily'
             entities:
-              - type: 'custom:fold-entity-row'
-                head:
-                  type: 'custom:template-entity-row'
-                  icon: 'mdi:cellphone'
-                  name: 'Phone'
-                open: true
-                entities:
-                  - entity: 'device_tracker.lily_phone_app'
-                    name: 'App'
-                  - entity: 'device_tracker.lily_phone_roomassistant'
-                    name: 'Room Assistant'
-                  - entity: 'device_tracker.lily_phone_unifi'
-                    name: 'Unifi'
+              - <<: *phone
+                variables:
+                  id: '"lily"'
 
   - type: 'custom:auto-entities'
     card:
