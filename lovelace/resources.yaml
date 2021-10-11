@@ -1,6 +1,8 @@
 ---
 - url: '/hacsfiles/battery-state-card/battery-state-card.js'
   type: 'module'
+- url: '/hacsfiles/decluttering-card/decluttering-card.js'
+  type: 'module'
 - url: '/hacsfiles/ha-floorplan/floorplan.js'
   type: 'module'
 - url: '/hacsfiles/home-assistant-sun-card/home-assistant-sun-card.js'
