@@ -9,26 +9,20 @@ cards:
         head: &family 'group.family'
         open: true
         entities:
-          - type: 'custom:fold-entity-row'
-            head: 'person.josh'
-            entities:
-              - entity: 'device_tracker.josh_laptop'
-                name: 'Laptop'
-              - type: 'custom:decluttering-card'
-                template: 'device_tracker_phone'
-                variables:
-                  - person: 'josh'
-              - type: 'attribute'
-                entity: 'binary_sensor.zoom_atlassian'
-                attribute: 'status'
-                name: 'Zoom'
-          - type: 'custom:fold-entity-row'
-            head: 'person.lily'
-            entities:
-              - type: 'custom:decluttering-card'
-                template: 'device_tracker_phone'
-                variables:
-                  - person: 'lily'
+          - type: 'custom:decluttering-card'
+            template: 'family_member'
+            variables:
+              - person: 'josh'
+              - extra:
+                  entity_id: 'binary_sensor.zoom_atlassian'
+                  options:
+                    type: 'attribute'
+                    attribute: 'status'
+                    name: 'Zoom'
+          - type: 'custom:decluttering-card'
+            template: 'family_member'
+            variables:
+              - person: 'lily'
 
   - type: 'custom:auto-entities'
     card:
