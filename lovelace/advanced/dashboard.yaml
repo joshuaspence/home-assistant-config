@@ -1,4 +1,5 @@
 ---
+decluttering_templates: !include_dir_named 'templates'
 views:
   - !include 'views/lighting.yaml'
   - !include 'views/climate.yaml'
