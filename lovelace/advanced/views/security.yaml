@@ -2,51 +2,48 @@
 title: 'Security'
 icon: 'mdi:security'
 path: 'security'
-anchors:
-  head_config: &head_config
-    tap_action:
-      action: 'fire-dom-event'
-      fold_row: true
 cards:
   - type: 'alarm-panel'
     entity: &alarm 'alarm_control_panel.alarm'
 
   - type: 'entities'
     entities:
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &all_locks 'group.all_locks'
-          name: 'Locks'
-          <<: *head_config
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &external_doors 'binary_sensor.external_doors'
-          <<: *head_config
-
-      # TODO: Remove "Occupancy" suffix from names.
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &external_occupancy 'binary_sensor.external_occupancy'
-          <<: *head_config
-
-      # TODO: Remove "Door" suffix from names.
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &internal_doors 'binary_sensor.internal_doors'
-          <<: *head_config
-
-      # TODO: Remove "Occupancy" suffix from names.
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &internal_occupancy 'binary_sensor.internal_occupancy'
-          <<: *head_config
-
-      # TODO: Remove "Window" suffix from names.
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &all_windows 'binary_sensor.all_windows'
-          name: 'Windows'
-          <<: *head_config
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - group_entity: &all_locks 'group.all_locks'
+          - group_name: 'Locks'
+          - localize_prefix: 'component.lock.state._'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - group_entity: &external_doors 'binary_sensor.external_doors'
+          - localize_prefix: 'component.binary_sensor.state.door'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - group_entity: &external_occupancy 'binary_sensor.external_occupancy'
+          - name_filter: 'replace('' Occupancy'', '''')'
+          - localize_prefix: 'component.binary_sensor.state.occupancy'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - group_entity: &internal_doors 'binary_sensor.internal_doors'
+          - name_filter: 'replace('' Door'', '''')'
+          - localize_prefix: 'component.binary_sensor.state.door'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - group_entity: &internal_occupancy 'binary_sensor.internal_occupancy'
+          - name_filter: 'replace('' Occupancy'', '''')'
+          - localize_prefix: 'component.binary_sensor.state.occupancy'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - group_entity: &all_windows 'binary_sensor.all_windows'
+          - group_name: 'Windows'
+          - name_filter: 'replace('' Window'', '''')'
+          - localize_prefix: 'component.binary_sensor.state.window'
 
   - type: 'custom:auto-entities'
     card:

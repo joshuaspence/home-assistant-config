@@ -1,0 +1,24 @@
+---
+default:
+  - group_name: null
+  - name_filter: 'string'
+  - localize_prefix: ''
+card:
+  type: 'custom:auto-entities'
+  card:
+    type: 'custom:fold-entity-row'
+    head:
+      entity: '[[group_entity]]'
+      name: '[[group_name]]'
+      tap_action:
+        action: 'fire-dom-event'
+        fold_row: true
+  filter:
+    include:
+      - group: '[[group_entity]]'
+        options:
+          type: 'custom:template-entity-row'
+          name: '{{ state_attr(config.entity, ''friendly_name'') | [[name_filter]] }}'
+          state: '{{ "_([[localize_prefix]]." ~ states(config.entity) ~ ")" }}'
+  sort:
+    method: 'name'
