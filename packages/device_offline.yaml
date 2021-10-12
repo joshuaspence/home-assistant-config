@@ -32,6 +32,7 @@ template:
 group:
   ignored_entities:
     entities:
+      - 'group.ignored_firmware_updates'
       - 'media_player.bedroom_2_speaker'
       - 'media_player.hallway_speaker'
       - 'media_player.kitchen_display'
