@@ -1,6 +1,6 @@
 ---
 default:
-  - group_name: null
+  - head_name: null
   - trim_suffix: ''
 card:
   type: 'custom:auto-entities'
