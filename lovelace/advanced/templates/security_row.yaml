@@ -1,7 +1,7 @@
 ---
 default:
   - head_name: null
-  - trim_suffix: ''
+  - row_trim_suffix: ''
 card:
   type: 'custom:auto-entities'
   card:
@@ -17,7 +17,7 @@ card:
       - group: '[[head_entity]]'
         options:
           type: 'custom:template-entity-row'
-          name: '{{ state_attr(config.entity, ''friendly_name'') | trim(''[[trim_suffix]]'') }}'
+          name: '{{ state_attr(config.entity, ''friendly_name'') | trim(''[[row_trim_suffix]]'') | trim }}'
           state: '_(component.{{ config.entity.split(".")[0] }}.state.{{ state_attr(config.entity, "device_class") | default("_", true) }}.{{ states(config.entity) }})'
   sort:
     method: 'name'

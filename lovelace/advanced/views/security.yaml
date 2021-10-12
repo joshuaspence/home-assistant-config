@@ -21,23 +21,23 @@ cards:
         template: 'security_row'
         variables:
           - head_entity: &external_occupancy 'binary_sensor.external_occupancy'
-          - trim_suffix: ' Occupancy'
+          - row_trim_suffix: 'Occupancy'
       - type: 'custom:decluttering-card'
         template: 'security_row'
         variables:
           - head_entity: &internal_doors 'binary_sensor.internal_doors'
-          - trim_suffix: ' Door'
+          - row_trim_suffix: 'Door'
       - type: 'custom:decluttering-card'
         template: 'security_row'
         variables:
           - head_entity: &internal_occupancy 'binary_sensor.internal_occupancy'
-          - trim_suffix: ' Occupancy'
+          - row_trim_suffix: 'Occupancy'
       - type: 'custom:decluttering-card'
         template: 'security_row'
         variables:
           - head_entity: &all_windows 'binary_sensor.all_windows'
           - head_name: 'Windows'
-          - trim_suffix: ' Window'
+          - row_trim_suffix: 'Window'
 
   - type: 'custom:auto-entities'
     card:
