@@ -11,11 +11,6 @@ cards:
       - type: 'custom:decluttering-card'
         template: 'security_row'
         variables:
-          - head_entity: &all_locks 'group.all_locks'
-          - head_name: 'Locks'
-      - type: 'custom:decluttering-card'
-        template: 'security_row'
-        variables:
           - head_entity: &external_doors 'binary_sensor.external_doors'
       - type: 'custom:decluttering-card'
         template: 'security_row'
@@ -35,7 +30,12 @@ cards:
       - type: 'custom:decluttering-card'
         template: 'security_row'
         variables:
-          - head_entity: &all_windows 'binary_sensor.all_windows'
+          - head_entity: &locks 'group.all_locks'
+          - head_name: 'Locks'
+      - type: 'custom:decluttering-card'
+        template: 'security_row'
+        variables:
+          - head_entity: &windows 'binary_sensor.all_windows'
           - head_name: 'Windows'
           - row_trim_suffix: 'Window'
 
@@ -46,9 +46,9 @@ cards:
     filter:
       include:
         - entity_id: *alarm
-        - group: *all_locks
-        - group: *all_windows
         - group: *external_doors
         - group: *external_occupancy
         - group: *internal_doors
         - group: *internal_occupancy
+        - group: *locks
+        - group: *windows
