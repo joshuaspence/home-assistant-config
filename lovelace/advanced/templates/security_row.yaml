@@ -19,5 +19,6 @@ card:
           type: 'custom:template-entity-row'
           name: '{{ state_attr(config.entity, ''friendly_name'') | trim(''[[row_trim_suffix]]'') | trim }}'
           state: '_(component.{{ config.entity.split(".")[0] }}.state.{{ state_attr(config.entity, "device_class") | default("_", true) }}.{{ states(config.entity) }})'
+          active: '{{ is_state(config.entity, ''on'') }}'
   sort:
     method: 'name'
