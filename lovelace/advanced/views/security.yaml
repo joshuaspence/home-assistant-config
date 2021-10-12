@@ -11,32 +11,32 @@ cards:
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
         variables:
-          - group_entity: &all_locks 'group.all_locks'
-          - group_name: 'Locks'
+          - head_entity: &all_locks 'group.all_locks'
+          - head_name: 'Locks'
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
         variables:
-          - group_entity: &external_doors 'binary_sensor.external_doors'
+          - head_entity: &external_doors 'binary_sensor.external_doors'
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
         variables:
-          - group_entity: &external_occupancy 'binary_sensor.external_occupancy'
+          - head_entity: &external_occupancy 'binary_sensor.external_occupancy'
           - trim_suffix: ' Occupancy'
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
         variables:
-          - group_entity: &internal_doors 'binary_sensor.internal_doors'
+          - head_entity: &internal_doors 'binary_sensor.internal_doors'
           - trim_suffix: ' Door'
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
         variables:
-          - group_entity: &internal_occupancy 'binary_sensor.internal_occupancy'
+          - head_entity: &internal_occupancy 'binary_sensor.internal_occupancy'
           - trim_suffix: ' Occupancy'
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
         variables:
-          - group_entity: &all_windows 'binary_sensor.all_windows'
-          - group_name: 'Windows'
+          - head_entity: &all_windows 'binary_sensor.all_windows'
+          - head_name: 'Windows'
           - trim_suffix: ' Window'
 
   - type: 'custom:auto-entities'

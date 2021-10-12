@@ -7,14 +7,14 @@ card:
   card:
     type: 'custom:fold-entity-row'
     head:
-      entity: '[[group_entity]]'
-      name: '[[group_name]]'
+      entity: '[[head_entity]]'
+      name: '[[head_name]]'
       tap_action:
         action: 'fire-dom-event'
         fold_row: true
   filter:
     include:
-      - group: '[[group_entity]]'
+      - group: '[[head_entity]]'
         options:
           type: 'custom:template-entity-row'
           name: '{{ state_attr(config.entity, ''friendly_name'') | trim(''[[trim_suffix]]'') }}'
