@@ -1,0 +1,14 @@
+---
+netgear_lte:
+  - host: '192.168.5.1'
+    password: !secret 'netgear_lte.password'
+    notify: []
+    sensor:
+      monitored_conditions:
+        - 'sms'
+        - 'usage'
+    binary_sensor:
+      monitored_conditions:
+        - 'mobile_connected'
+        - 'roaming'
+        - 'wire_connected'
