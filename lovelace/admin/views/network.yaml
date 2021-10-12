@@ -33,3 +33,12 @@ cards:
       - 'sensor.unifi_gateway_vpn'
       - 'sensor.unifi_gateway_wlan'
       - 'sensor.unifi_gateway_www'
+
+  - type: 'entities'
+    title: 'Netgear LTE'
+    icon: 'mdi:signal-cellular-3'
+    entities:
+      - 'binary_sensor.netgear_lte_mobile_connected'
+      - 'binary_sensor.netgear_lte_roaming'
+      - 'binary_sensor.netgear_lte_wire_connected'
+      - 'sensor.netgear_lte_usage'
