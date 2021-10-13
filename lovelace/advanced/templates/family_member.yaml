@@ -5,7 +5,13 @@ card:
   type: 'custom:auto-entities'
   card:
     type: 'custom:fold-entity-row'
-    head: 'person.[[person]]'
+    head:
+      entity: 'person.[[person]]'
+      tap_action:
+        action: 'fire-dom-event'
+        fold_row: true
+      double_tap_action:
+        action: 'more-info'
   filter:
     include:
       - entity_id: 'device_tracker.[[person]]_laptop'

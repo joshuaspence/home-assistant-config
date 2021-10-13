@@ -6,7 +6,13 @@ cards:
   - type: 'entities'
     entities:
       - type: 'custom:fold-entity-row'
-        head: &family 'group.family'
+        head:
+          entity: &family 'group.family'
+          tap_action:
+            action: 'fire-dom-event'
+            fold_row: true
+          double_tap_action:
+            action: 'more-info'
         open: true
         entities:
           - type: 'custom:decluttering-card'

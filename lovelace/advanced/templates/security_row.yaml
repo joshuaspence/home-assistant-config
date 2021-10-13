@@ -12,7 +12,7 @@ card:
       tap_action:
         action: 'fire-dom-event'
         fold_row: true
-      hold_action:
+      double_tap_action:
         action: 'more-info'
   filter:
     include:
