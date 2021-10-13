@@ -5,30 +5,20 @@ path: 'family'
 cards:
   - type: 'entities'
     entities:
-      - type: 'custom:fold-entity-row'
-        head:
-          entity: &family 'group.family'
-          tap_action:
-            action: 'fire-dom-event'
-            fold_row: true
-          double_tap_action:
-            action: 'more-info'
-        open: true
-        entities:
-          - type: 'custom:decluttering-card'
-            template: 'family_member'
-            variables:
-              - person: 'josh'
-              - extra_row:
-                  entity_id: 'binary_sensor.zoom_atlassian'
-                  options:
-                    type: 'attribute'
-                    attribute: 'status'
-                    name: 'Zoom'
-          - type: 'custom:decluttering-card'
-            template: 'family_member'
-            variables:
-              - person: 'lily'
+      - type: 'custom:decluttering-card'
+        template: 'family_member'
+        variables:
+          - person: 'josh'
+          - extra_row:
+              entity_id: 'binary_sensor.zoom_atlassian'
+              options:
+                type: 'attribute'
+                attribute: 'status'
+                name: 'Zoom'
+      - type: 'custom:decluttering-card'
+        template: 'family_member'
+        variables:
+          - person: 'lily'
 
   - type: 'custom:auto-entities'
     card:
@@ -38,4 +28,3 @@ cards:
       include:
         - domain: 'device_tracker'
         - domain: 'zone'
-        - group: *family
