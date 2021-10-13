@@ -1,10 +1,11 @@
 ---
+default:
+  - extra_row: { entity_id: null }
 card:
   type: 'custom:auto-entities'
   card:
     type: 'custom:fold-entity-row'
     head: 'person.[[person]]'
-  unique: true
   filter:
     include:
       - entity_id: 'device_tracker.[[person]]_laptop'
@@ -13,8 +14,8 @@ card:
       - type: 'custom:fold-entity-row'
         head:
           type: 'custom:template-entity-row'
-          icon: 'mdi:cellphone'
           name: 'Phone'
+          icon: 'mdi:cellphone'
         open: true
         entities:
           - entity: 'device_tracker.[[person]]_phone_app'
@@ -26,4 +27,4 @@ card:
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
             icon: 'mdi:wifi'
-      - '[[extra]]'
+      - '[[extra_row]]'

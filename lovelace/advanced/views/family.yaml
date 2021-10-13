@@ -13,7 +13,7 @@ cards:
             template: 'family_member'
             variables:
               - person: 'josh'
-              - extra:
+              - extra_row:
                   entity_id: 'binary_sensor.zoom_atlassian'
                   options:
                     type: 'attribute'
