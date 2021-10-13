@@ -12,6 +12,8 @@ card:
       tap_action:
         action: 'fire-dom-event'
         fold_row: true
+      hold_action:
+        action: 'more-info'
   filter:
     include:
       - group: '[[head_entity]]'
