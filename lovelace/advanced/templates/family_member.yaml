@@ -27,10 +27,19 @@ card:
           - entity: 'device_tracker.[[person]]_phone_app'
             name: 'App'
             icon: 'mdi:home-assistant'
+
+          # TODO: Add `sensor.[[person]]_phone_room_presence`.
           - entity: 'device_tracker.[[person]]_phone_roomassistant'
             name: 'Room Assistant'
             icon: 'mdi:bluetooth'
+
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
             icon: 'mdi:wifi'
+
+      # TODO: Allow multiple extra rows.
       - '[[extra_row]]'
+
+  # TODO: Sort rows by name.
+  sort:
+    method: 'none'
