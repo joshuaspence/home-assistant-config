@@ -1,6 +1,6 @@
 ---
 default:
-  - extra_row: { entity_id: null }
+  - entities: []
 card:
   type: 'custom:auto-entities'
   card:
@@ -36,9 +36,7 @@ card:
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
             icon: 'mdi:wifi'
-
-      # TODO: Allow multiple extra rows.
-      - '[[extra_row]]'
+  entities: '[[entities]]'
 
   # TODO: Sort rows by name.
   sort:

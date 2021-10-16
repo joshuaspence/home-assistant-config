@@ -9,10 +9,9 @@ cards:
         template: 'family_member'
         variables:
           - person: 'josh'
-          - extra_row:
-              entity_id: 'binary_sensor.zoom_atlassian'
-              options:
-                type: 'attribute'
+          - entities:
+              - type: 'attribute'
+                entity: 'binary_sensor.zoom_atlassian'
                 attribute: 'status'
                 name: 'Zoom'
       - type: 'custom:decluttering-card'
