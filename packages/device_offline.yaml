@@ -1,8 +1,10 @@
 ---
 template:
   - trigger:
-      platform: 'time_pattern'
-      minutes: '*'
+      - platform: 'time_pattern'
+        minutes: '*'
+      - platform: 'state'
+        entity_id: 'sensor.zigbee2mqtt_state'
     sensor:
       - name: 'Unavailable Entities'
         unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
