@@ -10,7 +10,7 @@ template:
         unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
         state: >-
           {{
-            states | selectattr('state', 'in', ['unavailable', 'unknown']) |
+            states | selectattr('state', 'eq', 'unavailable') |
             rejectattr('domain', 'eq', 'group') |
             rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
             map(attribute='entity_id') | list | count
