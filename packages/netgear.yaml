@@ -2,7 +2,11 @@
 netgear_lte:
   - host: '192.168.5.1'
     password: !secret 'netgear_lte.password'
-    notify: []
+    notify:
+      - name: 'sms_josh'
+        recipient: !secret 'phone_number.josh'
+      - name: 'sms_lily'
+        recipient: !secret 'phone_number.lily'
     sensor:
       monitored_conditions:
         - 'sms'
