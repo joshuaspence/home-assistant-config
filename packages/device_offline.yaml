@@ -48,15 +48,8 @@ automation:
   - alias: 'Device Offline'
     id: '7fa5aace-5294-4181-a6f3-4720b1fe1fde'
     trigger:
-      - platform: 'state'
-        entity_id: 'sensor.unavailable_entities'
-        to: '0'
-        id: 'available'
-      - platform: 'numeric_state'
-        entity_id: 'sensor.unavailable_entities'
-        above: 0
-        for: 300
-        id: 'unavailable'
+      platform: 'state'
+      entity_id: 'sensor.unavailable_entities'
     condition:
       condition: 'numeric_state'
       entity_id: 'sensor.uptime'
@@ -64,24 +57,26 @@ automation:
       above: 120
     action:
       choose:
-        - conditions: '{{ trigger.id == "available" }}'
-          sequence:
-            service: 'notify.mobile_app_josh_phone'
+        conditions:
+          condition: 'numeric_state'
+          entity_id: 'sensor.unavailable_entities'
+          below: 1
+        sequence:
+          service: 'notify.mobile_app_josh_phone'
+          data:
+            message: 'clear_notification'
             data:
-              message: 'clear_notification'
-              data:
-                tag: 'devices-offline'
-        - conditions: '{{ trigger.id == "unavailable" }}'
-          sequence:
-            service: 'notify.mobile_app_josh_phone'
-            data:
-              title: 'Device(s) Offline'
-              message: >-
-                {{ states('sensor.unavailable_entities') }} devices are offline.
+              tag: 'devices-offline'
+      default:
+        service: 'notify.mobile_app_josh_phone'
+        data:
+          title: 'Device(s) Offline'
+          message: >-
+            {{ states('sensor.unavailable_entities') }} devices are offline.
 
-                {% for entity in state_attr('sensor.unavailable_entities', 'entities') -%}
-                - {{ entity }}
-                {% endfor %}
-              data:
-                tag: 'devices-offline'
+            {% for entity in state_attr('sensor.unavailable_entities', 'entities') -%}
+            - {{ entity }}
+            {% endfor %}
+          data:
+            tag: 'devices-offline'
     mode: 'restart'
