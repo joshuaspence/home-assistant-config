@@ -1,7 +1,8 @@
 ---
 logger:
   default: 'warning'
-  logs: {}
+  logs:
+    event_logger: 'debug'
   filters:
     # See aio-libs/aiohttp#5380.
     aiohttp.server:

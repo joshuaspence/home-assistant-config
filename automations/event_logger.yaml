@@ -1,0 +1,31 @@
+---
+id: 'fa88ba52-b56c-49d5-a80c-357fabe5a577'
+alias: 'Event Logger'
+trigger:
+  platform: 'event'
+  event_type: '*'
+condition:
+  condition: 'template'
+  value_template: >-
+    {{
+      trigger.event.event_type not in [
+        "automation_reloaded",
+        "automation_triggered",
+        "call_service",
+        "hacs/config",
+        "hacs/reload",
+        "hacs/stage",
+        "hacs/status",
+        "state_changed",
+        "time_changed",
+        "timer_out_of_sync",
+      ]
+    }}
+action:
+  service: 'system_log.write'
+  data:
+    message: '{{ trigger.event }}'
+    level: 'debug'
+    logger: 'event_logger'
+mode: 'parallel'
+max: 20
