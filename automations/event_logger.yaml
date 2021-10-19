@@ -16,6 +16,7 @@ condition:
         "hacs/reload",
         "hacs/stage",
         "hacs/status",
+        "scene_reloaded",
         "state_changed",
         "time_changed",
         "timer_out_of_sync",
