@@ -3,24 +3,17 @@ default:
   - head_name: null
   - row_trim_suffix: ''
 card:
-  type: 'custom:auto-entities'
-  card:
-    type: 'custom:fold-entity-row'
-    head:
-      entity: '[[head_entity]]'
-      name: '[[head_name]]'
-      tap_action:
-        action: 'fire-dom-event'
-        fold_row: true
-      double_tap_action:
-        action: 'more-info'
-  filter:
-    include:
-      - group: '[[head_entity]]'
-        options:
-          type: 'custom:template-entity-row'
-          name: '{{ state_attr(config.entity, "friendly_name") | regex_replace(find="[[row_trim_suffix]]$") | trim }}'
-          state: '_(component.{{ config.entity.split(".")[0] }}.state.{{ state_attr(config.entity, "device_class") | default("_", true) }}.{{ states(config.entity) }})'
-          active: '{{ is_state(config.entity, "on") }}'
-  sort:
-    method: 'name'
+  type: 'custom:fold-entity-row'
+  head:
+    entity: '[[head_entity]]'
+    name: '[[head_name]]'
+    tap_action:
+      action: 'fire-dom-event'
+      fold_row: true
+    double_tap_action:
+      action: 'more-info'
+  group_config:
+    type: 'custom:template-entity-row'
+    name: '{{ state_attr(config.entity, "friendly_name") | regex_replace(find="[[row_trim_suffix]]$") | trim }}'
+    state: '_(component.{{ config.entity.split(".")[0] }}.state.{{ state_attr(config.entity, "device_class") | default("_", true) }}.{{ states(config.entity) }})'
+    active: '{{ is_state(config.entity, "on") }}'
