@@ -39,3 +39,26 @@ automation:
           data:
             tag: 'unifi-alert'
     mode: 'restart'
+
+  - alias: 'Unifi Firmware Updates Available'
+    id: '4dbd094b-c008-4625-b3b6-7b336954b103'
+    trigger:
+      platform: 'state'
+      entity_id: 'sensor.unifi_gateway_firmware_upgradable'
+    action:
+      choose:
+        conditions:
+          condition: 'numeric_state'
+          entity_id: 'sensor.unifi_gateway_firmware_upgradable'
+          below: 1
+        sequence:
+          service: 'persistent_notification.dismiss'
+          data:
+            notification_id: 'unifi-firmware'
+      default:
+        service: 'persistent_notification.create'
+        data:
+          title: 'Unifi Firmware Updates Available'
+          message: 'There are {{ trigger.to_state.state }} firmware updates available.'
+          notification_id: 'unifi-firmware'
+    mode: 'restart'
