@@ -9,14 +9,22 @@ condition:
   value_template: >-
     {{
       trigger.event.event_type not in [
+        "android.zone_entered",
+        "android.zone_exited",
         "automation_reloaded",
         "automation_triggered",
         "call_service",
+        "component_loaded",
+        "device_registry_updated",
+        "esphome.button",
         "hacs/config",
         "hacs/reload",
+        "hacs/repository",
         "hacs/stage",
         "hacs/status",
+        "logbook_entry",
         "scene_reloaded",
+        "service_registered",
         "state_changed",
         "time_changed",
         "timer_out_of_sync",
