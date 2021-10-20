@@ -15,7 +15,6 @@ netgear_lte:
       monitored_conditions:
         - 'mobile_connected'
         - 'roaming'
-        - 'wire_connected'
 
 automation:
   - id: '595cc2f2-ac5d-4447-a995-5d6e71327141'
