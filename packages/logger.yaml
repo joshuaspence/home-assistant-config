@@ -8,6 +8,15 @@ logger:
     aiohttp.server:
       - '^Unhandled exception$'
 
+    # See hassio-addons/addon-unifi#243.
+    custom_components.unifigateway.sensor: &unifi_errors
+      - 'Connection refused'
+      - 'Connection reset by peer'
+      - 'EOF occurred in violation of protocol'
+      - '^Lost connection to UniFi controller$'
+    homeassistant.components.unifi: *unifi_errors
+    pyunifi.controller: *unifi_errors
+
     # See home-assistant/core#41420.
     hass_nabucasa.remote:
       - '^Connection problem to snitun server$'
@@ -32,6 +41,7 @@ logger:
       - '^Updating androidtv media_player took longer than the scheduled update interval'
     homeassistant.components.netgear_lte:
       - '^Connected to (?:\d{1,3}\.){3}\d{1,3}$'
+      - '^Could not connect to (?:\d{1,3}\.){3}\d{1,3}'
     homeassistant.components.sensor:
       - '^Platform netgear_lte not ready yet'
     homeassistant.components.vacuum:
@@ -40,7 +50,11 @@ logger:
       - '^Received message for unregistered webhook'
     homeassistant.config_entries:
       - '^Config entry ''(?:\d{1,3}\.){3}\d{1,3}'' for daikin integration not ready yet'
+      - '^Config entry ''Living Room TV'' for nfandroidtv integration not ready yet'
     homeassistant.helpers.entity:
       - '^Update of media_player\.\w+ is taking over 10 seconds$'
+    pychromecast.socket_client:
+      - 'Failed to connect to service'
+      - 'Heartbeat timeout, resetting connection$'
     zigpy_deconz.api:
       - '^No response to ''Command\.aps_data_indication'' command with seq id ''0x[0-9a-f]{2}'''
