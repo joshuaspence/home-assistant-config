@@ -16,6 +16,7 @@ condition:
         "call_service",
         "component_loaded",
         "device_registry_updated",
+        "entity_registry_updated",
         "esphome.button",
         "hacs/config",
         "hacs/reload",
