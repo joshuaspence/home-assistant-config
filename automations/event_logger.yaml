@@ -24,6 +24,7 @@ condition:
         "hacs/stage",
         "hacs/status",
         "logbook_entry",
+        "lovelace_updated",
         "scene_reloaded",
         "service_registered",
         "state_changed",
