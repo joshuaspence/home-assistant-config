@@ -19,11 +19,16 @@ cards:
         variables:
           - person: 'lily'
 
-  - type: 'custom:auto-entities'
+  - type: 'conditional'
+    conditions:
+      - entity: 'group.family'
+        state: 'not_home'
     card:
-      type: 'map'
-      hours_to_show: 6
-    filter:
-      include:
-        - domain: 'device_tracker'
-        - domain: 'zone'
+      type: 'custom:auto-entities'
+      card:
+        type: 'map'
+        hours_to_show: 3
+      filter:
+        include:
+          - domain: 'person'
+          - domain: 'zone'
