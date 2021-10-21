@@ -1,0 +1,29 @@
+---
+alias: 'Mobile App Command'
+icon: 'mdi:run'
+fields:
+  device:
+    name: 'Target Device'
+    required: true
+    selector:
+      text: {}
+  command:
+    name: 'Command'
+    required: true
+    selector:
+      select:
+        # See https://companion.home-assistant.io/docs/notifications/notification-commands/.
+        options:
+          - 'command_dnd'
+          - 'request_location_update'
+  data:
+    name: 'Data'
+    required: false
+    default: null
+sequence:
+  service: 'notify.mobile_app_{{ device }}'
+  data:
+    message: '{{ command }}'
+    title: '{{ data }}'
+mode: 'parallel'
+max: 10
