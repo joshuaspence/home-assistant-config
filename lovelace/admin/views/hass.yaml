@@ -251,6 +251,7 @@ cards:
         - domain: 'persistent_notification'
         - domain: 'person'
         - domain: 'scene'
+        - domain: 'script'
         - domain: 'sun'
         - domain: 'vacuum'
         - domain: 'weather'
