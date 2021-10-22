@@ -48,7 +48,7 @@ sensor:
       unifi_gateway_uptime:
         friendly_name: 'UniFi Gateway Uptime'
         unique_id: '5c30f2d9-ae88-4301-a242-9c17a71611fa'
-        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").uptime }}'
+        value_template: '{{ now() - timedelta(seconds=state_attr("sensor.unifi_gateway_wan", "gw_system-stats").uptime | int) }}'
         device_class: 'timestamp'
 
       unifi_wlan_users:
