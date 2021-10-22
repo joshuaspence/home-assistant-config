@@ -6,6 +6,59 @@ sensor:
     username: !secret 'unifi.username'
     password: !secret 'unifi.password'
 
+  - platform: 'template'
+    sensors:
+      unifi_gateway_cpu:
+        friendly_name: 'UniFi Gateway CPU'
+        unique_id: 'b6a8b2d0-86b4-4133-b505-8a38057ce05e'
+        unit_of_measurement: '%'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").cpu }}'
+        icon_template: 'mdi:cpu-64-bit'
+      unifi_gateway_memory:
+        friendly_name: 'UniFi Gateway Memory'
+        unique_id: 'cb6a1a8a-4cc0-409e-bd76-80b670a551d4'
+        unit_of_measurement: '%'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").mem }}'
+        icon_template: 'mdi:memory'
+      unifi_gateway_board_cpu_temperature:
+        friendly_name: 'UniFi Gateway Board (CPU) Temperature'
+        unique_id: '9ed19cd0-0393-4e07-a0ba-15e166396e6b'
+        unit_of_measurement: '°C'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").temps["Board (CPU)"] | trim(" C") }}'
+        device_class: 'temperature'
+      unifi_gateway_board_phy_temperature:
+        friendly_name: 'UniFi Gateway Board (PHY) Temperature'
+        unique_id: 'f4255d14-5a74-4134-a23e-8a2c1b8b15ae'
+        unit_of_measurement: '°C'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").temps["Board (PHY)"] | trim(" C") }}'
+        device_class: 'temperature'
+      unifi_gateway_cpu_temperature:
+        friendly_name: 'UniFi Gateway CPU Temperature'
+        unique_id: 'a4b4220c-64b4-49af-87e6-9fa28b55180e'
+        unit_of_measurement: '°C'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").temps["CPU"] | trim(" C") }}'
+        device_class: 'temperature'
+      unifi_gateway_phy_temperature:
+        friendly_name: 'UniFi Gateway PHY Temperature'
+        unique_id: '61bdde73-e849-41e2-86fd-a62092af7574'
+        unit_of_measurement: '°C'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").temps["PHY"] | trim(" C") }}'
+        device_class: 'temperature'
+      unifi_gateway_uptime:
+        friendly_name: 'UniFi Gateway Uptime'
+        unique_id: '5c30f2d9-ae88-4301-a242-9c17a71611fa'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wan", "gw_system-stats").uptime }}'
+        device_class: 'timestamp'
+
+      unifi_wlan_users:
+        friendly_name: 'UniFi WLAN Guests'
+        unique_id: 'ad410e0b-0be3-4500-82b9-389698e2e497'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wlan", "num_guest") }}'
+      unifi_wlan_users:
+        friendly_name: 'UniFi WLAN Users'
+        unique_id: 'da25c64c-f7cb-4165-901d-9e3823d8de6a'
+        value_template: '{{ state_attr("sensor.unifi_gateway_wlan", "num_user") }}'
+
 automation:
   - alias: 'Unifi Alerts'
     id: 'e1448032-b0ca-4b23-a8b1-2c044e441426'

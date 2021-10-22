@@ -65,3 +65,50 @@ cards:
             name: 'Power'
           - entity: 'sensor.homelab_temperature'
             name: 'Temperature'
+
+  - type: 'vertical-stack'
+    title: 'Unifi Gateway'
+    cards:
+      - type: 'grid'
+        columns: 4
+        cards:
+          - type: 'gauge'
+            entity: 'sensor.unifi_gateway_cpu'
+            name: 'Processor'
+          - type: 'gauge'
+            entity: 'sensor.unifi_gateway_memory'
+            name: 'Memory'
+          - type: 'gauge'
+            entity: 'sensor.unifi_gateway_phy_temperature'
+            name: 'PHY Temperature'
+            min: 20
+            max: 80
+          - type: 'gauge'
+            entity: 'sensor.unifi_gateway_cpu_temperature'
+            name: 'CPU Temperature'
+            min: 20
+            max: 80
+          - type: 'gauge'
+            entity: 'sensor.unifi_gateway_board_phy_temperature'
+            name: 'Board (PHY) Temperature'
+            min: 20
+            max: 80
+          - type: 'gauge'
+            entity: 'sensor.unifi_gateway_board_cpu_temperature'
+            name: 'Board (CPU) Temperature'
+            min: 20
+            max: 80
+      - type: 'history-graph'
+        entities:
+          - entity: 'sensor.unifi_gateway_cpu'
+            name: 'Processor'
+          - entity: 'sensor.unifi_gateway_memory'
+            name: 'Memory'
+          - entity: 'sensor.unifi_gateway_phy_temperature'
+            name: 'PHY Temperature'
+          - entity: 'sensor.unifi_gateway_cpu_temperature'
+            name: 'CPU Temperature'
+          - entity: 'sensor.unifi_gateway_board_phy_temperature'
+            name: 'Board (PHY) Temperature'
+          - entity: 'sensor.unifi_gateway_board_cpu_temperature'
+            name: 'Board (CPU) Temperature'
