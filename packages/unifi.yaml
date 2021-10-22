@@ -51,7 +51,7 @@ sensor:
         value_template: '{{ now() - timedelta(seconds=state_attr("sensor.unifi_gateway_wan", "gw_system-stats").uptime | int) }}'
         device_class: 'timestamp'
 
-      unifi_wlan_users:
+      unifi_wlan_guests:
         friendly_name: 'UniFi WLAN Guests'
         unique_id: 'ad410e0b-0be3-4500-82b9-389698e2e497'
         value_template: '{{ state_attr("sensor.unifi_gateway_wlan", "num_guest") }}'
