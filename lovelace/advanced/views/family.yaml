@@ -16,8 +16,8 @@ cards:
 
   - type: 'conditional'
     conditions:
-      - entity: 'group.family'
-        state: 'not_home'
+      - entity: &family 'group.family'
+        state_not: 'home'
     card:
       type: 'custom:auto-entities'
       card:
@@ -25,5 +25,5 @@ cards:
         hours_to_show: 3
       filter:
         include:
-          - domain: 'person'
+          - group: *family
           - domain: 'zone'
