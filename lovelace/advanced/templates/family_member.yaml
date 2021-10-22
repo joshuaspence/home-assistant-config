@@ -1,6 +1,4 @@
 ---
-default:
-  - entities: []
 card:
   type: 'custom:auto-entities'
   card:
@@ -36,8 +34,3 @@ card:
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
             icon: 'mdi:wifi'
-  entities: '[[entities]]'
-
-  # TODO: Sort rows by name.
-  sort:
-    method: 'none'
