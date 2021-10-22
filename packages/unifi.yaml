@@ -7,6 +7,7 @@ sensor:
     password: !secret 'unifi.password'
 
   - platform: 'template'
+    # TODO: Add switch and access point sensors (see custom-components/sensor.unifigateway#9).
     sensors:
       unifi_gateway_cpu:
         friendly_name: 'UniFi Gateway CPU'
