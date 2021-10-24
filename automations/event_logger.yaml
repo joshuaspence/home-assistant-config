@@ -26,6 +26,7 @@ condition:
         "logbook_entry",
         "lovelace_updated",
         "scene_reloaded",
+        "script_started",
         "service_registered",
         "state_changed",
         "time_changed",
