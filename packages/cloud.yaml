@@ -1,12 +1,13 @@
 ---
 cloud:
   google_actions:
-    entity_config: {}
     filter:
-      exclude_domains:
-        - 'media_player'
-      exclude_entities:
-        - 'light.hallway'
-        - 'light.living_room'
-        - 'switch.dishwasher'
-        - 'switch.washing_machine'
+      include_entities:
+        - 'switch.aircon_downstairs'
+        - 'switch.aircon_upstairs'
+      include_domains:
+        - 'climate'
+        - 'fan'
+        - 'light'
+        - 'scene'
+    entity_config: {}
