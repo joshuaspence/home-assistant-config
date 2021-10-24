@@ -5,6 +5,8 @@ template:
         minutes: '*'
       - platform: 'state'
         entity_id: 'sensor.zigbee2mqtt_state'
+      - platform: 'event'
+        event_type: 'entity_registry_updated'
     sensor:
       - name: 'Unavailable Entities'
         unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
