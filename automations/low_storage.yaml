@@ -1,0 +1,12 @@
+---
+id: 'ffb89ef2-6be4-4625-9e12-953d23b5b4a7'
+alias: 'Low Storage'
+trigger:
+  platform: 'numeric_state'
+  entity_id: 'sensor.disk_use_percent'
+  above: '90'
+action:
+  service: 'notify.mobile_app_josh_phone'
+  data:
+    message: '{{ trigger.to_state.state }}'
+    title: 'Low Storage'
