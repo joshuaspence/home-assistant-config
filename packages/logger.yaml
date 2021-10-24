@@ -18,6 +18,10 @@ logger:
     homeassistant.components.unifi: *unifi_errors
     pyunifi.controller: *unifi_errors
 
+    # See thomasloven/hass-browser_mod#203.
+    homeassistant.components.websocket_api.http.connection:
+      - '^Received invalid command: browser_mod/'
+
     # See home-assistant/core#41420.
     hass_nabucasa.remote:
       - '^Connection problem to snitun server$'
