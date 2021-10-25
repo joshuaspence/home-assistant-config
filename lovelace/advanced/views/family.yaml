@@ -14,16 +14,13 @@ cards:
         variables:
           - person: 'lily'
 
-  - type: 'conditional'
-    conditions:
-      - entity: &family 'group.family'
-        state_not: 'home'
+  - type: 'custom:auto-entities'
     card:
-      type: 'custom:auto-entities'
-      card:
-        type: 'map'
-        hours_to_show: 3
-      filter:
-        include:
-          - group: *family
-          - domain: 'zone'
+      type: 'map'
+      hours_to_show: 3
+    filter:
+      include:
+        - group: 'group.family'
+        - domain: 'zone'
+      exclude:
+        - state: 'home'
