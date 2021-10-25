@@ -6,7 +6,7 @@ group:
     entities:
       - 'person.josh'
       - 'person.lily'
-    icon: 'mdi:human-male-female'
+    icon: 'mdi:human-male-female-child'
     name: 'Family'
 homeassistant:
   allowlist_external_dirs: []

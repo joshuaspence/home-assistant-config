@@ -1,6 +1,6 @@
 ---
 title: 'Family'
-icon: 'mdi:human-male-female'
+icon: 'mdi:human-male-female-child'
 path: 'family'
 cards:
   - type: 'entities'
