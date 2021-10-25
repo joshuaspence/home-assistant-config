@@ -10,6 +10,7 @@ logger:
 
     # See hassio-addons/addon-unifi#243.
     custom_components.unifigateway.sensor: &unifi_errors
+      - 'api\.err\.LoginRequired'
       - 'Connection refused'
       - 'Connection reset by peer'
       - 'EOF occurred in violation of protocol'
