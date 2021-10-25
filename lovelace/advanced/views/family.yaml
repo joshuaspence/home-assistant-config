@@ -16,11 +16,16 @@ cards:
 
   - type: 'custom:auto-entities'
     card:
-      type: 'map'
-      hours_to_show: 3
+      type: 'custom:auto-entities'
+      card:
+        type: 'map'
+        hours_to_show: 3
+      filter:
+        include:
+          - domain: 'zone'
     filter:
       include:
         - group: 'group.family'
-        - domain: 'zone'
       exclude:
         - state: 'home'
+    show_empty: false
