@@ -27,7 +27,7 @@ template:
         attributes:
           entities: >-
             {{
-              states | selectattr('state', 'in', ['unavailable', 'unknown']) |
+              states | selectattr('state', 'in', ['unavailable']) |
               rejectattr('domain', 'eq', 'group') |
               rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
               map(attribute='entity_id') | list
