@@ -26,10 +26,16 @@ card:
             name: 'App'
             icon: 'mdi:home-assistant'
 
-          # TODO: Add `sensor.[[person]]_phone_room_presence`.
-          - entity: 'device_tracker.[[person]]_phone_roomassistant'
+          - type: 'custom:template-entity-row'
+            entity: 'device_tracker.[[person]]_phone_roomassistant'
             name: 'Room Assistant'
             icon: 'mdi:bluetooth'
+            state: >-
+              {% if is_state(config.entity, 'home') %}
+                {{ states('sensor.[[person]]_phone_room_presence') }}
+              {% else %}
+                {{ states(config.entity) }}
+              {% endif %}
 
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
