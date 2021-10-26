@@ -34,7 +34,7 @@ card:
               {% if is_state(config.entity, 'home') %}
                 {{ states('sensor.[[person]]_phone_room_presence') }}
               {% else %}
-                {{ states(config.entity) }}
+                _(component.{{ config.entity.split(".")[0] }}.state._.{{ states(config.entity) }})
               {% endif %}
 
           - entity: 'device_tracker.[[person]]_phone_unifi'
