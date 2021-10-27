@@ -5,3 +5,4 @@ views:
   - !include 'views/climate.yaml'
   - !include 'views/security.yaml'
   - !include 'views/family.yaml'
+  - !include 'views/energy.yaml'

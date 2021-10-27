@@ -1,0 +1,8 @@
+---
+title: 'Energy'
+icon: 'mdi:lightning-bolt'
+path: 'energy'
+cards:
+  - type: 'energy-date-selection'
+  - type: 'energy-usage-graph'
+  - type: 'energy-devices-graph'
