@@ -37,6 +37,13 @@ card:
                 _(component.{{ config.entity.split(".")[0] }}.state._.{{ states(config.entity) }})
               {% endif %}
 
+            # TODO: This doesn't work currently, see thomasloven/lovelace-template-entity-row#67.
+            double_tap_action:
+              action: 'fire-dom-event'
+              browser_mod:
+                command: 'more_info'
+                entity_id: 'sensor.[[person]]_phone_room_presence'
+
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
             icon: 'mdi:wifi'
