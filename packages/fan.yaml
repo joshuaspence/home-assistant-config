@@ -1,0 +1,14 @@
+---
+fan:
+  - platform: 'template'
+    fans:
+      attic:
+        friendly_name: 'Attic'
+        unique_id: '573b9216-db9c-4f17-9b9b-787c030ba0bc'
+        value_template: '{{ states("switch.attic_fan") }}'
+        turn_on:
+          service: 'switch.turn_on'
+          entity_id: 'switch.attic_fan'
+        turn_off:
+          service: 'switch.turn_off'
+          entity_id: 'switch.attic_fan'
