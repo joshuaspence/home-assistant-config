@@ -180,3 +180,5 @@
       object_id: fan
     fan:
       name: Homelab
+      value_template: null
+      state_value_template: '{{ value_json.state }}'
