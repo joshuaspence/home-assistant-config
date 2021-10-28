@@ -172,3 +172,11 @@
   friendly_name: Basement East Temperature Sensor
 '0x00158d0006bf9edb':
   friendly_name: Attic Upper Temperature Sensor
+'0x00178801086169fd':
+  friendly_name: Homelab Fan
+  homeassistant:
+    switch:
+      type: fan
+      object_id: fan
+    fan:
+      name: Homelab
