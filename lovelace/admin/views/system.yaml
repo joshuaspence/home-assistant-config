@@ -57,7 +57,7 @@ cards:
             entity: 'sensor.homelab_humidity'
             name: 'Humidity'
           - type: 'entity'
-            entity: 'switch.homelab_fan'
+            entity: 'fan.homelab'
             name: 'Fan'
       - type: 'history-graph'
         entities:
