@@ -42,7 +42,7 @@ homeassistant:
       icon: 'mdi:speaker'
   elevation: !secret 'home.elevation'
   external_url: !secret 'core.external_url'
-  internal_url: 'http://homeassistant.local'
+  internal_url: 'http://homeassistant.spence.network'
   latitude: !secret 'home.latitude'
   longitude: !secret 'home.longitude'
   media_dirs: {}
