@@ -33,6 +33,10 @@ logger:
     frontend.js.latest.202110071:
       - '^Icon mdi:do-not-disturb was renamed to mdi:minus-circle'
 
+    # This should be fixed in 2021.11, see home-assistant/core#58477.
+    homeassistant.helpers.template:
+      - 'when rendering ''{{ states\.sensor\.unifi_gateway_wan\.attributes\["gw_system-stats"\]'
+
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
       - 'OSError: Connect call failed'
@@ -69,6 +73,7 @@ logger:
     homeassistant.helpers.entity:
       - '^Update of media_player\.\w+ is taking over 10 seconds$'
     pychromecast.socket_client:
+      - 'Error reading from socket\.$'
       - 'Failed to connect to service'
       - 'Heartbeat timeout, resetting connection$'
     snitun.multiplexer.core:
