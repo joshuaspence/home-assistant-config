@@ -29,6 +29,10 @@ logger:
     snitun.client.client_peer:
       - '^Challenge/Response error with SniTun server'
 
+    # See home-assistant/core#58103.
+    frontend.js.latest.202110071:
+      - '^Icon mdi:do-not-disturb was renamed to mdi:minus-circle'
+
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
       - 'OSError: Connect call failed'
@@ -69,3 +73,5 @@ logger:
       - 'Heartbeat timeout, resetting connection$'
     snitun.multiplexer.core:
       - '^Ping fails, no response from peer$'
+    zeroconf:
+      - '^Received invalid packet'
