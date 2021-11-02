@@ -76,6 +76,8 @@
   friendly_name: Mailbox Top Door Contact Sensor
 '0x286d97000108ff62':
   friendly_name: Spa Bath Water Leak Sensor
+  availability:
+    timeout: 1440
 '0x0017880108af0507':
   friendly_name: Outside South-southeast Light
 '0x00178801093c115e':
