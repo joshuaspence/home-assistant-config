@@ -4,7 +4,7 @@ template:
       - platform: 'time_pattern'
         minutes: '*'
       - platform: 'state'
-        entity_id: 'sensor.zigbee2mqtt_state'
+        entity_id: 'binary_sensor.zigbee2mqtt_state'
       - platform: 'event'
         event_type: 'entity_registry_updated'
     sensor:

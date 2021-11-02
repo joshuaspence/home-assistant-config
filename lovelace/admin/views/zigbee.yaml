@@ -2,8 +2,11 @@
 title: 'Zigbee'
 icon: 'mdi:zigbee'
 path: 'zigbee'
-type: 'panel'
 cards:
+  - type: 'entities'
+    entities:
+      - 'binary_sensor.zigbee2mqtt_state'
+      - 'binary_sensor.zigbee2mqtt_health_check'
   - type: 'custom:zigbee2mqtt-networkmap'
     entity: 'sensor.zigbee2mqtt_network_map'
     force: 2000

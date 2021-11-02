@@ -12,10 +12,18 @@ sensor:
     value_template: '{{ now().strftime("%Y-%m-%d %H:%M:%S") }}'
     json_attributes_topic: 'zigbee2mqtt/bridge/response/networkmap'
     json_attributes_template: '{{ value_json.data.value | tojson }}'
+
+binary_sensor:
   - platform: 'mqtt'
     state_topic: 'zigbee2mqtt/bridge/state'
     name: 'Zigbee2MQTT State'
     unique_id: '0e78cda4-e06a-4174-a663-1badfc31f315'
+  - platform: 'mqtt'
+    state_topic: 'zigbee2mqtt/bridge/response/health_check'
+    value_template: '{{ value_json.status }}'
+    name: 'Zigbee2MQTT Health Check'
+    unique_id: '7db2a103-3839-4e50-900b-11e47ca162a8'
+    payload_available: 'ok'
 
 automation:
   - alias: 'Zigbee2MQTT Network Map'

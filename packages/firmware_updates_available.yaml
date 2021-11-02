@@ -6,7 +6,7 @@ template:
       - platform: 'time_pattern'
         hours: '*'
       - platform: 'state'
-        entity_id: 'sensor.zigbee2mqtt_state'
+        entity_id: 'binary_sensor.zigbee2mqtt_state'
     sensor:
       - name: 'Firmware Updates Available'
         unique_id: '51576e42-ce49-429a-8351-2142de129a26'
@@ -19,7 +19,7 @@ template:
           {% endfor %}
 
           {{ ns.sensors | count }}
-        availability: '{{ states("sensor.zigbee2mqtt_state") == "online" }}'
+        availability: '{{ states("binary_sensor.zigbee2mqtt_state") == "online" }}'
 
 group:
   ignored_firmware_updates:
