@@ -6,31 +6,6 @@ notify:
     vapid_prv_key: !secret 'firebase.private_key'
     vapid_email: !secret 'firebase.email'
 
-  - platform: 'tts'
-    name: 'bedroom_1_speaker'
-    tts_service: &tts_service 'tts.cloud_say'
-    media_player: 'media_player.bedroom_1_speaker'
-  - platform: 'tts'
-    name: 'bedroom_2_speaker'
-    tts_service: *tts_service
-    media_player: 'media_player.bedroom_2_speaker'
-  - platform: 'tts'
-    name: 'hallway_speaker'
-    tts_service: *tts_service
-    media_player: 'media_player.hallway_speaker'
-  - platform: 'tts'
-    name: 'kitchen_display'
-    tts_service: *tts_service
-    media_player: 'media_player.kitchen_display'
-  - platform: 'tts'
-    name: 'living_room_speaker'
-    tts_service: *tts_service
-    media_player: 'media_player.living_room_speaker'
-  - platform: 'tts'
-    name: 'office_display'
-    tts_service: *tts_service
-    media_player: 'media_player.office_display'
-
   - platform: 'group'
     name: 'house'
     services:
@@ -39,8 +14,7 @@ notify:
       - service: 'hallway_speaker'
       - service: 'kitchen_display'
       - service: 'living_room_speaker'
-      - service: 'living_room_tv'
-      - service: 'office_display'
+      - service: 'office_speaker'
   - platform: 'group'
     name: 'josh'
     services:
