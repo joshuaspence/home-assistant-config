@@ -19,7 +19,7 @@ template:
           {% endfor %}
 
           {{ ns.sensors | count }}
-        availability: '{{ states("binary_sensor.zigbee2mqtt_state") == "online" }}'
+        availability: '{{ states("binary_sensor.zigbee2mqtt_state") == "on" }}'
 
 group:
   ignored_firmware_updates:

@@ -236,7 +236,7 @@ cards:
         - entity_id: 'sensor.room_assistant_*'
         - entity_id: 'sensor.speedtest_*'
         - entity_id: 'sensor.unavailable_entities'
-        - entity_id: 'sensor.unifi_gateway_*'
+        - entity_id: 'sensor.unifi_*'
         - entity_id: 'sensor.upstairs_*'
         - entity_id: 'sensor.uptime'
         - entity_id: 'sensor.zigbee2mqtt_*'
