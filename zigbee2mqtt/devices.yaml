@@ -121,7 +121,15 @@
       value_template: null
       state_value_template: '{{ value_json.state }}'
 '0x001788010860a489':
-  friendly_name: '0x001788010860a489'
+  friendly_name: Attic Fan Smart Plug
+  homeassistant:
+    switch:
+      type: fan
+      object_id: fan
+    fan:
+      name: Attic
+      value_template: null
+      state_value_template: '{{ value_json.state }}'
 '0x001788010965e470':
   friendly_name: Living Room Dimmer Switch
 '0x001788010293c25b':
