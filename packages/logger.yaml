@@ -73,6 +73,7 @@ logger:
     homeassistant.helpers.entity:
       - '^Update of media_player\.\w+ is taking over 10 seconds$'
     pychromecast.socket_client:
+      - 'Error communicating with socket, resetting connection$'
       - 'Error reading from socket\.$'
       - 'Failed to connect to service'
       - 'Heartbeat timeout, resetting connection$'
