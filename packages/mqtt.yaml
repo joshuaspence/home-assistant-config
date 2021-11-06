@@ -12,8 +12,12 @@ sensor:
     value_template: '{{ now().strftime("%Y-%m-%d %H:%M:%S") }}'
     json_attributes_topic: 'zigbee2mqtt/bridge/response/networkmap'
     json_attributes_template: '{{ value_json.data.value | tojson }}'
+  - platform: 'mqtt'
+    name: 'Zigbee2MQTT Coordinator Version'
+    unique_id: '99cae535-84d1-44ca-97d5-6bb20e6f0ad1'
+    state_topic: 'zigbee2mqtt/bridge/config'
+    value_template: '{{ value_json.coordinator.meta.revision }}'
 
-# FIXME
 binary_sensor:
   - platform: 'mqtt'
     state_topic: 'zigbee2mqtt/bridge/state'
