@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "ESPHome.esphome-vscode",
+    "keesschollaart.vscode-home-assistant",
+    "netcorext.uuid-generator"
+  ]
+}
