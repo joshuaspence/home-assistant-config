@@ -144,7 +144,6 @@
 | Toilet Shelly                            | 4e1310a3cb83785eee90b0a689fd1213 | espressif                                     | esp01_1m                                                        | toilet      |
 | Toilet Temperature Sensor                | a9026472f0a5fab16582a6bdea27ecab | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | toilet      |
 | UniFi Controller Add-on                  | a2365fcf4d04f45dc99072c74422e776 | Home Assistant Community Add-ons              | Home Assistant Add-on                                           | None        |
-| Visual Studio Code Add-on                | 7e03db91aff0fa0b5b6acf381b0d8d73 | Home Assistant Community Add-ons              | Home Assistant Add-on                                           | None        |
 | Washing Machine Smart Plug               | 28c5facd8c549c053beb8f1a324f9299 | TP-Link                                       | KP115(AU)                                                       | laundry     |
 | Zigbee Gateway                           | 0ff43e606d05602b4dcc719cf825bf6d | espressif                                     | esp-wrover-kit                                                  | office      |
 | Zigbee2mqtt Add-on                       | 4b18a38caf5c51f7544f294f1ad3666e | Home Assistant Add-on: Zigbee2mqtt            | Home Assistant Add-on                                           | None        |
