@@ -194,3 +194,7 @@
   friendly_name: Back Door Contact Sensor
 '0x00158d0006b0d601':
   friendly_name: Mailbox Top Door Contact Sensor
+'0x00158d0006bee40b':
+  friendly_name: Bedroom 2 Wardrobe Temperature Sensor
+'0x00158d0006b89039':
+  friendly_name: Bedroom 1 Wardrobe Temperature Sensor
