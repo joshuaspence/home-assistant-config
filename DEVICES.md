@@ -4,7 +4,8 @@
 |------------------------------------------|----------------------------------|-----------------------------------------------|-----------------------------------------------------------------|-------------|
 | Air Conditioner                          | 2d654b5bc7d64280c72254ca1ef1eef1 | Daikin                                        | NOTSUPPORT                                                      | None        |
 | Attic Door Contact Sensor                | beee52af68f8ea278c6b0dd55661d786 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | attic       |
-| Attic Fan Smart Plug                     | 9fa89d0c87235e9d5633c65e8312b63f | TP-Link                                       | KP115(AU)                                                       | attic       |
+| Attic Fan Smart Plug                     | c3dbfadf550db1789658c7cf2693449b | Philips                                       | Hue smart plug - AU (9290022408)                                | attic       |
+| Attic Fan Smart Plug (old)               | 9fa89d0c87235e9d5633c65e8312b63f | TP-Link                                       | KP115(AU)                                                       | attic       |
 | Attic Light Strip 1                      | 43d07c57652009e72264fd3d82516122 | Unknown                                       | Tuya generic                                                    | attic       |
 | Attic Light Strip 2                      | 722f77486d367a4eafa719ed0c0ef78f | Unknown                                       | Tuya generic                                                    | attic       |
 | Attic Light Strip 3                      | 97a04846ba63875a6b1c0a9fb4ab2aaf | Unknown                                       | Tuya generic                                                    | attic       |
@@ -36,12 +37,14 @@
 | Bedroom 1 South Window Contact Sensor    | 233e00616d3459cd71af31ac31342707 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | bedroom_1   |
 | Bedroom 1 Speaker                        | 60edb220e17d697c85517e17cd0a045c | Google Inc.                                   | Google Home Mini                                                | bedroom_1   |
 | Bedroom 1 Temperature Sensor             | 50c8369baeee3791714a94d195007db4 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | bedroom_1   |
+| Bedroom 1 Wardrobe Temperature Sensor    | 5d617d5ef156f1dc16a77e53bf26cbdd | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | bedroom_1   |
 | Bedroom 2 Door Contact Sensor            | f443b3aa5e4f294be8704957549beb65 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | bedroom_2   |
 | Bedroom 2 Light                          | b7e834754175ee5eaa9b96f2ddecdce7 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | bedroom_2   |
 | Bedroom 2 Motion Sensor                  | f8662d532517bcf18674b37af7f4acdd | Philips                                       | Hue motion sensor (9290012607)                                  | bedroom_2   |
 | Bedroom 2 Shelly                         | 14be6a944f487a95491472b4b79898e3 | espressif                                     | PLATFORMIO_ESP01_1M                                             | bedroom_2   |
 | Bedroom 2 Speaker                        | 057dc2f5ede3822775a6daea8424e297 | Google Inc.                                   | Google Nest Mini                                                | bedroom_2   |
 | Bedroom 2 Temperature Sensor             | fb5e30b1908f60f415ab7c96a96542e1 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | bedroom_2   |
+| Bedroom 2 Wardrobe Temperature Sensor    | 94c0b2a9a432af1d88d81fbdbb6a7909 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | bedroom_2   |
 | Bedroom 2 Window Contact Sensor          | f5f415af317ba5a134b797ed95019850 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | bedroom_2   |
 | Chrony Add-on                            | 564bdcc1edf6f32eb826082634983cfd | Home Assistant Community Add-ons              | Home Assistant Add-on                                           | None        |
 | Clothes Line Motion Sensor               | 216e2db5ddc92f0a828f6f03b3c8c714 | Philips                                       | Hue motion outdoor sensor (9290019758)                          | outside     |
@@ -145,4 +148,3 @@
 | Washing Machine Smart Plug               | 28c5facd8c549c053beb8f1a324f9299 | TP-Link                                       | KP115(AU)                                                       | laundry     |
 | Zigbee Gateway                           | 0ff43e606d05602b4dcc719cf825bf6d | espressif                                     | esp-wrover-kit                                                  | office      |
 | Zigbee2mqtt Add-on                       | 4b18a38caf5c51f7544f294f1ad3666e | Home Assistant Add-on: Zigbee2mqtt            | Home Assistant Add-on                                           | None        |
-| None                                     | c3dbfadf550db1789658c7cf2693449b | Philips                                       | Hue smart plug - AU (9290022408)                                | None        |
