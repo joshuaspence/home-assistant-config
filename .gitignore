@@ -1,5 +1,6 @@
 # Home Assistant
 /.cloud/
+/.HA_VERSION
 /home-assistant.log
 /home-assistant.log.*
 /html5_push_registrations.conf
