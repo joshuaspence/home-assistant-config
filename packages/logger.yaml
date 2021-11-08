@@ -3,6 +3,7 @@ logger:
   default: 'warning'
   logs:
     event_logger: 'debug'
+    matplotlib.font_manager: 'error'
   filters:
     # See aio-libs/aiohttp#5380.
     aiohttp.server:
