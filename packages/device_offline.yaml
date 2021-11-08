@@ -44,6 +44,10 @@ group:
       - 'media_player.outside_speaker'
       - 'person.michael_spence'
       - 'sensor.unavailable_entities'
+      - 'sensor.unifi_gateway_board_cpu_temperature'
+      - 'sensor.unifi_gateway_board_phy_temperature'
+      - 'sensor.unifi_gateway_cpu_temperature'
+      - 'sensor.unifi_gateway_phy_temperature'
       - 'vacuum.downstairs'
 
 automation:
