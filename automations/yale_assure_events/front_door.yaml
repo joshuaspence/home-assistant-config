@@ -38,3 +38,8 @@ use_blueprint:
       data:
         message: 'was locked by touchscreen'
         <<: *common_data
+    pin_code_added:
+      service: 'logbook.log'
+      data:
+        message: 'was setup with a PIN code for user {{ user }}'
+        <<: *common_data

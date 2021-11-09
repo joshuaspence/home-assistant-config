@@ -23,6 +23,9 @@ blueprint:
     touch_lock:
       name: 'Touch Lock'
       <<: *common_config
+    pin_code_added:
+      name: 'PIN Code Added'
+      <<: *common_config
 
 trigger_variables:
   device_friendly_name: !input 'lock'
@@ -50,6 +53,8 @@ action:
         sequence: !input 'manual_unlock'
       - conditions: '{{ source == "manual" and action == "one_touch_lock" and user == 65535 }}'
         sequence: !input 'touch_lock'
+      - conditions: '{{ action == "pin_code_added" }}'
+        sequence: !input 'pin_code_added'
 
       # Lock was triggered by Home Assistant.
       - conditions: '{{ source == "rf" and user == 65535 }}'
