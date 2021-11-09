@@ -13,18 +13,13 @@ template:
         state: >-
           {% set ns = namespace(sensors = []) %}
           {% for sensor in states.sensor %}
-          {%   if "_update_state" in sensor.entity_id and sensor.state in ["available"] and sensor.entity_id not in state_attr('group.ignored_firmware_updates', 'entity_id') %}
+          {%   if "_update_state" in sensor.entity_id and sensor.state in ["available"] %}
           {%     set ns.sensors = ns.sensors + [sensor.entity_id] %}
           {%   endif %}
           {% endfor %}
 
           {{ ns.sensors | count }}
         availability: '{{ states("binary_sensor.zigbee2mqtt_state") == "on" }}'
-
-group:
-  ignored_firmware_updates:
-    entities:
-      - 'sensor.living_room_dimmer_switch_update_state'
 
 automation:
   - alias: 'Firmware Updates Available'
