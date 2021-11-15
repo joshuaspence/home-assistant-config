@@ -26,6 +26,12 @@ blueprint:
     pin_code_added:
       name: 'PIN Code Added'
       <<: *common_config
+    pin_code_deleted:
+      name: 'PIN Code Deleted'
+      <<: *common_config
+    pin_code_changed:
+      name: 'PIN Code Changed'
+      <<: *common_config
 
 trigger_variables:
   device_friendly_name: !input 'lock'
@@ -55,6 +61,10 @@ action:
         sequence: !input 'touch_lock'
       - conditions: '{{ action == "pin_code_added" }}'
         sequence: !input 'pin_code_added'
+      - conditions: '{{ action == "pin_code_deleted" }}'
+        sequence: !input 'pin_code_deleted'
+      - conditions: '{{ action == "pin_code_changed" }}'
+        sequence: !input 'pin_code_changed'
 
       # Lock was triggered by Home Assistant.
       - conditions: '{{ source == "rf" and user == 65535 }}'
