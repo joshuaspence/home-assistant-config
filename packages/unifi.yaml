@@ -64,6 +64,7 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.unifi_gateway_alerts'
+    condition: '{{ trigger.from_state.state != "unavailable" }}'
     action:
       choose:
         conditions:
@@ -97,6 +98,7 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.unifi_gateway_firmware_upgradable'
+    condition: '{{ trigger.from_state.state != "unavailable" }}'
     action:
       choose:
         conditions:
