@@ -56,7 +56,7 @@
 '0x286d97000108ff62':
   friendly_name: Spa Bath Water Leak Sensor
   availability:
-    timeout: 1440
+    timeout: 1560
 '0x00158d0004a97174':
   friendly_name: Dining Room Sliding Door Contact Sensor
 '0x00158d0006c4fdf7':
