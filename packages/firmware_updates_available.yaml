@@ -49,3 +49,4 @@ automation:
         service: 'persistent_notification.dismiss'
         data:
           notification_id: 'firmware-updates-available'
+    mode: 'restart'
