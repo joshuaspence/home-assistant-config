@@ -6,6 +6,7 @@ mqtt:
 
 sensor:
   # Mosquitto
+  # TODO: Ensure these sensors don't blow out the database.
   - platform: 'mqtt'
     name: 'Mosquitto Clients Connected'
     unique_id: '64709b70-c683-48a0-bd65-5b1b5b4c870d'
