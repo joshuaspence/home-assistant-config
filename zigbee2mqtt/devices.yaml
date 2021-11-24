@@ -200,3 +200,7 @@
   friendly_name: Mailbox Front Door Contact Sensor
 '0x00158d0006b0d601':
   friendly_name: Mailbox Top Door Contact Sensor
+'0x00158d0006bee4d9':
+  friendly_name: Kitchen Window Contact Sensor
+'0x00158d0006c4bce4':
+  friendly_name: Front Door Contact Sensor
