@@ -4,6 +4,8 @@ alias: 'Water Leak'
 trigger:
   platform: 'state'
   entity_id:
+    - 'binary_sensor.dishwasher_water_leak'
+    - 'binary_sensor.kitchen_sink_water_leak'
     - 'binary_sensor.spa_bath_water_leak'
   from: 'off'
   to: 'on'
