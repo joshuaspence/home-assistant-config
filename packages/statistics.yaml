@@ -6,13 +6,14 @@ sensor:
 
   - platform: 'min_max'
     entity_ids:
+      - 'sensor.dining_room_humidity'
       - 'sensor.kitchen_humidity'
       - 'sensor.living_room_humidity'
     type: 'mean'
     name: 'Downstairs Humidity'
-
   - platform: 'min_max'
     entity_ids:
+      - 'sensor.dining_room_temperature'
       - 'sensor.kitchen_temperature'
       - 'sensor.living_room_temperature'
     type: 'mean'
@@ -22,10 +23,10 @@ sensor:
     entity_ids:
       - 'sensor.bedroom_1_humidity'
       - 'sensor.bedroom_2_humidity'
+      - 'sensor.hallway_humidity'
       - 'sensor.office_humidity'
     type: 'mean'
     name: 'Upstairs Humidity'
-
   - platform: 'min_max'
     entity_ids:
       - 'sensor.bedroom_1_temperature'
@@ -39,19 +40,34 @@ sensor:
     entity_ids:
       - 'sensor.bedroom_1_humidity'
       - 'sensor.bedroom_2_humidity'
+      - 'sensor.dining_room_humidity'
+      - 'sensor.hallway_humidity'
       - 'sensor.kitchen_humidity'
       - 'sensor.living_room_humidity'
       - 'sensor.office_humidity'
     type: 'mean'
     name: 'Inside Humidity'
-
   - platform: 'min_max'
     entity_ids:
       - 'sensor.bedroom_1_temperature'
       - 'sensor.bedroom_2_temperature'
+      - 'sensor.dining_room_temperature'
       - 'sensor.hallway_temperature'
       - 'sensor.kitchen_temperature'
       - 'sensor.living_room_temperature'
       - 'sensor.office_temperature'
     type: 'mean'
     name: 'Inside Temperature'
+
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.outside_north_humidity'
+      - 'sensor.outside_south_humidity'
+    type: 'mean'
+    name: 'Outside Humidity'
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.outside_north_temperature'
+      - 'sensor.outside_south_temperature'
+    type: 'mean'
+    name: 'Outside Temperature'

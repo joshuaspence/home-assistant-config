@@ -63,7 +63,7 @@
 '0x00158d0006bee40b':
   friendly_name: Bedroom 2 Wardrobe Temperature Sensor
 '0x00158d00068b4108':
-  friendly_name: Outside Temperature Sensor
+  friendly_name: Outside North Temperature Sensor
 '0x00178801095f6fad':
   friendly_name: Laundry Light
 '0x0017880108af06e2':
@@ -144,8 +144,6 @@
   friendly_name: Attic Upper Temperature Sensor
 '0x00158d0007758d60':
   friendly_name: Attic Lower Temperature Sensor
-'0x00178801025ceaa8':
-  friendly_name: Front Door Light
 '0x00178801064716e9':
   friendly_name: Side Yard Motion Sensor
 '0x00178801093c115e':
@@ -162,14 +160,8 @@
   friendly_name: Bathroom Door Contact Sensor
 '0x001788010293c16d':
   friendly_name: Bathroom Light
-'0x001788010600f355':
-  friendly_name: Office Desk Light
 '0x0017880108af04bd':
   friendly_name: Kitchen Light
-'0x0017880102d95245':
-  friendly_name: Outside North-northeast Light
-'0x0017880102d95ade':
-  friendly_name: Outside North-northwest Light
 '0x0017880108b39317':
   friendly_name: Dining Room Light
 '0x00158d0006a0916c':
@@ -204,3 +196,15 @@
   friendly_name: Front Door Contact Sensor
 '0x00158d00075f312f':
   friendly_name: Linen Closet Temperature Sensor
+'0x00158d000777ca93':
+  friendly_name: Outside South Temperature Sensor
+'0x00178801093b66fe':
+  friendly_name: Outside North-northeast Light
+'0x00178801093d70ff':
+  friendly_name: Outside North-northwest Light
+'0x00158d00077537c3':
+  friendly_name: Bathroom Ceiling Temperature Sensor
+'0x0017880109ac7a16':
+  friendly_name: Front Door Light
+'0x0017880102d95245':
+  friendly_name: Office Desk Light

@@ -21,6 +21,7 @@
 | Basement Secondary Dehumidifier          | ed3f2986a66b503e0f2f7d6e2aba5034 | TP-Link                                       | KP115(AU)                                                       | basement     |
 | Basement Shelly                          | 4ce5ebf0365ec9127be195a87d16f92b | espressif                                     | esp01_1m                                                        | basement     |
 | Basement West Temperature Sensor         | d4f9f21a4cb571e3bcdbe50f20854c7a | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | basement     |
+| Bathroom Ceiling Temperature Sensor      | 41ce752914bc2c5dd6e00b91e7016a9b | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | attic        |
 | Bathroom Door Contact Sensor             | ad741a5696379d89bb51caf0cae5ed9c | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | bathroom     |
 | Bathroom Light                           | 38bfbc481e17de3a58ca44be5bca3529 | Philips                                       | Hue white and color ambiance E26/E27/E14 (9290012573A)          | bathroom     |
 | Bathroom Mirror Light                    | 5149f5d494bbbb5c3b21a55396a75a1e | Philips                                       | Hue white ambiance GU10 with Bluetooth (929001953301)           | bathroom     |
@@ -56,7 +57,7 @@
 | Dishwasher Water Leak Sensor             | 909bbddde835f8a8a06bbcea237f7b70 | Xiaomi                                        | Aqara water leak sensor (SJCGQ11LM)                             | kitchen      |
 | ESPHome Add-On                           | 70072ce2c4bf2619436905bd1f3a265a | Home Assistant Community Add-ons              | Home Assistant Add-on                                           | None         |
 | Front Door Contact Sensor                | 71853813d72a3c6c44f47c7bfd41a8d1 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | hallway      |
-| Front Door Light                         | 34f3a284eee317916d67c30ff5af82f2 | Philips                                       | Hue white and color ambiance E26/E27/E14 (9290012573A)          | outside      |
+| Front Door Light                         | 9474c7bfcae23325d18a9c10b02f1836 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | outside      |
 | Front Door Lock                          | a7236d96091cffafb7fe9d06f94ddb46 | Yale                                          | Assure lock (YRD226HA2619)                                      | hallway      |
 | Front Patio Light                        | e22f70a8f154fc9ab8a396e6bfa0b1ed | Philips                                       | Hue Discover white and color ambiance flood light (17435/30/P7) | outside      |
 | Front Verandah Downlight                 | 016c4fba2c8bc24f2287ed14319c9710 | espressif                                     | PLATFORMIO_ESP01_1M                                             | outside      |
@@ -98,6 +99,7 @@
 | Laundry Window Contact Sensor            | b5c2a4a58ad648557b8db797a717f17a | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | laundry      |
 | Lily's Phone                             | dcf9afe490d1bcc3c100b0d3f3cc6f1f | Google                                        | Pixel 6 Pro                                                     | None         |
 | Linen Closet Door Contact Sensor         | f59c94643d560ae5eea20a93581ecedd | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | linen_closet |
+| Linen Closet Temperature Sensor          | d5be1b332e9b96b7499d25ff095e5426 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | linen_closet |
 | Living Room Dimmer Switch                | f5a4d414d5d1ae1a8c387d0a5be14be6 | Philips                                       | Hue dimmer switch (324131092621)                                | living_room  |
 | Living Room East Shelly                  | 7ae4b995fb328d595cae9ad679f42df1 | espressif                                     | esp01_1m                                                        | living_room  |
 | Living Room Lower East Light             | 3a8527b9df4024d9befd2db5c7c27d55 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | living_room  |
@@ -116,7 +118,7 @@
 | Mailbox Top Door Contact Sensor          | 13d285905466010643e9fd858657d71b | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | outside      |
 | Microwave Smart Plug                     | 9fa89d0c87235e9d5633c65e8312b63f | TP-Link                                       | KP115(AU)                                                       | kitchen      |
 | Mosquitto Add-on                         | 7e7032e255770787a6e0e89e25304eea | Official add-ons                              | Home Assistant Add-on                                           | None         |
-| Office Desk Light                        | 6424ba10720341e56e3cb1bd11694aed | Philips                                       | Hue white A60 bulb E27 bluetooth (8718699673147)                | office       |
+| Office Desk Light                        | 316ec19ac3052b09149a7aa7a60cb588 | Philips                                       | Hue white and color ambiance E26/E27/E14 (9290012573A)          | office       |
 | Office Display                           | ef7b46f25ceb69a7afab34dfe702015a | Google Inc.                                   | Google Nest Hub Max                                             | office       |
 | Office Door Contact Sensor               | b3acc9d31fbf28e074a886666d9f13d4 | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | office       |
 | Office Light                             | 39f9838e11404e620b1562ec1d8240c6 | Philips                                       | Hue white and color ambiance E26/E27/E14 (9290012573A)          | office       |
@@ -127,12 +129,13 @@
 | Office Window Contact Sensor             | 44bec1c6a5e8c4d29a19e448170e0a5c | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | office       |
 | Outside East-northeast Light             | 550d776465645537148f956993822de0 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | outside      |
 | Outside East-southeast Light             | b2dfdf609c59b6bcf45cfa88586b0f71 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | outside      |
-| Outside North-northeast Light            | 316ec19ac3052b09149a7aa7a60cb588 | Philips                                       | Hue white and color ambiance E26/E27/E14 (9290012573A)          | outside      |
-| Outside North-northwest Light            | cb63a31a304b9ea89c33866363a97d56 | Philips                                       | Hue white and color ambiance E26/E27/E14 (9290012573A)          | outside      |
+| Outside North Temperature Sensor         | b0ddeaf6144aefbaabf790515a2ea7f3 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | outside      |
+| Outside North-northeast Light            | 2e984945f9e98fa79edab63832b2672d | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | outside      |
+| Outside North-northwest Light            | b096cda6dbd6a46eb6f82730726eda03 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | outside      |
+| Outside South Temperature Sensor         | 87f6bd09ce912e7fb7f1ca20b6725659 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | outside      |
 | Outside South-southeast Light            | 4350a0826654466b4570e551757dcf82 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | outside      |
 | Outside South-southwest Light            | fa34017376e6a11795cd681ad9047b23 | Philips                                       | Hue white and color ambiance E26/E27 (9290022166)               | outside      |
 | Outside Speaker                          | 9ccc93d4efe70bf79bb98ceb826534e2 | Google Inc.                                   | Nest Audio                                                      | outside      |
-| Outside Temperature Sensor               | b0ddeaf6144aefbaabf790515a2ea7f3 | Xiaomi                                        | Aqara temperature, humidity and pressure sensor (WSDCGQ11LM)    | outside      |
 | Pantry Door Contact Sensor               | f4ade31574566554c3f6b74357f4fa8c | Xiaomi                                        | Aqara door & window contact sensor (MCCGQ11LM)                  | pantry       |
 | Room Assistant                           | 16ce20dc128b01c5fbff236f7fb22222 |                                               | Docker Container                                                | None         |
 | Room Assistant Add-on                    | a0f1e8e5c65d0869c30c5a5e9a6a7172 | Hass.io Addons by mKeRix                      | Home Assistant Add-on                                           | None         |
@@ -149,4 +152,3 @@
 | Washing Machine Smart Plug               | 28c5facd8c549c053beb8f1a324f9299 | TP-Link                                       | KP115(AU)                                                       | laundry      |
 | Zigbee Gateway                           | 0ff43e606d05602b4dcc719cf825bf6d | espressif                                     | esp-wrover-kit                                                  | office       |
 | Zigbee2mqtt Add-on                       | 4b18a38caf5c51f7544f294f1ad3666e | Home Assistant Add-on: Zigbee2mqtt            | Home Assistant Add-on                                           | None         |
-| None                                     | 4e5cb354f823d0208bb3a014c77d01e7 | Philips                                       | Hue motion sensor (9290012607)                                  | None         |
