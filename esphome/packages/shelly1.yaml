@@ -1,3 +1,4 @@
+# Based on https://www.esphome-devices.com/devices/Shelly-1.
 ---
 substitutions:
   device_board: 'esp01_1m'

@@ -1,13 +1,11 @@
-# Based on https://www.esphome-devices.com/devices/Shelly-25.
+# Based on https://www.esphome-devices.com/devices/Shelly-1L.
 ---
 substitutions:
   device_board: 'esp01_1m'
   device_platform: 'ESP8266'
-  input1_gpio: 'GPIO13'
-  input2_gpio: 'GPIO5'
-  output1_gpio: 'GPIO4'
-  output2_gpio: 'GPIO15'
-  max_power: '2000.0'
+  input1_gpio: 'GPIO4'
+  input2_gpio: 'GPIO14'
+  output1_gpio: 'GPIO5'
   max_temp: '70.0'
 
   # NOTE: See esphome/issues#1532.
@@ -15,10 +13,6 @@ substitutions:
 
 packages:
   wifi: !include 'wifi.yaml'
-
-i2c:
-  sda: 'GPIO12'
-  scl: 'GPIO14'
 
 sensor:
   # Temperature
@@ -44,7 +38,6 @@ sensor:
       above: '${max_temp}'
       then:
         - output.turn_off: 'relay1'
-        - output.turn_off: 'relay2'
         - homeassistant.service:
             service: 'persistent_notification.create'
             data:
@@ -52,54 +45,9 @@ sensor:
             data_template:
               message: 'Switch turned off because temperature exceeded ${max_temp}°C'
 
-  # Power Monitoring
-  - platform: 'ade7953'
-    irq_pin: 'GPIO16'
-    voltage:
-      name: '${device_name} Voltage'
-      internal: true
-    current_a:
-      name: '${device_name} Output2 Current'
-      internal: true
-    current_b:
-      name: '${device_name} Output1 Current'
-      internal: true
-    active_power_a:
-      name: '${device_name} Output2 Power'
-
-      # TODO: Move this to a Home Assistant automation.
-      on_value_range:
-        above: '${max_power}'
-        then:
-          - output.turn_off: 'relay2'
-          - homeassistant.service:
-              service: 'persistent_notification.create'
-              data:
-                title: '${device_name} Power Usage'
-              data_template:
-                message: 'Switch turned off because power exceeded ${max_power}W'
-    active_power_b:
-      name: '${device_name} Output1 Power'
-      filters:
-        multiply: -1
-
-      # TODO: Move this to a Home Assistant automation.
-      on_value_range:
-        above: '${max_power}'
-        then:
-          - output.turn_off: 'relay1'
-          - homeassistant.service:
-              service: 'persistent_notification.create'
-              data:
-                title: '${device_name} Power Usage'
-              data_template:
-                message: 'Switch turned off because power exceeded ${max_power}W'
-    update_interval: '30s'
-
 status_led:
   pin:
     number: 'GPIO0'
-    inverted: true
 
 binary_sensor:
   - platform: 'gpio'
