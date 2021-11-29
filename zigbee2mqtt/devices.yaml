@@ -131,10 +131,10 @@
       object_id: fan
       type: fan
 '0x001788010860a489':
-  friendly_name: Attic Fan Smart Plug
+  friendly_name: Rooftop East Fan Smart Plug
   homeassistant:
     fan:
-      name: Attic
+      name: Rooftop East
       state_value_template: '{{ value_json.state }}'
       value_template: null
     switch:
@@ -208,3 +208,23 @@
   friendly_name: Front Door Light
 '0x0017880102d95245':
   friendly_name: Office Desk Light
+'0x0017880109d479f3':
+  friendly_name: Rooftop West Fan Smart Plug
+  homeassistant:
+    fan:
+      name: Rooftop West
+      state_value_template: '{{ value_json.state }}'
+      value_template: null
+    switch:
+      object_id: fan
+      type: fan
+'0x0017880108615a10':
+  friendly_name: Attic Fan Smart Plug
+  homeassistant:
+    fan:
+      name: Attic
+      state_value_template: '{{ value_json.state }}'
+      value_template: null
+    switch:
+      object_id: fan
+      type: fan
