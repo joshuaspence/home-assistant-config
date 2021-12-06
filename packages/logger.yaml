@@ -30,6 +30,10 @@ logger:
     snitun.client.client_peer:
       - '^Challenge/Response error with SniTun server'
 
+    # See Koenkk/zigbee2mqtt#10055.
+    homeassistant.helpers.template:
+      - 'access to attribute ''update'' of ''dict'' object is unsafe'
+
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
       - 'OSError: Connect call failed'
