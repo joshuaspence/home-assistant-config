@@ -1,0 +1,117 @@
+# Based on https://www.esphome-devices.com/devices/Shelly-1PM.
+---
+substitutions:
+  device_board: 'esp01_1m'
+  device_platform: 'ESP8266'
+  input1_gpio: 'GPIO4'
+  output1_gpio: 'GPIO15'
+  max_power: '2000.0'
+  max_temp: '70.0'
+
+  # NOTE: See esphome/issues#1532.
+  wifi_power_save_mode: 'high'
+
+packages:
+  wifi: !include 'wifi.yaml'
+
+sensor:
+  # Temperature
+  - platform: 'adc'
+    pin: 'A0'
+    id: 'temperature_adc'
+  - platform: 'resistance'
+    sensor: 'temperature_adc'
+    configuration: 'DOWNSTREAM'
+    resistor: '32kOhm'
+    id: 'temperature_resistance'
+  - platform: 'ntc'
+    name: '${device_name} Temperature'
+    sensor: 'temperature_resistance'
+    calibration:
+      b_constant: 3350
+      reference_temperature: '298.15K'
+      reference_resistance: '10kOhm'
+    accuracy_decimals: 1
+
+    # TODO: Move this to a Home Assistant automation.
+    on_value_range:
+      above: '${max_temp}'
+      then:
+        - output.turn_off: 'relay1'
+        - homeassistant.service:
+            service: 'persistent_notification.create'
+            data:
+              title: '${device_name} Overheated'
+            data_template:
+              message: 'Switch turned off because temperature exceeded ${max_temp}°C'
+
+  # Power Monitoring
+  - platform: 'hlw8012'
+    cf_pin: 'GPIO5'
+    power:
+      name: '${device_name} Power'
+      unit_of_measurement: 'W'
+      device_class: 'power'
+      state_class: 'measurement'
+      accuracy_decimals: 0
+      filters:
+        - calibrate_linear:
+            - '0.0 -> 1.0'
+            - '110.33186 -> 20.62'
+            - '131.01909 -> 24.32'
+            - '341.33920 -> 62.08'
+            - '5561.41553 -> 1000.0'
+            - '2975.51221 -> 535.7'
+            - '9612.66309 -> 1720.0'
+            - '14891.35352 -> 2679.0'
+
+        # Make everything below 2W appear as just 0W.
+        - lambda: 'if (x < 2) return 0; else return x;'
+    update_interval: '10s'
+
+    # These are not used because it is not available on the 1PM but it is needed to compile.
+    sel_pin: 'GPIO14'
+    cf1_pin: 'GPIO13'
+
+output:
+  - platform: 'esp8266_pwm'
+    id: 'state_led'
+    pin:
+      number: 'GPIO0'
+      inverted: true
+
+binary_sensor:
+  - platform: 'gpio'
+    pin: '${input1_gpio}'
+    id: 'input1'
+    on_multi_click:
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+        then:
+          homeassistant.event:
+            event: &button_event 'esphome.button'
+            data:
+              device: '${device_name}'
+              button: '1'
+              action: 'click'
+      - timing:
+          - 'ON for ${button_hold_min_length} to ${button_hold_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '1'
+              action: 'hold'
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+          - 'OFF for ${button_click_min_length} to ${button_click_max_length}'
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '1'
+              action: 'double-click'
+    internal: true
