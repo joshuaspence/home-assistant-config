@@ -69,10 +69,6 @@ person:
     device_trackers:
       - 'device_tracker.lily_phone_app'
       - 'device_tracker.lily_phone_unifi'
-  - id: 'michael'
-    name: 'Michael Spence'
-    device_trackers:
-      - 'device_tracker.michael_phone'
 scene: !include_dir_list 'scenes'
 script: !include_dir_named 'scripts'
 zone:
