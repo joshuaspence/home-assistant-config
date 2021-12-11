@@ -18,6 +18,6 @@ ota: {}
 logger: {}
 api: {}
 
-switch:
+button:
   - platform: 'restart'
     name: '${device_name}'
