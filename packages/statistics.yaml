@@ -1,9 +1,5 @@
 ---
 sensor:
-  - platform: 'statistics'
-    entity_id: 'sensor.bathroom_humidity'
-    name: 'Bathroom Humidity Statistics'
-
   - platform: 'min_max'
     entity_ids:
       - 'sensor.dining_room_humidity'
