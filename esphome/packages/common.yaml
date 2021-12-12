@@ -20,4 +20,4 @@ api: {}
 
 button:
   - platform: 'restart'
-    name: '${device_name}'
+    name: 'Restart ${device_name}'
