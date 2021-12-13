@@ -16,7 +16,7 @@ jobs:
         with:
           source: '.github/stubs/esphome_secrets.yaml'
           target: 'esphome/secrets.yaml'
-      - run: 'find esphome -maxdepth 1 -type f -name "*.yaml" -not -name secrets.yaml | xargs esphome config'
+      - run: 'esphome config esphome/*.yaml'
 
   home-assistant:
     runs-on: 'ubuntu-latest'
