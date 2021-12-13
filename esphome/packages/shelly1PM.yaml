@@ -6,7 +6,7 @@ substitutions:
   input1_gpio: 'GPIO4'
   output1_gpio: 'GPIO15'
   max_power: '2000.0'
-  max_temp: '70.0'
+  max_temp: '80.0'
 
   # NOTE: See esphome/issues#1532.
   wifi_power_save_mode: 'high'
