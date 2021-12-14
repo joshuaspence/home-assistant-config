@@ -14,6 +14,10 @@
     light.toilet:
       brightness: 25
       state: 'on'
+    lock.back_door:
+      state: 'locked'
+    lock.front_door:
+      state: 'locked'
 
 - id: '991026e7-5e54-4225-93b8-8e5b3deb65cf'
   name: 'Arriving Home'
