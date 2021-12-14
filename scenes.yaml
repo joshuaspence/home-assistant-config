@@ -60,3 +60,33 @@
     light.living_room:
       brightness: 100
       state: 'on'
+
+- id: '5c513bb8-bd41-4229-bcc0-e60d63e68970'
+  name: 'Bedroom 1 - Awake'
+  icon: 'mdi:alarm'
+  entities:
+    media_player.bedroom_1_speaker:
+      state: 'off'
+- id: '09ebab34-b7f2-4f40-99fe-0c58fbdd283e'
+  name: 'Bedroom 1 - Sleep'
+  icon: 'mdi:sleep'
+  entities:
+    media_player.bedroom_1_speaker:
+      <<: &white_noise
+        media_content_id: 'https://storage.googleapis.com/helpmesleep/whitenoise/Pink13.mp3'
+        media_content_type: 'audio/mp3'
+        state: 'playing'
+        volume_level: '0.5'
+
+- id: '1ee5e569-7a96-415c-b004-0711912ce558'
+  name: 'Bedroom 2 - Awake'
+  icon: 'mdi:alarm'
+  entities:
+    media_player.bedroom_2_speaker:
+      state: 'off'
+- id: 'c06aa8f3-b411-448a-9f19-75c4dfa34902'
+  name: 'Bedroom 2 - Sleep'
+  icon: 'mdi:sleep'
+  entities:
+    media_player.bedroom_2_speaker:
+      <<: *white_noise
