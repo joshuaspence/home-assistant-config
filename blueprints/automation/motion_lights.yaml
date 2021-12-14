@@ -31,7 +31,7 @@ blueprint:
           device_class: 'illuminance'
     illuminance_threshold:
       name: 'Illuminance Threshold'
-      default: 200
+      default: 100
       selector:
         number:
           min: 0
