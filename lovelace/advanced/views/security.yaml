@@ -13,31 +13,31 @@ cards:
   - type: 'entities'
     entities:
       - type: 'custom:decluttering-card'
-        template: 'security_row'
+        template: 'fold_entity_row'
         variables:
           - head_entity: &external_doors 'binary_sensor.external_doors'
       - type: 'custom:decluttering-card'
-        template: 'security_row'
+        template: 'fold_entity_row'
         variables:
           - head_entity: &external_occupancy 'binary_sensor.external_occupancy'
           - row_trim_suffix: 'Occupancy'
       - type: 'custom:decluttering-card'
-        template: 'security_row'
+        template: 'fold_entity_row'
         variables:
           - head_entity: &internal_doors 'binary_sensor.internal_doors'
           - row_trim_suffix: 'Door'
       - type: 'custom:decluttering-card'
-        template: 'security_row'
+        template: 'fold_entity_row'
         variables:
           - head_entity: &internal_occupancy 'binary_sensor.internal_occupancy'
           - row_trim_suffix: 'Occupancy'
       - type: 'custom:decluttering-card'
-        template: 'security_row'
+        template: 'fold_entity_row'
         variables:
           - head_entity: &locks 'group.all_locks'
           - head_name: 'Locks'
       - type: 'custom:decluttering-card'
-        template: 'security_row'
+        template: 'fold_entity_row'
         variables:
           - head_entity: &windows 'binary_sensor.all_windows'
           - head_name: 'Windows'
