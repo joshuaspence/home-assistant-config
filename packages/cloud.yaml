@@ -10,4 +10,11 @@ cloud:
         - 'fan'
         - 'light'
         - 'scene'
+      exclude_entities:
+        - 'light.attic'
+        - 'light.hallway'
+        - 'light.kitchen'
+        - 'light.living_room'
+        - 'light.office'
+        - 'light.outside_wall'
     entity_config: {}
