@@ -1,8 +1,0 @@
----
-adaptive_lighting:
-  - name: 'Living Room'
-    lights:
-      - 'light.living_room_lower_east'
-      - 'light.living_room_lower_west'
-      - 'light.living_room_upper_east'
-      - 'light.living_room_upper_west'
