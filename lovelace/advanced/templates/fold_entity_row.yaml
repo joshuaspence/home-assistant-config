@@ -12,6 +12,8 @@ card:
       fold_row: true
     double_tap_action:
       action: 'more-info'
+
+  # Hack to "bulk rename" entities (see thomasloven/lovelace-auto-entities#166).
   group_config:
     type: 'custom:template-entity-row'
     name: '{{ state_attr(config.entity, "friendly_name") | regex_replace(find="[[row_trim_suffix]]$") | trim }}'
