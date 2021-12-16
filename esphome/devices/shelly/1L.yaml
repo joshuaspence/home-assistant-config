@@ -112,3 +112,8 @@ binary_sensor:
               button: '2'
               action: 'double-click'
     internal: true
+
+output:
+  - platform: 'gpio'
+    pin: '${output1_gpio}'
+    id: 'relay1'

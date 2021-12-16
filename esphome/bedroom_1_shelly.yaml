@@ -7,11 +7,6 @@ packages:
   common: !include 'packages/common.yaml'
   device: !include 'devices/shelly/1L.yaml'
 
-output:
-  - platform: 'gpio'
-    pin: '${output1_gpio}'
-    id: 'relay1'
-
 light:
   - platform: 'binary'
     name: '${output1_name}'

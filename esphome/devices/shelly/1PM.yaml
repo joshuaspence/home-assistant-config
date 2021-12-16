@@ -72,6 +72,9 @@ output:
     pin:
       number: 'GPIO0'
       inverted: true
+  - platform: 'gpio'
+    pin: '${output1_gpio}'
+    id: 'relay1'
 
 binary_sensor:
   - platform: 'gpio'
