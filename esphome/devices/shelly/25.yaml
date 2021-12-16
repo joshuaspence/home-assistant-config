@@ -1,0 +1,172 @@
+# Based on https://www.esphome-devices.com/devices/Shelly-25.
+---
+substitutions:
+  device_board: 'esp01_1m'
+  device_platform: 'ESP8266'
+  input1_gpio: 'GPIO13'
+  input2_gpio: 'GPIO5'
+  output1_gpio: 'GPIO4'
+  output2_gpio: 'GPIO15'
+  max_power: '2000.0'
+  max_temp: '80.0'
+
+  # NOTE: See esphome/issues#1532.
+  wifi_power_save_mode: 'high'
+
+packages:
+  wifi: !include '../../packages/wifi.yaml'
+
+i2c:
+  sda: 'GPIO12'
+  scl: 'GPIO14'
+
+sensor:
+  # Temperature
+  - platform: 'adc'
+    pin: 'A0'
+    id: 'temperature_adc'
+  - platform: 'resistance'
+    sensor: 'temperature_adc'
+    configuration: 'DOWNSTREAM'
+    resistor: '32kOhm'
+    id: 'temperature_resistance'
+  - platform: 'ntc'
+    name: '${device_name} Temperature'
+    sensor: 'temperature_resistance'
+    calibration:
+      b_constant: 3350
+      reference_temperature: '298.15K'
+      reference_resistance: '10kOhm'
+    accuracy_decimals: 1
+
+    # TODO: Move this to a Home Assistant automation.
+    on_value_range:
+      above: '${max_temp}'
+      then:
+        - output.turn_off: 'relay1'
+        - output.turn_off: 'relay2'
+        - homeassistant.service:
+            service: 'persistent_notification.create'
+            data:
+              title: '${device_name} Overheated'
+            data_template:
+              message: 'Switch turned off because temperature exceeded ${max_temp}°C'
+
+  # Power Monitoring
+  - platform: 'ade7953'
+    irq_pin: 'GPIO16'
+    voltage:
+      name: '${device_name} Voltage'
+      internal: true
+    current_a:
+      name: '${device_name} Output2 Current'
+      internal: true
+    current_b:
+      name: '${device_name} Output1 Current'
+      internal: true
+    active_power_a:
+      name: '${device_name} Output2 Power'
+
+      # TODO: Move this to a Home Assistant automation.
+      on_value_range:
+        above: '${max_power}'
+        then:
+          - output.turn_off: 'relay2'
+          - homeassistant.service:
+              service: 'persistent_notification.create'
+              data:
+                title: '${device_name} Power Usage'
+              data_template:
+                message: 'Switch turned off because power exceeded ${max_power}W'
+    active_power_b:
+      name: '${device_name} Output1 Power'
+      filters:
+        multiply: -1
+
+      # TODO: Move this to a Home Assistant automation.
+      on_value_range:
+        above: '${max_power}'
+        then:
+          - output.turn_off: 'relay1'
+          - homeassistant.service:
+              service: 'persistent_notification.create'
+              data:
+                title: '${device_name} Power Usage'
+              data_template:
+                message: 'Switch turned off because power exceeded ${max_power}W'
+    update_interval: '30s'
+
+status_led:
+  pin:
+    number: 'GPIO0'
+    inverted: true
+
+binary_sensor:
+  - platform: 'gpio'
+    pin: '${input1_gpio}'
+    id: 'input1'
+    on_multi_click:
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+        then:
+          homeassistant.event:
+            event: &button_event 'esphome.button'
+            data:
+              device: '${device_name}'
+              button: '1'
+              action: 'click'
+      - timing:
+          - 'ON for ${button_hold_min_length} to ${button_hold_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '1'
+              action: 'hold'
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+          - 'OFF for ${button_click_min_length} to ${button_click_max_length}'
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '1'
+              action: 'double-click'
+    internal: true
+  - platform: 'gpio'
+    pin: '${input2_gpio}'
+    id: 'input2'
+    on_multi_click:
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '2'
+              action: 'click'
+      - timing:
+          - 'ON for ${button_hold_min_length} to ${button_hold_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '2'
+              action: 'hold'
+      - timing:
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+          - 'OFF for ${button_click_min_length} to ${button_click_max_length}'
+          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+        then:
+          homeassistant.event:
+            event: *button_event
+            data:
+              device: '${device_name}'
+              button: '2'
+              action: 'double-click'
+    internal: true

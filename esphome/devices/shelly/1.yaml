@@ -10,7 +10,7 @@ substitutions:
   wifi_power_save_mode: 'high'
 
 packages:
-  wifi: !include 'wifi.yaml'
+  wifi: !include '../../packages/wifi.yaml'
 
 binary_sensor:
   - platform: 'gpio'

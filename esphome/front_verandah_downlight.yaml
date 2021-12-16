@@ -5,4 +5,4 @@ substitutions:
 
 packages:
   common: !include 'packages/common.yaml'
-  device: !include 'packages/zemismart_rgbw_downlight.yaml'
+  device: !include 'devices/zemismart/rgbw_downlight.yaml'

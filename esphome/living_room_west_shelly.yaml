@@ -6,7 +6,7 @@ substitutions:
 
 packages:
   common: !include 'packages/common.yaml'
-  device: !include 'packages/shelly25.yaml'
+  device: !include 'devices/shelly/25.yaml'
 
 output:
   - platform: 'gpio'

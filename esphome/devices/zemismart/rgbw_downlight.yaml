@@ -4,7 +4,7 @@ substitutions:
   device_platform: 'ESP8266'
 
 packages:
-  wifi: !include 'wifi.yaml'
+  wifi: !include '../../packages/wifi.yaml'
 
 output:
   - platform: 'esp8266_pwm'
