@@ -1,7 +1,6 @@
 ---
 substitutions:
   device_name: 'bathroom_shelly_1'
-  output1_name: 'Bathroom'
   output2_name: 'Bathroom'
 
 packages:
@@ -10,7 +9,6 @@ packages:
 
 light:
   - platform: 'binary'
-    name: '${output1_name}'
     output: 'relay1'
     id: 'output1'
     restore_mode: 'ALWAYS_ON'

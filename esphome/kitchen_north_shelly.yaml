@@ -2,7 +2,6 @@
 substitutions:
   device_name: 'kitchen_north_shelly'
   output1_name: 'Kitchen Cupboards'
-  output2_name: 'Kitchen Spotlights'
 
 packages:
   common: !include 'packages/common.yaml'
@@ -14,7 +13,6 @@ light:
     output: 'relay1'
     id: 'output1'
   - platform: 'binary'
-    name: '${output2_name}'
     output: 'relay2'
     id: 'output2'
     restore_mode: 'ALWAYS_ON'
