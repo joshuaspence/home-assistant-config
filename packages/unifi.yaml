@@ -64,6 +64,8 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.unifi_gateway_alerts'
+      from: null
+      to: null
     condition: '{{ trigger.from_state.state != "unavailable" }}'
     action:
       choose:
