@@ -16,8 +16,6 @@ rules:
   document-start:
     level: 'error'
     ignore: '/zigbee2mqtt/'
-  key-ordering: 'disable'
-  line-length: 'disable'
   quoted-strings:
     quote-type: 'single'
     ignore: '/zigbee2mqtt/'
