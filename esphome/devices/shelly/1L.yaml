@@ -48,6 +48,4 @@ binary_sensor:
   - !include 'components/input2.yaml'
 
 output:
-  - platform: 'gpio'
-    pin: '${output1_gpio}'
-    id: 'relay1'
+  - !include 'components/output1.yaml'
