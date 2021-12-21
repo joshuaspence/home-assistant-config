@@ -1,4 +1,0 @@
----
-platform: 'gpio'
-pin: '${output1_gpio}'
-id: 'relay1'

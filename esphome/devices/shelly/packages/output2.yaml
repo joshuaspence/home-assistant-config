@@ -1,0 +1,5 @@
+---
+output:
+  - platform: 'gpio'
+    pin: '${output2_gpio}'
+    id: 'relay2'

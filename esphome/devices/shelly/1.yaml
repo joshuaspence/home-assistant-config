@@ -6,9 +6,5 @@ substitutions:
 
 packages:
   common: !include 'common.yaml'
-
-binary_sensor:
-  - !include 'components/input1.yaml'
-
-output:
-  - !include 'components/output1.yaml'
+  input1: !include 'packages/input1.yaml'
+  output1: !include 'packages/output1.yaml'

@@ -8,6 +8,10 @@ substitutions:
 
 packages:
   common: !include 'common.yaml'
+  input1: !include 'packages/input1.yaml'
+  input2: !include 'packages/input2.yaml'
+  output1: !include 'packages/output1.yaml'
+  output2: !include 'packages/output2.yaml'
 
 i2c:
   sda: 'GPIO12'
@@ -93,11 +97,3 @@ status_led:
   pin:
     number: 'GPIO0'
     inverted: true
-
-binary_sensor:
-  - !include 'components/input1.yaml'
-  - !include 'components/input2.yaml'
-
-output:
-  - !include 'components/output1.yaml'
-  - !include 'components/output2.yaml'
