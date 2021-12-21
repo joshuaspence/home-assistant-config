@@ -10,3 +10,25 @@ substitutions:
 
 packages:
   wifi: !include '../../packages/wifi.yaml'
+
+button:
+  - platform: 'template'
+    id: 'turn_off'
+    internal: true
+    on_press:
+      - lambda: !lambda |-
+          #ifdef USE_FAN
+            for (auto *obj : App.get_fans()) {
+              if (!obj->is_internal()) {
+                obj->turn_off().perform();
+              }
+            }
+          #endif
+
+          #ifdef USE_LIGHT
+            for (auto *obj : App.get_lights()) {
+              if (!obj->is_internal()) {
+                obj->turn_off().perform();
+              }
+            }
+          #endif
