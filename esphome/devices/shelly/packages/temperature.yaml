@@ -21,7 +21,22 @@ sensor:
     on_value_range:
       above: '${max_temp}'
       then:
-        - button.press: 'turn_off'
+        - lambda: !lambda |-
+            #ifdef USE_FAN
+              for (auto *obj : App.get_fans()) {
+                if (!obj->is_internal()) {
+                  obj->turn_off().perform();
+                }
+              }
+            #endif
+
+            #ifdef USE_LIGHT
+              for (auto *obj : App.get_lights()) {
+                if (!obj->is_internal()) {
+                  obj->turn_off().perform();
+                }
+              }
+            #endif
         - homeassistant.service:
             service: 'persistent_notification.create'
             data:
