@@ -14,10 +14,10 @@
     light.toilet:
       brightness: 25
       state: 'on'
-    lock.back_door:
-      state: 'locked'
-    lock.front_door:
-      state: 'locked'
+    lock.back_door: 'locked'
+    lock.front_door: 'locked'
+    switch.aircon_downstairs: 'off'
+    switch.aircon_upstairs: 'on'
 
 - id: '991026e7-5e54-4225-93b8-8e5b3deb65cf'
   name: 'Arriving Home'
@@ -36,9 +36,9 @@
   entities:
     light.front_door: 'off'
     light.outside_wall: 'off'
-    light.toilet:
-      brightness: 255
-      state: 'on'
+    light.toilet: 'off'
+    switch.aircon_downstairs: 'on'
+    switch.aircon_upstairs: 'on'
 
 - id: '74e0b212-575b-4ead-8ebf-0a599ae8c0c5'
   name: 'Dim'
