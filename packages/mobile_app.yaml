@@ -1,0 +1,22 @@
+---
+switch:
+  - platform: 'template'
+    switches:
+      josh_phone_do_not_disturb:
+        friendly_name: 'Josh''s Phone Do Not Disturb'
+        unique_id: '3948a81c-6813-41cf-a7b9-ca676ca43dc5'
+        value_template: '{{ not is_state("sensor.josh_phone_do_not_disturb_sensor", "off") }}'
+        availability_template: '{{ is_state("sensor.josh_phone_do_not_disturb_sensor", "unavailable") }}'
+        turn_on:
+          service: 'script.mobile_app_command'
+          data:
+            device: 'josh_phone'
+            command: 'command_dnd'
+            data: 'priority_only'
+        turn_off:
+          service: 'script.mobile_app_command'
+          data:
+            device: 'josh_phone'
+            command: 'command_dnd'
+            data: 'off'
+        icon_template: '{{ state_attr("sensor.josh_phone_do_not_disturb_sensor", "icon") }}'
