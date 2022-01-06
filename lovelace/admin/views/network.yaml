@@ -38,6 +38,8 @@ cards:
         name: 'VPN'
       - entity: 'sensor.unifi_gateway_wan'
         name: 'WAN'
+      - entity: 'sensor.unifi_gateway_wan_failover'
+        name: 'WAN Failover'
       - entity: 'sensor.unifi_gateway_wlan'
         name: 'WLAN'
       - entity: 'sensor.unifi_gateway_www'

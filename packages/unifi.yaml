@@ -58,6 +58,19 @@ template:
         state: '{{ states.sensor.unifi_gateway_wlan.attributes.num_user }}'
         <<: *wlan
 
+  - sensor:
+      - name: 'UniFi Gateway WAN Failover'
+        unique_id: 'a6d6d6e8-e159-47ca-b4c7-4f0aa90d1bac'
+        availability: '{{ states.sensor.unifi_gateway_wan is not none }}'
+        state: >-
+          {% if is_state('sensor.unifi_gateway_wan', '100.97.171.125') %}
+            Primary
+          {% if is_state('sensor.unifi_gateway_wan', '10.66.104.16') %}
+            Secondary
+          {% else %}
+            Unknown
+          {% endif %}
+
 automation:
   - alias: 'Unifi Alerts'
     id: 'e1448032-b0ca-4b23-a8b1-2c044e441426'
