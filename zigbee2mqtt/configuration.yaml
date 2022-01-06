@@ -24,4 +24,4 @@ availability:
   active:
     timeout: 10
   passive:
-    timeout: 600
+    timeout: 180
