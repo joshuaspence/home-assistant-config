@@ -258,6 +258,8 @@ cards:
         - entity_id: 'switch.aircon_downstairs'
         - entity_id: 'switch.aircon_upstairs'
         - entity_id: 'switch.aircon_zone*'
+        - entity_id: 'switch.josh_phone_*'
+        - entity_id: 'switch.lily_phone_*'
         - domain: 'alarm_control_panel'
         - domain: 'automation'
         - domain: 'device_tracker'
