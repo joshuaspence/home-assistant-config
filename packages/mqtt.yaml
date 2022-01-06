@@ -96,7 +96,7 @@ sensor:
   - platform: 'mqtt'
     name: 'Zigbee2MQTT Coordinator Version'
     unique_id: '99cae535-84d1-44ca-97d5-6bb20e6f0ad1'
-    state_topic: 'zigbee2mqtt/bridge/config'
+    state_topic: 'zigbee2mqtt/bridge/info'
     value_template: '{{ value_json.coordinator.meta.revision }}'
 
 binary_sensor:
