@@ -65,7 +65,7 @@ template:
         state: >-
           {% if is_state('sensor.unifi_gateway_wan', '100.97.171.125') %}
             Primary
-          {% if is_state('sensor.unifi_gateway_wan', '10.66.104.16') %}
+          {% elif is_state('sensor.unifi_gateway_wan', '10.66.104.16') %}
             Secondary
           {% else %}
             Unknown
