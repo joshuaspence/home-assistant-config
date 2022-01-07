@@ -3,7 +3,7 @@ substitutions:
   device_board: 'esp01_1m'
   device_platform: 'ESP8266'
   max_power: '2000.0'
-  max_temp: '80.0'
+  max_temp: '90.0'
 
   # NOTE: See esphome/issues#1532.
   wifi_power_save_mode: 'high'
