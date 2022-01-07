@@ -9,7 +9,6 @@ esphome:
   name: '${device_name}'
   platform: '${device_platform}'
   board: '${device_board}'
-  build_path: 'build/${device_name}'
 
 time:
   - platform: 'homeassistant'
