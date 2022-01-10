@@ -48,5 +48,5 @@ localtuya:
     entities:
       - platform: 'light'
         friendly_name: 'Bedroom 1 Ceiling Projector'
+        id: 20
         color: 24
-        <<: *common_config
