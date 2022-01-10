@@ -46,7 +46,23 @@ localtuya:
     local_key: !secret 'tuya.bedroom_1_ceiling_projector.local_key'
     friendly_name: 'Bedroom 1 Ceiling Projector'
     entities:
-      - platform: 'light'
+      - platform: 'switch'
         friendly_name: 'Bedroom 1 Ceiling Projector'
         id: 20
+
+      - platform: 'light'
+        friendly_name: 'Bedroom 1 Ceiling Projector Light'
+        id: 52
         color: 24
+        color_mode: 51
+        brightness_upper: 1000
+
+      - platform: 'light'
+        friendly_name: 'Bedroom 1 Ceiling Projector Laser'
+        id: 53
+        brightness: 54
+
+      - platform: 'light'
+        friendly_name: 'Bedroom 1 Ceiling Projector Motor'
+        id: 60
+        brightness: 62
