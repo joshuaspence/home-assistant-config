@@ -376,7 +376,7 @@ cards:
       {% for device in states | map(attribute='entity_id') | map('device_id') | unique | reject('none') %}
       <details>
         <summary>
-          {{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}
+          <a href="/config/devices/device/{{ device }}">{{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}</a>
         </summary>
 
         <table>
