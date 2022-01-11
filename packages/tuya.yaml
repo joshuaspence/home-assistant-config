@@ -55,14 +55,35 @@ localtuya:
         id: 52
         color: 24
         color_mode: 51
-        brightness_upper: 1000
 
       - platform: 'light'
         friendly_name: 'Bedroom 1 Ceiling Projector Laser'
         id: 53
         brightness: 54
+        brightness_lower: 10
 
       - platform: 'light'
         friendly_name: 'Bedroom 1 Ceiling Projector Motor'
         id: 60
         brightness: 62
+        brightness_lower: 0
+        brightness_upper: 100
+
+automation:
+  # Workaround for rospogrigio/localtuya#699.
+  - id: '20f77719-a3f1-4c2b-9bbf-9574b16e9167'
+    alias: 'Mirabella Genio Star Project color_mode Fix'
+    trigger:
+      platform: 'event'
+      event_type: 'call_service'
+      event_data:
+        domain: 'light'
+        service: 'turn_on'
+        service_data:
+          entity_id: 'light.bedroom_1_ceiling_projector_light'
+    action:
+      service: 'localtuya.set_dp'
+      data:
+        device_id: !secret 'tuya.bedroom_1_ceiling_projector.device_id'
+        dp: 51
+        value: 'manual'
