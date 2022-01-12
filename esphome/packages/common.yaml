@@ -5,6 +5,9 @@ esphome:
 ${device_platform}:
   board: '${device_board}'
 
+api:
+  password: !secret 'api.password'
+
 ota:
   password: !secret 'ota.password'
 
@@ -12,7 +15,6 @@ time:
   - platform: 'homeassistant'
 
 logger: {}
-api: {}
 
 button:
   - platform: 'restart'
