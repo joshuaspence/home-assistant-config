@@ -1,0 +1,27 @@
+---
+id: '05cfb2f2-6f36-498f-a321-88756cfe534d'
+alias: 'Attic Fan'
+trigger:
+  - platform: 'numeric_state'
+    id: 'low'
+    entity_id: 'sensor.attic_temperature'
+    value_template: '{{ state.state - 3 }}'
+    below: 'sensor.outside_temperature'
+  - platform: 'numeric_state'
+    id: 'high'
+    entity_id: 'sensor.attic_temperature'
+    value_template: '{{ state.state - 5 }}'
+    above: 'sensor.outside_temperature'
+action:
+  choose:
+    - conditions: '{{ trigger.id == "low" }}'
+      sequence:
+        service: 'fan.turn_off'
+        target:
+          area_id: 'attic'
+    - conditions: '{{ trigger.id == "high" }}'
+      sequence:
+        service: 'fan.turn_on'
+        target:
+          area_id: 'attic'
+mode: 'single'

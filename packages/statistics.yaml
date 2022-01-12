@@ -67,3 +67,16 @@ sensor:
       - 'sensor.outside_south_temperature'
     type: 'mean'
     name: 'Outside Temperature'
+
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.attic_lower_humidity'
+      - 'sensor.attic_upper_humidity'
+    type: 'mean'
+    name: 'Attic Humidity'
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.attic_lower_temperature'
+      - 'sensor.attic_upper_temperature'
+    type: 'mean'
+    name: 'Attic Temperature'
