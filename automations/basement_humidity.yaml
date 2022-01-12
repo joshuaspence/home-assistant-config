@@ -5,12 +5,12 @@ trigger:
   - platform: 'numeric_state'
     id: 'low'
     entity_id: 'sensor.basement_humidity'
-    value_template: '{{ state.state - 5 }}'
+    value_template: '{{ state.state | float - 5 }}'
     below: 'sensor.outside_humidity'
   - platform: 'numeric_state'
     id: 'high'
     entity_id: 'sensor.basement_humidity'
-    value_template: '{{ state.state - 10 }}'
+    value_template: '{{ state.state | float - 10 }}'
     above: 'sensor.outside_humidity'
 action:
   choose:
