@@ -274,6 +274,10 @@ cards:
         - domain: 'zone'
 
         # Entities without a unique ID.
+        - entity_id: 'sensor.attic_humidity'
+        - entity_id: 'sensor.attic_temperature'
+        - entity_id: 'sensor.basement_humidity'
+        - entity_id: 'sensor.basement_temperature'
         - entity_id: 'sensor.bathroom_humidity_statistics'
         - entity_id: 'sensor.outside_humidity'
         - entity_id: 'sensor.outside_temperature'
