@@ -7,7 +7,8 @@ substitutions:
 
 esphome:
   name: '${device_name}'
-  platform: '${device_platform}'
+
+${device_platform}:
   board: '${device_board}'
 
 ota:

@@ -1,7 +1,7 @@
 ---
 substitutions:
   device_board: 'esp-wrover-kit'
-  device_platform: 'ESP32'
+  device_platform: 'esp32'
   device_name: 'zigbee_gateway'
 
 packages:

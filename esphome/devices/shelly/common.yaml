@@ -1,7 +1,7 @@
 ---
 substitutions:
   device_board: 'esp01_1m'
-  device_platform: 'ESP8266'
+  device_platform: 'esp8266'
   max_power: '2000.0'
   max_temp: '90.0'
 
