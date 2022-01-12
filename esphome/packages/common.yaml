@@ -10,10 +10,12 @@ esphome:
   platform: '${device_platform}'
   board: '${device_board}'
 
+ota:
+  password: !secret 'ota.password'
+
 time:
   - platform: 'homeassistant'
 
-ota: {}
 logger: {}
 api: {}
 
