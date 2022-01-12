@@ -70,7 +70,11 @@ condition:
 
 action:
   - service: 'light.turn_on'
-    entity_id: !input 'light_target'
+    target:
+      entity_id: !input 'light_target'
+    data:
+      brightness: 255
+
   - wait_for_trigger:
       - platform: 'state'
         entity_id: !input 'trigger_sensor'
