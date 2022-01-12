@@ -80,3 +80,16 @@ sensor:
       - 'sensor.attic_upper_temperature'
     type: 'mean'
     name: 'Attic Temperature'
+
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.basement_east_humidity'
+      - 'sensor.basement_west_humidity'
+    type: 'mean'
+    name: 'Basement Humidity'
+  - platform: 'min_max'
+    entity_ids:
+      - 'sensor.basement_east_temperature'
+      - 'sensor.basement_west_temperature'
+    type: 'mean'
+    name: 'Basement Temperature'

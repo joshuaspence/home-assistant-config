@@ -1,0 +1,27 @@
+---
+id: 'd66c61c9-1819-4909-bf49-accb40fadfea'
+alias: 'Basement Humidity'
+trigger:
+  - platform: 'numeric_state'
+    id: 'low'
+    entity_id: 'sensor.basement_humidity'
+    value_template: '{{ state.state - 5 }}'
+    below: 'sensor.outside_humidity'
+  - platform: 'numeric_state'
+    id: 'high'
+    entity_id: 'sensor.basement_humidity'
+    value_template: '{{ state.state - 10 }}'
+    above: 'sensor.outside_humidity'
+action:
+  choose:
+    - conditions: '{{ trigger.id == "low" }}'
+      sequence:
+        service: 'switch.turn_off'
+        target:
+          entity_id: 'switch.basement_secondary_dehumidifier'
+    - conditions: '{{ trigger.id == "high" }}'
+      sequence:
+        service: 'switch.turn_on'
+        target:
+          entity_id: 'switch.basement_secondary_dehumidifier'
+mode: 'single'
