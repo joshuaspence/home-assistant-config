@@ -5,6 +5,7 @@ esphome:
 ${device_platform}:
   board: '${device_board}'
 
+# TODO: Add `encryption`.
 api:
   password: !secret 'api.password'
 
