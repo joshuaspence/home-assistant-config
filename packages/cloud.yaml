@@ -5,12 +5,18 @@ cloud:
       include_entities:
         - 'switch.aircon_downstairs'
         - 'switch.aircon_upstairs'
+        - 'switch.bedroom_1_ceiling_projector'
       include_domains:
         - 'climate'
         - 'fan'
         - 'light'
         - 'scene'
       exclude_entities:
+        - 'light.bedroom_1_ceiling_projector_laser'
+        - 'light.bedroom_1_ceiling_projector_light'
+        - 'light.bedroom_1_ceiling_projector_motor'
+
+        # Light groups
         - 'light.attic'
         - 'light.hallway'
         - 'light.kitchen'
