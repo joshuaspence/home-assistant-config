@@ -70,8 +70,11 @@
   icon: 'mdi:alarm'
   entities:
     light.bedroom_1:
+      brightness: 255
       state: 'on'
     media_player.bedroom_1_speaker:
+      state: 'off'
+    switch.bedroom_1_speaker_do_not_disturb:
       state: 'off'
 - id: '09ebab34-b7f2-4f40-99fe-0c58fbdd283e'
   name: 'Bedroom 1 - Sleep'
@@ -85,14 +88,21 @@
         media_content_type: 'audio/mp3'
         state: 'playing'
         volume_level: '0.5'
+    switch.bedroom_1_ceiling_projector:
+      state: 'off'
+    switch.bedroom_1_speaker_do_not_disturb:
+      state: 'on'
 
 - id: '1ee5e569-7a96-415c-b004-0711912ce558'
   name: 'Bedroom 2 - Awake'
   icon: 'mdi:alarm'
   entities:
     light.bedroom_2:
+      brightness: 255
       state: 'on'
     media_player.bedroom_2_speaker:
+      state: 'off'
+    switch.bedroom_2_speaker_do_not_disturb:
       state: 'off'
 - id: 'c06aa8f3-b411-448a-9f19-75c4dfa34902'
   name: 'Bedroom 2 - Sleep'
@@ -102,3 +112,5 @@
       state: 'off'
     media_player.bedroom_2_speaker:
       <<: *white_noise
+    switch.bedroom_2_speaker_do_not_disturb:
+      state: 'on'
