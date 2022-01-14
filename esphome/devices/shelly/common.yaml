@@ -15,7 +15,13 @@ substitutions:
 packages:
   wifi: !include '../../packages/wifi.yaml'
 
-# TODO: Remove this after the 2022.2 release.
 external_components:
+  # TODO: Remove this after the 2022.1 release.
   - source: 'github://esphome/esphome@dev'
-    components: ['output']
+    components:
+      - 'output'
+
+  # TODO: Remove this after esphome/esphome#3051 has been merged and released.
+  - source: 'github://joshuaspence/esphome@fan-restore_mode'
+    components:
+      - 'fan'
