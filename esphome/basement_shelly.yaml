@@ -10,5 +10,4 @@ packages:
 light:
   - platform: 'binary'
     name: '${output1_name}'
-    output: 'relay1'
-    id: 'output1'
+    output: 'output1'

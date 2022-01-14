@@ -10,10 +10,11 @@ packages:
 light:
   - platform: 'binary'
     name: '${output1_name}'
-    output: 'relay1'
-    id: 'output1'
-  - platform: 'binary'
-    output: 'relay2'
-    id: 'output2'
+    output: 'output1'
+
+switch:
+  - platform: 'output'
+    output: 'output2'
+    name: '${device_name} Output2'
     restore_mode: 'ALWAYS_ON'
     internal: true

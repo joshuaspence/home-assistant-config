@@ -38,7 +38,7 @@ sensor:
       on_value_range:
         above: '${max_power}'
         then:
-          - output.turn_off: 'relay2'
+          - output.turn_off: 'output2'
           - homeassistant.service:
               service: 'persistent_notification.create'
               data:
@@ -54,7 +54,7 @@ sensor:
       on_value_range:
         above: '${max_power}'
         then:
-          - output.turn_off: 'relay1'
+          - output.turn_off: 'output1'
           - homeassistant.service:
               service: 'persistent_notification.create'
               data:

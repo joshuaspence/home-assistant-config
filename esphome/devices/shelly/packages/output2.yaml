@@ -2,4 +2,4 @@
 output:
   - platform: 'gpio'
     pin: '${output2_gpio}'
-    id: 'relay2'
+    id: 'output2'
