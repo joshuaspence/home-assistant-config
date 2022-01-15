@@ -50,7 +50,7 @@ switch:
     inverted: true
 
   - platform: 'template'
-    name: 'Firmware Update Mode'
+    name: '${device_name} Firmware Update Mode'
     turn_on_action:
       script.execute: 'firmware_update_mode'
     turn_off_action:

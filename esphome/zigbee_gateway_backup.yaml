@@ -1,0 +1,6 @@
+---
+substitutions:
+  device_name: 'zigbee_gateway_backup'
+
+packages:
+  zigbee_gateway: !include 'zigbee_gateway.yaml'
