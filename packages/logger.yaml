@@ -9,17 +9,6 @@ logger:
     aiohttp.server:
       - '^Unhandled exception$'
 
-    # See hassio-addons/addon-unifi#243.
-    custom_components.unifigateway.sensor: &unifi_errors
-      - 'api\.err\.LoginRequired'
-      - 'Connection refused'
-      - 'Connection reset by peer'
-      - 'EOF occurred in violation of protocol'
-      - '^Lost connection to UniFi controller$'
-      - 'Remote end closed connection without response'
-    homeassistant.components.unifi: *unifi_errors
-    pyunifi.controller: *unifi_errors
-
     # See thomasloven/hass-browser_mod#203.
     homeassistant.components.websocket_api.http.connection:
       - 'Received invalid command: browser_mod/'

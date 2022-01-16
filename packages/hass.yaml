@@ -121,16 +121,6 @@ automation:
         update_available_sensor: 'binary_sensor.terminal_ssh_update_available'
         current_version_sensor: 'sensor.terminal_ssh_version'
         newest_version_sensor: 'sensor.terminal_ssh_newest_version'
-  - id: '643ea7a5-d351-44ec-b98b-2243a43df826'
-    alias: 'UniFi Controller Add-on Update Notification'
-    use_blueprint:
-      path: 'addon_update_notification.yaml'
-      input:
-        addon: 'a0d7b954_unifi'
-        name: 'UniFi Controller'
-        update_available_sensor: 'binary_sensor.unifi_controller_update_available'
-        current_version_sensor: 'sensor.unifi_controller_version'
-        newest_version_sensor: 'sensor.unifi_controller_newest_version'
   - id: '7a6bc69a-2632-40d3-848c-fe8d6006b840'
     alias: 'Zigbee2MQTT Add-on Update Notification'
     use_blueprint:

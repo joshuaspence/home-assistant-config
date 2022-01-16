@@ -44,10 +44,6 @@ group:
       - 'sensor.josh_phone_next_alarm'
       - 'sensor.lily_phone_next_alarm'
       - 'sensor.unavailable_entities'
-      - 'sensor.unifi_gateway_board_cpu_temperature'
-      - 'sensor.unifi_gateway_board_phy_temperature'
-      - 'sensor.unifi_gateway_cpu_temperature'
-      - 'sensor.unifi_gateway_phy_temperature'
       - 'vacuum.downstairs'
 
 automation:
