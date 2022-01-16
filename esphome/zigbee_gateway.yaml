@@ -14,6 +14,7 @@ ethernet:
   clk_mode: 'GPIO17_OUT'
   power_pin: 'GPIO12'
 
+# TODO: Remove this.
 web_server:
   port: 80
 
