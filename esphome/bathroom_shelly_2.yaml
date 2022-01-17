@@ -1,12 +1,20 @@
 ---
 substitutions:
   device_name: 'bathroom_shelly_2'
-  output1_component: 'light'
-  output1_platform: 'binary'
   output1_name: 'Bathroom Heat'
-  output1_restore_mode: 'RESTORE_DEFAULT_OFF'
-  output1_internal: 'false'
 
 packages:
   common: !include 'packages/common.yaml'
   device: !include 'devices/shelly/25.yaml'
+
+light:
+  - platform: 'binary'
+    name: '${output1_name}'
+    output: 'output1'
+
+switch:
+  - platform: 'output'
+    output: 'output2'
+    name: '${device_name} Output2'
+    restore_mode: 'ALWAYS_ON'
+    internal: true
