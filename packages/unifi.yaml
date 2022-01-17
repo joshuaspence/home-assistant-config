@@ -9,6 +9,7 @@ sensor:
 
   # Cloud Key (UniFi OS)
   # TODO: Use a custom integration rather than `sensor.command_line` and `sensor.rest`.
+  # TODO: Some of these should be `binary_sensor`s.
   - platform: 'command_line'
     name: 'UniFi Auth Token'
 
@@ -40,12 +41,21 @@ sensor:
     scan_interval: 600
 
   - platform: 'rest'
-    name: 'UniFi Cloud Key CPU'
+    name: 'UniFi Cloud Key Status'
     <<: &unifi_os_api
       resource: 'https://unifi.spence.network/api/system'
       verify_ssl: false
       headers:
         Cookie: 'TOKEN={{ [state_attr("sensor.unifi_auth_token", "0"), state_attr("sensor.unifi_auth_token", "1"), state_attr("sensor.unifi_auth_token", "2")] | join(".") }}'
+    value_template: '{{ value_json.devices.unifiOS[0].status }}'
+  - platform: 'rest'
+    name: 'UniFi Cloud Key Uptime'
+    <<: *unifi_os_api
+    value_template: '{{ value_json.devices.unifiOS[0].startupTime | as_datetime }}'
+    device_class: 'timestamp'
+  - platform: 'rest'
+    name: 'UniFi Cloud Key CPU'
+    <<: *unifi_os_api
     value_template: '{{ (100 * value_json.cpu.currentload) | int }}'
     unit_of_measurement: '%'
   - platform: 'rest'
@@ -57,7 +67,7 @@ sensor:
     name: 'UniFi Cloud Key Internal Storage'
     <<: *unifi_os_api
     value_template: >-
-      {% set storage = value_json.storage | selectattr('type', 'eq', 'emmc') %}
+      {% set storage = value_json.storage | selectattr('type', 'eq', 'emmc') | list %}
       {% set used = storage | map(attribute='used') | sum %}
       {% set size = storage | map(attribute='size') | sum %}
       {{ (100 * used / size) | round(1) }}
@@ -66,7 +76,7 @@ sensor:
     name: 'UniFi Cloud Key External Storage'
     <<: *unifi_os_api
     value_template: >-
-      {% set storage = value_json.storage | selectattr('type', 'eq', 'sdcard') %}
+      {% set storage = value_json.storage | selectattr('type', 'eq', 'sdcard') | list %}
       {% set used = storage | map(attribute='used') | sum %}
       {% set size = storage | map(attribute='size') | sum %}
       {{ (100 * used / size) | round(1) }}
@@ -77,6 +87,20 @@ sensor:
     value_template: '{{ value_json.cpu.temperature | round(1) }}'
     device_class: 'temperature'
     unit_of_measurement: '°C'
+  - platform: 'rest'
+    name: 'UniFi Cloud Key Firmware Version'
+    <<: *unifi_os_api
+    value_template: '{{ value_json.hardware.firmwareVersion }}'
+  - platform: 'rest'
+    name: 'UniFi Cloud Key Latest Firmware Version'
+    <<: *unifi_os_api
+    value_template: '{{ value_json.firmware.latest.version }}'
+    json_attributes_path: '$.firmware.latest'
+    json_attributes:
+      - 'version_major'
+      - 'version_minor'
+      - 'version_patch'
+      - 'version_build'
 
   - platform: 'rest'
     name: 'UniFi Controller State'
@@ -96,6 +120,17 @@ sensor:
     json_attributes_path: '$.apps.controllers[0]'
     json_attributes:
       - 'updateAvailable'
+  - platform: 'rest'
+    name: 'UniFi Controller Running'
+    <<: *unifi_os_api
+    value_template: '{{ value_json.apps.controllers[0].isRunning }}'
+    json_attributes_path: '$.apps.controllers[0].info'
+    json_attributes:
+      - 'startedAt'
+  - platform: 'rest'
+    name: 'UniFi Controller Controller Status'
+    <<: *unifi_os_api
+    value_template: '{{ value_json.apps.controllers[0].controllerStatus }}'
 
 # TODO: Add switch and access point sensors (see custom-components/sensor.unifigateway#9).
 template:

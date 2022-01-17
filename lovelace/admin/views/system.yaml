@@ -70,7 +70,7 @@ cards:
     title: 'UniFi Cloud Key'
     cards:
       - type: 'grid'
-        columns: 6
+        columns: 4
         cards:
           - type: 'gauge'
             entity: 'sensor.unifi_cloud_key_cpu'
@@ -106,7 +106,7 @@ cards:
     title: 'UniFi Gateway'
     cards:
       - type: 'grid'
-        columns: 6
+        columns: 4
         cards:
           - type: 'gauge'
             entity: 'sensor.unifi_gateway_cpu'
