@@ -18,4 +18,5 @@ packages:
 # TODO: Remove this after the 2022.2 release.
 external_components:
   - source: 'github://esphome/esphome@dev'
-    components: ['output']
+    components:
+      - 'output'
