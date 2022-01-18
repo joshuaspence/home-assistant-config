@@ -14,12 +14,16 @@ trigger:
     above: 'sensor.outside_humidity'
 action:
   choose:
-    - conditions: '{{ trigger.id == "low" }}'
+    - conditions:
+        condition: 'trigger'
+        id: 'low'
       sequence:
         service: 'switch.turn_off'
         target:
           entity_id: 'switch.basement_secondary_dehumidifier'
-    - conditions: '{{ trigger.id == "high" }}'
+    - conditions:
+        condition: 'trigger'
+        id: 'high'
       sequence:
         service: 'switch.turn_on'
         target:
