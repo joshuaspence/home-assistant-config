@@ -12,6 +12,15 @@ trigger:
     entity_id: 'sensor.basement_humidity'
     value_template: '{{ state.state | float - 10 }}'
     above: 'sensor.outside_humidity'
+condition:
+  condition: 'not'
+  conditions:
+    - condition: 'state'
+      entity_id: 'sensor.basement_humidity'
+      state: 'unknown'
+    - condition: 'state'
+      entity_id: 'sensor.outside_humidity'
+      state: 'unknown'
 action:
   choose:
     - conditions: '{{ trigger.id == "low" }}'

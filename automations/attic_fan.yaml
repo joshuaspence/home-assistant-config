@@ -12,6 +12,12 @@ trigger:
     entity_id: 'sensor.attic_temperature'
     value_template: '{{ state.state | float - 5 }}'
     above: 'sensor.outside_temperature'
+condition:
+  condition: 'not'
+  conditions:
+    condition: 'state'
+    entity_id: 'sensor.attic_temperature'
+    state: 'unknown'
 action:
   choose:
     - conditions: '{{ trigger.id == "low" }}'
