@@ -4,6 +4,12 @@ icon: 'mdi:zigbee'
 path: 'zigbee'
 cards:
   - type: 'entities'
+    title: 'Coordinator'
+    entities:
+      - entity: 'binary_sensor.zigbee_gateway_connected'
+        name: 'Connected'
+
+  - type: 'entities'
     title: 'Zigbee2MQTT'
     entities:
       - entity: 'binary_sensor.zigbee2mqtt_state'

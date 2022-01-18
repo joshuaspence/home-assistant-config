@@ -64,7 +64,14 @@ uart:
   baud_rate: 115200
 
 external_components:
-  - source: 'github://oxan/esphome-stream-server'
+  # TODO: Point back to `oxan/esphome-stream-server` after oxan/esphome-stream-server#15 is merged.
+  - source: 'github://joshuaspence/esphome-stream-server@sensor'
 
 stream_server:
   uart_id: 'uart_bus'
+  id: 'main'
+
+binary_sensor:
+  - platform: 'stream_server'
+    stream_server: 'main'
+    name: '${device_name} Connected'
