@@ -5,19 +5,14 @@ trigger:
   - platform: 'numeric_state'
     id: 'low'
     entity_id: 'sensor.attic_temperature'
-    value_template: '{{ state.state | float - 3 }}'
+    value_template: '{{ state.state | float - 3 if is_number(state.state) else state.state }}'
     below: 'sensor.outside_temperature'
   - platform: 'numeric_state'
     id: 'high'
     entity_id: 'sensor.attic_temperature'
-    value_template: '{{ state.state | float - 5 }}'
+    value_template: '{{ state.state | float - 5 if is_number(state.state) else state.state }}'
     above: 'sensor.outside_temperature'
-condition:
-  condition: 'not'
-  conditions:
-    condition: 'state'
-    entity_id: 'sensor.attic_temperature'
-    state: 'unknown'
+
 action:
   choose:
     - conditions: '{{ trigger.id == "low" }}'
