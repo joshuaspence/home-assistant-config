@@ -37,10 +37,7 @@ group:
   ignored_entities:
     entities:
       - 'group.ignored_firmware_updates'
-      - 'media_player.hallway_speaker'
       - 'media_player.living_room_tv'
-      - 'media_player.office_speaker'
-      - 'media_player.outside_speaker'
       - 'sensor.josh_phone_next_alarm'
       - 'sensor.lily_phone_next_alarm'
       - 'sensor.unavailable_entities'
