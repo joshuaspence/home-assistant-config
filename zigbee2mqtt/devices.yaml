@@ -38,12 +38,6 @@
   friendly_name: Toilet Motion Sensor
 '0x001788010916464b':
   friendly_name: Bedroom 1 Motion Sensor
-'0x00158d0005426a77':
-  friendly_name: Bedroom 2 Temperature Sensor
-'0x00158d000542699c':
-  friendly_name: Basement West Temperature Sensor
-'0x00158d00068b3976':
-  friendly_name: Office Temperature Sensor
 '0x0017880109172d19':
   friendly_name: Kitchen South Motion Sensor
 '0x00158d0006ca2865':
@@ -60,8 +54,6 @@
   friendly_name: Living Room Upper West Light
 '0x00158d0006c4cc5e':
   friendly_name: Basement Door Contact Sensor
-'0x00158d0006bee40b':
-  friendly_name: Bedroom 2 Wardrobe Temperature Sensor
 '0x00158d00068b4108':
   friendly_name: Outside North Temperature Sensor
 '0x00178801095f6fad':
@@ -216,9 +208,18 @@
     switch:
       object_id: fan
       type: fan
-'0x00158d000775bff7':
-  friendly_name: Laundry Temperature Sensor
 '0x0017880109abe28f':
   friendly_name: '0x0017880109abe28f'
+  availability: 480
 '0x000d6f0011192562':
   friendly_name: Back Door Lock
+'0x00158d000775bff7':
+  friendly_name: Laundry Temperature Sensor
+'0x00158d0005426a77':
+  friendly_name: Bedroom 2 Temperature Sensor
+'0x00158d0006bee40b':
+  friendly_name: Bedroom 2 Wardrobe Temperature Sensor
+'0x00158d00068b3976':
+  friendly_name: Office Temperature Sensor
+'0x00158d000542699c':
+  friendly_name: Basement West Temperature Sensor
