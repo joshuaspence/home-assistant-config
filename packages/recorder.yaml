@@ -42,4 +42,5 @@ recorder:
       - 'sensor.unifi_auth_token'
     entity_globs:
       - 'sensor.*_phone_last_notification'
+      - 'sensor.unifi_*_id'
     event_types: []
