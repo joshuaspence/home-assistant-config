@@ -14,9 +14,3 @@ substitutions:
 
 packages:
   wifi: !include '../../packages/wifi.yaml'
-
-# TODO: Remove this after the 2022.2 release.
-external_components:
-  - source: 'github://esphome/esphome@dev'
-    components:
-      - 'output'
