@@ -1,27 +1,27 @@
 ---
-external_converters: []
-devices: 'devices.yaml'
-groups: 'groups.yaml'
-homeassistant: true
-mqtt:
-  base_topic: 'zigbee2mqtt'
-serial:
-  port: 'tcp://zigbee_gateway.spence.network:6638'
-advanced:
-  pan_id: 43081
-  channel: 25
-  network_key: '!secret network_key'
-  log_directory: '/config/zigbee2mqtt'
-  log_file: 'zigbee2mqtt.log'
-  log_output:
-    - 'file'
-  homeassistant_legacy_entity_attributes: false
-  homeassistant_legacy_triggers: false
-  legacy_api: false
-  last_seen: 'ISO_8601'
-device_options: {}
+homeassistant:
+  legacy_triggers: false
+  legacy_entity_attributes: false
 availability:
   active:
     timeout: 10
   passive:
     timeout: 180
+external_converters: []
+serial:
+  port: 'tcp://zigbee_gateway.spence.network:6638'
+frontend:
+  port: 8099
+devices: 'devices.yaml'
+groups: 'groups.yaml'
+device_options: {}
+advanced:
+  legacy_api: false
+  log_output:
+    - 'file'
+  log_directory: '/config/zigbee2mqtt'
+  log_file: 'zigbee2mqtt.log'
+  pan_id: 43081
+  channel: 25
+  last_seen: 'ISO_8601'
+  network_key: '!secret network_key'
