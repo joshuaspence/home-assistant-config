@@ -1,11 +1,3 @@
-"""
-Support for Unifi Security Gateway Units.
-
-For more details about this platform, please refer to the documentation at
-https://github.com/custom-components/sensor.unifigateway
-
-"""
-
 import logging
 import voluptuous as vol
 from datetime import timedelta
@@ -18,8 +10,6 @@ from homeassistant.const import (
     CONF_NAME, CONF_HOST, CONF_USERNAME, CONF_PASSWORD,
     CONF_MONITORED_CONDITIONS, CONF_VERIFY_SSL)
 
-__version__ = '0.3.2'
-
 _LOGGER = logging.getLogger(__name__)
 
 CONF_PORT = 'port'
@@ -28,7 +18,7 @@ CONF_UNIFI_VERSION = 'version'
 
 DEFAULT_NAME = 'UniFi Gateway'
 DEFAULT_HOST = 'localhost'
-DEFAULT_PORT = 443
+DEFAULT_PORT = 8443
 DEFAULT_UNIFI_VERSION = 'v5'
 DEFAULT_SITE = 'default'
 DEFAULT_VERIFY_SSL = False
@@ -43,7 +33,7 @@ SENSOR_WLAN = 'wlan'
 SENSOR_ALERTS = 'alerts'
 SENSOR_FIRMWARE = 'firmware'
 
-USG_SENSORS = {
+SENSORS = {
     SENSOR_VPN:     ['VPN', '', 'mdi:folder-key-network'],
     SENSOR_WWW:     ['WWW', '', 'mdi:web'],
     SENSOR_WAN:     ['WAN', '', 'mdi:shield-outline'],
@@ -88,20 +78,18 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
         ctrl = Controller(host, username, password, port, version,
                           site_id=site_id, ssl_verify=verify_ssl)
     except APIError as ex:
-        _LOGGER.error("Failed to connect to Unifi Security Gateway: %s", ex)
+        _LOGGER.error("Failed to connect to UniFi Network controller: %s", ex)
         return False
 
     for sensor in config.get(CONF_MONITORED_CONDITIONS):
-        add_entities([UnifiGatewaySensor(hass, ctrl, name, sensor)], True)
+        add_entities([UnifiNetworkSensor(hass, ctrl, name, sensor)], True)
 
-class UnifiGatewaySensor(Entity):
-    """Implementation of a UniFi Gateway sensor."""
-
+class UnifiNetworkSensor(Entity):
     def __init__(self, hass, ctrl, name, sensor):
         """Initialize the sensor."""
         self._hass = hass
         self._ctrl = ctrl
-        self._name = name + ' ' + USG_SENSORS[sensor][0]
+        self._name = name + ' ' + SENSORS[sensor][0]
         self._sensor = sensor
         self._state = None
         self._alldata = None
@@ -116,7 +104,7 @@ class UnifiGatewaySensor(Entity):
     @property
     def icon(self):
         """Icon to use in the frontend, if any."""
-        return USG_SENSORS[self._sensor][2]
+        return SENSORS[self._sensor][2]
 
     @property
     def state(self):

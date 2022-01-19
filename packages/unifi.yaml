@@ -1,6 +1,6 @@
 ---
 sensor:
-  - platform: 'unifigateway'
+  - platform: 'unifi_network'
     host: 'unifi.spence.network'
     port: 443
     version: 'UDMP-unifiOS'
