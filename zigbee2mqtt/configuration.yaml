@@ -23,7 +23,3 @@ advanced:
   channel: 25
   last_seen: 'ISO_8601'
   network_key: '!secret network_key'
-
-  # TODO: Remove these.
-  homeassistant_legacy_entity_attributes: false
-  homeassistant_legacy_triggers: false
