@@ -8,8 +8,15 @@ on:
 jobs:
   esphome:
     runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        version:
+          - 'dev'
+          - 'beta'
+          - 'latest'
+    continue-on-error: '${{ matrix.version == "dev" }}'
     container:
-      image: 'esphome/esphome:latest'
+      image: 'esphome/esphome:${{ matrix.version }}'
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'canastro/copy-action@0.0.2'
@@ -23,8 +30,10 @@ jobs:
     strategy:
       matrix:
         version:
+          - 'dev'
           - 'beta'
           - 'stable'
+    continue-on-error: '${{ matrix.version == "dev" }}'
     steps:
       - uses: 'actions/checkout@v2'
       - uses: 'frenck/action-home-assistant@v1'
