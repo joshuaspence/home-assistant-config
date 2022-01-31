@@ -6,7 +6,7 @@ availability:
   active:
     timeout: 10
   passive:
-    timeout: 180
+    timeout: 3
 external_converters: []
 serial:
   port: 'tcp://zigbee_gateway.spence.network:6638'
