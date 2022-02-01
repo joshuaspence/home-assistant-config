@@ -38,9 +38,7 @@ recorder:
   commit_interval: 300
   exclude:
     domains: []
-    entities:
-      - 'sensor.unifi_auth_token'
+    entities: []
     entity_globs:
       - 'sensor.*_phone_last_notification'
-      - 'sensor.unifi_*_id'
     event_types: []

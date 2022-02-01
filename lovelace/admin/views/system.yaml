@@ -67,42 +67,6 @@ cards:
             name: 'Temperature'
 
   - type: 'vertical-stack'
-    title: 'UniFi Cloud Key'
-    cards:
-      - type: 'grid'
-        columns: 4
-        cards:
-          - type: 'gauge'
-            entity: 'sensor.unifi_cloud_key_cpu'
-            name: 'Processor'
-          - type: 'gauge'
-            entity: 'sensor.unifi_cloud_key_memory'
-            name: 'Memory'
-          - type: 'gauge'
-            entity: 'sensor.unifi_cloud_key_internal_storage'
-            name: 'Internal Storage'
-          - type: 'gauge'
-            entity: 'sensor.unifi_cloud_key_external_storage'
-            name: 'External Storage'
-          - type: 'gauge'
-            entity: 'sensor.unifi_cloud_key_cpu_temperature'
-            name: 'CPU Temperature'
-            min: 40
-            max: 100
-      - type: 'history-graph'
-        entities:
-          - entity: 'sensor.unifi_cloud_key_cpu'
-            name: 'Processor'
-          - entity: 'sensor.unifi_cloud_key_memory'
-            name: 'Memory'
-          - entity: 'sensor.unifi_cloud_key_internal_storage'
-            name: 'Internal Storage'
-          - entity: 'sensor.unifi_cloud_key_external_storage'
-            name: 'External Storage'
-          - entity: 'sensor.unifi_cloud_key_cpu_temperature'
-            name: 'CPU Temperature'
-
-  - type: 'vertical-stack'
     title: 'UniFi Gateway'
     cards:
       - type: 'grid'

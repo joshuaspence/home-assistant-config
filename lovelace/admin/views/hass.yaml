@@ -358,6 +358,15 @@ cards:
         name: 'Memory'
 
       - type: 'section'
+        label: 'Unifi Controller'
+      - entity: 'binary_sensor.unifi_controller_running'
+        name: 'Running'
+      - entity: 'sensor.unifi_controller_cpu_percent'
+        name: 'CPU'
+      - entity: 'sensor.unifi_controller_memory_percent'
+        name: 'Memory'
+
+      - type: 'section'
         label: 'Zigbee2MQTT'
       - entity: 'binary_sensor.zigbee2mqtt_running'
         name: 'Running'
