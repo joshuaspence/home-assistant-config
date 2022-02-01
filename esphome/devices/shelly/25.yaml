@@ -12,6 +12,7 @@ packages:
   input2: !include 'packages/input2.yaml'
   output1: !include 'packages/output1.yaml'
   output2: !include 'packages/output2.yaml'
+  status_led: !include 'packages/status_led.yaml'
   temperature: !include 'packages/temperature.yaml'
 
 i2c:
@@ -62,8 +63,3 @@ sensor:
               data_template:
                 message: 'Switch turned off because power exceeded ${max_power}W'
     update_interval: '30s'
-
-status_led:
-  pin:
-    number: 'GPIO0'
-    inverted: true

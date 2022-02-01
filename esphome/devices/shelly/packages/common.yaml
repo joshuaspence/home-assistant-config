@@ -8,6 +8,8 @@ substitutions:
   device_platform: 'esp8266'
   max_power: '2000.0'
   max_temp: '90.0'
+  status_led_gpio: 'GPIO0'
+  status_led_inverted: 'true'
 
   # NOTE: See esphome/issues#1532.
   wifi_power_save_mode: 'high'

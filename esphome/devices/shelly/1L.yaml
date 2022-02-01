@@ -4,14 +4,12 @@ substitutions:
   input1_gpio: 'GPIO4'
   input2_gpio: 'GPIO14'
   output1_gpio: 'GPIO5'
+  status_led_inverted: 'false'
 
 packages:
   common: !include 'packages/common.yaml'
   input1: !include 'packages/input1.yaml'
   input2: !include 'packages/input2.yaml'
   output1: !include 'packages/output1.yaml'
+  status_led: !include 'packages/status_led.yaml'
   temperature: !include 'packages/temperature.yaml'
-
-status_led:
-  pin:
-    number: 'GPIO0'

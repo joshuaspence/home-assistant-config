@@ -8,6 +8,7 @@ packages:
   common: !include 'packages/common.yaml'
   input1: !include 'packages/input1.yaml'
   output1: !include 'packages/output1.yaml'
+  status_led: !include 'packages/status_led.yaml'
   temperature: !include 'packages/temperature.yaml'
 
 sensor:
@@ -38,10 +39,3 @@ sensor:
     # These are not used because it is not available on the 1PM but it is needed to compile.
     sel_pin: 'GPIO14'
     cf1_pin: 'GPIO13'
-
-output:
-  - platform: 'esp8266_pwm'
-    id: 'state_led'
-    pin:
-      number: 'GPIO0'
-      inverted: true
