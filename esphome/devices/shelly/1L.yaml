@@ -6,7 +6,7 @@ substitutions:
   output1_gpio: 'GPIO5'
 
 packages:
-  common: !include 'common.yaml'
+  common: !include 'packages/common.yaml'
   input1: !include 'packages/input1.yaml'
   input2: !include 'packages/input2.yaml'
   output1: !include 'packages/output1.yaml'

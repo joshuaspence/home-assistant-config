@@ -13,4 +13,4 @@ substitutions:
   wifi_power_save_mode: 'high'
 
 packages:
-  wifi: !include '../../packages/wifi.yaml'
+  wifi: !include '../../../packages/wifi.yaml'
