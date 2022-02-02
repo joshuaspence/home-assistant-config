@@ -1,8 +1,8 @@
 ---
 media_player:
   - platform: 'androidtv'
-    host: '192.168.10.12'
-    name: 'Living Room TV'
+    host: &host '192.168.10.12'
+    name: &name 'Living Room TV'
     turn_on_command: >-
       sendevent /dev/input/event0 4 4 10510108 &&
       sendevent /dev/input/event0 1 116 1 &&
@@ -30,3 +30,13 @@ media_player:
       com.google.android.youtube.tvkids: 'YouTube Kids'
     exclude_unnamed_apps: true
     state_detection_rules: {}
+
+switch:
+  - platform: 'wake_on_lan'
+    mac: !secret 'wake_on_lan.living_room_tv.mac'
+    name: *name
+    host: *host
+    turn_off:
+      service: 'media_player.turn_off'
+      entity_id: 'media_player.living_room_tv'
+    broadcast_address: '192.168.10.254'

@@ -1,6 +1,6 @@
 ---
 switch:
   - platform: 'wake_on_lan'
-    mac: 'd4:5d:64:81:70:e3'
+    mac: !secret 'wake_on_lan.desktop_computer.mac'
     name: 'Desktop Computer'
     host: 'winchester.local'
