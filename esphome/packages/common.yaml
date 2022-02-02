@@ -18,5 +18,11 @@ time:
 logger: {}
 
 button:
+  - platform: 'shutdown'
+    name: '${device_name} Shutdown'
+    disabled_by_default: true
+  - platform: 'safe_mode'
+    name: '${device_name} Safe Mode'
+    disabled_by_default: true
   - platform: 'restart'
-    name: 'Restart ${device_name}'
+    name: '${device_name} Restart'
