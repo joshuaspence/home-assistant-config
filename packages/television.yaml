@@ -1,15 +1,4 @@
 ---
-media_player:
-  - platform: 'androidtv'
-    host: &host '192.168.10.12'
-    name: &name 'Living Room TV'
-
-    # TODO: Check these settings.
-    apps:
-      com.google.android.youtube.tvkids: 'YouTube Kids'
-    exclude_unnamed_apps: true
-    state_detection_rules: {}
-
 switch:
   - platform: 'template'
     switches:

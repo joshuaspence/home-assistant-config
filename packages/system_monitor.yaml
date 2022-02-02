@@ -7,7 +7,6 @@ sensor:
       - type: 'memory_use_percent'
       - type: 'processor_temperature'
       - type: 'processor_use'
-  - platform: 'dnsip'
   - platform: 'uptime'
 system_log: {}
 

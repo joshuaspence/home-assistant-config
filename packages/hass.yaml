@@ -9,9 +9,6 @@ sensor:
       - 'hassos'
       - 'supervisor'
 
-  - platform: 'version'
-    source: 'hassio'
-
 automation:
   - id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
     alias: 'Home Assistant Update Available'
