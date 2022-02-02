@@ -3,6 +3,7 @@ sensor:
   - platform: 'command_line'
     command: 'curl --header "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" http://supervisor/info | jq .data'
     name: 'Current Version'
+    unique_id: 'b6711ddd-1820-4eef-8efc-82d76c8177b0'
     value_template: '{{ value_json.homeassistant }}'
     scan_interval: 600
     json_attributes:
