@@ -11,11 +11,30 @@ media_player:
     state_detection_rules: {}
 
 switch:
-  - platform: 'wake_on_lan'
-    mac: !secret 'wake_on_lan.living_room_tv.mac'
-    name: *name
-    host: *host
-    turn_off:
-      service: 'media_player.turn_off'
-      entity_id: 'media_player.living_room_tv'
-    broadcast_address: '192.168.10.254'
+  - platform: 'template'
+    switches:
+      living_room_tv:
+        friendly_name: 'Living Room TV'
+        unique_id: '632726d0-a7d0-4f96-b39a-ef72f3aca239'
+        value_template: '{{ states("media_player.living_room_tv") not in ["unavailable", "off"] }}'
+        turn_on:
+          choose:
+            - conditions:
+                condition: 'state'
+                entity_id: 'media_player.living_room_tv'
+                state: 'unavailable'
+              sequence:
+                service: 'wake_on_lan.send_magic_packet'
+                data:
+                  mac: !secret 'wake_on_lan.living_room_tv.mac'
+                  broadcast_address: '192.168.10.254'
+            - conditions:
+                condition: 'state'
+                entity_id: 'media_player.living_room_tv'
+                state: 'off'
+              sequence:
+                service: 'media_player.turn_on'
+                entity_id: 'media_player.living_room_tv'
+        turn_off:
+          service: 'media_player.turn_off'
+          entity_id: 'media_player.living_room_tv'
