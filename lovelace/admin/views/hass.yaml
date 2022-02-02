@@ -202,64 +202,54 @@ cards:
       title: 'Entities without Area'
       show_header_toggle: false
     filter:
-      include:
-        - domain: '*'
+      template: >-
+        {%
+          set excluded_integrations = [
+            'bureau_of_meteorology',
+            'cloud',
+            'daikin',
+            'dnsip',
+            'hacs',
+            'hassio',
+            'mobile_app',
+            'netgear_lte',
+            'speedtestdotnet',
+            'spotify',
+            'systemmonitor',
+            'unifi_network',
+            'updater',
+            'uptime',
+            'workday',
+            'zoom',
+          ]
+        %}
+        {% set excluded_entities = excluded_integrations | map('integration_entities') | sum(start=[]) %}
+        {{ states | map(attribute='entity_id') | reject('in', excluded_entities) | list }}
+
       exclude:
         - area: '*'
-        - entity_id: 'binary_sensor.*_running'
-        - entity_id: 'binary_sensor.*_update_available'
         - entity_id: 'binary_sensor.all_windows'
         - entity_id: 'binary_sensor.backups_stale'
         - entity_id: 'binary_sensor.external_doors'
         - entity_id: 'binary_sensor.external_occupancy'
         - entity_id: 'binary_sensor.internal_doors'
         - entity_id: 'binary_sensor.internal_occupancy'
-        - entity_id: 'binary_sensor.josh_phone_*'
-        - entity_id: 'binary_sensor.lily_phone_*'
-        - entity_id: 'binary_sensor.netgear_lte_*'
-        - entity_id: 'binary_sensor.remote_ui'
-        - entity_id: 'binary_sensor.updater'
-        - entity_id: 'binary_sensor.workday'
         - entity_id: 'binary_sensor.zigbee2mqtt_*'
-        - entity_id: 'binary_sensor.zoom_atlassian'
-        - entity_id: 'climate.aircon'
         - entity_id: 'media_player.all'
-        - entity_id: 'sensor.*_cpu_percent'
-        - entity_id: 'sensor.*_memory_percent'
-        - entity_id: 'sensor.*_newest_version'
-        - entity_id: 'sensor.*_version'
         - entity_id: 'sensor.backup_state'
-        - entity_id: 'sensor.daikin_ac_inside_temperature'
-        - entity_id: 'sensor.disk_use_percent'
         - entity_id: 'sensor.downstairs_*'
         - entity_id: 'sensor.firmware_updates_available'
-        - entity_id: 'sensor.hacs'
         - entity_id: 'sensor.inside_*'
-        - entity_id: 'sensor.josh_phone_*'
-        - entity_id: 'sensor.last_boot'
-        - entity_id: 'sensor.lily_phone_*'
         - entity_id: 'sensor.low_battery'
-        - entity_id: 'sensor.memory_use_percent'
         - entity_id: 'sensor.mosquitto_*'
-        - entity_id: 'sensor.myip'
-        - entity_id: 'sensor.netgear_lte_*'
-        - entity_id: 'sensor.processor_temperature'
-        - entity_id: 'sensor.processor_use_percent'
         - entity_id: 'sensor.room_assistant_*'
-        - entity_id: 'sensor.speedtest_*'
         - entity_id: 'sensor.unavailable_entities'
-        - entity_id: 'sensor.unifi_*'
         - entity_id: 'sensor.upstairs_*'
-        - entity_id: 'sensor.uptime'
-        - entity_id: 'sensor.weather_extended_text'
-        - entity_id: 'sensor.weather_short_text'
         - entity_id: 'sensor.zigbee2mqtt_*'
         - entity_id: 'switch.*_bluetooth_inquiries'
-        - entity_id: 'switch.aircon_downstairs'
-        - entity_id: 'switch.aircon_upstairs'
-        - entity_id: 'switch.aircon_zone*'
         - entity_id: 'switch.josh_phone_*'
         - entity_id: 'switch.lily_phone_*'
+
         - domain: 'alarm_control_panel'
         - domain: 'automation'
         - domain: 'device_tracker'
