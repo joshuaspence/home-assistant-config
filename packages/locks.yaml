@@ -1,7 +1,6 @@
 ---
 group:
   all_locks:
-    all: true
     entities:
       - 'lock.front_door'
       - 'lock.back_door'
