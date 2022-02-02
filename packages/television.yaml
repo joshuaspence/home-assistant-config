@@ -3,27 +3,6 @@ media_player:
   - platform: 'androidtv'
     host: &host '192.168.10.12'
     name: &name 'Living Room TV'
-    turn_on_command: >-
-      sendevent /dev/input/event0 4 4 10510108 &&
-      sendevent /dev/input/event0 1 116 1 &&
-      sendevent /dev/input/event0 0 0 0 &&
-      sendevent /dev/input/event0 1 116 0 &&
-      sendevent /dev/input/event0 0 0 0 &&
-      sendevent /dev/input/event3 20 0 0 &&
-      sendevent /dev/input/event3 20 1 0 &&
-      sendevent /dev/input/event3 0 0 0
-    turn_off_command: >-
-      sendevent /dev/input/event0 20 1 200 &&
-      sendevent /dev/input/event0 20 0 0 &&
-      sendevent /dev/input/event0 20 1 0 &&
-      sendevent /dev/input/event0 4 4 10510108 &&
-      sendevent /dev/input/event0 1 116 1 &&
-      sendevent /dev/input/event0 0 0 0 &&
-      sendevent /dev/input/event0 1 116 0 &&
-      sendevent /dev/input/event0 0 0 0 &&
-      sendevent /dev/input/event3 20 0 0 &&
-      sendevent /dev/input/event3 20 1 0 &&
-      sendevent /dev/input/event3 0 0 0
 
     # TODO: Check these settings.
     apps:
