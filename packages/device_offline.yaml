@@ -18,12 +18,7 @@ template:
             map(attribute='entity_id') | list | count
           }}
         unit_of_measurement: 'entities'
-        icon: >-
-          {% if is_state('sensor.unavailable_entities', '0') %}
-            mdi:check-circle
-          {% else %}
-            mdi:alert-circle
-          {% endif %}
+        icon: '{{ is_state("sensor.unavailable_entities", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
         attributes:
           entities: >-
             {{

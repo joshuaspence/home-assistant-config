@@ -5,12 +5,7 @@ trigger:
   platform: 'state'
   entity_id: &entity_id 'binary_sensor.zoom_atlassian'
 variables:
-  data: >-
-    {% if states("binary_sensor.zoom_atlassian") == "on" %}
-      priority_only
-    {% else %}
-      off
-    {% endif %}
+  data: '{{ is_state("binary_sensor.zoom_atlassian", "on") | iif("priority_only", "off") }}'
 action:
   service: 'script.mobile_app_command'
   data:

@@ -29,12 +29,7 @@ sensor:
           {% endfor %}
 
           {{ ns.entities | count }}
-        icon_template: >-
-          {% if is_state('sensor.low_battery_devices', '0') %}
-            mdi:battery
-          {% else %}
-            mdi:battery-alert
-          {% endif %}
+        icon_template: '{{ is_state("sensor.low_battery_devices", "0") | iif("mdi:battery", "mdi:battery-alert") }}'
         attribute_templates:
           entities: >-
             {% set ns = namespace(entities=[], mobile_app_sensors=[]) %}
