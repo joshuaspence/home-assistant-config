@@ -16,8 +16,6 @@ action:
   # Turn some lights on when we arrive home.
   - service: 'scene.turn_on'
     entity_id: 'scene.arriving_home'
-  - service: 'vacuum.return_to_base'
-    entity_id: 'vacuum.downstairs'
 
   # Wait for the door to be opened.
   - wait_for_trigger:

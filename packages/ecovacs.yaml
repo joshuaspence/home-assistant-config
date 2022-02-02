@@ -1,9 +1,0 @@
----
-# NOTE: I am using [`hacc-ozmo`](https://github.com/Ligio/hacc-ozmo) rather than
-# the [official integration](https://www.home-assistant.io/integrations/ecovacs).
-# See https://github.com/home-assistant/core/issues/38625 for some additional context.
-deebot:
-  continent: 'WW'
-  country: 'AU'
-  password: !secret 'ecovacs.password'
-  username: !secret 'ecovacs.username'
