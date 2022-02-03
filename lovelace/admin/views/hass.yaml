@@ -205,8 +205,10 @@ cards:
       template: >-
         {%
           set excluded_integrations = [
+            'aussie_broadband',
             'bureau_of_meteorology',
             'cloud',
+            'command_line',
             'daikin',
             'dnsip',
             'hacs',
@@ -219,36 +221,38 @@ cards:
             'unifi_network',
             'updater',
             'uptime',
+            'version',
             'workday',
             'zoom',
           ]
         %}
-        {% set excluded_entities = excluded_integrations | map('integration_entities') | sum(start=[]) %}
+        {%
+          set integrations_without_unique_id = [
+            'min_max',
+          ]
+        %}
+        {% set excluded_entities = (excluded_integrations + integrations_without_unique_id) | map('integration_entities') | sum(start=[]) %}
         {{ states | map(attribute='entity_id') | reject('in', excluded_entities) | list }}
 
       exclude:
         - area: '*'
-        - entity_id: 'binary_sensor.all_windows'
+
+        - entity_id: 'binary_sensor.all_*'
         - entity_id: 'binary_sensor.backups_stale'
-        - entity_id: 'binary_sensor.external_doors'
-        - entity_id: 'binary_sensor.external_occupancy'
-        - entity_id: 'binary_sensor.internal_doors'
-        - entity_id: 'binary_sensor.internal_occupancy'
+        - entity_id: 'binary_sensor.external_*'
+        - entity_id: 'binary_sensor.internal_*'
         - entity_id: 'binary_sensor.zigbee2mqtt_*'
         - entity_id: 'media_player.all'
         - entity_id: 'sensor.backup_state'
-        - entity_id: 'sensor.downstairs_*'
         - entity_id: 'sensor.firmware_updates_available'
-        - entity_id: 'sensor.inside_*'
         - entity_id: 'sensor.low_battery'
         - entity_id: 'sensor.mosquitto_*'
-        - entity_id: 'sensor.room_assistant_*'
+        - entity_id: 'sensor.room_assistant_cluster_*'
         - entity_id: 'sensor.unavailable_entities'
-        - entity_id: 'sensor.upstairs_*'
+        - entity_id: 'sensor.unifi_*'
         - entity_id: 'sensor.zigbee2mqtt_*'
-        - entity_id: 'switch.*_bluetooth_inquiries'
-        - entity_id: 'switch.josh_phone_*'
-        - entity_id: 'switch.lily_phone_*'
+        - entity_id: 'sensor.*_room_presence'
+        - entity_id: 'switch.*_do_not_disturb'
 
         - domain: 'alarm_control_panel'
         - domain: 'automation'
@@ -262,15 +266,6 @@ cards:
         - domain: 'vacuum'
         - domain: 'weather'
         - domain: 'zone'
-
-        # Entities without a unique ID.
-        - entity_id: 'sensor.attic_humidity'
-        - entity_id: 'sensor.attic_temperature'
-        - entity_id: 'sensor.basement_humidity'
-        - entity_id: 'sensor.basement_temperature'
-        - entity_id: 'sensor.bathroom_humidity_statistics'
-        - entity_id: 'sensor.outside_humidity'
-        - entity_id: 'sensor.outside_temperature'
 
   - type: 'entity'
     entity: 'binary_sensor.remote_ui'
