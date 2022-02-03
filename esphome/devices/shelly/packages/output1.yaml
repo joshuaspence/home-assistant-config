@@ -1,5 +1,19 @@
 ---
+substitutions:
+  output1_component: 'switch'
+  output1_platform: 'output'
+  output1_name: '${device_name} Output1'
+  output1_restore_mode: 'ALWAYS_ON'
+  output1_internal: 'true'
+
 output:
   - platform: 'gpio'
     pin: '${output1_gpio}'
     id: 'output1'
+
+${output1_component}:
+  - platform: '${output1_platform}'
+    output: 'output1'
+    name: '${output1_name}'
+    restore_mode: '${output1_restore_mode}'
+    internal: '${output1_internal}'
