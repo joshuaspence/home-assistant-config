@@ -9,7 +9,7 @@ availability:
     timeout: 180
 external_converters: []
 serial:
-  port: 'tcp://zigbee_gateway.spence.network:6638'
+  port: 'tcp://zigbee_gateway.local:6638'
 devices: 'devices.yaml'
 groups: 'groups.yaml'
 device_options: {}
