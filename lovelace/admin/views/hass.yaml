@@ -289,15 +289,6 @@ cards:
     title: 'Add-ons'
     entities:
       - type: 'section'
-        label: 'Chrony'
-      - entity: 'binary_sensor.chrony_running'
-        name: 'Running'
-      - entity: 'sensor.chrony_cpu_percent'
-        name: 'CPU'
-      - entity: 'sensor.chrony_memory_percent'
-        name: 'Memory'
-
-      - type: 'section'
         label: 'ESPHome'
       - entity: 'binary_sensor.esphome_running'
         name: 'Running'
