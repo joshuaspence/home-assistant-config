@@ -3,14 +3,16 @@ title: 'Lights'
 icon: 'mdi:flashlight'
 path: 'lights'
 cards:
-  - type: 'entities'
-    title: 'Scenes'
-    icon: 'mdi:palette'
-    entities:
-      - 'scene.bed_time'
-      - 'scene.arriving_home'
-      - 'scene.day_time'
-      - 'scene.dim'
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Scenes'
+      icon: 'mdi:palette'
+    filter:
+      include:
+        - domain: 'scene'
+    sort:
+      method: 'name'
 
   - type: 'entities'
     title: 'Downstairs'
