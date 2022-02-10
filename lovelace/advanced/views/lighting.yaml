@@ -11,6 +11,8 @@ cards:
     filter:
       include:
         - domain: 'scene'
+      exclude:
+        - area: '*'
     sort:
       method: 'name'
 
