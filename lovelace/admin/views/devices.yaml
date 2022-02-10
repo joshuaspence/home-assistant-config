@@ -23,23 +23,15 @@ cards:
     sort:
       method: 'name'
 
-  - type: 'entities'
-    title: 'Device Controls'
-    show_header_toggle: false
-    entities:
-      - 'button.restart_basement_shelly'
-      - 'button.restart_bathroom_shelly_1'
-      - 'button.restart_bathroom_shelly_2'
-      - 'button.restart_dining_room_shelly'
-      - 'button.restart_hallway_west_shelly'
-      - 'button.restart_kitchen_north_shelly'
-      - 'button.restart_kitchen_shelly'
-      - 'button.restart_laundry_shelly'
-      - 'button.restart_living_room_east_shelly'
-      - 'button.restart_living_room_north_shelly'
-      - 'button.restart_living_room_west_shelly'
-      - 'button.restart_office_shelly'
-      - 'button.restart_toilet_shelly'
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Device Controls'
+      show_header_toggle: false
+    filter:
+      include:
+        - domain: 'button'
+          entity_id: 'button.*_restart'
 
   - type: 'vertical-stack'
     title: 'Device Temperature'
