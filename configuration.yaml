@@ -40,6 +40,8 @@ homeassistant:
     media_player.*_speaker:
       device_class: 'speaker'
       icon: 'mdi:speaker'
+    switch.aircon_*:
+      icon: 'mdi:hvac'
   elevation: !secret 'home.elevation'
   external_url: !secret 'core.external_url'
   internal_url: 'http://homeassistant.spence.network'
