@@ -35,7 +35,7 @@ group:
       - 'sensor.josh_phone_next_alarm'
       - 'sensor.lily_phone_next_alarm'
       - 'sensor.unavailable_entities'
-      - 'vacuum.downstairs'
+      - 'vacuum.deebot'
 
 automation:
   - alias: 'Device Offline'

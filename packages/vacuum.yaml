@@ -13,7 +13,7 @@ automation:
     id: '10a065f5-f820-42d7-aa54-ceae3e8a4993'
     trigger:
       platform: 'state'
-      entity_id: &entity_id 'vacuum.downstairs'
+      entity_id: &entity_id 'vacuum.deebot'
       attribute: &error_attribute 'error'
     condition:
       condition: 'not'
@@ -69,7 +69,7 @@ automation:
         at: '13:00'
     action:
       service: 'vacuum.start'
-      entity_id: 'vacuum.downstairs'
+      entity_id: *entity_id
     mode: 'single'
   - id: '46e2e798-2a9d-4d8c-aa73-bb989ac33099'
     alias: 'Vacuum Stuck'
