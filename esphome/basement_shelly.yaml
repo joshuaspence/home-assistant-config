@@ -1,13 +1,12 @@
 ---
 substitutions:
   device_name: 'basement_shelly'
+  output1_component: 'light'
+  output1_platform: 'binary'
   output1_name: 'Basement'
+  output1_restore_mode: 'RESTORE_DEFAULT_OFF'
+  output1_internal: 'false'
 
 packages:
   common: !include 'packages/common.yaml'
   device: !include 'devices/shelly/1.yaml'
-
-light:
-  - platform: 'binary'
-    name: '${output1_name}'
-    output: 'output1'
