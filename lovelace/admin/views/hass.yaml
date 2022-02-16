@@ -184,6 +184,8 @@ cards:
         - state: 'unavailable'
       exclude:
         - group: 'group.ignored_entities'
+        - attributes:
+            restored: true
 
   - type: 'custom:auto-entities'
     card:
