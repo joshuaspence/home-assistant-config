@@ -1,0 +1,30 @@
+---
+alias: 'Vacuum Error'
+id: '10a065f5-f820-42d7-aa54-ceae3e8a4993'
+trigger:
+  platform: 'state'
+  entity_id: &entity_id 'vacuum.downstairs'
+  attribute: &attribute 'error'
+condition:
+  condition: 'not'
+  conditions:
+    condition: 'state'
+    entity_id: *entity_id
+    attribute: *attribute
+    state:
+      - null
+      - 'low_battery'
+action:
+  service: 'notify.mobile_app_josh_phone'
+  data:
+    title: 'Vacuum {{ trigger.to_state.friendly_name }} has experienced an error'
+    message: >
+      {%
+        set error_messages = {
+          'host_hang': 'The robot is off the floor.',
+          'no_dust_box': 'Dust Bin not installed.',
+          'wheel_abnormal': 'Operating difficulties encountered. Please check the Driving Wheel.',
+        }
+      %}
+      {% set error_code = trigger.to_state.attributes.error %}
+      {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred (' ~ error_code ~ ').' }}

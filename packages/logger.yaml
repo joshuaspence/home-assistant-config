@@ -30,6 +30,8 @@ logger:
       - '^Platform netgear_lte not ready yet'
     homeassistant.components.esphome:
       - '^Can''t connect to ESPHome API'
+    homeassistant.components.homeassistant.triggers.numeric_state:
+      - '^Error initializing ''Vacuum Low Battery'' trigger:'
     homeassistant.components.media_player:
       - '^Platform androidtv not ready yet: None'
       - '^Updating androidtv media_player took longer than the scheduled update interval'
@@ -41,6 +43,8 @@ logger:
       - '^Platform netgear_lte not ready yet'
     homeassistant.components.tplink.coordinator:
       - 'Unable to connect to the device'
+    homeassistant.components.vacuum:
+      - '^Setup of vacuum platform deebot is taking over 10 seconds'
     homeassistant.components.webhook:
       - '^Received message for unregistered webhook'
     homeassistant.config_entries:
