@@ -1,6 +1,6 @@
 ---
 localtuya:
-  - host: '192.168.20.12'
+  - host: &attic_ridge_host '192.168.20.12'
     device_id: !secret 'tuya.attic_ridge.device_id'
     local_key: !secret 'tuya.attic_ridge.local_key'
     friendly_name: 'Attic Ridge Light Strip'
@@ -14,7 +14,7 @@ localtuya:
           brightness: 22
           color_temp: 23
 
-  - host: '192.168.20.16'
+  - host: &attic_1_host '192.168.20.16'
     device_id: !secret 'tuya.attic_1.device_id'
     local_key: !secret 'tuya.attic_1.local_key'
     friendly_name: 'Attic Light Strip 1'
@@ -23,7 +23,7 @@ localtuya:
         friendly_name: 'Attic 1'
         <<: *common_config
 
-  - host: '192.168.20.17'
+  - host: &attic_2_host '192.168.20.17'
     device_id: !secret 'tuya.attic_2.device_id'
     local_key: !secret 'tuya.attic_2.local_key'
     friendly_name: 'Attic Light Strip 2'
@@ -32,7 +32,7 @@ localtuya:
         friendly_name: 'Attic 2'
         <<: *common_config
 
-  - host: '192.168.20.18'
+  - host: &attic_3_host '192.168.20.18'
     device_id: !secret 'tuya.attic_3.device_id'
     local_key: !secret 'tuya.attic_3.local_key'
     friendly_name: 'Attic Light Strip 3'
@@ -41,7 +41,7 @@ localtuya:
         friendly_name: 'Attic 3'
         <<: *common_config
 
-  - host: '192.168.20.49'
+  - host: &bedroom_1_ceiling_projector_host '192.168.20.49'
     device_id: !secret 'tuya.bedroom_1_ceiling_projector.device_id'
     local_key: !secret 'tuya.bedroom_1_ceiling_projector.local_key'
     friendly_name: 'Bedroom 1 Ceiling Projector'
@@ -87,3 +87,134 @@ automation:
         device_id: !secret 'tuya.bedroom_1_ceiling_projector.device_id'
         dp: 51
         value: 'manual'
+    max_exceeded: 'silent'
+
+  # Workaround for rospogrigio/localtuya#445.
+  - id: '64a22f6e-a3e7-49b8-a83e-92a624417769'
+    alias: 'Refresh Tuya Devices'
+    trigger:
+      platform: 'state'
+      entity_id:
+        - 'binary_sensor.ping_attic_ridge_light_strip'
+        - 'binary_sensor.ping_attic_light_strip_1'
+        - 'binary_sensor.ping_attic_light_strip_2'
+        - 'binary_sensor.ping_attic_light_strip_3'
+        - 'binary_sensor.ping_bedroom_1_ceiling_projector'
+      from: 'off'
+      to: 'on'
+    action:
+      choose:
+        - conditions: '{{ trigger.entity_id == "binary_sensor.ping_attic_ridge_light_strip" }}'
+          sequence:
+            service: 'script.refresh_tuya_device'
+            data:
+              entity_id: 'light.attic_ridge'
+              data:
+                24: '007803e803e8'
+                <<: &common_dps
+                  20: false
+                  21: 'white'
+                  22: 1000
+                  23: 328
+        - conditions: '{{ trigger.entity_id == "binary_sensor.ping_attic_light_strip_1" }}'
+          sequence:
+            service: 'script.refresh_tuya_device'
+            data:
+              entity_id: 'light.attic_1'
+              data: *common_dps
+        - conditions: '{{ trigger.entity_id == "binary_sensor.ping_attic_light_strip_2" }}'
+          sequence:
+            service: 'script.refresh_tuya_device'
+            data:
+              entity_id: 'light.attic_2'
+              data: *common_dps
+        - conditions: '{{ trigger.entity_id == "binary_sensor.ping_attic_light_strip_3" }}'
+          sequence:
+            service: 'script.refresh_tuya_device'
+            data:
+              entity_id: 'light.attic_3'
+              data: *common_dps
+        - conditions: '{{ trigger.entity_id == "binary_sensor.ping_bedroom_1_ceiling_projector" }}'
+          sequence:
+            - service: 'script.refresh_tuya_device'
+              data:
+                entity_id: 'switch.bedroom_1_ceiling_projector'
+                dps:
+                  20: false
+            - service: 'script.refresh_tuya_device'
+              data:
+                entity_id: 'light.bedroom_1_ceiling_projector_light'
+                dps:
+                  24: '0000000003e8'
+                  51: 'manual'
+                  52: true
+            - service: 'script.refresh_tuya_device'
+              data:
+                entity_id: 'light.bedroom_1_ceiling_projector_laser'
+                dps:
+                  53: true
+                  54: 1000
+            - service: 'script.refresh_tuya_device'
+              data:
+                entity_id: 'light.bedroom_1_ceiling_projector_motor'
+                dps:
+                  60: true
+                  62: 100
+    mode: 'parallel'
+    max: 10
+
+# Only needed by `automation.refresh_tuya_devices`.
+binary_sensor:
+  - platform: 'ping'
+    host: *attic_ridge_host
+    name: 'Ping Attic Ridge Light Strip'
+    scan_interval: 60
+  - platform: 'ping'
+    host: *attic_1_host
+    name: 'Ping Attic Light Strip 1'
+    scan_interval: 60
+  - platform: 'ping'
+    host: *attic_2_host
+    name: 'Ping Attic Light Strip 2'
+    scan_interval: 60
+  - platform: 'ping'
+    host: *attic_3_host
+    name: 'Ping Attic Light Strip 3'
+    scan_interval: 60
+  - platform: 'ping'
+    host: *bedroom_1_ceiling_projector_host
+    name: 'Ping Bedroom 1 Ceiling Projector'
+    scan_interval: 60
+
+# Only needed by `automation.refresh_tuya_devices`.
+script:
+  refresh_tuya_device:
+    alias: 'Refresh Tuya Device'
+    icon: 'mdi:restart'
+    fields:
+      entity_id:
+        name: 'Entity ID'
+        required: true
+        selector:
+          entity:
+            integration: 'localtuya'
+      data:
+        name: 'Data Points'
+        required: true
+        selector:
+          object: null
+    variables:
+      device_id: '{{ (device_attr(entity_id, "identifiers") | selectattr("0", "eq", "localtuya") | first | last).split("_")[-1] }}'
+    sequence:
+      - condition: 'template'
+        value_template: '{{ states(entity_id) == "unavailable" }}'
+      - repeat:
+          count: '{{ data | length }}'
+          sequence:
+            service: 'localtuya.set_dp'
+            data:
+              device_id: '{{ device_id }}'
+              dp: '{{ (data.keys() | list)[repeat.index - 1] }}'
+              value: '{{ (data.values() | list)[repeat.index - 1] }}'
+    mode: 'parallel'
+    max: 10
