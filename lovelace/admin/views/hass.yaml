@@ -230,6 +230,7 @@ cards:
         {%
           set integrations_without_unique_id = [
             'min_max',
+            'ping',
           ]
         %}
         {% set excluded_entities = (excluded_integrations + integrations_without_unique_id) | map('integration_entities') | sum(start=[]) %}
