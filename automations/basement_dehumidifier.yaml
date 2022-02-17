@@ -1,6 +1,6 @@
 ---
 id: 'd66c61c9-1819-4909-bf49-accb40fadfea'
-alias: 'Basement Humidity'
+alias: 'Basement Dehumidifier'
 trigger:
   - platform: 'numeric_state'
     id: 'low'
