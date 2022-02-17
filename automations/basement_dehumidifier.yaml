@@ -3,27 +3,49 @@ id: 'd66c61c9-1819-4909-bf49-accb40fadfea'
 alias: 'Basement Dehumidifier'
 trigger:
   - platform: 'numeric_state'
-    id: 'low'
+    id: 'absolute_low'
+    entity_id: &humidity 'sensor.basement_humidity'
+    below: &absolute_lower_threshold 40
+  - platform: 'numeric_state'
+    id: 'absolute_high'
+    entity_id: *humidity
+    below: &absolute_upper_threshold 80
+  - platform: 'numeric_state'
+    id: 'relative_low'
     entity_id: 'sensor.basement_humidity'
     value_template: '{{ state.state | float - 5 if is_number(state.state) else state.state }}'
     below: 'sensor.outside_humidity'
   - platform: 'numeric_state'
-    id: 'high'
+    id: 'relative_high'
     entity_id: 'sensor.basement_humidity'
     value_template: '{{ state.state | float - 10 if is_number(state.state) else state.state }}'
     above: 'sensor.outside_humidity'
 action:
   choose:
     - conditions:
-        condition: 'trigger'
-        id: 'low'
+        - condition: 'trigger'
+          id:
+            - 'absolute_low'
+            - 'relative_low'
+        - condition: 'not'
+          conditions:
+            condition: 'numeric_state'
+            entity_id: *humidity
+            above: *absolute_upper_threshold
       sequence:
         service: 'switch.turn_off'
         target:
           entity_id: 'switch.basement_secondary_dehumidifier'
     - conditions:
-        condition: 'trigger'
-        id: 'high'
+        - condition: 'trigger'
+          id:
+            - 'absolute_high'
+            - 'relative_high'
+        - condition: 'not'
+          conditions:
+            condition: 'numeric_state'
+            entity_id: *humidity
+            below: *absolute_lower_threshold
       sequence:
         service: 'switch.turn_on'
         target:
