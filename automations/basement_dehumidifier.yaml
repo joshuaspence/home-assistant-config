@@ -45,4 +45,4 @@ action:
             - *primary_dehumidifier
             - *secondary_dehumidifier
 mode: 'single'
-max_exceeded: 'single'
+max_exceeded: 'silent'
