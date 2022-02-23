@@ -1,6 +1,8 @@
 ---
 - url: '/browser_mod.js'
   type: 'module'
+- url: '/hacsfiles/apexcharts-card/apexcharts-card.js'
+  type: 'module'
 - url: '/hacsfiles/battery-state-card/battery-state-card.js'
   type: 'module'
 - url: '/hacsfiles/decluttering-card/decluttering-card.js'
