@@ -6,6 +6,5 @@ use_blueprint:
   input:
     trigger_sensor: 'binary_sensor.side_yard_occupancy'
     light_target:
-      - 'light.outside_sse'
       - 'light.outside_ssw'
     illuminance_sensor: 'sensor.side_yard_illuminance'
