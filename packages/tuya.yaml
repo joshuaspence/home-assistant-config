@@ -139,25 +139,25 @@ automation:
             - service: 'script.refresh_tuya_device'
               data:
                 entity_id: 'switch.bedroom_1_ceiling_projector'
-                dps:
+                data:
                   20: false
             - service: 'script.refresh_tuya_device'
               data:
                 entity_id: 'light.bedroom_1_ceiling_projector_light'
-                dps:
+                data:
                   24: '0000000003e8'
                   51: 'manual'
                   52: true
             - service: 'script.refresh_tuya_device'
               data:
                 entity_id: 'light.bedroom_1_ceiling_projector_laser'
-                dps:
+                data:
                   53: true
                   54: 1000
             - service: 'script.refresh_tuya_device'
               data:
                 entity_id: 'light.bedroom_1_ceiling_projector_motor'
-                dps:
+                data:
                   60: true
                   62: 100
     mode: 'parallel'
