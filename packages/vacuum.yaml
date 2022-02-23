@@ -59,18 +59,6 @@ automation:
       service: 'vacuum.return_to_base'
       data:
         entity_id: *entity_id
-  - alias: 'Start vacuum'
-    id: '01119384-ba58-4ae6-8cfc-1c32708691ba'
-    trigger:
-      - platform: 'state'
-        entity_id: 'group.family'
-        to: 'home'
-      - platform: 'time'
-        at: '13:00'
-    action:
-      service: 'vacuum.start'
-      entity_id: *entity_id
-    mode: 'single'
   - id: '46e2e798-2a9d-4d8c-aa73-bb989ac33099'
     alias: 'Vacuum Stuck'
     trigger:
