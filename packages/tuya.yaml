@@ -208,6 +208,12 @@ script:
     sequence:
       - condition: 'template'
         value_template: '{{ states(entity_id) == "unavailable" }}'
+      - service: 'system_log.write'
+        data:
+          message: 'Refreshing Tuya device {{ device_id }} for entity {{ entity_id }}'
+      - service: 'logger.set_level'
+        data:
+          custom_components.localtuya: 'error'
       - repeat:
           count: '{{ data | length }}'
           sequence:
@@ -216,5 +222,8 @@ script:
               device_id: '{{ device_id }}'
               dp: '{{ (data.keys() | list)[repeat.index - 1] }}'
               value: '{{ (data.values() | list)[repeat.index - 1] }}'
+      - service: 'logger.set_level'
+        data:
+          custom_components.localtuya: 'notset'
     mode: 'parallel'
     max: 10

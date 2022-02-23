@@ -2,7 +2,7 @@
 logger:
   default: 'warning'
   logs:
-    event_logger: 'debug'
+    homeassistant.components.system_log.external: 'info'
     matplotlib: 'error'
   filters:
     # See aio-libs/aiohttp#5380.
