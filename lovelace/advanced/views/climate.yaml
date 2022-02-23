@@ -134,6 +134,17 @@ cards:
             name: 'Upper'
       - type: 'history-graph'
         entities: *attic_temperature_entities
+      - type: 'history-graph'
+        hours_to_show: 6
+        entities:
+          - entity: 'sensor.attic_temperature'
+            name: 'Attic'
+          - entity: 'sensor.outside_temperature'
+            name: 'Outside'
+          - entity: 'fan.attic'
+            name: 'Attic Fan'
+          - entity: 'fan.rooftop_east'
+            name: 'Rooftop East Fan'
 
       - type: 'glance'
         entities: &attic_humidity_entities
@@ -164,3 +175,14 @@ cards:
             name: 'West'
       - type: 'history-graph'
         entities: *basement_humidity_entities
+      - type: 'history-graph'
+        hours_to_show: 6
+        entities:
+          - entity: 'sensor.basement_humidity'
+            name: 'Basement'
+          - entity: 'sensor.outside_humidity'
+            name: 'Outside'
+          - entity: 'switch.basement_primary_dehumidifier'
+            name: 'Primary Dehumidifier'
+          - entity: 'switch.basement_secondary_dehumidifier'
+            name: 'Secondary Dehumidifier'
