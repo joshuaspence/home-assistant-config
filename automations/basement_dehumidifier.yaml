@@ -6,6 +6,9 @@ trigger:
   entity_id:
     - &basement_humidity 'sensor.basement_humidity'
     - &outside_humidity 'sensor.outside_humidity'
+condition:
+  condition: 'template'
+  value_template: '{{ (as_timestamp(now()) - as_timestamp(state_attr("automation.basement_dehumidifier", "last_triggered")) | int(0)) > 1800 }}'
 action:
   choose:
     - conditions:
