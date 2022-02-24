@@ -18,6 +18,17 @@ automation:
       entity_id:
         - 'sensor.current_version'
         - 'sensor.latest_version'
+    condition:
+      condition: 'not'
+      conditions:
+        condition: 'or'
+        conditions:
+          - condition: 'state'
+            entity_id: 'sensor.current_version'
+            state: 'unavailable'
+          - condition: 'state'
+            entity_id: 'sensor.latest_version'
+            state: 'unavailable'
     action:
       - choose:
           - conditions: '{{ states("sensor.current_version") != states("sensor.latest_version") }}'
