@@ -9,7 +9,7 @@ cards:
     filter:
       include:
         - name: 'entity_id'
-          value: '*_battery'
+          value: 'sensor.*_battery'
         - name: 'attributes.device_class'
           value: 'battery'
       exclude:
