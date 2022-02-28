@@ -5,23 +5,19 @@ path: 'devices'
 cards:
   - type: 'custom:battery-state-card'
     title: 'Battery Levels'
+    sort_by_level: 'asc'
     filter:
       include:
         - name: 'entity_id'
-          value: '*_battery_level'
-        - name: 'entity_id'
-          value: '*_sensor_power'
+          value: '*_battery'
         - name: 'attributes.device_class'
           value: 'battery'
       exclude:
-        - entity_id: 'sensor.*_phone_battery_level'
+        - name: 'entity_id'
+          value: 'sensor.*_phone_battery_level'
     bulk_rename:
-      - from: 'Battery Level'
+      - from: '/ [Bb]attery$/'
         to: ''
-      - from: 'Power'
-        to: ''
-    sort:
-      method: 'name'
 
   - type: 'custom:auto-entities'
     card:
