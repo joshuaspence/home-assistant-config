@@ -13,6 +13,12 @@ cards:
         - name: 'attributes.device_class'
           value: 'battery'
       exclude:
+        - name: 'state'
+          value: 'unavailable'
+        - name: 'entity_id'
+          value: 'binary_sensor.*_battery_low'
+        - name: 'entity_id'
+          value: 'sensor.low_battery'
         - name: 'entity_id'
           value: 'sensor.*_phone_battery_level'
     bulk_rename:
