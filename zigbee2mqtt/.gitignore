@@ -2,4 +2,4 @@
 /database.db
 /database.db.backup
 /state.json
-/zigbee2mqtt*.log
+/zigbee2mqtt.log
