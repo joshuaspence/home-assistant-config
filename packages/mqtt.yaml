@@ -1,9 +1,4 @@
 ---
-mqtt:
-  broker: 'core-mosquitto'
-  username: 'homeassistant'
-  password: !secret 'mqtt.password'
-
 sensor:
   # Mosquitto
   # TODO: Ensure these sensors don't blow out the database.
