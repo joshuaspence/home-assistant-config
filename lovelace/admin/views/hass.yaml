@@ -256,7 +256,6 @@ cards:
         - integration: 'speedtestdotnet'
         - integration: 'systemmonitor'
         - integration: 'unifi_network'
-        - integration: 'updater'
         - integration: 'uptime'
         - integration: 'version'
         - integration: 'workday'
@@ -273,7 +272,6 @@ cards:
   - type: 'entities'
     title: 'Updates'
     entities:
-      - 'binary_sensor.updater'
       - 'sensor.hacs'
 
   - type: 'entities'
