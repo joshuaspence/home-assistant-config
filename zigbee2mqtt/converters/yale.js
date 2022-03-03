@@ -1,8 +1,5 @@
-const { exposes } = require('zigbee-herdsman-converters');
 const { extendDevice } = require('./utils');
-
-const e = exposes.presets;
-const tz = require('zigbee-herdsman-converters').toZigbeeConverters;
+const { e, tz } = require('./zhc');
 
 module.exports = [
   extendDevice('YRD226 TSDB', {
