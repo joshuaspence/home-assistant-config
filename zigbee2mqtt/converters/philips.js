@@ -7,6 +7,17 @@ const e = {
     .withDescription('Controls the behavior when the device is powered on'),
 };
 
+const lights = [
+  'LCA001',
+  'LCT010',
+  'LTD011',
+  'LTG002',
+  'LTW013',
+  'LWA001',
+  '1743530P7',
+];
+const plugs = ['LOM005'];
+
 module.exports = [
-  extendDevice('LOM005', { exposes: [e.hue_power_on_behavior()] }),
+  ...lights.concat(plugs).map(device => extendDevice(device, {exposes: [e.hue_power_on_behavior()]})),
 ];
