@@ -6,4 +6,4 @@ module.exports = {
   exposes: zhc.exposes,
   fz: zhc.fromZigbeeConverters,
   tz: zhc.toZigbeeConverters,
-}
+};

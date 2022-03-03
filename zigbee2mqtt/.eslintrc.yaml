@@ -5,3 +5,5 @@ env:
 extends:
   - 'eslint:recommended'
   - 'airbnb-base'
+rules:
+  max-len: 'off'
