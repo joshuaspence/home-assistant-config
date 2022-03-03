@@ -11,7 +11,7 @@ jobs:
       - uses: 'actions/setup-node@v2'
         with:
           node-version: '14'
-      - run: 'npm install eslint eslint-config-google'
+      - run: 'npm install --global eslint eslint-config-google'
       - run: 'eslint zigbee2mqtt'
   yamllint:
     runs-on: 'ubuntu-latest'
