@@ -19,5 +19,5 @@ const lights = [
 const plugs = ['LOM005'];
 
 module.exports = [
-  ...lights.concat(plugs).map(device => extendDevice(device, {exposes: [e.hue_power_on_behavior()]})),
+  ...lights.concat(plugs).map((device) => extendDevice(device, { exposes: [e.hue_power_on_behavior()] })),
 ];
