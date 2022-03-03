@@ -9,6 +9,7 @@ availability:
     timeout: 180
 external_converters:
   - '/config/zigbee2mqtt/converters/philips'
+  - '/config/zigbee2mqtt/converters/yale'
 serial:
   port: 'tcp://zigbee_gateway.local:6638'
 devices: 'devices.yaml'
