@@ -12,8 +12,6 @@ jobs:
         with:
           node-version: '14'
       - run: 'npm install eslint eslint-config-airbnb-base eslint-plugin-import'
-
-      - run: 'npm install zigbee-herdsman-converters'
       - run: 'npx eslint zigbee2mqtt'
   yamllint:
     runs-on: 'ubuntu-latest'
