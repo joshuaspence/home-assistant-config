@@ -5,7 +5,9 @@ const extendDevice = (model, config) => {
 
   return {
     extend: device,
-    exposes: device.exposes.concat(config.exposes || []),
+    ...(config.fromZigbee && { fromZigbee: device.fromZigbee.concat(config.fromZigbee) }),
+    ...(config.toZigbee && { toZigbee: device.toZigbee.concat(config.toZigbee) }),
+    ...(config.exposes && { exposes: device.exposes.concat(config.exposes) }),
   };
 };
 
