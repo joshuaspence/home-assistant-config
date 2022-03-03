@@ -12,7 +12,7 @@ jobs:
         with:
           node-version: '14'
       - run: 'npm install --global eslint eslint-config-google'
-      - run: 'eslint zigbee2mqtt'
+      - run: 'eslint --resolve-plugins-relative-to $(npm root --global) zigbee2mqtt'
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
