@@ -208,8 +208,38 @@ cards:
       title: 'Entities without Area'
       show_header_toggle: false
     filter:
-      include:
-        - entity_id: '*'
+      template: >-
+        {%
+          set excluded_integrations = [
+            'aussie_broadband',
+            'bureau_of_meteorology',
+            'cloud',
+            'command_line',
+            'daikin',
+            'dnsip',
+            'hacs',
+            'hassio',
+            'mobile_app',
+            'netgear_lte',
+            'speedtestdotnet',
+            'systemmonitor',
+            'unifi_network',
+            'updater',
+            'uptime',
+            'version',
+            'workday',
+            'zoom',
+          ]
+        %}
+        {%
+          set integrations_without_unique_id = [
+            'min_max',
+            'ping',
+          ]
+        %}
+        {% set excluded_entities = (excluded_integrations + integrations_without_unique_id) | map('integration_entities') | sum(start=[]) %}
+        {{ states | map(attribute='entity_id') | reject('in', excluded_entities) | list }}
+
       exclude:
         - area: '*'
 
@@ -242,27 +272,6 @@ cards:
         - domain: 'vacuum'
         - domain: 'weather'
         - domain: 'zone'
-
-        - integration: 'aussie_broadband'
-        - integration: 'bureau_of_meteorology'
-        - integration: 'cloud'
-        - integration: 'command_line'
-        - integration: 'daikin'
-        - integration: 'dnsip'
-        - integration: 'hacs'
-        - integration: 'hassio'
-        - integration: 'mobile_app'
-        - integration: 'netgear_lte'
-        - integration: 'speedtestdotnet'
-        - integration: 'systemmonitor'
-        - integration: 'unifi_network'
-        - integration: 'uptime'
-        - integration: 'version'
-        - integration: 'workday'
-        - integration: 'zoom'
-
-        # Integrations that don't support unique ID.
-        - integration: 'min_max'
     sort:
       method: 'name'
 
