@@ -4,9 +4,9 @@ env:
   node: true
 extends:
   - 'eslint:recommended'
-  - 'google'
+  - 'airbnb-base'
 parserOptions:
   ecmaVersion: 2018
   sourceType: 'module'
 rules:
-  max-len: 'off'
+  import/no-unresolved: 'off'

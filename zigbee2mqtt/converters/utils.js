@@ -1,4 +1,4 @@
-const {findByZigbeeModel} = require('zigbee-herdsman-converters');
+const { findByZigbeeModel } = require('zigbee-herdsman-converters');
 
 const extendDevice = (model, config) => {
   const device = findByZigbeeModel(model);

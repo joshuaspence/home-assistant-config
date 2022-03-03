@@ -11,7 +11,7 @@ jobs:
       - uses: 'actions/setup-node@v2'
         with:
           node-version: '14'
-      - run: 'npm install eslint eslint-config-google'
+      - run: 'npm install eslint eslint-config-airbnb-base eslint-plugin-import'
       - run: 'npx eslint zigbee2mqtt'
   yamllint:
     runs-on: 'ubuntu-latest'
