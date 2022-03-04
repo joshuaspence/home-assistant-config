@@ -25,25 +25,6 @@ card:
           - entity: 'device_tracker.[[person]]_phone_app'
             name: 'App'
             icon: 'mdi:home-assistant'
-
-          - type: 'custom:template-entity-row'
-            entity: 'device_tracker.[[person]]_phone_roomassistant'
-            name: 'Room Assistant'
-            icon: 'mdi:bluetooth'
-            state: >-
-              {% if is_state(config.entity, 'home') %}
-                {{ states('sensor.[[person]]_phone_room_presence') }}
-              {% else %}
-                _(component.{{ config.entity.split(".")[0] }}.state._.{{ states(config.entity) }})
-              {% endif %}
-
-            # TODO: This doesn't work currently, see thomasloven/lovelace-template-entity-row#67.
-            double_tap_action:
-              action: 'fire-dom-event'
-              browser_mod:
-                command: 'more_info'
-                entity_id: 'sensor.[[person]]_phone_room_presence'
-
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
             icon: 'mdi:wifi'
