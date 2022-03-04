@@ -44,10 +44,13 @@ automation:
       platform: 'state'
       entity_id: 'sensor.unavailable_entities'
     condition:
-      condition: 'numeric_state'
-      entity_id: 'sensor.uptime'
-      value_template: '{{ (now() - as_datetime(state.state)).seconds }}'
-      above: 120
+      - condition: 'state'
+        entity_id: 'binary_sensor.zigbee2mqtt_state'
+        state: 'on'
+      - condition: 'numeric_state'
+        entity_id: 'sensor.uptime'
+        value_template: '{{ (now() - as_datetime(state.state)).seconds }}'
+        above: 120
     action:
       choose:
         conditions:
