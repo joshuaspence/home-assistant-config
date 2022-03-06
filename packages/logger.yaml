@@ -52,6 +52,9 @@ logger:
       - '^Config entry ''Living Room TV'' for nfandroidtv integration not ready yet'
     homeassistant.helpers.entity:
       - '^Update of media_player\.\w+ is taking over 10 seconds$'
+    mqtt_schedule_thread: &deebot
+      - '^call to iotdevmanager failed with {''ret'': ''fail'', ''errno'': 4200}$'
+    ozmo: *deebot
     pychromecast.socket_client:
       - 'Error communicating with socket, resetting connection$'
       - 'Error reading from socket\.$'
