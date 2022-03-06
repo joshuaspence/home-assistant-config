@@ -7,8 +7,6 @@ deebot:
   password: !secret 'ecovacs.password'
   country: 'AU'
   continent: 'WW'
-  supported_features: []
-  unsupported_features: []
 
 automation:
   - alias: 'Vacuum Error'
@@ -21,6 +19,11 @@ automation:
       - platform: 'event'
         event_type: 'ecovacs_error'
         id: 'event'
+    condition:
+      condition: 'not'
+      conditions:
+        condition: 'template'
+        value_template: '{{ trigger.id == "event" and trigger.event.data.error == "no_error" }}'
     action:
       service: 'notify.mobile_app_josh_phone'
       data:
