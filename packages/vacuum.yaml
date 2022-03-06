@@ -3,31 +3,28 @@
 # the [official integration](https://www.home-assistant.io/integrations/ecovacs).
 # See https://github.com/home-assistant/core/issues/38625 for some additional context.
 deebot:
-  continent: 'WW'
-  country: 'AU'
-  password: !secret 'ecovacs.password'
   username: !secret 'ecovacs.username'
+  password: !secret 'ecovacs.password'
+  country: 'AU'
+  continent: 'WW'
+  supported_features: []
+  unsupported_features: []
 
 automation:
   - alias: 'Vacuum Error'
     id: '10a065f5-f820-42d7-aa54-ceae3e8a4993'
     trigger:
-      platform: 'state'
-      entity_id: &entity_id 'vacuum.deebot'
-      attribute: &error_attribute 'error'
-    condition:
-      condition: 'not'
-      conditions:
-        condition: 'state'
-        entity_id: *entity_id
-        attribute: *error_attribute
-        state:
-          - null
-          - 'low_battery'
+      - platform: 'state'
+        entity_id: &entity_id 'vacuum.deebot'
+        attribute: &error_attribute 'error'
+        id: 'state'
+      - platform: 'event'
+        event_type: 'ecovacs_error'
+        id: 'event'
     action:
       service: 'notify.mobile_app_josh_phone'
       data:
-        title: 'Vacuum {{ trigger.to_state.friendly_name }} has experienced an error'
+        title: '{{ state_attr("vacuum.deebot", "friendly_name") }} has experienced an error'
         message: >
           {%
             set error_messages = {
@@ -36,7 +33,7 @@ automation:
               'wheel_abnormal': 'Operating difficulties encountered. Please check the Driving Wheel.',
             }
           %}
-          {% set error_code = trigger.to_state.attributes.error %}
+          {% set error_code = trigger.to_state.attributes.error if trigger.id == 'state' else trigger.event.data.error %}
           {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred (' ~ error_code ~ ').' }}
   - alias: 'Vacuum Low Battery'
     id: '77a8cf42-1126-4741-be4a-17869fadcabb'
