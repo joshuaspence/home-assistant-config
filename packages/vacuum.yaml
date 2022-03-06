@@ -24,18 +24,16 @@ automation:
       conditions:
         condition: 'template'
         value_template: '{{ trigger.id == "event" and trigger.event.data.error == "no_error" }}'
+    variables:
+      error_messages:
+        host_hang: 'The robot is off the floor.'
+        no_dust_box: 'Dust Bin not installed.'
+        wheel_abnormal: 'Operating difficulties encountered. Please check the Driving Wheel.'
     action:
       service: 'notify.mobile_app_josh_phone'
       data:
         title: '{{ state_attr("vacuum.deebot", "friendly_name") }} has experienced an error'
         message: >
-          {%
-            set error_messages = {
-              'host_hang': 'The robot is off the floor.',
-              'no_dust_box': 'Dust Bin not installed.',
-              'wheel_abnormal': 'Operating difficulties encountered. Please check the Driving Wheel.',
-            }
-          %}
           {% set error_code = trigger.to_state.attributes.error if trigger.id == 'state' else trigger.event.data.error %}
           {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred (' ~ error_code ~ ').' }}
   - alias: 'Vacuum Low Battery'
