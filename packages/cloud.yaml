@@ -11,6 +11,7 @@ cloud:
         - 'fan'
         - 'light'
         - 'scene'
+        - 'vacuum'
       exclude_entities:
         - 'light.bedroom_1_ceiling_projector_laser'
         - 'light.bedroom_1_ceiling_projector_light'
