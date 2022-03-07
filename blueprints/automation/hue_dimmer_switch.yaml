@@ -44,3 +44,5 @@ action:
 
 mode: 'queued'
 max_exceeded: 'silent'
+trace:
+  stored_traces: 10

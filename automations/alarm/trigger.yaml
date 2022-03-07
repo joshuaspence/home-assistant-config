@@ -16,3 +16,5 @@ condition:
 action:
   service: 'alarm_control_panel.alarm_trigger'
   entity_id: 'alarm_control_panel.alarm'
+trace:
+  stored_traces: 20

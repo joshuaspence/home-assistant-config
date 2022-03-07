@@ -49,3 +49,5 @@ action:
             - *secondary_dehumidifier
 mode: 'single'
 max_exceeded: 'silent'
+trace:
+  stored_traces: 20

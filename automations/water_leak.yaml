@@ -16,3 +16,5 @@ action:
     message: 'Water leak detected in {{ trigger.to_state.friendly_name }}.'
     data:
       tag: 'water-leak'
+trace:
+  stored_traces: 20

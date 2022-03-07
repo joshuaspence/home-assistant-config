@@ -93,3 +93,5 @@ automation:
         dp: 51
         value: 'manual'
     max_exceeded: 'silent'
+    trace:
+      stored_traces: 0

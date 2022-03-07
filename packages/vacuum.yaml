@@ -7,6 +7,8 @@ deebot:
   password: !secret 'ecovacs.password'
   country: 'AU'
   continent: 'WW'
+  unsupported_features:
+    - 'fan_speed'
 
 automation:
   - alias: 'Vacuum Error'
@@ -36,6 +38,8 @@ automation:
         message: >
           {% set error_code = trigger.to_state.attributes.error if trigger.id == 'state' else trigger.event.data.error %}
           {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred (' ~ error_code ~ ').' }}
+    trace:
+      stored_traces: 20
   - alias: 'Vacuum Low Battery'
     id: '77a8cf42-1126-4741-be4a-17869fadcabb'
     trigger:

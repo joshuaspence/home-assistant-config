@@ -76,3 +76,5 @@ automation:
           data:
             tag: 'devices-offline'
     mode: 'restart'
+    trace:
+      stored_traces: 10

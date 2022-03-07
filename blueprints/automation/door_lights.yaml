@@ -82,3 +82,5 @@ action:
 
 mode: 'single'
 max_exceeded: 'silent'
+trace:
+  stored_traces: 10
