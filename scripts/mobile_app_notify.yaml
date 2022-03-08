@@ -65,6 +65,6 @@ variables:
 sequence:
   service: 'notify.mobile_app_{{ device }}'
   data:
-    title: !input 'title'
-    message: !input 'message'
+    title: '{{ title }}'
+    message: '{{ message }}'
     data: '{{ dict(metadata.items() | rejectattr("1", "none")) }}'
