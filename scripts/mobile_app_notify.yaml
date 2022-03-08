@@ -35,6 +35,12 @@ fields:
       text:
         multiline: true
 
+  group:
+    name: 'Group'
+    description: 'Combine notifications together visually.'
+    advanced: true
+    selector:
+      text: {}
   tag:
     name: 'Tag'
     description: >-
@@ -59,6 +65,7 @@ variables:
     {% endif %}
   metadata:
     clickAction: '{{ url | default(None) }}'
+    group: '{{ group | default(None) }}'
     subject: '{{ subtitle | default(None) }}'
     tag: '{{ tag | default(None) }}'
 
