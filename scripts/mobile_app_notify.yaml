@@ -43,6 +43,12 @@ fields:
     advanced: true
     selector:
       text: {}
+  url:
+    name: 'URL'
+    description: 'URL to open when notification is tapped.'
+    advanced: true
+    selector:
+      text: {}
 
 variables:
   device: >-
@@ -52,6 +58,7 @@ variables:
       {{ target }}
     {% endif %}
   metadata:
+    clickAction: '{{ url | default(None) }}'
     subject: '{{ subtitle | default(None) }}'
     tag: '{{ tag | default(None) }}'
 
