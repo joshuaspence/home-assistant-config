@@ -41,13 +41,6 @@ fields:
     selector:
       object: null
 
-  color:
-    name: 'Color'
-    description: 'The color of the notification.'
-    advanced: true
-    selector:
-      text: {}
-
   group:
     name: 'Group'
     description: 'Combine notifications together visually.'
@@ -93,7 +86,6 @@ variables:
   metadata:
     actions: '{{ actions | default(None) }}'
     clickAction: '{{ url | default(None) }}'
-    color: '{{ color | default(None) }}'
     group: '{{ group | default(None) }}'
     persistent: '{{ persistent | default(None) }}'
     sticky: '{{ sticky | default(None) }}'
