@@ -35,6 +35,15 @@ fields:
       text:
         multiline: true
 
+  tag:
+    name: 'Tag'
+    description: >-
+      Replace an existing notification by using a tag. To clear an existing
+      notification which has a tag, set `message` to `clear_notification`.
+    advanced: true
+    selector:
+      text: {}
+
 variables:
   device: >-
     {% if device_attr(target, 'id') is not none %}
@@ -42,11 +51,13 @@ variables:
     {% else %}
       {{ target }}
     {% endif %}
+  metadata:
+    subject: '{{ subtitle if subtitle is defined else None }}'
+    tag: '{{ tag if tag is defined else None }}'
 
 sequence:
   service: 'notify.mobile_app_{{ device }}'
   data:
     title: '{{ title }}'
     message: '{{ message }}'
-    data:
-      subject: '{{ subtitle }}'
+    data: '{{ dict(metadata.items() | rejectattr("1", "none")) }}'
