@@ -1,0 +1,52 @@
+---
+alias: 'Mobile App Notify'
+description: 'A wrapper script for `notify.mobile_app`.'
+icon: 'mdi:message'
+mode: 'parallel'
+max: 10
+trace:
+  stored_traces: 20
+
+fields:
+  target:
+    name: 'Target Device'
+    description: 'Target device to send the notification to.'
+    required: true
+    selector:
+      device:
+        integration: 'mobile_app'
+  title:
+    name: 'Title'
+    description: 'Title for the notification.'
+    required: true
+    selector:
+      text: {}
+  subtitle:
+    name: 'Subtitle'
+    description: 'A secondary heading for the notification.'
+    advanced: true
+    selector:
+      text: {}
+  message:
+    name: 'Message'
+    description: 'Message body of the notification.'
+    required: true
+    selector:
+      text:
+        multiline: true
+
+variables:
+  device: >-
+    {% if device_attr(target, 'id') is not none %}
+      {{ device_attr(target, 'name_by_user') | regex_replace(find="'s\\b", replace="") | slugify }}
+    {% else %}
+      {{ target }}
+    {% endif %}
+
+sequence:
+  service: 'notify.mobile_app_{{ device }}'
+  data:
+    title: '{{ title }}'
+    message: '{{ message }}'
+    data:
+      subject: '{{ subtitle }}'
