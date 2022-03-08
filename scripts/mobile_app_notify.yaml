@@ -49,6 +49,12 @@ fields:
     advanced: true
     selector:
       boolean: null
+  sticky:
+    name: 'Sticky'
+    description: 'Prevent the notification from being dismissed when the user selects it.'
+    advanced: true
+    selector:
+      boolean: null
   tag:
     name: 'Tag'
     description: >-
@@ -75,6 +81,7 @@ variables:
     clickAction: '{{ url | default(None) }}'
     group: '{{ group | default(None) }}'
     persistent: '{{ persistent | default(None) }}'
+    sticky: '{{ sticky | default(None) }}'
     subject: '{{ subtitle | default(None) }}'
     tag: '{{ tag | default(None) }}'
 
