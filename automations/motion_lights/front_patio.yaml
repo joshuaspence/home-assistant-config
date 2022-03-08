@@ -1,0 +1,9 @@
+---
+id: '255c1009-d1d2-4683-925d-bb3f368d44d8'
+alias: 'Front Patio Motion Lights'
+use_blueprint:
+  path: 'motion_lights.yaml'
+  input:
+    trigger_sensor: 'binary_sensor.front_patio_occupancy'
+    light_target: 'light.front_patio'
+    illuminance_sensor: 'sensor.front_patio_illuminance'
