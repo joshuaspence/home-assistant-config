@@ -34,6 +34,12 @@ fields:
     selector:
       text:
         multiline: true
+  actions:
+    name: 'Actions'
+    description: 'Actionable buttons added to the notification.'
+    advanced: true
+    selector:
+      object: null
 
   group:
     name: 'Group'
@@ -78,6 +84,7 @@ variables:
       {{ target }}
     {% endif %}
   metadata:
+    actions: '{{ actions | default(None) }}'
     clickAction: '{{ url | default(None) }}'
     group: '{{ group | default(None) }}'
     persistent: '{{ persistent | default(None) }}'
