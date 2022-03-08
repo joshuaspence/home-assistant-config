@@ -47,6 +47,12 @@ fields:
     advanced: true
     selector:
       text: {}
+  icon:
+    name: 'Icon URL'
+    description: 'Add an icon to the notification.'
+    advanced: true
+    selector:
+      text: {}
   persistent:
     name: 'Persistent'
     description: >-
@@ -87,6 +93,7 @@ variables:
     actions: '{{ actions | default(None) }}'
     clickAction: '{{ url | default(None) }}'
     group: '{{ group | default(None) }}'
+    icon_url: '{{ icon | default(None)}}'
     persistent: '{{ persistent | default(None) }}'
     sticky: '{{ sticky | default(None) }}'
     subject: '{{ subtitle | default(None) }}'
