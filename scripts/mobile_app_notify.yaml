@@ -41,6 +41,14 @@ fields:
     advanced: true
     selector:
       text: {}
+  persistent:
+    name: 'Persistent'
+    description: >-
+      Persistent notifications cannot be dimissed by swiping away. In order to
+      use this property you must also set the `tag` property.
+    advanced: true
+    selector:
+      boolean: null
   tag:
     name: 'Tag'
     description: >-
@@ -66,6 +74,7 @@ variables:
   metadata:
     clickAction: '{{ url | default(None) }}'
     group: '{{ group | default(None) }}'
+    persistent: '{{ persistent | default(None) }}'
     subject: '{{ subtitle | default(None) }}'
     tag: '{{ tag | default(None) }}'
 
