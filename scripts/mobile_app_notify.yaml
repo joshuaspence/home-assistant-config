@@ -52,12 +52,12 @@ variables:
       {{ target }}
     {% endif %}
   metadata:
-    subject: '{{ subtitle if subtitle is defined else None }}'
-    tag: '{{ tag if tag is defined else None }}'
+    subject: '{{ subtitle | default(None) }}'
+    tag: '{{ tag | default(None) }}'
 
 sequence:
   service: 'notify.mobile_app_{{ device }}'
   data:
-    title: '{{ title }}'
-    message: '{{ message }}'
+    title: !input 'title'
+    message: !input 'message'
     data: '{{ dict(metadata.items() | rejectattr("1", "none")) }}'
