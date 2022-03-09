@@ -75,6 +75,15 @@ fields:
     advanced: true
     selector:
       text: {}
+  timeout:
+    name: 'Timeout'
+    description: 'How long a notification will be shown before being dismissed automatically.'
+    advanced: true
+    selector:
+      number:
+        min: 0
+        max: 600
+        unit_of_measurement: 'seconds'
   url:
     name: 'URL'
     description: 'URL to open when notification is tapped.'
@@ -98,6 +107,7 @@ variables:
     sticky: '{{ sticky | default(None) }}'
     subject: '{{ subtitle | default(None) }}'
     tag: '{{ tag | default(None) }}'
+    timeout: '{{ timeout | default(None) }}'
 
 sequence:
   service: 'notify.mobile_app_{{ device }}'
