@@ -17,9 +17,8 @@ condition:
     - 'thu'
     - 'fri'
 action:
-  service: 'notify.mobile_app_josh_phone'
+  service: 'script.mobile_app_notify'
   data:
     title: 'Mailbox Activity'
     message: 'Mailbox door was opened.'
-    data:
-      tag: 'mail-delivery'
+    tag: 'mail-delivery'

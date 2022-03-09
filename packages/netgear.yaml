@@ -24,7 +24,8 @@ automation:
       event_type: 'netgear_lte_sms'
     action:
       # TODO: Call `netgear_lte.delete_sms`.
-      - service: 'notify.mobile_app_josh_phone'
+      - service: 'script.mobile_app_notify'
         data:
+          target: 'josh_phone'
           title: 'SMS Message Received - {{ trigger.event.data.from }}'
           message: '{{ trigger.event.data.message }}'

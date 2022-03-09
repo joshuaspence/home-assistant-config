@@ -6,7 +6,8 @@ trigger:
   entity_id: 'sensor.disk_use_percent'
   above: '90'
 action:
-  service: 'notify.mobile_app_josh_phone'
+  service: 'script.mobile_app_notify'
   data:
+    target: 'josh_phone'
     message: '{{ trigger.to_state.state }}'
     title: 'Low Storage'

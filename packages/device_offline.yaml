@@ -58,14 +58,14 @@ automation:
           entity_id: 'sensor.unavailable_entities'
           below: 1
         sequence:
-          service: 'notify.mobile_app_josh_phone'
+          service: 'script.mobile_app_clear_notification'
           data:
-            message: 'clear_notification'
-            data:
-              tag: 'devices-offline'
+            target: 'josh_phone'
+            tag: 'devices-offline'
       default:
-        service: 'notify.mobile_app_josh_phone'
+        service: 'script.mobile_app_notify'
         data:
+          target: 'josh_phone'
           title: 'Device(s) Offline'
           message: >-
             {{ states('sensor.unavailable_entities') }} devices are offline.
@@ -73,8 +73,7 @@ automation:
             {% for entity in state_attr('sensor.unavailable_entities', 'entities') -%}
             - {{ entity }}
             {% endfor %}
-          data:
-            tag: 'devices-offline'
+          tag: 'devices-offline'
     mode: 'restart'
     trace:
       stored_traces: 10
