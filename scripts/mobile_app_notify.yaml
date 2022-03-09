@@ -41,6 +41,14 @@ fields:
     selector:
       object: null
 
+  channel:
+    name: 'Channel'
+    description: >-
+      Notification channels allows users to easily customize notifications. To
+      remove a channel you will need to set `message` to `remove_channel`.
+    advanced: true
+    selector:
+      text: {}
   group:
     name: 'Group'
     description: 'Combine notifications together visually.'
@@ -100,6 +108,7 @@ variables:
     {% endif %}
   metadata:
     actions: '{{ actions | default(None) }}'
+    channel: '{{ channel | default(None) }}'
     clickAction: '{{ url | default(None) }}'
     group: '{{ group | default(None) }}'
     icon_url: '{{ icon | default(None)}}'
