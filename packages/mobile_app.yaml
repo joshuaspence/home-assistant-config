@@ -58,6 +58,12 @@ script:
         selector:
           text:
             multiline: true
+      attachment:
+        name: 'Attachment'
+        description: 'An image, video or audio file which is shown alongside the notification.'
+        advanced: true
+        selector:
+          text: null
       actions:
         name: 'Actions'
         description: 'Actionable buttons added to the notification.'
@@ -142,6 +148,7 @@ script:
         channel: '{{ channel | default(None) }}'
         clickAction: '{{ url | default(None) }}'
         group: '{{ group | default(None) }}'
+        image: '{{ attachment | default(None) }}'
         notification_icon: '{{ icon | default(None)}}'
         persistent: '{{ persistent | default(None) }}'
         sticky: '{{ sticky | default(None) }}'
