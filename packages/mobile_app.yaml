@@ -65,6 +65,12 @@ script:
         selector:
           object: null
 
+      alert_once:
+        name: 'Alert Once'
+        description: 'The notification will only make a sound, vibrate and/or flash the LED once.'
+        advanced: true
+        selector:
+          boolean: null
       channel:
         name: 'Channel'
         description: >-
@@ -132,6 +138,7 @@ script:
         {% endif %}
       metadata:
         actions: '{{ actions | default(None) }}'
+        alert_once: '{{ alert_once | default(None) }}'
         channel: '{{ channel | default(None) }}'
         clickAction: '{{ url | default(None) }}'
         group: '{{ group | default(None) }}'
