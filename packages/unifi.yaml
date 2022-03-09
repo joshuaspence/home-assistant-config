@@ -88,14 +88,14 @@ automation:
           entity_id: 'sensor.unifi_gateway_alerts'
           below: 1
         sequence:
-          service: 'notify.mobile_app_josh_phone'
+          service: 'script.mobile_app_clear_notification'
           data:
-            message: 'clear_notification'
-            data:
-              tag: 'unifi-alert'
+            target: 'josh_phone'
+            tag: 'unifi-alert'
       default:
-        service: 'notify.mobile_app_josh_phone'
+        service: 'script.mobile_app_notify'
         data:
+          target: 'josh_phone'
           title: 'Unifi Alerts'
           message: >-
             There are {{ trigger.to_state.state }} gateway alerts.
@@ -105,8 +105,7 @@ automation:
             - {{ value.msg }}
             {%   endif -%}
             {% endfor %}
-          data:
-            tag: 'unifi-alert'
+          tag: 'unifi-alert'
     mode: 'restart'
 
   - alias: 'Unifi Firmware Updates Available'

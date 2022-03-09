@@ -68,14 +68,14 @@ automation:
           entity_id: 'sensor.low_battery'
           below: 1
         sequence:
-          service: 'notify.mobile_app_josh_phone'
+          service: 'script.mobile_app_clear_notification'
           data:
-            message: 'clear_notification'
-            data:
-              tag: 'low-battery'
+            target: 'josh_phone'
+            tag: 'low-battery'
       default:
-        service: 'notify.mobile_app_josh_phone'
+        service: 'script.mobile_app_notify'
         data:
+          target: 'josh_phone'
           title: 'Low Battery'
           message: >-
             {{ states('sensor.low_battery') }} devices with low battery.
@@ -83,6 +83,5 @@ automation:
             {% for entity in state_attr('sensor.low_battery', 'entities') -%}
             - {{ entity }}
             {% endfor %}
-          data:
-            tag: 'low-battery'
+          tag: 'low-battery'
     mode: 'restart'
