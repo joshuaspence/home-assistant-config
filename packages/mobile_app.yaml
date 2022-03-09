@@ -181,3 +181,26 @@ script:
       data:
         message: '{{ command }}'
         title: '{{ data | default }}'
+
+  mobile_app_clear_notification:
+    alias: 'Mobile App Clear Notification'
+    mode: 'parallel'
+    max: 10
+
+    fields:
+      target: *device_field
+      tag:
+        name: 'Tag'
+        required: true
+        selector:
+          text: null
+
+    variables:
+      device: *device_variable
+
+    sequence:
+      service: 'notify.mobile_app_{{ device }}'
+      data:
+        message: 'clear_notification'
+        data:
+          tag: '{{ tag }}'
