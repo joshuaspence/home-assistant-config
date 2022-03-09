@@ -20,3 +20,164 @@ switch:
             command: 'command_dnd'
             data: 'off'
         icon_template: '{{ state_attr("sensor.josh_phone_do_not_disturb_sensor", "icon") }}'
+
+script:
+  mobile_app_notify:
+    alias: 'Mobile App Notify'
+    description: 'A wrapper script for `notify.mobile_app`.'
+    icon: 'mdi:message'
+    mode: 'parallel'
+    max: 10
+    trace:
+      stored_traces: 20
+
+    fields:
+      target: &device_field
+        name: 'Target Device'
+        description: 'Target device to send the notification to.'
+        required: true
+        selector:
+          device:
+            integration: 'mobile_app'
+      title:
+        name: 'Title'
+        description: 'Title for the notification.'
+        required: true
+        selector:
+          text: null
+      subtitle:
+        name: 'Subtitle'
+        description: 'A secondary heading for the notification.'
+        advanced: true
+        selector:
+          text: null
+      message:
+        name: 'Message'
+        description: 'Message body of the notification.'
+        required: true
+        selector:
+          text:
+            multiline: true
+      actions:
+        name: 'Actions'
+        description: 'Actionable buttons added to the notification.'
+        advanced: true
+        selector:
+          object: null
+
+      channel:
+        name: 'Channel'
+        description: >-
+          Notification channels allows users to easily customize notifications. To
+          remove a channel you will need to set `message` to `remove_channel`.
+        advanced: true
+        selector:
+          text: null
+      group:
+        name: 'Group'
+        description: 'Combine notifications together visually.'
+        advanced: true
+        selector:
+          text: null
+      icon:
+        name: 'Icon URL'
+        description: 'Add an icon to the notification.'
+        advanced: true
+        selector:
+          text: null
+      persistent:
+        name: 'Persistent'
+        description: >-
+          Persistent notifications cannot be dimissed by swiping away. In order to
+          use this property you must also set the `tag` property.
+        advanced: true
+        selector:
+          boolean: null
+      sticky:
+        name: 'Sticky'
+        description: 'Prevent the notification from being dismissed when the user selects it.'
+        advanced: true
+        selector:
+          boolean: null
+      tag:
+        name: 'Tag'
+        description: >-
+          Replace an existing notification by using a tag. To clear an existing
+          notification which has a tag, set `message` to `clear_notification`.
+        advanced: true
+        selector:
+          text: null
+      timeout:
+        name: 'Timeout'
+        description: 'How long a notification will be shown before being dismissed automatically.'
+        advanced: true
+        selector:
+          number:
+            min: 0
+            max: 600
+            unit_of_measurement: 'seconds'
+      url:
+        name: 'URL'
+        description: 'URL to open when notification is tapped.'
+        advanced: true
+        selector:
+          text: null
+
+    variables:
+      device: &device_variable >-
+        {% if device_attr(target, 'id') is not none %}
+          {{ device_attr(target, 'name_by_user') | regex_replace(find="'s\\b", replace="") | slugify }}
+        {% else %}
+          {{ target }}
+        {% endif %}
+      metadata:
+        actions: '{{ actions | default(None) }}'
+        channel: '{{ channel | default(None) }}'
+        clickAction: '{{ url | default(None) }}'
+        group: '{{ group | default(None) }}'
+        icon_url: '{{ icon | default(None)}}'
+        persistent: '{{ persistent | default(None) }}'
+        sticky: '{{ sticky | default(None) }}'
+        subject: '{{ subtitle | default(None) }}'
+        tag: '{{ tag | default(None) }}'
+        timeout: '{{ timeout | default(None) }}'
+    sequence:
+      service: 'notify.mobile_app_{{ device }}'
+      data:
+        title: '{{ title }}'
+        message: '{{ message }}'
+        data: '{{ dict(metadata.items() | rejectattr("1", "none")) }}'
+
+  mobile_app_command:
+    alias: 'Mobile App Command'
+    icon: 'mdi:run'
+    mode: 'parallel'
+    max: 10
+    trace:
+      stored_traces: 20
+
+    fields:
+      target: *device_field
+      command:
+        name: 'Command'
+        required: true
+        selector:
+          select:
+            # See https://companion.home-assistant.io/docs/notifications/notification-commands/.
+            options:
+              - 'command_dnd'
+              - 'request_location_update'
+      data:
+        name: 'Data'
+        required: false
+        selector:
+          text: null
+
+    variables:
+      device: *device_variable
+
+    sequence:
+      service: 'notify.mobile_app_{{ device }}'
+      data:
+        message: '{{ command }}'
+        title: '{{ data | default }}'
