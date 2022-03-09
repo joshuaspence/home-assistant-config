@@ -180,6 +180,7 @@ script:
             # See https://companion.home-assistant.io/docs/notifications/notification-commands/.
             options:
               - 'command_dnd'
+              - 'command_update_sensors'
               - 'request_location_update'
       data:
         name: 'Data'
