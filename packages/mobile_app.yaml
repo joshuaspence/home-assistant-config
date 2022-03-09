@@ -85,6 +85,12 @@ script:
         advanced: true
         selector:
           text: null
+      icon:
+        name: 'Status Bar Icon'
+        description: 'An icon to display in the notification status bar.'
+        advanced: true
+        selector:
+          text: null
       persistent:
         name: 'Persistent'
         description: >-
@@ -136,6 +142,7 @@ script:
         channel: '{{ channel | default(None) }}'
         clickAction: '{{ url | default(None) }}'
         group: '{{ group | default(None) }}'
+        notification_icon: '{{ icon | default(None)}}'
         persistent: '{{ persistent | default(None) }}'
         sticky: '{{ sticky | default(None) }}'
         subject: '{{ subtitle | default(None) }}'
