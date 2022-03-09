@@ -85,12 +85,6 @@ script:
         advanced: true
         selector:
           text: null
-      icon:
-        name: 'Icon URL'
-        description: 'Add an icon to the notification.'
-        advanced: true
-        selector:
-          text: null
       persistent:
         name: 'Persistent'
         description: >-
@@ -142,7 +136,6 @@ script:
         channel: '{{ channel | default(None) }}'
         clickAction: '{{ url | default(None) }}'
         group: '{{ group | default(None) }}'
-        icon_url: '{{ icon | default(None)}}'
         persistent: '{{ persistent | default(None) }}'
         sticky: '{{ sticky | default(None) }}'
         subject: '{{ subtitle | default(None) }}'
