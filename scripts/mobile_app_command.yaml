@@ -1,12 +1,19 @@
 ---
 alias: 'Mobile App Command'
 icon: 'mdi:run'
+mode: 'parallel'
+max: 10
+trace:
+  stored_traces: 20
+
 fields:
-  device:
+  target:
     name: 'Target Device'
+    description: 'Target device to send the notification to.'
     required: true
     selector:
-      text: {}
+      device:
+        integration: 'mobile_app'
   command:
     name: 'Command'
     required: true
@@ -19,11 +26,19 @@ fields:
   data:
     name: 'Data'
     required: false
-    default: null
+    selector:
+      text: {}
+
+variables:
+  device: >-
+    {% if device_attr(target, 'id') is not none %}
+      {{ device_attr(target, 'name_by_user') | regex_replace(find="'s\\b", replace="") | slugify }}
+    {% else %}
+      {{ target }}
+    {% endif %}
+
 sequence:
   service: 'notify.mobile_app_{{ device }}'
   data:
     message: '{{ command }}'
-    title: '{{ data }}'
-mode: 'parallel'
-max: 10
+    title: '{{ data | default }}'
