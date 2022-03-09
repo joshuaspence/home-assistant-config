@@ -1,9 +1,0 @@
----
-id: 'a5ba218b-e568-4c97-b5cb-f1c3407dd5e2'
-alias: 'Kitchen Motion Lights'
-use_blueprint:
-  path: 'motion_lights.yaml'
-  input:
-    trigger_sensor: 'binary_sensor.kitchen_occupancy'
-    light_target: 'light.kitchen_main'
-    illuminance_sensor: 'sensor.kitchen_north_illuminance'
