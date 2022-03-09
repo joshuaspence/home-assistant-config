@@ -1,0 +1,64 @@
+---
+automation:
+  - id: '94569be1-91e2-4952-a329-5c6160b56536'
+    alias: 'Attic Door Lights'
+    use_blueprint:
+      path: 'door_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.attic_door'
+        light_target: 'light.attic'
+        off_delay: 0
+
+  - id: '178c2bbd-e7e4-418b-b565-debf64e7c9d6'
+    alias: 'Back Door Lights'
+    use_blueprint:
+      path: 'door_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.back_door'
+        light_target:
+          - 'light.outside_ene'
+          - 'light.outside_ese'
+        illuminance_sensor: 'sensor.back_yard_illuminance'
+
+  - id: '2fc1a25d-b05a-4e5d-adc2-2dd2bcf499ea'
+    alias: 'Basement Door Lights'
+    use_blueprint:
+      path: 'door_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.basement_door'
+        light_target: 'light.basement'
+        off_delay: 0
+
+  - id: '202391d6-d64b-402b-b041-2dd9c8a6e263'
+    alias: 'Front Door Lights'
+    use_blueprint:
+      path: 'door_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.front_door'
+        light_target:
+          - 'light.front_door'
+          - 'light.front_patio'
+        illuminance_sensor: 'sensor.front_yard_illuminance'
+
+  - id: '16b40f6d-74ca-4f15-9382-394a681d2e40'
+    alias: 'Office Door Lights'
+    use_blueprint:
+      path: 'door_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.office_door'
+        light_target: 'light.office'
+        illuminance_sensor: 'sensor.office_illuminance'
+        off_delay: 600
+
+  - id: '45cff086-bd5b-44f3-9c31-d53564cc7899'
+    alias: 'Side Door Lights'
+    use_blueprint:
+      path: 'door_lights.yaml'
+      input:
+        trigger_sensor:
+          - 'binary_sensor.dining_room_sliding_door'
+          - 'binary_sensor.living_room_sliding_door'
+        light_target:
+          - 'light.outside_nne'
+          - 'light.outside_nnw'
+        illuminance_sensor: 'sensor.back_yard_illuminance'

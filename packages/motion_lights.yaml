@@ -1,0 +1,86 @@
+---
+automation:
+  - id: 'e549335f-7426-4297-8d26-370ebe19febd'
+    alias: 'Back Yard Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.back_yard_occupancy'
+        light_target:
+          - 'light.outside_nne'
+          - 'light.outside_nnw'
+        illuminance_sensor: 'sensor.back_yard_illuminance'
+
+  - id: '40994dc5-ba03-46b8-aa75-dc024b37920e'
+    alias: 'Bathroom Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.bathroom_occupancy'
+        light_target: 'light.bathroom_mirror'
+        illuminance_sensor: 'sensor.bathroom_illuminance'
+
+  - id: '6154f2b2-f20f-420d-a79d-23aeabab6044'
+    alias: 'Dining Room Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.dining_room_occupancy'
+        light_target: 'light.dining_room'
+        illuminance_sensor: 'sensor.dining_room_illuminance'
+
+  - id: '255c1009-d1d2-4683-925d-bb3f368d44d8'
+    alias: 'Front Patio Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.front_patio_occupancy'
+        light_target: 'light.front_patio'
+        illuminance_sensor: 'sensor.front_patio_illuminance'
+
+  - id: 'cd95cfc9-d7c5-4556-bbe9-5e9e17e7090d'
+    alias: 'Front Yard Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.front_yard_occupancy'
+        light_target: 'light.front_door'
+        illuminance_sensor: 'sensor.front_yard_illuminance'
+
+  - id: 'a5ba218b-e568-4c97-b5cb-f1c3407dd5e2'
+    alias: 'Kitchen Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.kitchen_occupancy'
+        light_target: 'light.kitchen_main'
+        illuminance_sensor: 'sensor.kitchen_north_illuminance'
+
+  - id: 'e02baf5c-8f91-4676-9168-4b5a2b4b7491'
+    alias: 'Laundry Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.laundry_occupancy'
+        light_target: 'light.laundry'
+        illuminance_sensor: 'sensor.laundry_illuminance'
+
+  - id: '8a402213-9f7f-4ff7-8538-b974982ba414'
+    alias: 'Side Yard Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.side_yard_occupancy'
+        light_target:
+          - 'light.outside_ssw'
+        illuminance_sensor: 'sensor.side_yard_illuminance'
+
+  - id: 'c363bc72-7c75-44ee-9f2a-4c96a2bb9e91'
+    alias: 'Toilet Motion Lights'
+    use_blueprint:
+      path: 'motion_lights.yaml'
+      input:
+        trigger_sensor: 'binary_sensor.toilet_occupancy'
+        light_target: 'light.toilet'
+        illuminance_sensor: 'sensor.toilet_illuminance'
+        off_delay: 600

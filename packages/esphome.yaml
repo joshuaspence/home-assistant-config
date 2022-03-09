@@ -1,0 +1,220 @@
+---
+automation:
+  - id: 'c1fa5c32-230d-44e2-bd89-d748be8745ed'
+    alias: 'attic_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'attic_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.attic_main'
+
+  - id: 'c41b6567-10de-4c5e-8773-ca2530afac2e'
+    alias: 'basement_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'basement_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.basement'
+
+  - id: '7ce09039-e2aa-4824-8e2d-f51fad2a6f68'
+    alias: 'bathroom_shelly_1 Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'bathroom_shelly_1'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bathroom'
+        button1_hold:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bathroom_mirror'
+        button2_click:
+          service: 'fan.toggle'
+          data:
+            entity_id: 'fan.bathroom'
+
+  - id: '5c53ce05-fb77-47c4-9dba-78fbb9fb1d2c'
+    alias: 'bathroom_shelly_2 Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'bathroom_shelly_2'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bathroom_heat'
+
+  - id: 'fbf009e5-c2bb-4d81-b433-b2ea16e2fd29'
+    alias: 'bedroom_1_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'bedroom_1_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bedroom_1'
+
+  - id: 'affc0e46-11be-4930-bfff-323e2c066b54'
+    alias: 'bedroom_2_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'bedroom_2_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bedroom_2'
+        button2_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.hallway_east'
+
+  - id: '7fd8b536-4e19-4e97-a783-eff5b1d61722'
+    alias: 'dining_room_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'dining_room_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.dining_room'
+
+  - id: '33b809fa-ed36-4fef-a5a8-73ad91d7eb64'
+    alias: 'hallway_west_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'hallway_west_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.front_door'
+        button2_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.hallway'
+
+  - id: '1d89b2aa-6cb2-429e-916d-94c4f0d0ccc8'
+    alias: 'kitchen_north_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'kitchen_north_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.kitchen_cupboards'
+        button2_click:
+          service: 'light.toggle'
+          data:
+            entity_id:
+              - 'light.kitchen_benchtop'
+              - 'light.kitchen_cooktop'
+              - 'light.kitchen_sink'
+
+  - id: 'fc38dbdd-1b4e-490d-85fe-0c252c1190cd'
+    alias: 'kitchen_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'kitchen_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.kitchen_main'
+
+  - id: '19583dc9-8c4a-4090-baaf-9a492f572d1a'
+    alias: 'laundry_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'laundry_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.laundry'
+        button2_click:
+          service: 'light.toggle'
+          data:
+            entity_id:
+              - 'light.outside_ene'
+              - 'light.outside_ese'
+
+  - id: '9be293a3-53e7-4cd2-ad3f-d3bf0d6dfa76'
+    alias: 'living_room_east_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'living_room_east_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.living_room_upper_east'
+        button2_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.living_room_lower_east'
+
+  - id: '2a679f20-660f-4424-b6f6-a6c031aff07f'
+    alias: 'living_room_north_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'living_room_north_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id:
+              - 'light.outside_nne'
+              - 'light.outside_nnw'
+
+  - id: 'e389a147-b6a7-4191-ad2c-82517c8d56f4'
+    alias: 'living_room_west_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'living_room_west_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.living_room_upper_west'
+        button2_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.living_room_lower_west'
+
+  - id: '1c2ddeeb-3389-44a9-938f-0100c5485628'
+    alias: 'office_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'office_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.office'
+
+  - id: '048e933b-c33d-43cb-8907-fc9cda9fc39a'
+    alias: 'toilet_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'toilet_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.toilet'
+        button2_click:
+          service: 'fan.toggle'
+          data:
+            entity_id: 'fan.toilet'
