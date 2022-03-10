@@ -253,11 +253,9 @@ cards:
         - entity_id: 'sensor.firmware_updates_available'
         - entity_id: 'sensor.low_battery'
         - entity_id: 'sensor.mosquitto_*'
-        - entity_id: 'sensor.room_assistant_cluster_*'
         - entity_id: 'sensor.unavailable_entities'
         - entity_id: 'sensor.unifi_*'
         - entity_id: 'sensor.zigbee2mqtt_*'
-        - entity_id: 'sensor.*_room_presence'
         - entity_id: 'switch.*_do_not_disturb'
 
         - domain: 'alarm_control_panel'
@@ -320,15 +318,6 @@ cards:
       - entity: 'sensor.mosquitto_cpu_percent'
         name: 'CPU'
       - entity: 'sensor.mosquitto_memory_percent'
-        name: 'Memory'
-
-      - type: 'section'
-        label: 'Room Assistant'
-      - entity: 'binary_sensor.room_assistant_running'
-        name: 'Running'
-      - entity: 'sensor.room_assistant_cpu_percent'
-        name: 'CPU'
-      - entity: 'sensor.room_assistant_memory_percent'
         name: 'Memory'
 
       - type: 'section'

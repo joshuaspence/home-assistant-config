@@ -2,7 +2,6 @@
   "files.associations": {
     "**/.github/**/*.yaml": "yaml",
     "**/esphome/*.yaml": "esphome",
-    "**/room_assistant/*.yaml": "yaml",
     "**/zigbee2mqtt/*.yaml": "yaml",
     "*.yaml": "home-assistant",
     ".markdownlint.yaml": "yaml",

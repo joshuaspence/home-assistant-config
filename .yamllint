@@ -8,7 +8,6 @@ ignore: |-
 
   # Encrypted files.
   /esphome/secrets.yaml
-  /room_assistant/default.yaml
   /secrets.yaml
   /zigbee2mqtt/secret.yaml
 
