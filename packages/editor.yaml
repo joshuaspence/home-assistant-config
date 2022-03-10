@@ -1,4 +1,5 @@
 ---
+# Entities contained within these files can be managed via the UI.
 automation: !include '../automations.yaml'
 scene: !include '../scenes.yaml'
 script: !include '../scripts.yaml'
