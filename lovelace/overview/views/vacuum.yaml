@@ -1,0 +1,18 @@
+---
+title: 'Vacuum'
+icon: 'mdi:robot-vacuum'
+path: 'vacuum'
+cards:
+  - type: 'custom:vacuum-card'
+    entity: 'vacuum.deebot'
+
+  - type: 'custom:auto-entities'
+    card:
+      type: 'entities'
+      title: 'Automations'
+      icon: 'mdi:robot'
+    filter:
+      include:
+        - entity_id: 'automation.vacuum_*'
+          options:
+            secondary_info: 'last-triggered'
