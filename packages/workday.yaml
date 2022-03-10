@@ -4,3 +4,33 @@ binary_sensor:
     name: 'Workday'
     country: 'AU'
     province: 'NSW'
+
+automation:
+  - alias: 'Workday Lighting'
+    id: '11806cb8-d600-48be-a74a-ac71bf258626'
+    trigger:
+      platform: 'time'
+      at:
+        - '08:30'
+        - '18:00'
+    condition:
+      condition: 'state'
+      entity_id: 'binary_sensor.workday'
+      state: 'on'
+    action:
+      choose:
+        - conditions:
+            condition: 'time'
+            after: '08:00'
+            before: '10:00'
+          sequence:
+            service: 'light.turn_on'
+            entity_id: 'light.office'
+
+        - conditions:
+            condition: 'time'
+            after: '16:00'
+            before: '20:00'
+          sequence:
+            service: 'light.turn_off'
+            entity_id: 'light.office'
