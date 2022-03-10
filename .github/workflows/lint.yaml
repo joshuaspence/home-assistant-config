@@ -2,7 +2,9 @@
 name: 'Lint'
 on:
   pull_request: {}
-  push: {}
+  push:
+    branches:
+      - 'master'
 jobs:
   eslint:
     runs-on: 'ubuntu-latest'
