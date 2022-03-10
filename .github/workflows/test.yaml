@@ -25,6 +25,26 @@ jobs:
           target: 'esphome/secrets.yaml'
       - run: 'esphome config esphome/*.yaml'
 
+  esphome-build:
+    runs-on: 'ubuntu-latest'
+    strategy:
+      matrix:
+        version:
+          - 'dev'
+          - 'beta'
+          - 'latest'
+    continue-on-error: '${{ matrix.version == ''dev'' }}'
+    container:
+      image: 'esphome/esphome:${{ matrix.version }}'
+    steps:
+      - uses: 'actions/checkout@v3'
+      - uses: 'canastro/copy-action@0.0.2'
+        with:
+          source: '.github/stubs/esphome_secrets.yaml'
+          target: 'esphome/secrets.yaml'
+      - run: 'esphome compile esphome/*.yaml'
+
+
   home-assistant:
     runs-on: 'ubuntu-latest'
     strategy:
