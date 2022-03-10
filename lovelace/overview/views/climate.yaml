@@ -6,17 +6,99 @@ cards:
   - type: 'thermostat'
     entity: 'climate.aircon'
 
-  - type: 'vertical-stack'
+  - type: 'entities'
     title: 'Downstairs'
-    cards:
-      - type: 'button'
-        entity: 'switch.aircon_downstairs'
-        show_name: false
-        show_state: true
-        icon_height: '40px'
+    entities:
+      - entity: 'switch.aircon_downstairs'
+        name: 'Aircon'
+      - entity: 'sensor.downstairs_temperature'
+        name: 'Temperature'
+      - entity: 'sensor.downstairs_humidity'
+        name: 'Humidity'
 
-      - type: 'glance'
-        entities: &downstairs_temperature_entities
+      - type: 'section'
+        label: 'Temperature'
+      - entity: 'sensor.dining_room_temperature'
+        name: 'Dining Room'
+      - entity: 'sensor.kitchen_temperature'
+        name: 'Kitchen'
+      - entity: 'sensor.laundry_temperature'
+        name: 'Laundry'
+      - entity: 'sensor.living_room_temperature'
+        name: 'Living Room'
+
+      - type: 'section'
+        label: 'Humidity'
+      - entity: 'sensor.dining_room_humidity'
+        name: 'Dining Room'
+      - entity: 'sensor.kitchen_humidity'
+        name: 'Kitchen'
+      - entity: 'sensor.laundry_humidity'
+        name: 'Laundry'
+      - entity: 'sensor.living_room_humidity'
+        name: 'Living Room'
+
+  - type: 'entities'
+    title: 'Upstairs'
+    entities:
+      - entity: 'switch.aircon_upstairs'
+        name: 'Aircon'
+      - entity: 'sensor.upstairs_temperature'
+        name: 'Temperature'
+      - entity: 'sensor.upstairs_humidity'
+        name: 'Humidity'
+
+      - type: 'section'
+        label: 'Temperature'
+      - entity: 'sensor.bathroom_temperature'
+        name: 'Bathroom'
+      - entity: 'sensor.bedroom_1_temperature'
+        name: 'Bedroom 1'
+      - entity: 'sensor.bedroom_2_temperature'
+        name: 'Bedroom 2'
+      - entity: 'sensor.hallway_temperature'
+        name: 'Hallway'
+      - entity: 'sensor.office_temperature'
+        name: 'Office'
+      - entity: 'sensor.toilet_temperature'
+        name: 'Toilet'
+
+      - type: 'section'
+        label: 'Humidity'
+      - entity: 'sensor.bathroom_humidity'
+        name: 'Bathroom'
+      - entity: 'sensor.bedroom_1_humidity'
+        name: 'Bedroom 1'
+      - entity: 'sensor.bedroom_2_humidity'
+        name: 'Bedroom 2'
+      - entity: 'sensor.office_humidity'
+        name: 'Office'
+      - entity: 'sensor.toilet_humidity'
+        name: 'Toilet'
+
+  - type: 'vertical-stack'
+    title: 'Outside'
+    cards:
+      - type: 'weather-forecast'
+        entity: 'weather.home'
+      - type: 'custom:sun-card'
+      - type: 'entities'
+        entities:
+          - entity: 'sensor.inside_temperature'
+            name: 'Inside Temperature'
+          - entity: 'sensor.inside_humidity'
+            name: 'Inside Humidity'
+          - entity: 'sensor.outside_temperature'
+            name: 'Outside Temperature'
+          - entity: 'sensor.outside_humidity'
+            name: 'Outside Humidity'
+
+  - type: 'custom:collapsable-cards'
+    title: 'Daily'
+    cards:
+      - type: 'history-graph'
+        title: 'Downstairs Temperature'
+        entities:
           - entity: 'sensor.dining_room_temperature'
             name: 'Dining Room'
           - entity: 'sensor.kitchen_temperature'
@@ -26,10 +108,8 @@ cards:
           - entity: 'sensor.living_room_temperature'
             name: 'Living Room'
       - type: 'history-graph'
-        entities: *downstairs_temperature_entities
-
-      - type: 'glance'
-        entities: &downstairs_humidity_entities
+        title: 'Downstairs Humidity'
+        entities:
           - entity: 'sensor.dining_room_humidity'
             name: 'Dining Room'
           - entity: 'sensor.kitchen_humidity'
@@ -38,20 +118,10 @@ cards:
             name: 'Laundry'
           - entity: 'sensor.living_room_humidity'
             name: 'Living Room'
+
       - type: 'history-graph'
-        entities: *downstairs_humidity_entities
-
-  - type: 'vertical-stack'
-    title: 'Upstairs'
-    cards:
-      - type: 'button'
-        entity: 'switch.aircon_upstairs'
-        show_name: false
-        show_state: true
-        icon_height: '40px'
-
-      - type: 'glance'
-        entities: &upstairs_temperature_entities
+        title: 'Upstairs Temperature'
+        entities:
           - entity: 'sensor.bathroom_temperature'
             name: 'Bathroom'
           - entity: 'sensor.bedroom_1_temperature'
@@ -69,10 +139,8 @@ cards:
           - entity: 'sensor.toilet_temperature'
             name: 'Toilet'
       - type: 'history-graph'
-        entities: *upstairs_temperature_entities
-
-      - type: 'glance'
-        entities: &upstairs_humidity_entities
+        title: 'Upstairs Humidity'
+        entities:
           - entity: 'sensor.bathroom_humidity'
             name: 'Bathroom'
           - entity: 'sensor.bedroom_1_humidity'
@@ -87,18 +155,10 @@ cards:
             name: 'Office'
           - entity: 'sensor.toilet_humidity'
             name: 'Toilet'
+
       - type: 'history-graph'
-        entities: *upstairs_humidity_entities
-
-  - type: 'vertical-stack'
-    title: 'Outside'
-    cards:
-      - type: 'weather-forecast'
-        entity: 'weather.home'
-      - type: 'custom:sun-card'
-
-      - type: 'glance'
-        entities: &outside_temperature_entities
+        title: 'Outside Temperature'
+        entities:
           - entity: 'sensor.downstairs_temperature'
             name: 'Downstairs'
           - entity: 'sensor.inside_temperature'
@@ -108,10 +168,8 @@ cards:
           - entity: 'sensor.upstairs_temperature'
             name: 'Upstairs'
       - type: 'history-graph'
-        entities: *outside_temperature_entities
-
-      - type: 'glance'
-        entities: &outside_humidity_entities
+        title: 'Outside Humidity'
+        entities:
           - entity: 'sensor.downstairs_humidity'
             name: 'Downstairs'
           - entity: 'sensor.inside_humidity'
@@ -120,10 +178,8 @@ cards:
             name: 'Outside'
           - entity: 'sensor.upstairs_humidity'
             name: 'Upstairs'
-      - type: 'history-graph'
-        entities: *outside_humidity_entities
 
-  - type: 'vertical-stack'
+  - type: 'custom:collapsable-cards'
     title: 'Attic'
     cards:
       - type: 'glance'
@@ -155,7 +211,7 @@ cards:
       - type: 'history-graph'
         entities: *attic_humidity_entities
 
-  - type: 'vertical-stack'
+  - type: 'custom:collapsable-cards'
     title: 'Basement'
     cards:
       - type: 'glance'

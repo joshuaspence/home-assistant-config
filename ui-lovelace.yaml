@@ -1,2 +1,2 @@
 ---
-!include 'lovelace/basic/dashboard.yaml'
+!include 'lovelace/overview/dashboard.yaml'

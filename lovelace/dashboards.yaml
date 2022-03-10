@@ -1,10 +1,4 @@
 ---
-lovelace-advanced:
-  mode: 'yaml'
-  filename: 'lovelace/advanced/dashboard.yaml'
-  title: 'Advanced'
-  icon: 'mdi:home-assistant'
-
 hass-admin:
   mode: 'yaml'
   filename: 'lovelace/admin/dashboard.yaml'

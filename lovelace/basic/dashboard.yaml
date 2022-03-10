@@ -1,5 +1,0 @@
----
-views:
-  - !include 'views/lighting.yaml'
-  - !include 'views/climate.yaml'
-  - !include '../advanced/views/security.yaml'

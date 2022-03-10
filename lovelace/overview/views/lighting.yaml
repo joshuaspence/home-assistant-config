@@ -11,8 +11,6 @@ cards:
     filter:
       include:
         - domain: 'scene'
-      exclude:
-        - area: '*'
     sort:
       method: 'name'
 
@@ -112,7 +110,6 @@ cards:
     title: 'Other'
     show_header_toggle: false
     entities:
-      - 'light.basement'
       - type: 'custom:fold-entity-row'
         head: 'light.attic'
         entities:
@@ -121,6 +118,7 @@ cards:
           - 'light.attic_1'
           - 'light.attic_2'
           - 'light.attic_3'
+      - 'light.basement'
 
   - type: 'entities'
     title: 'Automations'
