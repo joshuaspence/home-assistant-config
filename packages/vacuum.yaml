@@ -13,6 +13,8 @@ deebot:
 automation:
   - alias: 'Vacuum Error'
     id: '10a065f5-f820-42d7-aa54-ceae3e8a4993'
+    mode: 'parallel'
+    max: 5
     trigger:
       - platform: 'state'
         entity_id: &entity_id 'vacuum.deebot'
@@ -24,8 +26,10 @@ automation:
     condition:
       condition: 'not'
       conditions:
-        condition: 'template'
-        value_template: '{{ trigger.id == "event" and trigger.event.data.error == "no_error" }}'
+        - condition: 'template'
+          value_template: '{{ trigger.id == "state" and trigger.to_state.attributes.error is none }}'
+        - condition: 'template'
+          value_template: '{{ trigger.id == "event" and trigger.event.data.error is none }}'
     variables:
       error_messages:
         host_hang: 'The robot is off the floor.'
