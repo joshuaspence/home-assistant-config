@@ -3,6 +3,7 @@ logger:
   default: 'warning'
   logs:
     homeassistant.components.system_log.external: 'info'
+    pychromecast.socket_client: 'fatal'
 
     # Temporary logging for debugging Ligio/hacc-ozmo#11.
     custom_components.deebot: 'debug'
