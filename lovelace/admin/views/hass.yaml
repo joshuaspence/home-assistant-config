@@ -214,7 +214,6 @@ cards:
             'aussie_broadband',
             'bureau_of_meteorology',
             'cloud',
-            'command_line',
             'daikin',
             'dnsip',
             'hacs',
@@ -279,7 +278,26 @@ cards:
   - type: 'entities'
     title: 'Updates'
     entities:
-      - 'sensor.hacs'
+      - type: 'section'
+        label: 'Home Assistant'
+      - entity: 'sensor.hass_newest_version'
+        name: 'Newest Version'
+      - entity: 'binary_sensor.hass_update_available'
+        name: 'Update Available'
+
+      - type: 'section'
+        label: 'Operating System'
+      - entity: 'sensor.hassos_version'
+        name: 'Current Version'
+      - entity: 'sensor.hassos_newest_version'
+        name: 'Newest Version'
+      - entity: 'binary_sensor.hassos_update_available'
+        name: 'Update Available'
+
+      - type: 'section'
+        label: 'HACS'
+      - entity: 'sensor.hacs'
+        name: 'Updates'
 
   - type: 'entities'
     title: 'Snapshots'

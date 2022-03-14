@@ -1,60 +1,45 @@
 ---
-sensor:
-  - platform: 'command_line'
-    command: 'curl --header "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" http://supervisor/info | jq .data'
-    name: 'Current Version'
-    unique_id: 'b6711ddd-1820-4eef-8efc-82d76c8177b0'
-    value_template: '{{ value_json.homeassistant }}'
-    scan_interval: 600
-    json_attributes:
-      - 'hassos'
-
 automation:
   - id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
     alias: 'Home Assistant Update Available'
     trigger:
       platform: 'state'
-      entity_id:
-        - 'sensor.current_version'
-        - 'sensor.latest_version'
-    condition:
-      condition: 'not'
-      conditions:
-        condition: 'or'
-        conditions:
-          - condition: 'state'
-            entity_id: 'sensor.current_version'
-            state: 'unavailable'
-          - condition: 'state'
-            entity_id: 'sensor.latest_version'
-            state: 'unavailable'
+      entity_id: 'binary_sensor.hass_update_available'
     action:
       - choose:
-          - conditions: '{{ states("sensor.current_version") != states("sensor.latest_version") }}'
+          - conditions: '{{ trigger.to_state.state == "on" }}'
             sequence:
               service: 'persistent_notification.create'
               data:
                 title: 'Update Available'
                 message: >-
-                  [Home Assistant {{ states("sensor.latest_version") }}](/hassio/update-available/core) is available.'
+                  [Home Assistant {{ states('sensor.hass_newest_version') }}](/hassio/update-available/core) is available.
                 notification_id: 'update_available_homeassistant'
-        default:
-          service: 'persistent_notification.dismiss'
-          data:
-            notification_id: 'update_available_homeassistant'
-
+          - conditions: '{{ trigger.to_state.state == "off" }}'
+            sequence:
+              service: 'persistent_notification.dismiss'
+              data:
+                notification_id: 'update_available_homeassistant'
+  - id: 'aa2c8c93-8c99-48e4-9070-a80c07f8c7cf'
+    alias: 'HassOS Update Available'
+    trigger:
+      platform: 'state'
+      entity_id: 'binary_sensor.hassos_update_available'
+    action:
       - choose:
-          - conditions: '{{ state_attr("sensor.current_version", "hassos") != state_attr("sensor.latest_version", "os") }}'
+          - conditions: '{{ trigger.to_state.state == "on" }}'
             sequence:
               service: 'persistent_notification.create'
               data:
                 title: 'Update Available'
-                message: 'HassOS {{ state_attr("sensor.latest_version", "os") }} is available.'
+                message: >-
+                  HassOS {{ states('sensor.hassos_newest_version') }} is available.
                 notification_id: 'update_available_hassos'
-        default:
-          service: 'persistent_notification.dismiss'
-          data:
-            notification_id: 'update_available_hassos'
+          - conditions: '{{ trigger.to_state.state == "off" }}'
+            sequence:
+              service: 'persistent_notification.dismiss'
+              data:
+                notification_id: 'update_available_hassos'
 
   - id: 'ec311ea9-3c96-4505-9bf3-b393d9e7e1f2'
     alias: 'ESPHome Add-on Update Notification'
