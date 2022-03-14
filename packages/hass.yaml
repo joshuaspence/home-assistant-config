@@ -8,7 +8,6 @@ sensor:
     scan_interval: 600
     json_attributes:
       - 'hassos'
-      - 'supervisor'
 
 automation:
   - id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
@@ -56,19 +55,6 @@ automation:
           service: 'persistent_notification.dismiss'
           data:
             notification_id: 'update_available_hassos'
-
-      - choose:
-          - conditions: '{{ state_attr("sensor.current_version", "supervisor") != state_attr("sensor.latest_version", "supervisor") }}'
-            sequence:
-              service: 'persistent_notification.create'
-              data:
-                title: 'Update Available'
-                message: 'Supervisor {{ state_attr("sensor.latest_version", "supervisor") }} is available.'
-                notification_id: 'update_available_supervisor'
-        default:
-          service: 'persistent_notification.dismiss'
-          data:
-            notification_id: 'update_available_supervisor'
 
   - id: 'ec311ea9-3c96-4505-9bf3-b393d9e7e1f2'
     alias: 'ESPHome Add-on Update Notification'
