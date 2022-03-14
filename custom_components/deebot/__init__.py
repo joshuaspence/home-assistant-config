@@ -115,7 +115,7 @@ def setup(hass, config):
             config[DOMAIN].get(CONF_CONTINENT).lower(),
             monitor=True,
         )
-        vacbot.iotmq.enable_logger()
+        vacbot.iotmq.enable_logger(_LOGGER)
         hass.data[ECOVACS_DEVICES].append(vacbot)
 
     def stop(event: object) -> None:
