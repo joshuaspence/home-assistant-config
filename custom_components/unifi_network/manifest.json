@@ -1,7 +1,7 @@
 {
   "domain": "unifi_network",
   "name": "UniFi Network",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "documentation": "https://github.com/joshuaspence/hass-unifi_network",
   "issue_tracker": "https://github.com/joshuaspence/hass-unifi_network/issues",
   "dependencies": [],
