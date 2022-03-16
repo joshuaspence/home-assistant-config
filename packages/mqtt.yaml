@@ -18,10 +18,6 @@ sensor:
     name: 'Mosquitto Subscriptions'
     unique_id: '20cd969c-00a4-4c10-9b42-b09da100a37f'
     state_topic: '$SYS/broker/subscriptions/count'
-  - platform: 'mqtt'
-    name: 'Mosquitto Version'
-    unique_id: '7ad75490-1231-4adf-8494-f486fd166dfd'
-    state_topic: '$SYS/broker/version'
 
   # Zigbee2MQTT
   - platform: 'mqtt'
