@@ -34,7 +34,7 @@ automation:
               data:
                 title: 'Update Available'
                 message: >-
-                  HassOS {{ states('sensor.hassos_newest_version') }} is available.
+                  [HassOS {{ states('sensor.hassos_newest_version') }}](/hassio/update-available/os) is available.
                 notification_id: 'update_available_hassos'
           - conditions: '{{ trigger.to_state.state == "off" }}'
             sequence:
