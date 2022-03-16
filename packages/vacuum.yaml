@@ -16,20 +16,13 @@ automation:
     mode: 'parallel'
     max: 5
     trigger:
-      - platform: 'state'
-        entity_id: &entity_id 'vacuum.deebot'
-        attribute: &error_attribute 'error'
-        id: 'state'
-      - platform: 'event'
-        event_type: 'ecovacs_error'
-        id: 'event'
+      platform: 'event'
+      event_type: 'ecovacs_error'
+      event_data:
+        entity_id: 'vacuum.deebot'
     condition:
-      condition: 'not'
-      conditions:
-        - condition: 'template'
-          value_template: '{{ trigger.id == "state" and trigger.to_state.attributes.error is none }}'
-        - condition: 'template'
-          value_template: '{{ trigger.id == "event" and trigger.event.data.error == "no_error" }}'
+      condition: 'template'
+      value_template: '{{ trigger.event.data.error not in ("low_battery", "no_error") }}'
     variables:
       error_messages:
         host_hang: 'The robot is off the floor.'
@@ -41,7 +34,7 @@ automation:
         target: 'josh_phone'
         title: '{{ state_attr("vacuum.deebot", "friendly_name") }} has experienced an error'
         message: >-
-          {% set error_code = trigger.to_state.attributes.error if trigger.id == 'state' else trigger.event.data.error %}
+          {% set error_code = trigger.event.data.error %}
           {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred (' ~ error_code ~ ').' }}
     trace:
       stored_traces: 20
@@ -49,28 +42,28 @@ automation:
     id: '77a8cf42-1126-4741-be4a-17869fadcabb'
     trigger:
       platform: 'numeric_state'
-      entity_id: *entity_id
+      entity_id: 'vacuum.deebot'
       attribute: 'battery_level'
       below: 20
     condition:
       condition: 'not'
       conditions:
         - condition: 'state'
-          entity_id: *entity_id
+          entity_id: 'vacuum.deebot'
           attribute: 'status'
           state: 'charging'
         - condition: 'state'
-          entity_id: *entity_id
+          entity_id: 'vacuum.deebot'
           state: 'returning'
     action:
       service: 'vacuum.return_to_base'
       data:
-        entity_id: *entity_id
+        entity_id: 'vacuum.deebot'
   - id: '46e2e798-2a9d-4d8c-aa73-bb989ac33099'
     alias: 'Vacuum Stuck'
     trigger:
       platform: 'state'
-      entity_id: *entity_id
+      entity_id: 'vacuum.deebot'
       attribute: 'status'
       to: 'returning'
       for:
