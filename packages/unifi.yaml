@@ -131,3 +131,8 @@ automation:
           message: 'There are {{ trigger.to_state.state }} firmware updates available.'
           notification_id: 'unifi-firmware'
     mode: 'restart'
+
+history:
+  exclude:
+    entity_globs:
+      - 'sensor.unifi_gateway_*'

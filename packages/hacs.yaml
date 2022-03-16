@@ -23,3 +23,8 @@ automation:
       data:
         title: 'Update Available'
         message: 'HACS updates are available.'
+
+history:
+  exclude:
+    entities:
+      - 'sensor.hacs'

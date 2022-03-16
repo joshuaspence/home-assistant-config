@@ -1,4 +1,18 @@
 ---
+history:
+  exclude:
+    entity_globs:
+      - 'sensor.*_phone_*'
+logbook:
+  exclude:
+    entity_globs:
+      - 'binary_sensor.*_phone_*'
+      - 'sensor.*_phone_*'
+recorder:
+  exclude:
+    entity_globs:
+      - 'sensor.*_phone_last_notification'
+
 switch:
   - platform: 'template'
     switches:

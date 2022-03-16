@@ -34,3 +34,8 @@ automation:
           sequence:
             service: 'light.turn_off'
             entity_id: 'light.office'
+
+history:
+  exclude:
+    entities:
+      - 'binary_sensor.workday'

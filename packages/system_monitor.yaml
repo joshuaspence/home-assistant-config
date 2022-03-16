@@ -20,3 +20,13 @@ homeassistant:
       icon: 'mdi:thermometer'
     sensor.processor_use_percent:
       friendly_name: 'Processor use'
+
+history:
+  exclude:
+    entities:
+      - 'sensor.disk_use_percent'
+      - 'sensor.memory_use_percent'
+      - 'sensor.myip'
+      - 'sensor.processor_temperature'
+      - 'sensor.processor_use_percent'
+      - 'sensor.uptime'

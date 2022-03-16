@@ -5,32 +5,16 @@ history:
       - 'automation'
     entities:
       - 'binary_sensor.remote_ui'
-      - 'binary_sensor.workday'
       - 'sensor.backup_state'
-      - 'sensor.disk_use_percent'
-      - 'sensor.hacs'
-      - 'sensor.low_battery'
-      - 'sensor.memory_use_percent'
-      - 'sensor.myip'
-      - 'sensor.processor_temperature'
-      - 'sensor.processor_use_percent'
       - 'sensor.snapshot_backup'
-      - 'sensor.unavailable_entities'
-      - 'sensor.uptime'
     entity_globs:
-      - 'sensor.*_newest_version'
-      - 'sensor.*_phone_*'
-      - 'sensor.*_sensor_power'
       - 'sensor.*_shelly*_temperature'
       - 'sensor.*_version'
       - 'sensor.speedtest_*'
-      - 'sensor.unifi_gateway_*'
 
 logbook:
   exclude:
-    entity_globs:
-      - 'binary_sensor.*_phone_*'
-      - 'sensor.*_phone_*'
+    entity_globs: []
 
 recorder:
   purge_keep_days: 30
@@ -38,6 +22,5 @@ recorder:
   exclude:
     domains: []
     entities: []
-    entity_globs:
-      - 'sensor.*_phone_last_notification'
+    entity_globs: []
     event_types: []

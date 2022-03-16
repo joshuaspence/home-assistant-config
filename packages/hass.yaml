@@ -1,4 +1,5 @@
 ---
+# TODO: Add automation to check that add-ons are running.
 automation:
   - id: 'b00c4a0f-8d93-4082-a82d-fd62b042e840'
     alias: 'Home Assistant Update Available'
@@ -92,4 +93,7 @@ automation:
         current_version_sensor: 'sensor.zigbee2mqtt_version'
         newest_version_sensor: 'sensor.zigbee2mqtt_newest_version'
 
-# TODO: Add automation to check that add-ons are running.
+history:
+  exclude:
+    entity_globs:
+      - 'sensor.*_newest_version'
