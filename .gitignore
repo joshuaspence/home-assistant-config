@@ -1,5 +1,10 @@
+# HACS
+/custom_components/
+/themes/
+/www/community/
+
 # Home Assistant
-/blueprints/*/homeassistant/
+/blueprints/*/homeassistant/ # checkme
 /.cloud/
 /.HA_VERSION
 /home-assistant.log

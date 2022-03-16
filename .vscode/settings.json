@@ -7,7 +7,5 @@
     ".markdownlint.yaml": "yaml",
     ".yamllint": "yaml"
   },
-	"files.exclude": {
-		"www/community/**": true
-  }
+	"files.exclude": {}
 }

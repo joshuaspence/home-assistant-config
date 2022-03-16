@@ -1,7 +1,2 @@
-# HACS
-/custom_components/** linguist-vendored
-/themes/** linguist-vendored
-/www/community/** linguist-vendored
-
 # Home Assistant
 /secrets.yaml diff=git-crypt filter=git-crypt
