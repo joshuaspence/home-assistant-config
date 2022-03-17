@@ -1,5 +1,4 @@
 # Home Assistant
-/blueprints/*/homeassistant/
 /.cloud/
 /.HA_VERSION
 /home-assistant.log
