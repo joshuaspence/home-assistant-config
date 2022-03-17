@@ -39,39 +39,3 @@ automation:
           {{ error_messages[error_code] if error_code in error_messages else 'An unknown error occurred (' ~ error_code ~ ').' }}
     trace:
       stored_traces: 20
-  - alias: 'Vacuum Low Battery'
-    id: '77a8cf42-1126-4741-be4a-17869fadcabb'
-    trigger:
-      platform: 'numeric_state'
-      entity_id: 'vacuum.deebot'
-      attribute: 'battery_level'
-      below: 20
-    condition:
-      condition: 'not'
-      conditions:
-        - condition: 'state'
-          entity_id: 'vacuum.deebot'
-          attribute: 'status'
-          state: 'charging'
-        - condition: 'state'
-          entity_id: 'vacuum.deebot'
-          state: 'returning'
-    action:
-      service: 'vacuum.return_to_base'
-      data:
-        entity_id: 'vacuum.deebot'
-  - id: '46e2e798-2a9d-4d8c-aa73-bb989ac33099'
-    alias: 'Vacuum Stuck'
-    trigger:
-      platform: 'state'
-      entity_id: 'vacuum.deebot'
-      attribute: 'status'
-      to: 'returning'
-      for:
-        minutes: 30
-    action:
-      service: 'script.mobile_app_notify'
-      data:
-        target: 'josh_phone'
-        title: 'Vacuum Stuck'
-        message: 'Vaccum has been returning to base for 30 minutes and is likely stuck.'
