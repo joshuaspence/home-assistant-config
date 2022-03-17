@@ -16,7 +16,7 @@ jobs:
           - 'dev'
           - 'beta'
           - 'latest'
-    continue-on-error: '${{ matrix.version == ''dev'' }}'
+    continue-on-error: '${{ matrix.version != ''latest'' }}'
     container:
       image: 'esphome/esphome:${{ matrix.version }}'
     steps:
@@ -35,7 +35,7 @@ jobs:
           - 'dev'
           - 'beta'
           - 'stable'
-    continue-on-error: '${{ matrix.version == ''dev'' }}'
+    continue-on-error: '${{ matrix.version != ''stable'' }}'
     steps:
       - uses: 'actions/checkout@v3'
       - uses: 'frenck/action-home-assistant@v1.3'

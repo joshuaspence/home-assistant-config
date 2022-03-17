@@ -16,7 +16,7 @@ jobs:
           - 'dev'
           - 'beta'
           - 'latest'
-    continue-on-error: '${{ matrix.version == ''dev'' }}'
+    continue-on-error: '${{ matrix.version != ''latest'' }}'
     container:
       image: 'esphome/esphome:${{ matrix.version }}'
     steps:
