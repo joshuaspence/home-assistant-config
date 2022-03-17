@@ -17,6 +17,7 @@ logbook:
     entity_globs: []
 
 recorder:
+  auto_purge: false
   purge_keep_days: 30
   commit_interval: 300
   exclude:
@@ -24,3 +25,26 @@ recorder:
     entities: []
     entity_globs: []
     event_types: []
+
+automation:
+  - id: '09c4eacb-3c9c-4e2a-84f1-a1a5d84e71ee'
+    alias: 'Recorder Purge'
+    trigger:
+      platform: 'time'
+      at: '04:12'
+    action:
+      service: 'recorder.purge'
+
+  - id: '28f8f02d-010a-484a-aca3-35e27f43352d'
+    alias: 'Recorder Repack'
+    trigger:
+      platform: 'time'
+      at: '05:00'
+    condition:
+      condition: 'time'
+      weekday:
+        - 'sun'
+    action:
+      service: 'recorder.purge'
+      data:
+        repack: true
