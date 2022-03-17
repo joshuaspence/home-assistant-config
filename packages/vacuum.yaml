@@ -25,6 +25,7 @@ automation:
       value_template: '{{ trigger.event.data.error not in ("low_battery", "no_error") }}'
     variables:
       error_messages:
+        debotsig: 'The robot is trapped. Please set it free.'
         host_hang: 'The robot is off the floor.'
         no_dust_box: 'Dust Bin not installed.'
         wheel_abnormal: 'Operating difficulties encountered. Please check the Driving Wheel.'
