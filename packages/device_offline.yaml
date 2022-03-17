@@ -15,6 +15,7 @@ template:
             states | selectattr('state', 'eq', 'unavailable') |
             rejectattr('domain', 'eq', 'group') |
             rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
+            rejectattr('attributes.restored', 'true') |
             map(attribute='entity_id') | list | count
           }}
         unit_of_measurement: 'entities'
@@ -25,6 +26,7 @@ template:
               states | selectattr('state', 'in', ['unavailable']) |
               rejectattr('domain', 'eq', 'group') |
               rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
+              rejectattr('attributes.restored', 'true') |
               map(attribute='entity_id') | list
             }}
 
