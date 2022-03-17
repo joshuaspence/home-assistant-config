@@ -22,7 +22,7 @@ automation:
         entity_id: 'vacuum.deebot'
     condition:
       condition: 'template'
-      value_template: '{{ trigger.event.data.error not in ("low_battery", "no_error") }}'
+      value_template: '{{ trigger.event.data.error not in ("battery_low", "no_error") }}'
     variables:
       error_messages:
         debotsig: 'The robot is trapped. Please set it free.'
