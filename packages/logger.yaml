@@ -8,10 +8,6 @@ logger:
     # Temporary logging for debugging Ligio/hacc-ozmo#11.
     custom_components.deebot: 'debug'
     ozmo: 'debug'
-
-    # Temporary logging.
-    homeassistant.components.tplink: 'debug'
-    kasa: 'debug'
   filters:
     # See home-assistant/core#41420.
     hass_nabucasa.remote:
