@@ -60,7 +60,9 @@ sensor:
       - name: 'Recorder Events'
         query: 'SELECT COUNT(*) AS count FROM events'
         column: 'count'
+        unit_of_measurement: 'events'
       - name: 'Recorder States'
         query: 'SELECT COUNT(*) AS count FROM states'
         column: 'count'
+        unit_of_measurement: 'states'
     scan_interval: 600
