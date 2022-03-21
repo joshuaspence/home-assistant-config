@@ -74,6 +74,8 @@
       state: 'on'
     media_player.bedroom_1_speaker:
       state: 'off'
+    switch.bedroom_1_air_purifier_night_mode:
+      state: 'off'
     switch.bedroom_1_speaker_do_not_disturb:
       state: 'off'
 - id: '09ebab34-b7f2-4f40-99fe-0c58fbdd283e'
@@ -88,6 +90,8 @@
         media_content_type: 'audio/mp3'
         state: 'playing'
         volume_level: '0.5'
+    switch.bedroom_1_air_purifier_night_mode:
+      state: 'on'
     switch.bedroom_1_ceiling_projector:
       state: 'off'
     switch.bedroom_1_speaker_do_not_disturb:
