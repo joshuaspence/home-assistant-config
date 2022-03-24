@@ -60,6 +60,7 @@ localtuya:
         friendly_name: 'Bedroom 1 Air Quality'
         id: 2
         device_class: 'pm25'
+        unit_of_measurement: 'μg/m³'
         scaling: 0.1
       - platform: 'select'
         friendly_name: 'Bedroom 1 Air Purifier Mode'
