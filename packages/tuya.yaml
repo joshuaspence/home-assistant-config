@@ -75,6 +75,7 @@ localtuya:
       - platform: 'sensor'
         friendly_name: 'Bedroom 1 Air Purifier Filter Remaining Time'
         id: 16
+        unit_of_measurement: 'days'
 
   - host: '192.168.20.49'
     device_id: !secret 'tuya.bedroom_1_ceiling_projector.device_id'
