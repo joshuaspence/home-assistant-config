@@ -13,7 +13,7 @@ logger:
     hass_nabucasa.remote:
       - '^Connection problem to snitun server$'
     snitun.client.client_peer:
-      - '^Challenge/Response error with SniTun server'
+      - '^Challenge/Response error with SniTun server\b'
 
     # See thomasloven/hass-browser_mod#203.
     homeassistant.components.websocket_api.http.connection:
