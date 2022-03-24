@@ -51,9 +51,11 @@ localtuya:
     friendly_name: 'Bedroom 1 Air Purifier'
     scan_interval: 120
     entities:
-      - platform: 'switch'
+      - platform: 'fan'
         friendly_name: 'Bedroom 1 Air Purifier'
         id: 1
+        fan_speed_control: 4
+        fan_speed_ordered_list: 'low,mid,high,turbo'
       - platform: 'sensor'
         friendly_name: 'Bedroom 1 Air Quality'
         id: 2
@@ -64,10 +66,6 @@ localtuya:
         id: 3
         select_options: 'manual;auto'
         select_options_friendly: 'Manual;Auto'
-      - platform: 'fan'
-        friendly_name: 'Bedroom 1 Air Purifier'
-        id: 4
-        fan_speed_ordered_list: 'low,mid,high,turbo'
       - platform: 'switch'
         friendly_name: 'Bedroom 1 Air Purifier Night Mode'
         id: 8
