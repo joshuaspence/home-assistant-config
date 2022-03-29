@@ -4,10 +4,6 @@ logger:
   logs:
     homeassistant.components.system_log.external: 'info'
     pychromecast.socket_client: 'fatal'
-
-    # Temporary logging for debugging Ligio/hacc-ozmo#11.
-    custom_components.deebot: 'debug'
-    ozmo: 'debug'
   filters:
     # See home-assistant/core#41420.
     hass_nabucasa.remote:
