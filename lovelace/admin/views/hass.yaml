@@ -168,6 +168,13 @@ cards:
 
   - type: 'entities'
     entities:
+      - entity: 'sensor.unavailable_devices'
+      - type: 'attribute'
+        entity: 'sensor.unavailable_devices'
+        attribute: 'devices'
+      - type: 'attribute'
+        entity: 'sensor.unavailable_devices'
+        attribute: 'entities'
       - entity: 'sensor.unavailable_entities'
       - type: 'attribute'
         entity: 'sensor.unavailable_entities'

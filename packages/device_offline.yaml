@@ -6,28 +6,72 @@ template:
       - platform: 'state'
         entity_id: 'binary_sensor.zigbee2mqtt_state'
       - platform: 'event'
-        event_type: 'entity_registry_updated'
+        event_type:
+          - 'device_registry_updated'
+          - 'entity_registry_updated'
     sensor:
+      - name: 'Unavailable Devices'
+        unique_id: 'bbeb3c7e-ccf9-4228-b989-65e64b95d88a'
+        state: >-
+          {{
+            states.sensor.unavailable_entities.attributes.entities |
+            map('device_id') | reject('none') | unique |
+            list | count
+          }}
+        unit_of_measurement: 'devices'
+        icon: '{{ is_state("sensor.unavailable_entities", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
+        availability: '{{ states("sensor.unavailable_entities") not in ["unavailable", "unknown"] }}'
+        attributes:
+          devices: >-
+            {% set ns = namespace(devices={}) %}
+
+            {% for entity in state_attr('sensor.unavailable_entities', 'entities') %}
+            {%   set device = device_id(entity) %}
+            {%   if device is not none %}
+            {%     if device not in ns.devices %}
+            {%       set ns.devices = dict(ns.devices, **{ device: [] }) %}
+            {%     endif %}
+            {%     set ns.devices = dict(ns.devices, **{ device: ns.devices[device] + [entity] }) %}
+            {%   endif %}
+            {% endfor %}
+
+            {{ ns.devices }}
+          entities: >-
+            {% set ns = namespace(entities=[]) %}
+
+            {% for entity in state_attr('sensor.unavailable_entities', 'entities') %}
+            {%   set device = device_id(entity) %}
+            {%   if device is none %}
+            {%     set ns.entities = ns.entities + [entity] %}
+            {%   endif %}
+            {% endfor %}
+
+            {{ ns.entities }}
+
       - name: 'Unavailable Entities'
         unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
         state: >-
           {{
-            states | selectattr('state', 'eq', 'unavailable') |
+            states |
+            selectattr('state', 'eq', 'unavailable') |
             rejectattr('domain', 'eq', 'group') |
             rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
             rejectattr('attributes.restored', 'true') |
-            map(attribute='entity_id') | list | count
+            map(attribute='entity_id') |
+            list | count
           }}
         unit_of_measurement: 'entities'
         icon: '{{ is_state("sensor.unavailable_entities", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
         attributes:
           entities: >-
             {{
-              states | selectattr('state', 'in', ['unavailable']) |
+              states |
+              selectattr('state', 'eq', 'unavailable') |
               rejectattr('domain', 'eq', 'group') |
               rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
               rejectattr('attributes.restored', 'true') |
-              map(attribute='entity_id') | list
+              map(attribute='entity_id') |
+              list
             }}
 
 group:
@@ -36,12 +80,14 @@ group:
       - 'group.ignored_firmware_updates'
       - 'sensor.josh_phone_next_alarm'
       - 'sensor.lily_phone_next_alarm'
+      - 'sensor.unavailable_devices'
       - 'sensor.unavailable_entities'
       - 'vacuum.deebot'
 
 history:
   exclude:
     entities:
+      - 'sensor.unavailable_devices'
       - 'sensor.unavailable_entities'
 
 automation:
@@ -49,7 +95,9 @@ automation:
     id: '7fa5aace-5294-4181-a6f3-4720b1fe1fde'
     trigger:
       platform: 'state'
-      entity_id: 'sensor.unavailable_entities'
+      entity_id:
+        - 'sensor.unavailable_devices'
+        - 'sensor.unavailable_entities'
     condition:
       - condition: 'state'
         entity_id: 'binary_sensor.zigbee2mqtt_state'
@@ -73,11 +121,14 @@ automation:
         service: 'script.mobile_app_notify'
         data:
           target: 'josh_phone'
-          title: 'Device(s) Offline'
+          title: 'Devices Offline'
           message: >-
-            {{ states('sensor.unavailable_entities') }} devices are offline.
+            {{ states('sensor.unavailable_devices') }} {{ is_state('sensor.unavailable_devices', '1') | iif('device is', 'devices are') }} offline.
 
-            {% for entity in state_attr('sensor.unavailable_entities', 'entities') -%}
+            {% for device, entities in state_attr('sensor.unavailable_devices', 'devices').items() -%}
+            - {{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}: {{ entities | join(', ') }}
+            {% endfor %}
+            {% for entity in state_attr('sensor.unavailable_devices', 'entities') -%}
             - {{ entity }}
             {% endfor %}
           tag: 'devices-offline'
