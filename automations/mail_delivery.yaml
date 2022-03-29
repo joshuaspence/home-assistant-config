@@ -19,6 +19,7 @@ condition:
 action:
   service: 'script.mobile_app_notify'
   data:
+    target: 'josh_phone'
     title: 'Mailbox Activity'
     message: 'Mailbox door was opened.'
     tag: 'mail-delivery'
