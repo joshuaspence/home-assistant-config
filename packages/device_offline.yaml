@@ -6,9 +6,37 @@ template:
       - platform: 'state'
         entity_id: 'binary_sensor.zigbee2mqtt_state'
       - platform: 'event'
-        event_type:
-          - 'device_registry_updated'
-          - 'entity_registry_updated'
+        event_type: 'entity_registry_updated'
+    sensor:
+      - name: 'Unavailable Entities'
+        unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
+        state: >-
+          {{
+            states |
+            selectattr('state', 'eq', 'unavailable') |
+            rejectattr('domain', 'eq', 'group') |
+            rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
+            rejectattr('attributes.restored', 'true') |
+            list | count
+          }}
+        unit_of_measurement: 'entities'
+        icon: '{{ is_state("sensor.unavailable_entities", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
+        attributes:
+          entities: >-
+            {{
+              states |
+              selectattr('state', 'eq', 'unavailable') |
+              rejectattr('domain', 'eq', 'group') |
+              rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
+              rejectattr('attributes.restored', 'true') |
+              map(attribute='entity_id') |
+              list
+            }}
+  - trigger:
+      - platform: 'state'
+        entity_id: 'sensor.unavailable_entities'
+      - platform: 'event'
+        event_type: 'device_registry_updated'
     sensor:
       - name: 'Unavailable Devices'
         unique_id: 'bbeb3c7e-ccf9-4228-b989-65e64b95d88a'
@@ -47,32 +75,6 @@ template:
             {% endfor %}
 
             {{ ns.entities }}
-
-      - name: 'Unavailable Entities'
-        unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
-        state: >-
-          {{
-            states |
-            selectattr('state', 'eq', 'unavailable') |
-            rejectattr('domain', 'eq', 'group') |
-            rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
-            rejectattr('attributes.restored', 'true') |
-            map(attribute='entity_id') |
-            list | count
-          }}
-        unit_of_measurement: 'entities'
-        icon: '{{ is_state("sensor.unavailable_entities", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
-        attributes:
-          entities: >-
-            {{
-              states |
-              selectattr('state', 'eq', 'unavailable') |
-              rejectattr('domain', 'eq', 'group') |
-              rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
-              rejectattr('attributes.restored', 'true') |
-              map(attribute='entity_id') |
-              list
-            }}
 
 group:
   ignored_entities:
