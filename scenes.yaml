@@ -89,7 +89,7 @@
         media_content_id: 'https://storage.googleapis.com/helpmesleep/whitenoise/Pink13.mp3'
         media_content_type: 'audio/mp3'
         state: 'playing'
-        volume_level: '0.5'
+        volume_level: '0.4'
     switch.bedroom_1_air_purifier_night_mode:
       state: 'on'
     switch.bedroom_1_ceiling_projector:
