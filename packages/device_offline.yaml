@@ -1,12 +1,12 @@
 ---
 template:
   - trigger:
-      - platform: 'time_pattern'
-        minutes: '*'
-      - platform: 'state'
-        entity_id: 'binary_sensor.zigbee2mqtt_state'
       - platform: 'event'
         event_type: 'entity_registry_updated'
+      - platform: 'state'
+        entity_id: 'binary_sensor.zigbee2mqtt_state'
+      - platform: 'time_pattern'
+        minutes: '*'
     sensor:
       - name: 'Unavailable Entities'
         unique_id: '5c27c9c2-bee0-461f-bb08-3fc5abde1340'
@@ -29,25 +29,24 @@ template:
               rejectattr('domain', 'eq', 'group') |
               rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
               rejectattr('attributes.restored', 'true') |
-              map(attribute='entity_id') |
-              list
+              map(attribute='entity_id') | list
             }}
   - trigger:
-      - platform: 'state'
-        entity_id: 'sensor.unavailable_entities'
       - platform: 'event'
         event_type: 'device_registry_updated'
+      - platform: 'state'
+        entity_id: 'sensor.unavailable_entities'
     sensor:
       - name: 'Unavailable Devices'
         unique_id: 'bbeb3c7e-ccf9-4228-b989-65e64b95d88a'
         state: >-
           {{
-            states.sensor.unavailable_entities.attributes.entities |
+            state_attr('sensor.unavailable_entities', 'entities') |
             map('device_id') | reject('none') | unique |
             list | count
           }}
         unit_of_measurement: 'devices'
-        icon: '{{ is_state("sensor.unavailable_entities", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
+        icon: '{{ is_state("sensor.unavailable_devices", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
         availability: '{{ states("sensor.unavailable_entities") not in ["unavailable", "unknown"] }}'
         attributes:
           devices: >-
@@ -97,23 +96,18 @@ automation:
     id: '7fa5aace-5294-4181-a6f3-4720b1fe1fde'
     trigger:
       platform: 'state'
-      entity_id:
-        - 'sensor.unavailable_devices'
-        - 'sensor.unavailable_entities'
-    condition:
-      - condition: 'state'
-        entity_id: 'binary_sensor.zigbee2mqtt_state'
-        state: 'on'
-      - condition: 'numeric_state'
-        entity_id: 'sensor.uptime'
-        value_template: '{{ (now() - as_datetime(state.state)).seconds }}'
-        above: 120
+      entity_id: 'sensor.unavailable_devices'
     action:
       choose:
         conditions:
-          condition: 'numeric_state'
-          entity_id: 'sensor.unavailable_entities'
-          below: 1
+          - condition: 'numeric_state'
+            entity_id: 'sensor.unavailable_devices'
+            below: 1
+          - condition: 'numeric_state'
+            entity_id: 'sensor.unavailable_devices'
+            attribute: 'entities'
+            value_template: '{{ state.state | count }}'
+            below: 1
         sequence:
           service: 'script.mobile_app_clear_notification'
           data:
