@@ -98,36 +98,37 @@ automation:
       platform: 'state'
       entity_id: 'sensor.unavailable_devices'
     action:
-      choose:
-        conditions:
-          - condition: 'numeric_state'
-            entity_id: 'sensor.unavailable_devices'
-            below: 1
-          - condition: 'numeric_state'
-            entity_id: 'sensor.unavailable_devices'
-            attribute: 'entities'
-            value_template: '{{ state.state | count }}'
-            below: 1
-        sequence:
-          service: 'script.mobile_app_clear_notification'
+      - delay: 5
+      - choose:
+          conditions:
+            - condition: 'numeric_state'
+              entity_id: 'sensor.unavailable_devices'
+              below: 1
+            - condition: 'numeric_state'
+              entity_id: 'sensor.unavailable_devices'
+              attribute: 'entities'
+              value_template: '{{ state.state | count }}'
+              below: 1
+          sequence:
+            service: 'script.mobile_app_clear_notification'
+            data:
+              target: 'josh_phone'
+              tag: 'devices-offline'
+        default:
+          service: 'script.mobile_app_notify'
           data:
             target: 'josh_phone'
-            tag: 'devices-offline'
-      default:
-        service: 'script.mobile_app_notify'
-        data:
-          target: 'josh_phone'
-          title: 'Devices Offline'
-          message: >-
-            {{ states('sensor.unavailable_devices') }} {{ is_state('sensor.unavailable_devices', '1') | iif('device is', 'devices are') }} offline.
+            title: 'Devices Offline'
+            message: >-
+              {{ states('sensor.unavailable_devices') }} {{ is_state('sensor.unavailable_devices', '1') | iif('device is', 'devices are') }} offline.
 
-            {% for device, entities in state_attr('sensor.unavailable_devices', 'devices').items() -%}
-            - {{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}: {{ entities | join(', ') }}
-            {% endfor %}
-            {% for entity in state_attr('sensor.unavailable_devices', 'entities') -%}
-            - {{ entity }}
-            {% endfor %}
-          tag: 'devices-offline'
+              {% for device, entities in state_attr('sensor.unavailable_devices', 'devices').items() -%}
+              - {{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}: {{ entities | join(', ') }}
+              {% endfor %}
+              {% for entity in state_attr('sensor.unavailable_devices', 'entities') -%}
+              - {{ entity }}
+              {% endfor %}
+            tag: 'devices-offline'
     mode: 'restart'
     trace:
       stored_traces: 10
