@@ -108,8 +108,7 @@ automation:
               below: 1
             - condition: 'numeric_state'
               entity_id: 'sensor.unavailable_devices'
-              attribute: 'entities'
-              value_template: '{{ state.state | count }}'
+              value_template: '{{ state.attributes.entities | count }}'
               below: 1
           sequence:
             service: 'script.mobile_app_clear_notification'
