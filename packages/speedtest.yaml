@@ -10,14 +10,11 @@ automation:
         - 'sensor.speedtest_ping'
         - 'sensor.speedtest_upload'
       to: &state 'unavailable'
+      for: 60
     condition:
       condition: 'state'
       entity_id: *entity_id
       state: *state
     action:
-      - service: 'system_log.write'
-        data:
-          message: 'Speedtest entities are unavailable, calling "speedtestdotnet.speedtest".'
-          level: 'warning'
-      - service: 'speedtestdotnet.speedtest'
+      service: 'speedtestdotnet.speedtest'
     mode: 'restart'
