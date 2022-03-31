@@ -228,6 +228,7 @@ cards:
             'mobile_app',
             'netgear_lte',
             'speedtestdotnet',
+            'sql',
             'systemmonitor',
             'unifi_network',
             'updater',
@@ -259,6 +260,7 @@ cards:
         - entity_id: 'sensor.firmware_updates_available'
         - entity_id: 'sensor.low_battery'
         - entity_id: 'sensor.mosquitto_*'
+        - entity_id: 'sensor.unavailable_devices'
         - entity_id: 'sensor.unavailable_entities'
         - entity_id: 'sensor.unifi_*'
         - entity_id: 'sensor.zigbee2mqtt_*'
