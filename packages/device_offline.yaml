@@ -46,7 +46,7 @@ template:
             list | count
           }}
         unit_of_measurement: 'devices'
-        icon: '{{ is_state("sensor.unavailable_devices", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
+        icon: '{{ is_state("sensor.unavailable_devices", "0") | iif("mdi:lan-connect", "mdi:lan-disconnect") }}'
         availability: '{{ states("sensor.unavailable_entities") not in ["unavailable", "unknown"] }}'
         attributes:
           devices: >-
@@ -119,16 +119,21 @@ automation:
           data:
             target: 'josh_phone'
             title: 'Devices Offline'
-            message: >-
+            subtitle: >-
               {{ states('sensor.unavailable_devices') }} {{ is_state('sensor.unavailable_devices', '1') | iif('device is', 'devices are') }} offline.
-
+            message: >-
               {% for device, entities in state_attr('sensor.unavailable_devices', 'devices').items() -%}
-              - {{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}: {{ entities | join(', ') }}
+              - <strong>{{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}:</strong> {{ entities | join(', ') }}
               {% endfor %}
               {% for entity in state_attr('sensor.unavailable_devices', 'entities') -%}
               - {{ entity }}
               {% endfor %}
+            channel: 'Device Offline'
+            icon: 'mdi:lan-disconnect'
+            persistent: true
+            sticky: true
             tag: 'devices-offline'
+            url: 'entityId:sensor.unavailable_devices'
     mode: 'restart'
     trace:
       stored_traces: 10
