@@ -81,6 +81,7 @@ group:
   ignored_entities:
     entities:
       - 'group.ignored_firmware_updates'
+      - 'sensor.firmware_updates_available'
       - 'sensor.josh_phone_next_alarm'
       - 'sensor.lily_phone_next_alarm'
       - 'sensor.unavailable_devices'
