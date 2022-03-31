@@ -92,8 +92,6 @@
         volume_level: '0.4'
     switch.bedroom_1_air_purifier_night_mode:
       state: 'on'
-    switch.bedroom_1_ceiling_projector:
-      state: 'off'
     switch.bedroom_1_speaker_do_not_disturb:
       state: 'on'
 
