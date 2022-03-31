@@ -1,8 +1,8 @@
 ---
 localtuya:
   - host: '192.168.20.12'
-    device_id: !secret 'tuya.attic_ridge.device_id'
-    local_key: !secret 'tuya.attic_ridge.local_key'
+    device_id: !secret 'localtuya.attic_ridge.device_id'
+    local_key: !secret 'localtuya.attic_ridge.local_key'
     friendly_name: 'Attic Ridge Light Strip'
     scan_interval: 120
     entities:
@@ -16,8 +16,8 @@ localtuya:
           color_temp: 23
 
   - host: '192.168.20.16'
-    device_id: !secret 'tuya.attic_1.device_id'
-    local_key: !secret 'tuya.attic_1.local_key'
+    device_id: !secret 'localtuya.attic_1.device_id'
+    local_key: !secret 'localtuya.attic_1.local_key'
     friendly_name: 'Attic Light Strip 1'
     scan_interval: 120
     entities:
@@ -26,8 +26,8 @@ localtuya:
         <<: *common_config
 
   - host: '192.168.20.17'
-    device_id: !secret 'tuya.attic_2.device_id'
-    local_key: !secret 'tuya.attic_2.local_key'
+    device_id: !secret 'localtuya.attic_2.device_id'
+    local_key: !secret 'localtuya.attic_2.local_key'
     friendly_name: 'Attic Light Strip 2'
     scan_interval: 120
     entities:
@@ -36,8 +36,8 @@ localtuya:
         <<: *common_config
 
   - host: '192.168.20.18'
-    device_id: !secret 'tuya.attic_3.device_id'
-    local_key: !secret 'tuya.attic_3.local_key'
+    device_id: !secret 'localtuya.attic_3.device_id'
+    local_key: !secret 'localtuya.attic_3.local_key'
     friendly_name: 'Attic Light Strip 3'
     scan_interval: 120
     entities:
@@ -46,8 +46,8 @@ localtuya:
         <<: *common_config
 
   - host: '192.168.10.145'
-    device_id: !secret 'tuya.bedroom_1_air_purifier.device_id'
-    local_key: !secret 'tuya.bedroom_1_air_purifier.local_key'
+    device_id: !secret 'localtuya.bedroom_1_air_purifier.device_id'
+    local_key: !secret 'localtuya.bedroom_1_air_purifier.local_key'
     friendly_name: 'Bedroom 1 Air Purifier'
     scan_interval: 120
     entities:
@@ -79,27 +79,24 @@ localtuya:
         unit_of_measurement: 'days'
 
   - host: '192.168.20.49'
-    device_id: !secret 'tuya.bedroom_1_ceiling_projector.device_id'
-    local_key: !secret 'tuya.bedroom_1_ceiling_projector.local_key'
+    device_id: !secret 'localtuya.bedroom_1_ceiling_projector.device_id'
+    local_key: !secret 'localtuya.bedroom_1_ceiling_projector.local_key'
     friendly_name: 'Bedroom 1 Ceiling Projector'
     scan_interval: 120
     entities:
       - platform: 'switch'
         friendly_name: 'Bedroom 1 Ceiling Projector'
         id: 20
-
       - platform: 'light'
         friendly_name: 'Bedroom 1 Ceiling Projector Light'
         id: 52
         color: 24
         color_mode: 51
-
       - platform: 'light'
         friendly_name: 'Bedroom 1 Ceiling Projector Laser'
         id: 53
         brightness: 54
         brightness_lower: 10
-
       - platform: 'light'
         friendly_name: 'Bedroom 1 Ceiling Projector Motor'
         id: 60
@@ -122,7 +119,7 @@ automation:
     action:
       service: 'localtuya.set_dp'
       data:
-        device_id: !secret 'tuya.bedroom_1_ceiling_projector.device_id'
+        device_id: !secret 'localtuya.bedroom_1_ceiling_projector.device_id'
         dp: 51
         value: 'manual'
     max_exceeded: 'silent'
