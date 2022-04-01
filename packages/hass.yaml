@@ -87,7 +87,7 @@ automation:
     use_blueprint:
       path: 'addon_update_notification.yaml'
       input:
-        addon: '45df7312_zigbee2mqtt_edge'
+        addon: '45df7312_zigbee2mqtt'
         name: 'Zigbee2mqtt'
         update_available_sensor: 'binary_sensor.zigbee2mqtt_update_available'
         current_version_sensor: 'sensor.zigbee2mqtt_version'
