@@ -64,9 +64,9 @@ template:
         unique_id: 'a6d6d6e8-e159-47ca-b4c7-4f0aa90d1bac'
         availability: '{{ states.sensor.unifi_gateway_wan is not none }}'
         state: >-
-          {% if is_state_attr('sensor.unifi_gateway_wan', 'wan_ip', '119.18.8.167') %}
+          {% if "WAN" in state_attr('sensor.unifi_gateway_wan', 'uptime_stats') %}
             Primary
-          {% elif is_state_attr('sensor.unifi_gateway_wan', 'wan_ip', '10.66.104.16') %}
+          {% elif "WAN2" in state_attr('sensor.unifi_gateway_wan', 'uptime_stats') %}
             Secondary
           {% else %}
             Unknown
