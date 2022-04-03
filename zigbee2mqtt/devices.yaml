@@ -232,3 +232,5 @@
   friendly_name: Stairway Motion Sensor
 '0x0017880106471777':
   friendly_name: Front Patio Motion Sensor
+'0x0017880109d479f3':
+  friendly_name: NBN Modem Smart Plug
