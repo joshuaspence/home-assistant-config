@@ -8,6 +8,7 @@
     ".yamllint": "yaml"
   },
 	"files.exclude": {
+    "custom_components/**": true,
 		"www/community/**": true
   }
 }
