@@ -1,4 +1,5 @@
 ---
+# TODO: Manage Google Cloud resources with Terraform.
 nest:
   client_id: !secret 'nest.client_id'
   client_secret: !secret 'nest.client_secret'
