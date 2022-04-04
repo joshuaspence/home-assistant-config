@@ -7,4 +7,5 @@ views:
   - !include 'views/family.yaml'
   - !include 'views/media.yaml'
   - !include 'views/vacuum.yaml'
+  - !include 'views/camera.yaml'
   - !include 'views/energy.yaml'

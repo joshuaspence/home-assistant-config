@@ -1,0 +1,9 @@
+---
+title: 'Cameras'
+icon: 'mdi:camera'
+path: 'camera'
+cards:
+  - type: 'entity'
+    entity: 'camera.baby_monitor'
+  - type: 'entity'
+    entity: 'camera.office'
