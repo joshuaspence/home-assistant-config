@@ -18,6 +18,8 @@ logger:
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
       - 'TcpTimeoutException'
+    custom_components.localtuya.common:
+      - 'Connect to (?:\d{1,3}\.){3}\d{1,3} failed'
     homeassistant.components.binary_sensor:
       - '^Platform netgear_lte not ready yet'
     homeassistant.components.netgear_lte:
@@ -25,6 +27,8 @@ logger:
       - '^Could not connect to'
     homeassistant.components.sensor:
       - '^Platform netgear_lte not ready yet'
+    homeassistant.components.stream.stream.camera.baby_monitor:
+      - '^Error from stream worker: Error opening stream \(HTTP_NOT_FOUND, Server returned 404 Not Found\)'
     homeassistant.config_entries:
       - '^Config entry ''DaikinAP13127'' for daikin integration not ready yet: Server disconnected; Retrying in background$'
     mqtt_schedule_thread: &deebot
