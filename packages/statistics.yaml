@@ -93,3 +93,24 @@ sensor:
       - 'sensor.basement_west_temperature'
     type: 'mean'
     name: 'Basement Temperature'
+
+  # TODO: Set `calibration_factor` correctly.
+  - platform: 'mold_indicator'
+    name: 'Basement Mould Indicator'
+    indoor_temp_sensor: 'sensor.basement_temperature'
+    indoor_humidity_sensor: 'sensor.basement_humidity'
+    outdoor_temp_sensor: 'sensor.outside_temperature'
+    calibration_factor: 0.75
+
+# Temporary sensor to calculate `calibration_factor` for `sensor.basement_mould_indicator`.
+template:
+  - trigger:
+      platform: 'state'
+      entity_id:
+        - 'sensor.basement_temperature'
+        - 'sensor.outside_temperature'
+    sensor:
+      - name: 'Basement Mould Indicator Calibration Factor'
+        unique_id: 'f0db2ef6-0f97-4268-872a-a44894bb9294'
+        state: '{{ (states("sensor.basement_temperature")|float - states("sensor.outside_temperature")|float) / (states("sensor.basement_west_temperature")|float - states("sensor.outside_temperature")|float) }}'
+        unit_of_measurement: '%'
