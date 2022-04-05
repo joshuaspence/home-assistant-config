@@ -1,0 +1,12 @@
+---
+id: '1ee5e569-7a96-415c-b004-0711912ce558'
+name: 'Bedroom 2 - Awake'
+icon: 'mdi:alarm'
+entities:
+  light.bedroom_2:
+    brightness: 255
+    state: 'on'
+  media_player.bedroom_2_speaker:
+    state: 'off'
+  switch.bedroom_2_speaker_do_not_disturb:
+    state: 'off'
