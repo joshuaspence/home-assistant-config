@@ -13,7 +13,7 @@ blueprint:
       <<: &common_config
         default: []
         selector:
-          action: {}
+          action: null
     button1_hold:
       name: 'Button 1 Hold'
       <<: *common_config

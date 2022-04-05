@@ -13,7 +13,7 @@ blueprint:
       <<: &common_config
         default: []
         selector:
-          action: {}
+          action: null
     manual_lock:
       name: 'Manual Lock'
       <<: *common_config
