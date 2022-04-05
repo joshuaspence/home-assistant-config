@@ -1,6 +1,6 @@
 ---
 automation: !include_dir_list 'automations'
-default_config: {}
+default_config: null
 group:
   family:
     entities:
