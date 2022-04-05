@@ -94,7 +94,6 @@ sensor:
     type: 'mean'
     name: 'Basement Temperature'
 
-  # TODO: Set `calibration_factor` correctly.
   - platform: 'mold_indicator'
     name: 'Basement Mould Indicator'
     indoor_temp_sensor: 'sensor.basement_temperature'
