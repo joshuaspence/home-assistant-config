@@ -16,8 +16,6 @@
   friendly_name: Bedroom 2 Motion Sensor
 '0x0017880109172d0f':
   friendly_name: Hallway West Motion Sensor
-'0x001788010965e470':
-  friendly_name: Living Room Dimmer Switch
 '0x00178801090ad3a7':
   friendly_name: Hallway West Light
 '0x001788010867ce35':
