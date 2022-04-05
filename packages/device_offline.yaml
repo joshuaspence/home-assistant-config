@@ -43,7 +43,7 @@ template:
         unique_id: 'bbeb3c7e-ccf9-4228-b989-65e64b95d88a'
         state: >-
           {{
-            state_attr('sensor.unavailable_entities', 'entities') | default([])
+            state_attr('sensor.unavailable_entities', 'entities') | default([]) |
             map('device_id') | reject('none') | unique |
             list | count
           }}
@@ -68,7 +68,7 @@ template:
           entities: >-
             {% set ns = namespace(entities=[]) %}
 
-            {% for entity in state_attr('sensor.unavailable_entities', 'entities') %}
+            {% for entity in state_attr('sensor.unavailable_entities', 'entities') | default([]) %}
             {%   set device = device_id(entity) %}
             {%   if device is none %}
             {%     set ns.entities = ns.entities + [entity] %}
