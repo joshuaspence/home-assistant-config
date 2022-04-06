@@ -32,17 +32,44 @@ netgear_lte:
         # TODO: Are these useful?
         - 'wire_connected'
 
-# http://192.168.200.1/index.html#messaging/1
 automation:
   - id: '595cc2f2-ac5d-4447-a995-5d6e71327141'
     alias: 'Netgear SMS'
     trigger:
-      platform: 'event'
-      event_type: 'netgear_lte_sms'
+      - platform: 'event'
+        event_type: 'netgear_lte_sms'
+        id: 'receive'
+      - platform: 'event'
+        event_type: 'mobile_app_notification_action'
+        event_data:
+          action: 'netgear_lte.delete_sms'
+        id: 'delete'
     action:
-      # TODO: Call `netgear_lte.delete_sms`.
-      - service: 'script.mobile_app_notify'
-        data:
-          target: 'josh_phone'
-          title: 'SMS Message Received - {{ trigger.event.data.from }}'
-          message: '{{ trigger.event.data.message }}'
+      choose:
+        - conditions:
+            condition: 'trigger'
+            id: 'receive'
+          sequence:
+            service: 'script.mobile_app_notify'
+            data:
+              target: 'josh_phone'
+              title: 'SMS Message Received'
+              subtitle: '{{ trigger.event.data.from }}'
+              message: '{{ trigger.event.data.message }}'
+              actions:
+                - action: 'URI'
+                  title: 'Open'
+                  uri: 'http://{{ trigger.event.data.host }}#messaging/{{ trigger.event.data.sms_id }}'
+                - action: 'netgear_lte.delete_sms'
+                  title: 'Delete'
+                  uri: '{{ trigger.event.data.sms_id }}'
+              channel: 'Netgear LTE SMS'
+              group: 'netgear_lte'
+              icon: 'mdi:message-text'
+        - conditions:
+            condition: 'trigger'
+            id: 'delete'
+          sequence:
+            service: 'netgear_lte.delete_sms'
+            data:
+              sms_id: '{{ trigger.event.data.action_2_uri }}'
