@@ -9,12 +9,26 @@ netgear_lte:
         recipient: !secret 'phone_number.lily'
     sensor:
       monitored_conditions:
+        - 'radio_quality'
         - 'sms'
+        - 'sms_total'
         - 'usage'
+
+        # TODO: Are these useful?
+        - 'connection_type'
+        - 'current_band'
+        - 'current_ps_service_type'
+        - 'register_network_display'
+        - 'rx_level'
+        - 'tx_level'
+        - 'upstream'
     binary_sensor:
       monitored_conditions:
         - 'mobile_connected'
         - 'roaming'
+
+        # TODO: Are these useful?
+        - 'wire_connected'
 
 automation:
   - id: '595cc2f2-ac5d-4447-a995-5d6e71327141'
