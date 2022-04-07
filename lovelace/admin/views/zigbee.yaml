@@ -65,6 +65,3 @@ cards:
         name: 'Stored Messages Bytes'
       - entity: 'sensor.mosquitto_subscriptions'
         name: 'Subscriptions'
-
-      - entity: 'sensor.mosquitto_version'
-        name: 'Version'

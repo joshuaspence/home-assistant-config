@@ -5,7 +5,7 @@ automation:
     alias: 'Home Assistant Update Available'
     trigger:
       platform: 'state'
-      entity_id: 'binary_sensor.hass_update_available'
+      entity_id: 'update.home_assistant_core'
     action:
       - choose:
           - conditions: '{{ trigger.to_state.state == "on" }}'
@@ -14,7 +14,7 @@ automation:
               data:
                 title: 'Update Available'
                 message: >-
-                  [Home Assistant {{ states('sensor.hass_newest_version') }}](/hassio/update-available/core) is available.
+                  [Home Assistant {{ state_attr('update.home_assistant_core', 'latest_version') }}](/hassio/update-available/core) is available.
                 notification_id: 'update_available_homeassistant'
           - conditions: '{{ trigger.to_state.state == "off" }}'
             sequence:
@@ -25,7 +25,7 @@ automation:
     alias: 'HassOS Update Available'
     trigger:
       platform: 'state'
-      entity_id: 'binary_sensor.hassos_update_available'
+      entity_id: 'update.hassos'
     action:
       - choose:
           - conditions: '{{ trigger.to_state.state == "on" }}'
@@ -34,7 +34,7 @@ automation:
               data:
                 title: 'Update Available'
                 message: >-
-                  [HassOS {{ states('sensor.hassos_newest_version') }}](/hassio/update-available/os) is available.
+                  [HassOS {{ state_attr('update.hassos', 'latest_version') }}](/hassio/update-available/os) is available.
                 notification_id: 'update_available_hassos'
           - conditions: '{{ trigger.to_state.state == "off" }}'
             sequence:
@@ -48,52 +48,33 @@ automation:
       path: 'addon_update_notification.yaml'
       input:
         addon: '5c53de3b_esphome'
-        name: 'ESPHome'
-        update_available_sensor: 'binary_sensor.esphome_update_available'
-        current_version_sensor: 'sensor.esphome_version'
-        newest_version_sensor: 'sensor.esphome_newest_version'
+        sensor: 'update.esphome'
   - id: '1d219271-b31c-455b-b37e-1064c935d2fe'
     alias: 'Google Drive Backup Add-on Update Notification'
     use_blueprint:
       path: 'addon_update_notification.yaml'
       input:
         addon: 'cebe7a76_hassio_google_drive_backup'
-        name: 'Google Drive Backup'
-        update_available_sensor: 'binary_sensor.google_drive_backup_update_available'
-        current_version_sensor: 'sensor.google_drive_backup_version'
-        newest_version_sensor: 'sensor.google_drive_backup_newest_version'
+        sensor: 'update.google_drive_backup'
   - id: '96e43b0a-bc91-42ba-9eb1-f63ec14e976d'
     alias: 'Mosquitto Add-on Update Notification'
     use_blueprint:
       path: 'addon_update_notification.yaml'
       input:
         addon: 'core_mosquitto'
-        name: 'Mosquitto broker'
-        update_available_sensor: 'binary_sensor.mosquitto_broker_update_available'
-        current_version_sensor: 'sensor.mosquitto_broker_version'
-        newest_version_sensor: 'sensor.mosquitto_broker_newest_version'
+        sensor: 'update.mosquitto'
   - id: 'cdfd7283-2c2a-4afd-a7e5-a5c08a6ba193'
     alias: 'Terminal SSH Add-on Update Notification'
     use_blueprint:
       path: 'addon_update_notification.yaml'
       input:
         addon: 'core_ssh'
-        name: 'Terminal & SSH'
-        update_available_sensor: 'binary_sensor.terminal_ssh_update_available'
-        current_version_sensor: 'sensor.terminal_ssh_version'
-        newest_version_sensor: 'sensor.terminal_ssh_newest_version'
+        sensor: 'update.terminal_ssh'
   - id: '7a6bc69a-2632-40d3-848c-fe8d6006b840'
     alias: 'Zigbee2MQTT Add-on Update Notification'
     use_blueprint:
       path: 'addon_update_notification.yaml'
       input:
         addon: '45df7312_zigbee2mqtt'
-        name: 'Zigbee2mqtt'
-        update_available_sensor: 'binary_sensor.zigbee2mqtt_update_available'
-        current_version_sensor: 'sensor.zigbee2mqtt_version'
-        newest_version_sensor: 'sensor.zigbee2mqtt_newest_version'
+        sensor: 'update.zigbee2mqtt'
 
-history:
-  exclude:
-    entity_globs:
-      - 'sensor.*_newest_version'
