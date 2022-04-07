@@ -16,11 +16,13 @@ blueprint:
       selector:
         entity:
           domain: 'binary_sensor'
+          multiple: true
     light_target:
       name: 'Target Lights'
       selector:
         entity:
           domain: 'light'
+          multiple: true
 
     illuminance_sensor:
       name: 'Illuminance Sensor'
@@ -43,10 +45,7 @@ blueprint:
       name: 'Off Delay'
       default: 300
       selector:
-        number:
-          min: 0
-          max: 3600
-          unit_of_measurement: 'seconds'
+        duration: null
 
 trigger:
   platform: 'state'

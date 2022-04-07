@@ -6,25 +6,25 @@ blueprint:
     addon:
       name: 'Add-on'
       selector:
-        addon: {}
+        addon: null
     name:
-      name: 'Add-on name'
+      name: 'Add-on Name'
       selector:
-        text: {}
+        text: null
     update_available_sensor:
-      name: 'Update Available sensor'
+      name: 'Update Available Sensor'
       selector:
         entity:
           domain: 'binary_sensor'
           integration: 'hassio'
     current_version_sensor:
-      name: 'Current Version sensor'
+      name: 'Current Version Sensor'
       selector:
         entity:
           domain: 'sensor'
           integration: 'hassio'
     newest_version_sensor:
-      name: 'Newest Version sensor'
+      name: 'Newest Version Sensor'
       selector:
         entity:
           domain: 'sensor'

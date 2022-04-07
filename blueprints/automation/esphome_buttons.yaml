@@ -5,8 +5,10 @@ blueprint:
   input:
     device:
       name: 'Device'
+
+      # TODO: Use `device` selector.
       selector:
-        text: {}
+        text: null
 
     button1_click:
       name: 'Button 1 Click'

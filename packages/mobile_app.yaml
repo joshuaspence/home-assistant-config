@@ -53,6 +53,9 @@ script:
         selector:
           device:
             integration: 'mobile_app'
+
+            # TODO: Set this to `true` once home-assistant/core#69501 has been resolved.
+            multiple: false
       title:
         name: 'Title'
         description: 'Title for the notification.'
@@ -77,7 +80,8 @@ script:
         description: 'An image, video or audio file which is shown alongside the notification.'
         advanced: true
         selector:
-          text: null
+          text:
+            type: 'url'
       actions:
         name: 'Actions'
         description: 'Actionable buttons added to the notification.'
@@ -110,7 +114,7 @@ script:
         description: 'An icon to display in the notification status bar.'
         advanced: true
         selector:
-          text: null
+          icon: null
       persistent:
         name: 'Persistent'
         description: >-
@@ -137,6 +141,8 @@ script:
         name: 'Timeout'
         description: 'How long a notification will be shown before being dismissed automatically.'
         advanced: true
+
+        # TODO: Use `duration` selector.
         selector:
           number:
             min: 0
@@ -147,7 +153,8 @@ script:
         description: 'URL to open when notification is tapped.'
         advanced: true
         selector:
-          text: null
+          text:
+            type: 'url'
 
     variables:
       device: &device_variable >-
@@ -193,9 +200,13 @@ script:
           select:
             # See https://companion.home-assistant.io/docs/notifications/notification-commands/.
             options:
-              - 'command_dnd'
-              - 'command_update_sensors'
-              - 'request_location_update'
+              - label: 'Do Not Disturb'
+                value: 'command_dnd'
+              - label: 'Update Sensors'
+                value: 'command_update_sensors'
+              - label: 'Request Location Update'
+                value: 'request_location_update'
+            custom_value: true
       data:
         name: 'Data'
         required: false
