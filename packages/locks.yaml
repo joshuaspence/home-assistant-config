@@ -1,11 +1,11 @@
 ---
-group:
-  all_locks:
+lock:
+  - platform: 'group'
+    unique_id: '6bc00591-4387-4e68-8cdd-15a642fc0d5f'
+    name: 'All'
     entities:
       - 'lock.front_door'
       - 'lock.back_door'
-    icon: 'mdi:lock'
-    name: 'All Locks'
 
 automation:
   - id: 'afc8f43d-f33a-4e69-9a77-8b6f46da32e0'

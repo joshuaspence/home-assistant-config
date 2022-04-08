@@ -34,7 +34,7 @@ cards:
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
         variables:
-          - head_entity: &locks 'group.all_locks'
+          - head_entity: &locks 'lock.all'
           - head_name: 'Locks'
       - type: 'custom:decluttering-card'
         template: 'fold_entity_row'
