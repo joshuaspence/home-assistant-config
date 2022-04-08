@@ -77,4 +77,3 @@ automation:
       input:
         addon: '45df7312_zigbee2mqtt'
         sensor: 'update.zigbee2mqtt'
-
