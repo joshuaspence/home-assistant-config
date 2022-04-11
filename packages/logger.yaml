@@ -3,6 +3,7 @@ logger:
   default: 'warning'
   logs:
     homeassistant.components.system_log.external: 'info'
+    matplotlib: 'error'
     pychromecast.socket_client: 'fatal'
   filters:
     # See home-assistant/core#41420.

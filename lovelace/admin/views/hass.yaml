@@ -248,6 +248,7 @@ cards:
             'hacs',
             'hassio',
             'mobile_app',
+            'mold_indicator',
             'netgear_lte',
             'speedtestdotnet',
             'sql',
@@ -277,6 +278,7 @@ cards:
         - entity_id: 'binary_sensor.external_*'
         - entity_id: 'binary_sensor.internal_*'
         - entity_id: 'binary_sensor.zigbee2mqtt_*'
+        - entity_id: 'lock.all'
         - entity_id: 'media_player.all'
         - entity_id: 'sensor.backup_state'
         - entity_id: 'sensor.firmware_updates_available'
