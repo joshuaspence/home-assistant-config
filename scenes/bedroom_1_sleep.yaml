@@ -3,6 +3,10 @@ id: '09ebab34-b7f2-4f40-99fe-0c58fbdd283e'
 name: 'Bedroom 1 - Sleep'
 icon: 'mdi:sleep'
 entities:
+  light.baby_monitor:
+    state: 'off'
+  light.baby_monitor_indicator:
+    state: 'off'
   light.bedroom_1:
     state: 'off'
   media_player.bedroom_1_speaker:
