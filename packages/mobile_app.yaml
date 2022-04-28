@@ -53,9 +53,7 @@ script:
         selector:
           device:
             integration: 'mobile_app'
-
-            # TODO: Set this to `true` once home-assistant/core#69501 has been resolved.
-            multiple: false
+            multiple: true
       title:
         name: 'Title'
         description: 'Title for the notification.'
