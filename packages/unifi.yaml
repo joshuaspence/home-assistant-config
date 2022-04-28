@@ -82,17 +82,16 @@ automation:
       to: null
     condition: '{{ trigger.from_state.state != "unavailable" }}'
     action:
-      choose:
-        conditions:
-          condition: 'numeric_state'
-          entity_id: 'sensor.unifi_gateway_alerts'
-          below: 1
-        sequence:
-          service: 'script.mobile_app_clear_notification'
-          data:
-            target: 'josh_phone'
-            tag: 'unifi-alert'
-      default:
+      if:
+        condition: 'numeric_state'
+        entity_id: 'sensor.unifi_gateway_alerts'
+        below: 1
+      then:
+        service: 'script.mobile_app_clear_notification'
+        data:
+          target: 'josh_phone'
+          tag: 'unifi-alert'
+      else:
         service: 'script.mobile_app_notify'
         data:
           target: 'josh_phone'
@@ -115,16 +114,15 @@ automation:
       entity_id: 'sensor.unifi_gateway_firmware_upgradable'
     condition: '{{ trigger.from_state.state != "unavailable" }}'
     action:
-      choose:
-        conditions:
-          condition: 'numeric_state'
-          entity_id: 'sensor.unifi_gateway_firmware_upgradable'
-          below: 1
-        sequence:
-          service: 'persistent_notification.dismiss'
-          data:
-            notification_id: 'unifi-firmware'
-      default:
+      if:
+        condition: 'numeric_state'
+        entity_id: 'sensor.unifi_gateway_firmware_upgradable'
+        below: 1
+      then:
+        service: 'persistent_notification.dismiss'
+        data:
+          notification_id: 'unifi-firmware'
+      else:
         service: 'persistent_notification.create'
         data:
           title: 'Unifi Firmware Updates Available'

@@ -14,11 +14,12 @@ automation:
 
     # TODO: Add siren (see https://github.com/stanvx/Home-Assistant-Configuration/blob/master/packages/alarm_system.yaml#L52).
     action:
-      - service: 'notify.notify'
-        data:
-          message: 'The alarm has been triggered!'
-      - service: 'light.turn_on'
-        entity_id: 'all'
+      parallel:
+        - service: 'notify.notify'
+          data:
+            message: 'The alarm has been triggered!'
+        - service: 'light.turn_on'
+          entity_id: 'all'
 
     trace:
       stored_traces: 20

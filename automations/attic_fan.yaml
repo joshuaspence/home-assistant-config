@@ -7,26 +7,18 @@ trigger:
     entity_id: 'sensor.attic_temperature'
     value_template: '{{ state.state | float - 3 if is_number(state.state) else state.state }}'
     below: 'sensor.outside_temperature'
+    variables:
+      service: 'fan.turn_off'
   - platform: 'numeric_state'
     id: 'high'
     entity_id: 'sensor.attic_temperature'
     value_template: '{{ state.state | float - 5 if is_number(state.state) else state.state }}'
     above: 'sensor.outside_temperature'
+    variables:
+      service: 'fan.turn_on'
 
 action:
-  choose:
-    - conditions:
-        condition: 'trigger'
-        id: 'low'
-      sequence:
-        service: 'fan.turn_off'
-        target:
-          area_id: 'attic'
-    - conditions:
-        condition: 'trigger'
-        id: 'high'
-      sequence:
-        service: 'fan.turn_on'
-        target:
-          area_id: 'attic'
+  service: '{{ service }}'
+  target:
+    area_id: 'attic'
 mode: 'single'

@@ -67,17 +67,16 @@ automation:
       platform: 'state'
       entity_id: 'sensor.low_battery'
     action:
-      choose:
-        conditions:
-          condition: 'numeric_state'
-          entity_id: 'sensor.low_battery'
-          below: 1
-        sequence:
-          service: 'script.mobile_app_clear_notification'
-          data:
-            target: 'josh_phone'
-            tag: 'low-battery'
-      default:
+      if:
+        condition: 'numeric_state'
+        entity_id: 'sensor.low_battery'
+        below: 1
+      then:
+        service: 'script.mobile_app_clear_notification'
+        data:
+          target: 'josh_phone'
+          tag: 'low-battery'
+      else:
         service: 'script.mobile_app_notify'
         data:
           target: 'josh_phone'

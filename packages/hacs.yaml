@@ -18,7 +18,7 @@ automation:
       entity_id: 'sensor.hacs'
       above: 0
     action:
-      # TODO: Create separate notifications for each available update.
+      # TODO: Create separate notifications for each available update using `for_each`.
       service: 'persistent_notification.create'
       data:
         title: 'Update Available'

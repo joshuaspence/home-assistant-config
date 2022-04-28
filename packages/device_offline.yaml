@@ -99,8 +99,7 @@ automation:
       platform: 'state'
       entity_id: 'sensor.unavailable_devices'
     condition:
-      condition: 'not'
-      conditions:
+      not:
         condition: 'state'
         entity_id: 'sensor.unavailable_devices'
         state:

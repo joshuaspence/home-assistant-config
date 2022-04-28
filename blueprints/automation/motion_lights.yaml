@@ -61,8 +61,7 @@ condition:
   # If the target lights are already on then they must've been turned on manually.
   #
   # TODO: Add a `force_on` input parameter to bypass this check.
-  - condition: 'not'
-    conditions:
+  - not:
       condition: 'state'
       entity_id: !input 'light_target'
       state: 'on'

@@ -28,24 +28,22 @@ automation:
       platform: 'state'
       entity_id: 'sensor.firmware_updates_available'
     condition:
-      condition: 'not'
-      conditions:
+      not:
         condition: 'state'
         entity_id: 'sensor.firmware_updates_available'
         state: 'unknown'
     action:
-      choose:
-        conditions:
-          condition: 'numeric_state'
-          entity_id: 'sensor.firmware_updates_available'
-          above: 0
-        sequence:
-          service: 'persistent_notification.create'
-          data:
-            message: 'There are {{ states.sensor.firmware_updates_available.state }} firmware updates available.'
-            title: 'Firmware Update Available'
-            notification_id: 'firmware-updates-available'
-      default:
+      if:
+        condition: 'numeric_state'
+        entity_id: 'sensor.firmware_updates_available'
+        above: 0
+      then:
+        service: 'persistent_notification.create'
+        data:
+          message: 'There are {{ states.sensor.firmware_updates_available.state }} firmware updates available.'
+          title: 'Firmware Update Available'
+          notification_id: 'firmware-updates-available'
+      else:
         service: 'persistent_notification.dismiss'
         data:
           notification_id: 'firmware-updates-available'

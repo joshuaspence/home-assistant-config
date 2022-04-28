@@ -34,19 +34,20 @@ action:
         entity_id: *basement_humidity
         above: *outside_humidity
       sequence:
-        - service: 'switch.turn_on'
-          entity_id: *primary_dehumidifier
-        - service: 'switch.turn_off'
-          entity_id: *secondary_dehumidifier
+        parallel:
+          - service: 'switch.turn_on'
+            entity_id: *primary_dehumidifier
+          - service: 'switch.turn_off'
+            entity_id: *secondary_dehumidifier
     - conditions:
         condition: 'numeric_state'
         entity_id: *basement_humidity
         below: *outside_humidity
       sequence:
-        - service: 'switch.turn_off'
-          entity_id:
-            - *primary_dehumidifier
-            - *secondary_dehumidifier
+        service: 'switch.turn_off'
+        entity_id:
+          - *primary_dehumidifier
+          - *secondary_dehumidifier
 mode: 'single'
 max_exceeded: 'silent'
 trace:
