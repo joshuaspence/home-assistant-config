@@ -24,21 +24,3 @@ recorder:
     entities: []
     entity_globs: []
     event_types: []
-
-sensor:
-  - platform: 'sql'
-    queries:
-      - name: 'Recorder Size'
-        query: 'SELECT page_count * page_size AS size FROM pragma_page_count(), pragma_page_size()'
-        column: 'size'
-        unit_of_measurement: 'MiB'
-        value_template: '{{ ((value | int) / (1024 * 1024)) | round }}'
-      - name: 'Recorder Events'
-        query: 'SELECT COUNT(*) AS count FROM events'
-        column: 'count'
-        unit_of_measurement: 'events'
-      - name: 'Recorder States'
-        query: 'SELECT COUNT(*) AS count FROM states'
-        column: 'count'
-        unit_of_measurement: 'states'
-    scan_interval: 600
