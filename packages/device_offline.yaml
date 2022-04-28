@@ -20,7 +20,7 @@ template:
             list | count
           }}
         unit_of_measurement: 'entities'
-        icon: '{{ is_state("sensor.unavailable_entities", "0") | iif("mdi:check-circle", "mdi:alert-circle") }}'
+        icon: '{{ iif(this.state == 0, "mdi:check-circle", "mdi:alert-circle") }}'
         attributes:
           entities: >-
             {{
@@ -46,7 +46,7 @@ template:
             list | count
           }}
         unit_of_measurement: 'devices'
-        icon: '{{ is_state("sensor.unavailable_devices", "0") | iif("mdi:lan-connect", "mdi:lan-disconnect") }}'
+        icon: '{{ iif(this.state == "0", "mdi:lan-connect", "mdi:lan-disconnect") }}'
         availability: '{{ states("sensor.unavailable_entities") not in ["unavailable", "unknown"] }}'
         attributes:
           devices: >-
