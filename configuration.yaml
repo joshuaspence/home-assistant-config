@@ -79,3 +79,7 @@ zone:
     longitude: !secret 'home.longitude'
     name: 'Home'
     radius: 50
+  - icon: 'mdi:office-building'
+    latitude: !secret 'work.latitude'
+    longitude: !secret 'work.longitude'
+    name: 'Work'
