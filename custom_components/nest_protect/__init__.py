@@ -12,11 +12,12 @@ from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.dispatcher import async_dispatcher_send
 
-from .const import CONF_REFRESH_TOKEN, DOMAIN, LOGGER, PLATFORMS
+from .const import CONF_ACCOUNT_TYPE, CONF_REFRESH_TOKEN, DOMAIN, LOGGER, PLATFORMS
 from .pynest.client import NestClient
+from .pynest.const import NEST_ENVIRONMENTS
 from .pynest.exceptions import (
     BadCredentialsException,
-    GatewayTimeoutException,
+    NestServiceException,
     NotAuthenticatedException,
     PynestException,
 )
@@ -32,11 +33,28 @@ class HomeAssistantNestProtectData:
     client: NestClient
 
 
+async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry):
+    """Migrate old Config entries."""
+    LOGGER.debug("Migrating from version %s", config_entry.version)
+
+    if config_entry.version == 1:
+        entry_data = {**config_entry.data}
+        entry_data[CONF_ACCOUNT_TYPE] = "production"
+
+        config_entry.data = {**entry_data}
+        config_entry.version = 2
+
+    LOGGER.debug("Migration to version %s successful", config_entry.version)
+
+    return True
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
     """Set up Nest Protect from a config entry."""
     refresh_token = entry.data[CONF_REFRESH_TOKEN]
+    account_type = entry.data[CONF_ACCOUNT_TYPE]
     session = async_get_clientsession(hass)
-    client = NestClient(session)
+    client = NestClient(session=session, environment=NEST_ENVIRONMENTS[account_type])
 
     try:
         auth = await client.get_access_token(refresh_token)
@@ -149,6 +167,13 @@ async def _async_subscribe_for_data(hass: HomeAssistant, entry: ConfigEntry, dat
                 for area in bucket_value["wheres"]:
                     entry_data.areas[area["where_id"]] = area["name"]
 
+            # Temperature Sensors
+            if key.startswith("kryptonite."):
+                kryptonite = Bucket(**bucket)
+                entry_data.devices[key] = kryptonite
+
+                async_dispatcher_send(hass, key, kryptonite)
+
         # Update buckets with new data, to only receive new updates
         buckets = {d["object_key"]: d for d in result["objects"]}
         objects = [
@@ -177,8 +202,8 @@ async def _async_subscribe_for_data(hass: HomeAssistant, entry: ConfigEntry, dat
         await entry_data.client.authenticate(entry_data.client.auth.access_token)
         _register_subscribe_task(hass, entry, data)
 
-    except GatewayTimeoutException:
-        LOGGER.debug("Subscriber: gateway time-out. Pausing for 2 minutes.")
+    except NestServiceException:
+        LOGGER.debug("Subscriber: Nest Service error. Updates paused for 2 minutes.")
 
         await asyncio.sleep(60 * 2)
         _register_subscribe_task(hass, entry, data)

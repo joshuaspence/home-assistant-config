@@ -12,7 +12,7 @@ from aiohttp import ClientSession, ClientTimeout, ContentTypeError, FormData
 
 from .const import (
     APP_LAUNCH_URL_FORMAT,
-    CLIENT_ID,
+    DEFAULT_NEST_ENVIRONMENT,
     NEST_AUTH_URL_JWT,
     NEST_REQUEST,
     TOKEN_URL,
@@ -20,11 +20,12 @@ from .const import (
 )
 from .exceptions import (
     BadCredentialsException,
+    BadGatewayException,
     GatewayTimeoutException,
     NotAuthenticatedException,
     PynestException,
 )
-from .models import GoogleAuthResponse, NestAuthResponse, NestResponse
+from .models import GoogleAuthResponse, NestAuthResponse, NestEnvironment, NestResponse
 
 _LOGGER = logging.getLogger(__package__)
 
@@ -36,14 +37,19 @@ class NestClient:
     auth: GoogleAuthResponse | None = None
     session: ClientSession
     transport_url: str | None = None
+    environment: NestEnvironment
 
     def __init__(
-        self, session: ClientSession | None = None, refresh_token: str | None = None
+        self,
+        session: ClientSession | None = None,
+        refresh_token: str | None = None,
+        environment: NestEnvironment = DEFAULT_NEST_ENVIRONMENT,
     ) -> None:
         """Initialize NestClient."""
 
         self.session = session if session else ClientSession()
         self.refresh_token = refresh_token
+        self.environment = environment
 
     async def __aenter__(self) -> NestClient:
         """__aenter__."""
@@ -59,14 +65,16 @@ class NestClient:
         await self.session.close()
 
     @staticmethod
-    def generate_token_url() -> str:
+    def generate_token_url(
+        environment: NestEnvironment = DEFAULT_NEST_ENVIRONMENT,
+    ) -> str:
         """Generate the URL to get a Nest authentication token."""
         data = {
             "access_type": "offline",
             "response_type": "code",
             "scope": "openid profile email https://www.googleapis.com/auth/nest-account",
             "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
-            "client_id": CLIENT_ID,
+            "client_id": environment.client_id,
         }
 
         return f"https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?{urllib.parse.urlencode(data)}"
@@ -79,7 +87,7 @@ class NestClient:
                 {
                     "code": token,
                     "redirect_uri": "urn:ietf:wg:oauth:2.0:oob",
-                    "client_id": CLIENT_ID,
+                    "client_id": self.environment.client_id,
                     "grant_type": "authorization_code",
                 }
             ),
@@ -117,7 +125,7 @@ class NestClient:
             data=FormData(
                 {
                     "refresh_token": self.refresh_token,
-                    "client_id": CLIENT_ID,
+                    "client_id": self.environment.client_id,
                     "grant_type": "refresh_token",
                 }
             ),
@@ -153,21 +161,28 @@ class NestClient:
             headers={
                 "Authorization": f"Bearer {access_token}",
                 "User-Agent": USER_AGENT,
-                "Referer": "https://home.nest.com",
+                "Referer": self.environment.host,
             },
         ) as response:
             result = await response.json()
             nest_auth = NestAuthResponse(**result)
 
         async with self.session.get(
-            "https://home.nest.com/session",
+            self.environment.host + "/session",
             headers={
                 "Authorization": f"Basic {nest_auth.jwt}",
                 "cookie": "G_ENABLED_IDPS=google; eu_cookie_accepted=1; viewer-volume=0.5; cztoken="
                 + nest_auth.jwt,
             },
         ) as response:
-            nest_response = await response.json()
+            try:
+                nest_response = await response.json()
+            except ContentTypeError:
+                nest_response = await response.text()
+
+                raise PynestException(
+                    f"{response.status} error while authenticating - {nest_response}. Please create an issue on GitHub."
+                )
 
             # Change variable names since Python cannot handle vars that start with a number
             if nest_response.get("2fa_state"):
@@ -186,7 +201,7 @@ class NestClient:
     async def get_first_data(self, nest_access_token: str, user_id: str) -> Any:
         """Get a Nest refresh token from an authorization code."""
         async with self.session.post(
-            APP_LAUNCH_URL_FORMAT.format(user_id=user_id),
+            APP_LAUNCH_URL_FORMAT.format(host=self.environment.host, user_id=user_id),
             json=NEST_REQUEST,
             headers={
                 "Authorization": f"Basic {nest_access_token}",
@@ -236,6 +251,9 @@ class NestClient:
 
             if response.status == 504:
                 raise GatewayTimeoutException(await response.text())
+
+            if response.status == 502:
+                raise BadGatewayException(await response.text())
 
             try:
                 result = await response.json()
