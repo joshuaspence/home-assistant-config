@@ -4,17 +4,21 @@ alias: 'Water Leak'
 trigger:
   platform: 'state'
   entity_id:
+    - 'binary_sensor.bathroom_sink_water_leak'
     - 'binary_sensor.dishwasher_water_leak'
     - 'binary_sensor.kitchen_sink_water_leak'
     - 'binary_sensor.spa_bath_water_leak'
+    - 'binary_sensor.toilet_sink_water_leak'
   from: 'off'
   to: 'on'
 action:
   service: 'script.mobile_app_notify'
   data:
     target: 'josh_phone'
-    title: 'Water leak'
-    message: 'Water leak detected in {{ trigger.to_state.friendly_name }}.'
+    title: 'Water Leak'
+    subtitle: '{{ area_name(trigger.entity_id) }}'
+    message: 'Water leak detected by {{ trigger.to_state.attributes.friendly_name }} sensor.'
     tag: 'water-leak'
+    url: 'entityId:{{ trigger.entity_id }}'
 trace:
   stored_traces: 20
