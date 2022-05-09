@@ -275,8 +275,11 @@ cards:
 
         - entity_id: 'binary_sensor.all_*'
         - entity_id: 'binary_sensor.backups_stale'
+        - entity_id: 'binary_sensor.carbon_monoxide_alarm'
         - entity_id: 'binary_sensor.external_*'
+        - entity_id: 'binary_sensor.heat_alarm'
         - entity_id: 'binary_sensor.internal_*'
+        - entity_id: 'binary_sensor.smoke_alarm'
         - entity_id: 'binary_sensor.zigbee2mqtt_*'
         - entity_id: 'lock.all'
         - entity_id: 'media_player.all'
