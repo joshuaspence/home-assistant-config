@@ -27,11 +27,6 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.firmware_updates_available'
-    condition:
-      not:
-        condition: 'state'
-        entity_id: 'sensor.firmware_updates_available'
-        state: 'unknown'
     action:
       if:
         condition: 'numeric_state'

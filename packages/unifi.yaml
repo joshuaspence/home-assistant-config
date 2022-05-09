@@ -78,9 +78,8 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.unifi_gateway_alerts'
-      from: null
+      not_from: 'unavailable'
       to: null
-    condition: '{{ trigger.from_state.state != "unavailable" }}'
     action:
       if:
         condition: 'numeric_state'
@@ -112,7 +111,7 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.unifi_gateway_firmware_upgradable'
-    condition: '{{ trigger.from_state.state != "unavailable" }}'
+      not_from: 'unavailable'
     action:
       if:
         condition: 'numeric_state'

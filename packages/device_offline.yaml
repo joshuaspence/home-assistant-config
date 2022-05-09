@@ -98,13 +98,7 @@ automation:
     trigger:
       platform: 'state'
       entity_id: 'sensor.unavailable_devices'
-    condition:
-      not:
-        condition: 'state'
-        entity_id: 'sensor.unavailable_devices'
-        state:
-          - 'unavailable'
-          - 'unknown'
+      not_to: 'unavailable'
     action:
       - delay: 5
       - choose:
