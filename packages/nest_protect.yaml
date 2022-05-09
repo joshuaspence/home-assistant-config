@@ -1,0 +1,50 @@
+---
+binary_sensor:
+  - platform: 'group'
+    name: 'Carbon Monoxide Alarm'
+    unique_id: 'f8238b92-1740-45ff-9780-15a8606b3b27'
+    device_class: 'carbon_monoxide'
+    entities:
+      - 'binary_sensor.hallway_east_smoke_detector_co'
+      - 'binary_sensor.hallway_west_smoke_detector_co'
+  - platform: 'group'
+    name: 'Heat Alarm'
+    unique_id: '314dd627-108b-485e-9132-cd930580d773'
+    device_class: 'heat'
+    entities:
+      - 'binary_sensor.hallway_east_smoke_detector_heat'
+      - 'binary_sensor.hallway_west_smoke_detector_heat'
+  - platform: 'group'
+    name: 'Smoke Alarm'
+    unique_id: '17ef01e1-6392-45d1-82a2-3dfed69560be'
+    device_class: 'smoke'
+    entities:
+      - 'binary_sensor.hallway_east_smoke_detector_smoke'
+      - 'binary_sensor.hallway_west_smoke_detector_smoke'
+
+automation:
+  - id: 'a7cf20d9-3be3-4b9d-8cb0-67652ebe48ae'
+    alias: 'Smoke Alarm'
+    trigger:
+      platform: 'state'
+      entity_id:
+        - 'binary_sensor.carbon_monoxide_alarm'
+        - 'binary_sensor.heat_alarm'
+        - 'binary_sensor.smoke_alarm'
+      to: 'on'
+    action:
+      parallel:
+        - service: 'script.mobile_app_notify'
+          data:
+            target:
+              - 'josh_phone'
+              - 'lily_phone'
+            title: '{{ trigger.to_state.attributes.friendly_name }}'
+            url: 'entityId:{{ trigger.entity_id }}'
+        - service: 'notify.notify'
+          data:
+            target:
+              - 'sms_josh'
+              - 'sms_lily'
+            title: '{{ trigger.to_state.attributes.friendly_name }}'
+            message: '{{ trigger.to_state.attributes.friendly_name }}'
