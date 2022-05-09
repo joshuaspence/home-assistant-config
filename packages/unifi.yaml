@@ -95,14 +95,16 @@ automation:
         data:
           target: 'josh_phone'
           title: 'Unifi Alerts'
+          subtitle: 'There are {{ trigger.to_state.state }} gateway alerts.'
           message: >-
-            There are {{ trigger.to_state.state }} gateway alerts.
-
             {% for key, value in trigger.to_state.attributes.items() -%}
             {%   if key | int(-1) != -1 -%}
             - {{ value.msg }}
             {%   endif -%}
             {% endfor %}
+          channel: 'UniFi'
+          persistent: true
+          sticky: true
           tag: 'unifi-alert'
     mode: 'restart'
 
