@@ -43,6 +43,26 @@ cards:
           - head_name: 'Windows'
           - row_trim_suffix: 'Window'
 
+      - type: 'divider'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - head_entity: &carbon_monoxide_alarm 'binary_sensor.carbon_monoxide_alarm'
+          - head_name: 'Carbon Monoxide'
+          - row_trim_suffix: 'Smoke Detector CO Status'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - head_entity: &heat_alarm 'binary_sensor.heat_alarm'
+          - head_name: 'Heat'
+          - row_trim_suffix: 'Smoke Detector Heat Status'
+      - type: 'custom:decluttering-card'
+        template: 'fold_entity_row'
+        variables:
+          - head_entity: &smoke_alarm 'binary_sensor.smoke_alarm'
+          - head_name: 'Smoke'
+          - row_trim_suffix: 'Smoke Detector Smoke Status'
+
   - type: 'custom:auto-entities'
     card:
       type: 'logbook'
@@ -56,3 +76,6 @@ cards:
         - group: *internal_occupancy
         - group: *locks
         - group: *windows
+        - group: *carbon_monoxide_alarm
+        - group: *heat_alarm
+        - group: *smoke_alarm
