@@ -24,5 +24,4 @@ cloud:
 tts:
   - platform: 'cloud'
     cache_dir: '/tmp/tts'
-    base_url: !secret 'core.external_url'
     language: 'en-AU'
