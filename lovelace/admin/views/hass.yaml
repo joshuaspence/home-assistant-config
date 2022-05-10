@@ -383,12 +383,12 @@ cards:
         name: 'Memory'
 
       - type: 'section'
-        label: 'Terminal & SSH'
-      - entity: 'binary_sensor.terminal_ssh_running'
+        label: 'SSH & Web Terminal'
+      - entity: 'binary_sensor.ssh_web_terminal_running'
         name: 'Running'
-      - entity: 'sensor.terminal_ssh_cpu_percent'
+      - entity: 'sensor.ssh_web_terminal_cpu_percent'
         name: 'CPU'
-      - entity: 'sensor.terminal_ssh_memory_percent'
+      - entity: 'sensor.ssh_web_terminal_memory_percent'
         name: 'Memory'
 
       - type: 'section'
