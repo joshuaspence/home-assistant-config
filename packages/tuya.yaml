@@ -58,7 +58,7 @@ localtuya:
         fan_speed_control: 4
         fan_speed_ordered_list: 'low,mid,high,turbo'
       - platform: 'sensor'
-        friendly_name: 'Bedroom 1 Air Quality'
+        friendly_name: 'Bedroom 1 Particulate Matter'
         id: 2
         device_class: 'pm25'
         unit_of_measurement: 'μg/m³'
@@ -72,9 +72,19 @@ localtuya:
         friendly_name: 'Bedroom 1 Air Purifier Night Mode'
         id: 8
       - platform: 'switch'
-        friendly_name: 'Bedroom 1 Air Purifier Microbe Shield'
+        friendly_name: 'Bedroom 1 Air Purifier UV Sterilization'
         id: 9
+      - platform: 'switch'
+        friendly_name: 'Bedroom 1 Air Purifier Filter Reset'
+        id: 11
       - platform: 'sensor'
         friendly_name: 'Bedroom 1 Air Purifier Filter Remaining Time'
         id: 16
         unit_of_measurement: 'days'
+
+homeassistant:
+  customize:
+    sensor.bedroom_1_air_purifier_filter_remaining_time:
+      icon: 'mdi:calendar-clock'
+    switch.bedroom_1_air_purifier_uv_sterilization:
+      icon: 'mdi:minus-circle-outline'
