@@ -8,7 +8,7 @@ from homeassistant.const import (
 from homeassistant.core import callback
 
 from .const import (
-    ATTRIBUTION, COLLECTOR, CONF_FORECASTS_BASENAME, COORDINATOR, DOMAIN,
+    ATTRIBUTION, COLLECTOR, CONF_WEATHER_NAME, COORDINATOR, DOMAIN,
     MAP_CONDITION,
 )
 
@@ -20,10 +20,10 @@ async def async_setup_entry(hass, config_entry, async_add_devices):
 
     new_devices = []
 
-    if CONF_FORECASTS_BASENAME in config_entry.data:
-        location_name = config_entry.data[CONF_FORECASTS_BASENAME]
+    if CONF_WEATHER_NAME in config_entry.data:
+        location_name = config_entry.data[CONF_WEATHER_NAME]
     else:
-        location_name = hass_data[COLLECTOR].location_name
+        location_name = "Home"
 
     new_devices.append(WeatherDaily(hass_data, location_name))
     new_devices.append(WeatherHourly(hass_data, location_name))
@@ -70,7 +70,7 @@ class WeatherBase(WeatherEntity):
     def icon(self):
         """Return the icon."""
         return self.collector.daily_forecasts_data["data"][0]["mdi_icon"]
-        
+
     @property
     def temperature_unit(self):
         """Return the unit of measurement."""
