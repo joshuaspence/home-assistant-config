@@ -234,3 +234,7 @@
   friendly_name: Front Patio Motion Sensor
 '0x0017880109d479f3':
   friendly_name: NBN Modem Smart Plug
+'0x84fd27fffea15042':
+  friendly_name: Homelab Smart Plug
+'0x54ef441000255996':
+  friendly_name: '0x54ef441000255996'
