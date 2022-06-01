@@ -152,8 +152,6 @@
   friendly_name: Bathroom Light
 '0x0017880108af04bd':
   friendly_name: Kitchen Light
-'0x0017880108b39317':
-  friendly_name: Dining Room Light
 '0x00158d0006a0916c':
   friendly_name: Kitchen Door Contact Sensor
 '0x00158d000320ac26':
@@ -162,8 +160,6 @@
   friendly_name: Kitchen Sink Water Leak Sensor
 '0x00158d0006c4c3a5':
   friendly_name: Dishwasher Water Leak Sensor
-'0x00158d0006a092b3':
-  friendly_name: Laundry Door Contact Sensor
 '0x00158d0006c4fdf7':
   friendly_name: Dining Room Temperature Sensor
 '0x00158d0004a97174':
@@ -194,8 +190,6 @@
   friendly_name: Outside North-northwest Light
 '0x00158d00077537c3':
   friendly_name: Bathroom Ceiling Temperature Sensor
-'0x0017880109ac7a16':
-  friendly_name: Front Door Light
 '0x0017880102d95245':
   friendly_name: Office Desk Light
 '0x0017880108615a10':
@@ -232,9 +226,11 @@
   friendly_name: Stairway Motion Sensor
 '0x0017880106471777':
   friendly_name: Front Patio Motion Sensor
-'0x0017880109d479f3':
-  friendly_name: NBN Modem Smart Plug
 '0x84fd27fffea15042':
   friendly_name: Homelab Smart Plug
-'0x54ef441000255996':
-  friendly_name: '0x54ef441000255996'
+'0x0017880109b6dcb0':
+  friendly_name: Front Door Light
+'0x001788010bbfa3e6':
+  friendly_name: Dining Room Light
+'0x00158d0006a092b3':
+  friendly_name: '0x00158d0006a092b3'
