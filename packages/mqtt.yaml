@@ -1,52 +1,45 @@
 ---
-sensor:
-  # Mosquitto
-  # TODO: Ensure these sensors don't blow out the database.
-  - platform: 'mqtt'
-    name: 'Mosquitto Connections'
-    unique_id: '1cc70a74-7a5a-4bed-892c-2325fa441ec2'
-    state_topic: '$SYS/broker/load/connections/1min'
-  - platform: 'mqtt'
-    name: 'Mosquitto Retained Messages'
-    unique_id: '2dd6ab68-6fc4-42e6-991c-1beffa7e9ab1'
-    state_topic: '$SYS/broker/retained messages/count'
-  - platform: 'mqtt'
-    name: 'Mosquitto Stored Messages Count'
-    unique_id: 'ce45f0c0-cdf1-499d-85d1-4484db025d14'
-    state_topic: '$SYS/broker/store/messages/count'
-  - platform: 'mqtt'
-    name: 'Mosquitto Subscriptions'
-    unique_id: '20cd969c-00a4-4c10-9b42-b09da100a37f'
-    state_topic: '$SYS/broker/subscriptions/count'
+mqtt:
+  sensor:
+    # Mosquitto
+    # TODO: Ensure these sensors don't blow out the database.
+    - name: 'Mosquitto Connections'
+      unique_id: '1cc70a74-7a5a-4bed-892c-2325fa441ec2'
+      state_topic: '$SYS/broker/load/connections/1min'
+    - name: 'Mosquitto Retained Messages'
+      unique_id: '2dd6ab68-6fc4-42e6-991c-1beffa7e9ab1'
+      state_topic: '$SYS/broker/retained messages/count'
+    - name: 'Mosquitto Stored Messages Count'
+      unique_id: 'ce45f0c0-cdf1-499d-85d1-4484db025d14'
+      state_topic: '$SYS/broker/store/messages/count'
+    - name: 'Mosquitto Subscriptions'
+      unique_id: '20cd969c-00a4-4c10-9b42-b09da100a37f'
+      state_topic: '$SYS/broker/subscriptions/count'
 
-  # Zigbee2MQTT
-  - platform: 'mqtt'
-    name: 'Zigbee2MQTT Network Map'
-    unique_id: 'f6ec75b3-c952-4c8f-9a62-a07f0eb063b2'
-    state_topic: 'zigbee2mqtt/bridge/response/networkmap'
-    value_template: '{{ now().strftime("%Y-%m-%d %H:%M:%S") }}'
-    json_attributes_topic: 'zigbee2mqtt/bridge/response/networkmap'
-    json_attributes_template: '{{ value_json.data.value | tojson }}'
-  - platform: 'mqtt'
-    name: 'Zigbee2MQTT Coordinator Version'
-    unique_id: '99cae535-84d1-44ca-97d5-6bb20e6f0ad1'
-    state_topic: 'zigbee2mqtt/bridge/info'
-    value_template: '{{ value_json.coordinator.meta.revision }}'
+    # Zigbee2MQTT
+    - name: 'Zigbee2MQTT Network Map'
+      unique_id: 'f6ec75b3-c952-4c8f-9a62-a07f0eb063b2'
+      state_topic: 'zigbee2mqtt/bridge/response/networkmap'
+      value_template: '{{ now().strftime("%Y-%m-%d %H:%M:%S") }}'
+      json_attributes_topic: 'zigbee2mqtt/bridge/response/networkmap'
+      json_attributes_template: '{{ value_json.data.value | tojson }}'
+    - name: 'Zigbee2MQTT Coordinator Version'
+      unique_id: '99cae535-84d1-44ca-97d5-6bb20e6f0ad1'
+      state_topic: 'zigbee2mqtt/bridge/info'
+      value_template: '{{ value_json.coordinator.meta.revision }}'
 
-binary_sensor:
-  # Zigbee2MQTT
-  - platform: 'mqtt'
-    state_topic: 'zigbee2mqtt/bridge/state'
-    name: 'Zigbee2MQTT State'
-    unique_id: '0e78cda4-e06a-4174-a663-1badfc31f315'
-    payload_on: 'online'
-    payload_off: 'offline'
-  - platform: 'mqtt'
-    state_topic: 'zigbee2mqtt/bridge/response/health_check'
-    value_template: '{{ value_json.status }}'
-    name: 'Zigbee2MQTT Health Check'
-    unique_id: '7db2a103-3839-4e50-900b-11e47ca162a8'
-    payload_on: 'ok'
+  binary_sensor:
+    # Zigbee2MQTT
+    - state_topic: 'zigbee2mqtt/bridge/state'
+      name: 'Zigbee2MQTT State'
+      unique_id: '0e78cda4-e06a-4174-a663-1badfc31f315'
+      payload_on: 'online'
+      payload_off: 'offline'
+    - state_topic: 'zigbee2mqtt/bridge/response/health_check'
+      value_template: '{{ value_json.status }}'
+      name: 'Zigbee2MQTT Health Check'
+      unique_id: '7db2a103-3839-4e50-900b-11e47ca162a8'
+      payload_on: 'ok'
 
 automation:
   - alias: 'Zigbee2MQTT Network Map'
