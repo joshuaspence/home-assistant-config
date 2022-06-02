@@ -23,25 +23,6 @@ template:
         icon: 'mdi:memory'
         unit_of_measurement: '%'
         <<: *wan
-      - name: 'UniFi Gateway Board (CPU) Temperature'
-        unique_id: '9ed19cd0-0393-4e07-a0ba-15e166396e6b'
-        state: '{{ states.sensor.unifi_gateway_wan.attributes["gw_system-stats"].temps["Board (CPU)"] | trim(" C") }}'
-        <<: &temperature
-          availability: '{{ states.sensor.unifi_gateway_wan.attributes["gw_system-stats"].temps is mapping }}'
-          device_class: 'temperature'
-          unit_of_measurement: '°C'
-      - name: 'UniFi Gateway Board (PHY) Temperature'
-        unique_id: 'f4255d14-5a74-4134-a23e-8a2c1b8b15ae'
-        state: '{{ states.sensor.unifi_gateway_wan.attributes["gw_system-stats"].temps["Board (PHY)"] | trim(" C") }}'
-        <<: *temperature
-      - name: 'UniFi Gateway CPU Temperature'
-        unique_id: 'a4b4220c-64b4-49af-87e6-9fa28b55180e'
-        state: '{{ states.sensor.unifi_gateway_wan.attributes["gw_system-stats"].temps["CPU"] | trim(" C") }}'
-        <<: *temperature
-      - name: 'UniFi Gateway PHY Temperature'
-        unique_id: '61bdde73-e849-41e2-86fd-a62092af7574'
-        state: '{{ states.sensor.unifi_gateway_wan.attributes["gw_system-stats"].temps["PHY"] | trim(" C") }}'
-        <<: *temperature
       - name: 'UniFi Gateway Uptime'
         unique_id: '5c30f2d9-ae88-4301-a242-9c17a71611fa'
         state: '{{ now() - timedelta(seconds=states.sensor.unifi_gateway_wan.attributes["gw_system-stats"].uptime | int) }}'
@@ -49,18 +30,19 @@ template:
         <<: *wan
 
   - sensor:
-      - name: 'UniFi WLAN Guests'
+      - name: 'UniFi WLAN Guests' # CHECKME
         unique_id: 'ad410e0b-0be3-4500-82b9-389698e2e497'
         state: '{{ states.sensor.unifi_gateway_wlan.attributes.num_guest }}'
         <<: &wlan
           availability: '{{ states.sensor.unifi_gateway_wlan is not none }}'
-      - name: 'UniFi WLAN Users'
+      - name: 'UniFi WLAN Users' # CHECKME
         unique_id: 'da25c64c-f7cb-4165-901d-9e3823d8de6a'
         state: '{{ states.sensor.unifi_gateway_wlan.attributes.num_user }}'
         <<: *wlan
 
   - sensor:
-      - name: 'UniFi Gateway WAN Failover'
+      # TODO: Use `states.sensor.unifi_gateway_wan.attributes["isp_name"]`.
+      - name: 'UniFi Gateway WAN Failover' # CHECKME
         unique_id: 'a6d6d6e8-e159-47ca-b4c7-4f0aa90d1bac'
         availability: '{{ states.sensor.unifi_gateway_wan is not none }}'
         state: >-
