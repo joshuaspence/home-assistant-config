@@ -16,8 +16,6 @@
   friendly_name: Bedroom 2 Motion Sensor
 '0x0017880109172d0f':
   friendly_name: Hallway West Motion Sensor
-'0x001788010965e470':
-  friendly_name: Living Room Dimmer Switch
 '0x00178801090ad3a7':
   friendly_name: Hallway West Light
 '0x001788010867ce35':
@@ -76,8 +74,6 @@
   friendly_name: Bedroom 2 Door Contact Sensor
 '0x00158d0006c4bb2e':
   friendly_name: Bedroom 2 Window Contact Sensor
-'0x00158d0006ffcbd9':
-  friendly_name: Back Door Contact Sensor
 '0x00158d00068b8cec':
   friendly_name: Office Door Contact Sensor
 '0x00158d0006c4b7fc':
@@ -202,10 +198,6 @@
     switch:
       object_id: fan
       type: fan
-'0x0017880109abe28f':
-  friendly_name: '0x0017880109abe28f'
-  availability:
-    timeout: 480
 '0x000d6f0011192562':
   friendly_name: Back Door Lock
 '0x00158d000775bff7':
@@ -233,4 +225,6 @@
 '0x001788010bbfa3e6':
   friendly_name: Dining Room Light
 '0x00158d0006a092b3':
-  friendly_name: '0x00158d0006a092b3'
+  friendly_name: Laundry Door Contact Sensor
+'0x00158d0006ffcbd9':
+  friendly_name: Back Door Contact Sensor
