@@ -9,6 +9,7 @@ const e = {
 
 const lights = [
   'LCA001',
+  'LCA008',
   'LCT010',
   'LTD011',
   'LTG002',
