@@ -38,8 +38,6 @@
   friendly_name: Bedroom 1 Motion Sensor
 '0x0017880109172d19':
   friendly_name: Kitchen South Motion Sensor
-'0x00158d0006ca2865':
-  friendly_name: Homelab Temperature Sensor
 '0x001788010916debb':
   friendly_name: Dining Room Motion Sensor
 '0x0017880108a99eff':
@@ -228,3 +226,7 @@
   friendly_name: Laundry Door Contact Sensor
 '0x00158d0006ffcbd9':
   friendly_name: Back Door Contact Sensor
+'0x0017880109d479f3':
+  friendly_name: NBN NTD Smart Plug
+'0x00158d0006ca2865':
+  friendly_name: Homelab Temperature Sensor
