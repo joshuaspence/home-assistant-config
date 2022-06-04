@@ -30,19 +30,19 @@ template:
         <<: *wan
 
   - sensor:
-      - name: 'UniFi WLAN Guests' # CHECKME
+      - name: 'UniFi WLAN Guests'
         unique_id: 'ad410e0b-0be3-4500-82b9-389698e2e497'
         state: '{{ states.sensor.unifi_gateway_wlan.attributes.num_guest }}'
         <<: &wlan
           availability: '{{ states.sensor.unifi_gateway_wlan is not none }}'
-      - name: 'UniFi WLAN Users' # CHECKME
+      - name: 'UniFi WLAN Users'
         unique_id: 'da25c64c-f7cb-4165-901d-9e3823d8de6a'
         state: '{{ states.sensor.unifi_gateway_wlan.attributes.num_user }}'
         <<: *wlan
 
   - sensor:
       # TODO: Use `states.sensor.unifi_gateway_wan.attributes["isp_name"]`.
-      - name: 'UniFi Gateway WAN Failover' # CHECKME
+      - name: 'UniFi Gateway WAN Failover'
         unique_id: 'a6d6d6e8-e159-47ca-b4c7-4f0aa90d1bac'
         availability: '{{ states.sensor.unifi_gateway_wan is not none }}'
         state: >-
