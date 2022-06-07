@@ -78,26 +78,6 @@ cards:
           - type: 'gauge'
             entity: 'sensor.unifi_gateway_memory'
             name: 'Memory'
-          - type: 'gauge'
-            entity: 'sensor.unifi_gateway_phy_temperature'
-            name: 'PHY Temperature'
-            min: 40
-            max: 100
-          - type: 'gauge'
-            entity: 'sensor.unifi_gateway_cpu_temperature'
-            name: 'CPU Temperature'
-            min: 40
-            max: 100
-          - type: 'gauge'
-            entity: 'sensor.unifi_gateway_board_phy_temperature'
-            name: 'Board (PHY) Temperature'
-            min: 40
-            max: 100
-          - type: 'gauge'
-            entity: 'sensor.unifi_gateway_board_cpu_temperature'
-            name: 'Board (CPU) Temperature'
-            min: 40
-            max: 100
       - type: 'history-graph'
         entities:
           - entity: 'sensor.unifi_gateway_cpu'
