@@ -74,9 +74,6 @@ localtuya:
       - platform: 'switch'
         friendly_name: 'Bedroom 1 Air Purifier UV Sterilization'
         id: 9
-      - platform: 'switch'
-        friendly_name: 'Bedroom 1 Air Purifier Filter Reset'
-        id: 11
       - platform: 'sensor'
         friendly_name: 'Bedroom 1 Air Purifier Filter Remaining Time'
         id: 16
