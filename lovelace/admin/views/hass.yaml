@@ -215,6 +215,8 @@ cards:
     filter:
       include:
         - state: 'unknown'
+      exclude:
+        - domain: 'button'
     sort:
       method: 'name'
 
