@@ -28,9 +28,8 @@ logger:
       - '^Could not connect to'
     homeassistant.components.sensor:
       - '^Platform netgear_lte not ready yet'
-    homeassistant.components.stream.stream.camera.baby_monitor: &stream
+    homeassistant.components.stream.stream.camera.office:
       - '^Error from stream worker: Error opening stream \(HTTP_NOT_FOUND, Server returned 404 Not Found\)'
-    homeassistant.components.stream.stream.camera.office: *stream
     homeassistant.config_entries:
       - '^Config entry ''DaikinAP13127'' for daikin integration not ready yet: Server disconnected; Retrying in background$'
     mqtt_schedule_thread: &deebot
