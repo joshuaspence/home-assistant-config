@@ -6,7 +6,5 @@ entities:
   light.bedroom_2:
     brightness: 255
     state: 'on'
-  media_player.bedroom_2_speaker:
-    state: 'off'
   switch.bedroom_2_speaker_do_not_disturb:
     state: 'off'

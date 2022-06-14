@@ -4,11 +4,7 @@ name: 'Bedroom 2 - Sleep'
 icon: 'mdi:sleep'
 entities:
   light.bedroom_2:
-    state: 'off'
-  media_player.bedroom_2_speaker:
-    media_content_id: 'https://storage.googleapis.com/helpmesleep/whitenoise/Pink13.mp3'
-    media_content_type: 'audio/mp3'
-    state: 'playing'
-    volume_level: '0.4'
+    brightness: 20
+    state: 'on'
   switch.bedroom_2_speaker_do_not_disturb:
     state: 'on'
