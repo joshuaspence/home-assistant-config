@@ -4,6 +4,8 @@ climate.aircon:
   icon: 'mdi:air-conditioner'
 light.dining_room:
   icon: 'mdi:ceiling-light'
+sensor.bedroom_1_air_purifier_filter_remaining_time:
+  icon: 'mdi:calendar-clock'
 switch.aircon_downstairs:
   friendly_name: 'Aircon Downstairs'
 switch.aircon_upstairs:
@@ -20,3 +22,5 @@ switch.aircon_zone_7:
   friendly_name: 'Aircon Zone 7'
 switch.aircon_zone_8:
   friendly_name: 'Aircon Zone 8'
+switch.bedroom_1_air_purifier_uv_sterilization:
+  icon: 'mdi:minus-circle-outline'
