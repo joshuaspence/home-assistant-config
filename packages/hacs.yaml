@@ -1,7 +1,4 @@
 ---
-hacs:
-  token: !secret 'hacs.github_token'
-
 homeassistant:
   customize:
     sensor.hacs:
@@ -9,20 +6,6 @@ homeassistant:
 
 frontend:
   themes: !include_dir_merge_named '../themes'
-
-automation:
-  - id: 'e1bdb352-6c27-4f5c-807f-00b0c8ce880a'
-    alias: 'HACS Update Available'
-    trigger:
-      platform: 'numeric_state'
-      entity_id: 'sensor.hacs'
-      above: 0
-    action:
-      # TODO: Create separate notifications for each available update using `for_each`.
-      service: 'persistent_notification.create'
-      data:
-        title: 'Update Available'
-        message: 'HACS updates are available.'
 
 history:
   exclude:
