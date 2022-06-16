@@ -1,17 +1,37 @@
 # Based on https://www.esphome-devices.com/devices/Shelly-25.
 ---
-substitutions:
-  input1_gpio: 'GPIO13'
-  input2_gpio: 'GPIO5'
-  output1_gpio: 'GPIO4'
-  output2_gpio: 'GPIO15'
-
 packages:
   common: !include 'packages/common.yaml'
-  input1: !include 'packages/input1.yaml'
-  input2: !include 'packages/input2.yaml'
-  output1: !include 'packages/output1.yaml'
-  output2: !include 'packages/output2.yaml'
+  input1: !include
+    file: 'packages/input.yaml'
+    vars:
+      id: '1'
+      pin: 'GPIO13'
+  input2: !include
+    file: 'packages/input.yaml'
+    vars:
+      id: '2'
+      pin: 'GPIO5'
+  output1: !include
+    file: 'packages/output.yaml'
+    vars:
+      id: '1'
+      pin: 'GPIO4'
+      component: '${output1_component}'
+      platform: '${output1_platform}'
+      name: '${output1_name}'
+      restore_mode: '${output1_restore_mode}'
+      internal: '${output1_internal}'
+  output2: !include
+    file: 'packages/output.yaml'
+    vars:
+      id: '2'
+      pin: 'GPIO15'
+      component: '${output2_component}'
+      platform: '${output2_platform}'
+      name: '${output2_name}'
+      restore_mode: '${output2_restore_mode}'
+      internal: '${output2_internal}'
   status_led: !include 'packages/status_led.yaml'
   temperature: !include 'packages/temperature.yaml'
 

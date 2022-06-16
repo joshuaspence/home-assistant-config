@@ -11,6 +11,18 @@ substitutions:
   status_led_gpio: 'GPIO0'
   status_led_inverted: 'true'
 
+  # TODO: These shouldn't be here.
+  output1_component: 'switch'
+  output1_platform: 'output'
+  output1_name: '${device_name} Output1'
+  output1_restore_mode: 'ALWAYS_ON'
+  output1_internal: 'true'
+  output2_component: 'switch'
+  output2_platform: 'output'
+  output2_name: '${device_name} Output2'
+  output2_restore_mode: 'ALWAYS_ON'
+  output2_internal: 'true'
+
   # NOTE: See esphome/issues#1532.
   wifi_power_save_mode: 'high'
 

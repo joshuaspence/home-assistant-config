@@ -1,10 +1,19 @@
 # Based on https://www.esphome-devices.com/devices/Shelly-1.
 ---
-substitutions:
-  input1_gpio: 'GPIO5'
-  output1_gpio: 'GPIO4'
-
 packages:
   common: !include 'packages/common.yaml'
-  input1: !include 'packages/input1.yaml'
-  output1: !include 'packages/output1.yaml'
+  input1: !include
+    file: 'packages/input.yaml'
+    vars:
+      id: '1'
+      pin: 'GPIO5'
+  output1: !include
+    file: 'packages/output.yaml'
+    vars:
+      id: '1'
+      pin: 'GPIO4'
+      component: '${output1_component}'
+      platform: '${output1_platform}'
+      name: '${output1_name}'
+      restore_mode: '${output1_restore_mode}'
+      internal: '${output1_internal}'
