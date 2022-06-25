@@ -30,8 +30,6 @@ cards:
     entities:
       - entity: 'sensor.unifi_gateway_alerts'
         name: 'Alerts'
-      - entity: 'sensor.unifi_gateway_firmware_upgradable'
-        name: 'Firmware Updates'
       - entity: 'sensor.unifi_gateway_lan'
         name: 'LAN'
       - entity: 'sensor.unifi_gateway_vpn'
