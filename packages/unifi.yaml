@@ -96,8 +96,3 @@ automation:
           sticky: true
           tag: 'unifi-alert'
     mode: 'restart'
-
-history:
-  exclude:
-    entity_globs:
-      - 'sensor.unifi_gateway_*'
