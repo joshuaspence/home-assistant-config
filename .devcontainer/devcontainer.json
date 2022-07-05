@@ -1,0 +1,10 @@
+{
+	"name": "Ubuntu",
+	"image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+	"remoteUser": "vscode",
+  "extensions": [
+    "ESPHome.esphome-vscode",
+    "keesschollaart.vscode-home-assistant",
+    "netcorext.uuid-generator"
+  ]
+}
