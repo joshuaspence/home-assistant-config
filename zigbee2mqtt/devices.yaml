@@ -124,8 +124,6 @@
     switch:
       object_id: fan
       type: fan
-'0x00158d0006bf9edb':
-  friendly_name: Attic Upper Temperature Sensor
 '0x00158d0007758d60':
   friendly_name: Attic Lower Temperature Sensor
 '0x00178801064716e9':
