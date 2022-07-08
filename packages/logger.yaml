@@ -32,6 +32,3 @@ logger:
       - '^Error from stream worker: Error opening stream \(HTTP_NOT_FOUND, Server returned 404 Not Found\)'
     homeassistant.config_entries:
       - '^Config entry ''DaikinAP13127'' for daikin integration not ready yet: Server disconnected; Retrying in background$'
-    mqtt_schedule_thread: &deebot
-      - '^call to iotdevmanager failed with {''ret'': ''fail'', ''errno'': 4200}$'
-    ozmo: *deebot

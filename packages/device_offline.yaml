@@ -84,7 +84,6 @@ group:
       - 'sensor.lily_phone_next_alarm'
       - 'sensor.unavailable_devices'
       - 'sensor.unavailable_entities'
-      - 'vacuum.deebot'
 
 history:
   exclude:

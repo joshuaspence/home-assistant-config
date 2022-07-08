@@ -17,8 +17,6 @@ action:
   - parallel:
       - service: 'scene.turn_on'
         entity_id: 'scene.arriving_home'
-      - service: 'vacuum.return_to_base'
-        entity_id: 'vacuum.deebot'
 
   # Wait for the door to be opened.
   - wait_for_trigger:
