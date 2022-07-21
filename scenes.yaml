@@ -24,8 +24,6 @@
       state: 'off'
     switch.bedroom_1_air_purifier_night_mode:
       state: 'off'
-    switch.bedroom_1_speaker_do_not_disturb:
-      state: 'off'
 - id: '09ebab34-b7f2-4f40-99fe-0c58fbdd283e'
   name: 'Bedroom 1 - Sleep'
   icon: 'mdi:sleep'
@@ -39,8 +37,6 @@
       volume_level: '0.4'
     switch.bedroom_1_air_purifier_night_mode:
       state: 'on'
-    switch.bedroom_1_speaker_do_not_disturb:
-      state: 'on'
 
 - id: '1ee5e569-7a96-415c-b004-0711912ce558'
   name: 'Bedroom 2 - Awake'
@@ -49,16 +45,12 @@
     light.bedroom_2:
       brightness: 255
       state: 'on'
-    switch.bedroom_2_speaker_do_not_disturb:
-      state: 'off'
 - id: 'c06aa8f3-b411-448a-9f19-75c4dfa34902'
   name: 'Bedroom 2 - Sleep'
   icon: 'mdi:sleep'
   entities:
     light.bedroom_2:
       brightness: 20
-      state: 'on'
-    switch.bedroom_2_speaker_do_not_disturb:
       state: 'on'
 
 - id: 'f02b9417-fa2b-4697-8281-9ff6de6146e5'
