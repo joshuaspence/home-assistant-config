@@ -6,6 +6,7 @@ cloud:
         - 'switch.aircon_downstairs'
         - 'switch.aircon_upstairs'
       include_domains:
+        - 'camera'
         - 'climate'
         - 'fan'
         - 'light'
