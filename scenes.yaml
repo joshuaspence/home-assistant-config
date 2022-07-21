@@ -33,8 +33,8 @@
     light.bedroom_1:
       state: 'off'
     media_player.bedroom_1_speaker:
-      media_content_id: 'https://storage.googleapis.com/helpmesleep/whitenoise/Pink13.mp3'
-      media_content_type: 'audio/mp3'
+      media_content_id: 'media-source://media_source/local/pink_noise.mp3'
+      media_content_type: 'music'
       state: 'playing'
       volume_level: '0.4'
     switch.bedroom_1_air_purifier_night_mode:
