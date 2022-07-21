@@ -1,0 +1,18 @@
+---
+automation:
+  - id: '18a4357c-a3bb-4336-a184-43dea3d82c86'
+    alias: 'Doorbell Notification'
+    trigger:
+      platform: 'state'
+      entity_id: 'binary_sensor.doorbell'
+      from: 'off'
+      to: 'on'
+    action:
+      service: 'media_player.play_media'
+      data:
+        media_content_id: 'media-source://media_source/local/unifi_protect_chime.wav'
+        media_content_type: 'music'
+        announce: true
+      target:
+        entity_id: 'media_player.living_room_speaker'
+    mode: 'single'
