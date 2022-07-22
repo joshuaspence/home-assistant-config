@@ -45,7 +45,7 @@ automation:
       input:
         trigger_sensor: 'binary_sensor.front_yard_occupancy'
         light_target:
-          - 'light.driveway.'
+          - 'light.driveway'
           - 'light.front_door'
         illuminance_sensor: 'sensor.front_yard_illuminance'
 
