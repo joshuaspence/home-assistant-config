@@ -228,3 +228,5 @@
   friendly_name: NBN NTD Smart Plug
 '0x00158d0006ca2865':
   friendly_name: Homelab Temperature Sensor
+'0x0017880106fd4309':
+  friendly_name: Driveway Light
