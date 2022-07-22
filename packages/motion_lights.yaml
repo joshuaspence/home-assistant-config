@@ -44,9 +44,7 @@ automation:
       path: 'motion_lights.yaml'
       input:
         trigger_sensor: 'binary_sensor.front_yard_occupancy'
-        light_target:
-          - 'light.driveway'
-          - 'light.front_door'
+        light_target: 'light.driveway'
         illuminance_sensor: 'sensor.front_yard_illuminance'
 
   - id: 'a5ba218b-e568-4c97-b5cb-f1c3407dd5e2'
