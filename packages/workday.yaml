@@ -12,18 +12,26 @@ automation:
       - platform: 'time'
         at: '08:30'
         variables:
-          service: 'light.turn_on'
+          scene:
+            fan.homelab:
+              state: 'off'
+            light.office:
+              brightness: 255
+              state: 'on'
       - platform: 'time'
         at: '18:00'
         variables:
-          service: 'light.turn_off'
+          scene:
+            light.office:
+              state: 'off'
     condition:
       condition: 'state'
       entity_id: 'binary_sensor.workday'
       state: 'on'
     action:
-      service: '{{ service }}'
-      entity_id: 'light.office'
+      service: 'scene.apply'
+      data:
+        entities: '{{ scene }}'
 
 history:
   exclude:
