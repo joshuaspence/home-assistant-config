@@ -123,7 +123,7 @@ automation:
               {{ states('sensor.unavailable_devices') }} {{ is_state('sensor.unavailable_devices', '1') | iif('device is', 'devices are') }} offline.
             message: >-
               {% for device, entities in state_attr('sensor.unavailable_devices', 'devices').items() -%}
-              - <strong>{{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}:</strong> {{ entities | join(', ') }}
+              - {{ device_attr(device, 'name_by_user') | default(device_attr(device, 'name'), true) }}
               {% endfor %}
               {% for entity in state_attr('sensor.unavailable_devices', 'entities') -%}
               - {{ entity }}
