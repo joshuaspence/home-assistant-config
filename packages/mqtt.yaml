@@ -51,6 +51,8 @@ automation:
         hours: '*'
     action:
       service: 'mqtt.publish'
+
+      # TODO: Include routes.
       data:
         topic: 'zigbee2mqtt/bridge/request/networkmap'
         payload: 'raw'
