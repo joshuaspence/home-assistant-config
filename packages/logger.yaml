@@ -12,10 +12,6 @@ logger:
     snitun.client.client_peer:
       - '^Challenge/Response error with SniTun server\b'
 
-    # See thomasloven/hass-browser_mod#203.
-    homeassistant.components.websocket_api.http.connection:
-      - 'Received invalid command: browser_mod/'
-
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
       - 'TcpTimeoutException'
