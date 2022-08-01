@@ -3,5 +3,17 @@ title: 'Cameras'
 icon: 'mdi:camera'
 path: 'camera'
 cards:
-  - type: 'entity'
-    entity: 'camera.office'
+  - type: 'picture-glance'
+    entities:
+      - 'binary_sensor.doorbell_occupancy'
+      - 'sensor.doorbell_detected_object'
+      - 'sensor.doorbell_last_ring'
+      - 'binary_sensor.doorbell_motion'
+      - 'sensor.doorbell_last_motion_detected'
+    camera_image: 'camera.doorbell'
+    camera_view: 'live'
+
+  - type: 'picture-glance'
+    entities: []
+    camera_image: 'camera.office'
+    camera_view: 'live'
