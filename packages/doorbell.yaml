@@ -4,7 +4,7 @@ automation:
     alias: 'Doorbell Notification'
     trigger:
       platform: 'state'
-      entity_id: 'binary_sensor.doorbell'
+      entity_id: 'binary_sensor.doorbell_occupancy'
       from: 'off'
       to: 'on'
     action:
