@@ -14,7 +14,17 @@ serial:
   port: 'tcp://zigbee_gateway.local:6638'
 devices: 'devices.yaml'
 groups: 'groups.yaml'
-device_options: {}
+device_options:
+  homeassistant:
+    action_source_name:
+      enabled_by_default: false
+    action_source_user:
+      enabled_by_default: false
+    device_temperature:
+      enabled_by_default: false
+    power_outage_count:
+      entity_category: 'diagnostic'
+      enabled_by_default: false
 advanced:
   legacy_api: false
   log_rotation: false
