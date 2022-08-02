@@ -32,7 +32,7 @@ automation:
                 entity_id: *media_player
                 message: 'Someone is at the door'
                 cache: true
-            - *media_player_idle_wait
+            - <<: *media_player_idle_wait
 
             - delay: 5
           until:
