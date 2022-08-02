@@ -22,10 +22,11 @@ automation:
                 announce: true
               target:
                 entity_id: *media_player
-            - wait_for_trigger: &media_player_idle_wait
-                platform: 'state'
-                entity_id: *media_player
-                to: 'idle'
+            - <<: &media_player_idle_wait
+                wait_for_trigger:
+                  platform: 'state'
+                  entity_id: *media_player
+                  to: 'idle'
 
             - service: 'tts.cloud_say'
               data:
