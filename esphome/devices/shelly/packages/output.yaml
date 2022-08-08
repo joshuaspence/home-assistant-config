@@ -1,11 +1,4 @@
 ---
-substitutions:
-  component: 'switch'
-  platform: 'output'
-  name: '${device_name} Output${id}'
-  restore_mode: 'ALWAYS_ON'
-  internal: 'true'
-
 output:
   - platform: 'gpio'
     pin: '${pin}'
