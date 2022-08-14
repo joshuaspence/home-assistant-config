@@ -217,6 +217,8 @@ cards:
         - state: 'unknown'
       exclude:
         - domain: 'button'
+        - entity_id: 'binary_sensor.*_water_leak_sensor_battery_low'
+        - entity_id: 'sensor.*_smoke_detector_battery_level'
     sort:
       method: 'name'
 
@@ -252,6 +254,7 @@ cards:
             'mobile_app',
             'mold_indicator',
             'netgear_lte',
+            'rpi_power',
             'speedtestdotnet',
             'sql',
             'systemmonitor',
@@ -285,6 +288,7 @@ cards:
         - entity_id: 'binary_sensor.zigbee2mqtt_*'
         - entity_id: 'lock.all'
         - entity_id: 'media_player.all'
+        - entity_id: 'media_player.spotify'
         - entity_id: 'sensor.backup_state'
         - entity_id: 'sensor.firmware_updates_available'
         - entity_id: 'sensor.low_battery'
