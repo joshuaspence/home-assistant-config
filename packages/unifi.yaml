@@ -92,7 +92,5 @@ automation:
             {%   endif -%}
             {% endfor %}
           channel: 'UniFi'
-          persistent: true
-          sticky: true
           tag: 'unifi-alert'
     mode: 'restart'
