@@ -1,6 +1,6 @@
 ---
 netgear_lte:
-  - host: '192.168.200.1'
+  - host: '192.168.0.2'
     password: !secret 'netgear_lte.password'
     notify:
       - name: 'sms_josh'
