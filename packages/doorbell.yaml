@@ -44,3 +44,4 @@ automation:
               - condition: 'template'
                 value_template: '{{ repeat.index > 2 }}'
     mode: 'single'
+    max_exceeded: 'silent'
