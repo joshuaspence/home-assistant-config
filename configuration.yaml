@@ -44,14 +44,16 @@ homeassistant:
       icon: 'mdi:hvac'
   elevation: !secret 'home.elevation'
   external_url: !secret 'core.external_url'
-  internal_url: 'http://homeassistant.spence.network'
+  internal_url: 'https://homeassistant.spence.network'
   latitude: !secret 'home.latitude'
   longitude: !secret 'home.longitude'
   name: 'Home'
   packages: !include_dir_named 'packages'
   time_zone: 'Australia/Sydney'
 http:
-  server_port: 80
+  server_port: 443
+  ssl_certificate: '/ssl/fullchain.pem'
+  ssl_key: '/ssl/privkey.pem'
 lovelace:
   mode: 'yaml'
   dashboards: !include 'lovelace/dashboards.yaml'
