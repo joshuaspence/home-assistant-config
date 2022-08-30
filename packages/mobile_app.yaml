@@ -218,7 +218,8 @@ script:
       service: 'notify.mobile_app_{{ device }}'
       data:
         message: '{{ command }}'
-        title: '{{ data | default }}'
+        data:
+          command: '{{ data | default }}'
 
   mobile_app_clear_notification:
     alias: 'Mobile App Clear Notification'
