@@ -15,6 +15,10 @@ automation:
         to: 'on'
         variables:
           service: 'script.turn_off'
+    condition:
+      condition: 'time'
+      after: '07:00:00'
+      before: '18:00:00'
     action:
       - service: 'media_player.volume_set'
         data:
