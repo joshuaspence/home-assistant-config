@@ -1,9 +1,0 @@
----
-browser_mod:
-  prefix: 'browser_'
-  devices:
-    5f4f589f-064cd033:
-      name: 'Josh''s Laptop'
-      disable: &disable_all
-        - 'all'
-  disable: *disable_all
