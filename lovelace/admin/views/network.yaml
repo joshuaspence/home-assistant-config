@@ -74,7 +74,7 @@ cards:
 
   - type: 'entities'
     title: 'Certificate Expiry'
-    icon: ''
+    icon: 'mdi:certificate'
     entities:
       - entity: 'sensor.homeassistant_certificate_expiry'
         name: 'homeassistant.spence.network'
