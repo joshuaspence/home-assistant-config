@@ -71,3 +71,14 @@ cards:
         name: 'SMS'
       - entity: 'sensor.netgear_lte_usage'
         name: 'Usage'
+
+  - type: 'entities'
+    title: 'Certificate Expiry'
+    icon: ''
+    entities:
+      - entity: 'sensor.homeassistant_certificate_expiry'
+        name: 'homeassistant.spence.network'
+      - entity: 'sensor.unifi_protect_certificate_expiry'
+        name: 'protect.spence.network'
+      - entity: 'sensor.unifi_network_certificate_expiry'
+        name: 'unifi.spence.network'
