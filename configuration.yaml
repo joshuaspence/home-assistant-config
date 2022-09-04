@@ -52,8 +52,8 @@ homeassistant:
   time_zone: 'Australia/Sydney'
 http:
   server_port: 443
-  ssl_certificate: '/ssl/fullchain.pem'
-  ssl_key: '/ssl/privkey.pem'
+  ssl_certificate: !secret 'http.ssl_certificate'
+  ssl_key: !secret 'http.ssl_key'
 lovelace:
   mode: 'yaml'
   dashboards: !include 'lovelace/dashboards.yaml'
