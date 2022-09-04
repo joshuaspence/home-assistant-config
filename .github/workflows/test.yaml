@@ -38,10 +38,6 @@ jobs:
     continue-on-error: '${{ matrix.version != ''stable'' }}'
     steps:
       - uses: 'actions/checkout@v3'
-      - run: >-
-          mkdir --parents /ssl
-          touch /ssl/fullchain.pem
-          touch /ssl/privkey.pem
       - uses: 'frenck/action-home-assistant@v1.3'
         with:
           secrets: '.github/stubs/hass_secrets.yaml'
