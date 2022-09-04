@@ -35,6 +35,7 @@ mqtt:
       unique_id: '0e78cda4-e06a-4174-a663-1badfc31f315'
       payload_on: 'online'
       payload_off: 'offline'
+      value_template: '{{ value_json.state }}'
     - state_topic: 'zigbee2mqtt/bridge/response/health_check'
       value_template: '{{ value_json.status }}'
       name: 'Zigbee2MQTT Health Check'
