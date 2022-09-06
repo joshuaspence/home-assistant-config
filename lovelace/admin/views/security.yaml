@@ -9,8 +9,10 @@ cards:
     entities:
       - type: 'section'
         label: 'NVR'
-      - entity: 'binary_sensor.unvr_disk_0_health'
-        name: 'Disk 0 Health'
+      - entity: 'binary_sensor.unvr_hdd_1'
+        name: 'HDD 1'
+      - entity: 'binary_sensor.unvr_hdd_2'
+        name: 'HDD 2'
       - entity: 'sensor.unvr_recording_capacity'
         name: 'Recording Capacity'
       - entity: 'sensor.unvr_storage_utilization'
