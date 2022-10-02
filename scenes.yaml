@@ -15,13 +15,14 @@
   icon: 'mdi:alarm'
   entities:
     fan.bedroom_1_air_purifier:
-      percentage: 100
       state: 'on'
     light.bedroom_1:
       brightness: 255
       state: 'on'
     media_player.bedroom_1_speaker:
       state: 'off'
+    select.bedroom_1_air_purifier_mode:
+      state: 'Auto'
     switch.bedroom_1_air_purifier_night_mode:
       state: 'off'
     switch.bedroom_1_speaker_do_not_disturb:
