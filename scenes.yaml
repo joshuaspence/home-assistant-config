@@ -66,6 +66,7 @@
   name: 'Bed Time'
   icon: 'mdi:bed'
   entities:
+    fan.homelab: 'on'
     light.bathroom: 'off'
     light.bathroom_mirror: 'off'
     light.dining_room: 'off'
