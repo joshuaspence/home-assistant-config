@@ -228,3 +228,5 @@
   friendly_name: Homelab Temperature Sensor
 '0x0017880106fd4309':
   friendly_name: Driveway Light
+'0x00158d00054c3fd3':
+  friendly_name: Front Door Vibration Sensor
