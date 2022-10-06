@@ -26,8 +26,6 @@
   friendly_name: Bedroom 2 Light
 '0x0017880108b3936b':
   friendly_name: Bedroom 1 Light
-'0x0017880108231df9':
-  friendly_name: Attic Main Light
 '0x00178801064706f8':
   friendly_name: Back Yard Motion Sensor
 '0x00178801090aff0c':
@@ -230,3 +228,7 @@
   friendly_name: Driveway Light
 '0x00158d00054c3fd3':
   friendly_name: Front Door Vibration Sensor
+'0x0017880108b39317':
+  friendly_name: Attic Main Light
+'0x00158d0005408afa':
+  friendly_name: Attic Upper Temperature Sensor
