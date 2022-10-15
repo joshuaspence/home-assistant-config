@@ -34,7 +34,7 @@
     light.bedroom_1:
       state: 'off'
     media_player.bedroom_1_speaker:
-      media_content_id: 'media-source://media_source/local/pink_noise.mp3'
+      media_content_id: 'media-source://media_source/local/white_noise.mp3'
       media_content_type: 'music'
       state: 'playing'
       volume_level: '0.4'
