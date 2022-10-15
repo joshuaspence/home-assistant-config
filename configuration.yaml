@@ -66,6 +66,7 @@ person:
     device_trackers:
       - 'device_tracker.josh_phone_app'
       - 'device_tracker.josh_phone_unifi'
+      - 'device_tracker.josh_watch'
   - id: 'lily'
     name: 'Amelia Spence'
     user_id: '71917d714b7345a1a1a2ad6caf9c500e'
