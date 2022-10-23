@@ -48,7 +48,7 @@ automation:
         trigger_sensor: 'binary_sensor.office_door'
         light_target: 'light.office'
         illuminance_sensor: 'sensor.office_illuminance'
-        off_delay: 600
+        off_delay: 60
 
   - id: '45cff086-bd5b-44f3-9c31-d53564cc7899'
     alias: 'Side Door Lights'
