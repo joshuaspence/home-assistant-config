@@ -232,3 +232,5 @@
   friendly_name: Attic Main Light
 '0x00158d0005408afa':
   friendly_name: Attic Upper Temperature Sensor
+'0x54ef4410005fc382':
+  friendly_name: Office Presence Sensor
