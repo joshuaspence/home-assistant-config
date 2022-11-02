@@ -120,18 +120,3 @@
     light.kitchen_main:
       brightness: 100
       state: 'on'
-
-- id: 'b4bd2c9c-c88a-4835-aea0-956dbe617842'
-  name: 'Halloween'
-  entities:
-    light.driveway:
-      brightness: 255
-      rgb_color: &halloween_orange
-        - 255
-        - 191
-        - 0
-      state: 'on'
-    light.front_patio:
-      brightness: 255
-      rgb_color: *halloween_orange
-      state: 'on'
