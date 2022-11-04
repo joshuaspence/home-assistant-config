@@ -1,6 +1,7 @@
 ---
 sensor:
   - platform: 'min_max'
+    unique_id: '873c5bf5-0ee7-43fb-a8d7-ade25b373167'
     entity_ids:
       - 'sensor.dining_room_humidity'
       - 'sensor.kitchen_humidity'
@@ -8,6 +9,7 @@ sensor:
     type: 'mean'
     name: 'Downstairs Humidity'
   - platform: 'min_max'
+    unique_id: '048da826-c0b3-4afa-92e6-d94b9b84a0f4'
     entity_ids:
       - 'sensor.dining_room_temperature'
       - 'sensor.kitchen_temperature'
@@ -16,6 +18,7 @@ sensor:
     name: 'Downstairs Temperature'
 
   - platform: 'min_max'
+    unique_id: 'cda66d6c-4191-4a2f-af77-84612d066e32'
     entity_ids:
       - 'sensor.bedroom_1_humidity'
       - 'sensor.bedroom_2_humidity'
@@ -24,6 +27,7 @@ sensor:
     type: 'mean'
     name: 'Upstairs Humidity'
   - platform: 'min_max'
+    unique_id: 'd34c2351-c825-4af6-968d-c5e70a576d99'
     entity_ids:
       - 'sensor.bedroom_1_temperature'
       - 'sensor.bedroom_2_temperature'
@@ -33,6 +37,7 @@ sensor:
     name: 'Upstairs Temperature'
 
   - platform: 'min_max'
+    unique_id: '28823668-a3bb-4f1d-9e12-7a0dab642da3'
     entity_ids:
       - 'sensor.bedroom_1_humidity'
       - 'sensor.bedroom_2_humidity'
@@ -44,6 +49,7 @@ sensor:
     type: 'mean'
     name: 'Inside Humidity'
   - platform: 'min_max'
+    unique_id: '62e72524-5eee-4f00-8a3a-fd77ea84eae5'
     entity_ids:
       - 'sensor.bedroom_1_temperature'
       - 'sensor.bedroom_2_temperature'
@@ -56,12 +62,14 @@ sensor:
     name: 'Inside Temperature'
 
   - platform: 'min_max'
+    unique_id: '950dc914-9676-4928-9c8b-6e87b3acd476'
     entity_ids:
       - 'sensor.outside_north_humidity'
       - 'sensor.outside_south_humidity'
     type: 'mean'
     name: 'Outside Humidity'
   - platform: 'min_max'
+    unique_id: '81f68014-4a1c-46df-ae34-93985d6bad39'
     entity_ids:
       - 'sensor.outside_north_temperature'
       - 'sensor.outside_south_temperature'
@@ -69,12 +77,14 @@ sensor:
     name: 'Outside Temperature'
 
   - platform: 'min_max'
+    unique_id: '3891a6c9-a63c-47d3-9f12-8883caeb13a4'
     entity_ids:
       - 'sensor.attic_lower_humidity'
       - 'sensor.attic_upper_humidity'
     type: 'mean'
     name: 'Attic Humidity'
   - platform: 'min_max'
+    unique_id: '4ee057be-ed3b-46b9-839b-0cad360907c0'
     entity_ids:
       - 'sensor.attic_lower_temperature'
       - 'sensor.attic_upper_temperature'
@@ -82,12 +92,14 @@ sensor:
     name: 'Attic Temperature'
 
   - platform: 'min_max'
+    unique_id: '9dbf071e-e442-4e2e-bf18-3a6c0eafdc8a'
     entity_ids:
       - 'sensor.basement_east_humidity'
       - 'sensor.basement_west_humidity'
     type: 'mean'
     name: 'Basement Humidity'
   - platform: 'min_max'
+    unique_id: '2049108c-1b73-4879-af8f-e5667b619967'
     entity_ids:
       - 'sensor.basement_east_temperature'
       - 'sensor.basement_west_temperature'

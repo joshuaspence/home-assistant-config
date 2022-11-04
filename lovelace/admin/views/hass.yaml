@@ -268,7 +268,6 @@ cards:
         %}
         {%
           set integrations_without_unique_id = [
-            'min_max',
             'ping',
           ]
         %}
