@@ -1,7 +1,0 @@
----
-substitutions:
-  device_name: 'bedroom_1_shelly'
-
-packages:
-  common: !include 'packages/common.yaml'
-  device: !include 'devices/shelly/1L.yaml'

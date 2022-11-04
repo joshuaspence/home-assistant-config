@@ -1,16 +1,5 @@
 ---
 automation:
-  - id: 'c1fa5c32-230d-44e2-bd89-d748be8745ed'
-    alias: 'attic_shelly Buttons'
-    use_blueprint:
-      path: 'esphome_buttons.yaml'
-      input:
-        device: 'attic_shelly'
-        button1_click:
-          service: 'light.toggle'
-          data:
-            entity_id: 'light.attic_main'
-
   - id: 'c41b6567-10de-4c5e-8773-ca2530afac2e'
     alias: 'basement_shelly Buttons'
     use_blueprint:
@@ -51,32 +40,6 @@ automation:
           service: 'light.toggle'
           data:
             entity_id: 'light.bathroom_heat'
-
-  - id: 'fbf009e5-c2bb-4d81-b433-b2ea16e2fd29'
-    alias: 'bedroom_1_shelly Buttons'
-    use_blueprint:
-      path: 'esphome_buttons.yaml'
-      input:
-        device: 'bedroom_1_shelly'
-        button1_click:
-          service: 'light.toggle'
-          data:
-            entity_id: 'light.bedroom_1'
-
-  - id: 'affc0e46-11be-4930-bfff-323e2c066b54'
-    alias: 'bedroom_2_shelly Buttons'
-    use_blueprint:
-      path: 'esphome_buttons.yaml'
-      input:
-        device: 'bedroom_2_shelly'
-        button1_click:
-          service: 'light.toggle'
-          data:
-            entity_id: 'light.bedroom_2'
-        button2_click:
-          service: 'light.toggle'
-          data:
-            entity_id: 'light.hallway_east'
 
   - id: '7fd8b536-4e19-4e97-a783-eff5b1d61722'
     alias: 'dining_room_shelly Buttons'

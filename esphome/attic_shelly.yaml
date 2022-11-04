@@ -1,7 +1,0 @@
----
-substitutions:
-  device_name: 'attic_shelly'
-
-packages:
-  common: !include 'packages/common.yaml'
-  device: !include 'devices/shelly/1.yaml'

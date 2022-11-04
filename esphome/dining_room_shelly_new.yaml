@@ -1,7 +1,0 @@
----
-substitutions:
-  device_name: 'dining_room_shelly_new'
-
-packages:
-  common: !include 'packages/common.yaml'
-  device: !include 'devices/shelly/1PM.yaml'
