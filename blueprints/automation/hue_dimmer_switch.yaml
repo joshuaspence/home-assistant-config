@@ -35,13 +35,13 @@ trigger:
 
 action:
   - choose:
-      - conditions: '{{ trigger.payload == "on-press" }}'
+      - conditions: '{{ trigger.payload == "on_press" }}'
         sequence: !input 'on_press'
-      - conditions: '{{ trigger.payload == "up-press" }}'
+      - conditions: '{{ trigger.payload == "up_press" }}'
         sequence: !input 'up_press'
-      - conditions: '{{ trigger.payload == "down-press" }}'
+      - conditions: '{{ trigger.payload == "down_press" }}'
         sequence: !input 'down_press'
-      - conditions: '{{ trigger.payload == "off-press" }}'
+      - conditions: '{{ trigger.payload == "off_press" }}'
         sequence: !input 'off_press'
 
 mode: 'queued'
