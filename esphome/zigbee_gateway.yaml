@@ -7,6 +7,14 @@ substitutions:
 packages:
   common: !include 'packages/common.yaml'
 
+esphome:
+  on_boot:
+    priority: 600
+    then:
+      - switch.turn_on: 'zRST_gpio'
+      - delay: '15ms'
+      - switch.turn_off: 'zRST_gpio'
+
 ethernet:
   type: 'LAN8720'
   mdc_pin: 'GPIO23'
