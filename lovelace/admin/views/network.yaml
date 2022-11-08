@@ -21,8 +21,11 @@ cards:
         graph: 'line'
 
   - type: 'entity'
-    entity: 'sensor.myip'
-    name: 'Public IP'
+    entity: 'sensor.dnsip_ipv4'
+    name: 'IPv4'
+  - type: 'entity'
+    entity: 'sensor.dnsip_ipv6'
+    name: 'IPv6'
 
   - type: 'entities'
     title: 'UniFi'
