@@ -246,6 +246,7 @@ cards:
           set excluded_integrations = [
             'aussie_broadband',
             'bureau_of_meteorology',
+            'cert_expiry',
             'cloud',
             'daikin',
             'dnsip',
@@ -267,9 +268,7 @@ cards:
           ]
         %}
         {%
-          set integrations_without_unique_id = [
-            'ping',
-          ]
+          set integrations_without_unique_id = []
         %}
         {% set excluded_entities = (excluded_integrations + integrations_without_unique_id) | map('integration_entities') | sum(start=[]) %}
         {{ states | map(attribute='entity_id') | reject('in', excluded_entities) | list }}
@@ -289,12 +288,15 @@ cards:
         - entity_id: 'media_player.all'
         - entity_id: 'media_player.spotify'
         - entity_id: 'sensor.backup_state'
+        - entity_id: 'sensor.downstairs_*'
         - entity_id: 'sensor.firmware_updates_available'
+        - entity_id: 'sensor.inside_*'
         - entity_id: 'sensor.low_battery'
         - entity_id: 'sensor.mosquitto_*'
         - entity_id: 'sensor.unavailable_devices'
         - entity_id: 'sensor.unavailable_entities'
         - entity_id: 'sensor.unifi_*'
+        - entity_id: 'sensor.upstairs_*'
         - entity_id: 'sensor.zigbee2mqtt_*'
         - entity_id: 'switch.*_do_not_disturb'
 
