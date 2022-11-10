@@ -3,5 +3,8 @@
 /themes/** linguist-vendored
 /www/community/** linguist-vendored
 
+# Frigate
+/frigate.yaml diff=git-crypt filter=git-crypt
+
 # Home Assistant
 /secrets.yaml diff=git-crypt filter=git-crypt
