@@ -8,6 +8,7 @@ ignore: |-
 
   # Encrypted files.
   /esphome/secrets.yaml
+  /frigate.yaml
   /secrets.yaml
   /zigbee2mqtt/secret.yaml
 
