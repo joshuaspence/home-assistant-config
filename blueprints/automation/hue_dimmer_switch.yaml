@@ -37,6 +37,7 @@ blueprint:
       <<: *common_config
     up_hold_release:
       name: 'Up Hold Release'
+      <<: *common_config
 
     down_press:
       name: 'Down Press'
@@ -75,38 +76,38 @@ action:
   - choose:
       - conditions: '{{ trigger.payload == "on_press" }}'
         sequence: !input 'on_press'
-      - condition: '{{ trigger.payload == "on_press_release" }}'
+      - conditions: '{{ trigger.payload == "on_press_release" }}'
         sequence: !input 'on_press_release'
-      - condition: '{{ trigger.payload == "on_hold" }}'
+      - conditions: '{{ trigger.payload == "on_hold" }}'
         sequence: !input 'on_hold'
-      - condition: '{{ trigger.payload == "on_hold_release" }}'
+      - conditions: '{{ trigger.payload == "on_hold_release" }}'
         sequence: !input 'on_hold_release'
 
       - conditions: '{{ trigger.payload == "up_press" }}'
         sequence: !input 'up_press'
-      - condition: '{{ trigger.payload == "up_press_release" }}'
+      - conditions: '{{ trigger.payload == "up_press_release" }}'
         sequence: !input 'up_press_release'
-      - condition: '{{ trigger.payload == "up_hold" }}'
+      - conditions: '{{ trigger.payload == "up_hold" }}'
         sequence: !input 'up_hold'
-      - condition: '{{ trigger.payload == "up_hold_release" }}'
+      - conditions: '{{ trigger.payload == "up_hold_release" }}'
         sequence: !input 'up_hold_release'
 
       - conditions: '{{ trigger.payload == "down_press" }}'
         sequence: !input 'down_press'
-      - condition: '{{ trigger.payload == "down_press_release" }}'
+      - conditions: '{{ trigger.payload == "down_press_release" }}'
         sequence: !input 'down_press_release'
-      - condition: '{{ trigger.payload == "down_hold" }}'
+      - conditions: '{{ trigger.payload == "down_hold" }}'
         sequence: !input 'down_hold'
-      - condition: '{{ trigger.payload == "down_hold_release" }}'
+      - conditions: '{{ trigger.payload == "down_hold_release" }}'
         sequence: !input 'down_hold_release'
 
       - conditions: '{{ trigger.payload == "off_press" }}'
         sequence: !input 'off_press'
-      - condition: '{{ trigger.payload == "off_press_release" }}'
+      - conditions: '{{ trigger.payload == "off_press_release" }}'
         sequence: !input 'off_press_release'
-      - condition: '{{ trigger.payload == "off_hold" }}'
+      - conditions: '{{ trigger.payload == "off_hold" }}'
         sequence: !input 'off_hold'
-      - condition: '{{ trigger.payload == "off_hold_release" }}'
+      - conditions: '{{ trigger.payload == "off_hold_release" }}'
         sequence: !input 'off_hold_release'
 
 mode: 'queued'
