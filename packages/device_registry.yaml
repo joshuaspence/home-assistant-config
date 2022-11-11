@@ -14,6 +14,6 @@ automation:
       data:
         title: 'New device registered'
         message: |-
-          [{{ device_attr(device_id, 'name_by_user') | default(device_attr(device, 'name'), true) }}](/config/devices/device/{{device_id}}) was added to the device registry.
+          [{{ device_attr(device_id, 'name_by_user') | default(device_attr(device_id, 'name'), true) }}](/config/devices/device/{{device_id}}) was added to the device registry.
         notification_id: 'device_registry_{{ device_id }}'
     mode: 'parallel'
