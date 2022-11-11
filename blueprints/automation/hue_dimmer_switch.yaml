@@ -16,14 +16,52 @@ blueprint:
         default: []
         selector:
           action: null
+    on_press_release:
+      name: 'On Press Release'
+      <<: *common_config
+    on_hold:
+      name: 'On Hold'
+      <<: *common_config
+    on_hold_release:
+      name: 'On Hold Release'
+      <<: *common_config
+
     up_press:
       name: 'Up Press'
       <<: *common_config
+    up_press_release:
+      name: 'Up Press Release'
+      <<: *common_config
+    up_hold:
+      name: 'Up Hold'
+      <<: *common_config
+    up_hold_release:
+      name: 'Up Hold Release'
+
     down_press:
       name: 'Down Press'
       <<: *common_config
+    down_press_release:
+      name: 'Down Press Release'
+      <<: *common_config
+    down_hold:
+      name: 'Down Hold'
+      <<: *common_config
+    down_hold_release:
+      name: 'Down Hold Release'
+      <<: *common_config
+
     off_press:
       name: 'Off Press'
+      <<: *common_config
+    off_press_release:
+      name: 'Off Press Release'
+      <<: *common_config
+    off_hold:
+      name: 'Off Hold'
+      <<: *common_config
+    off_hold_release:
+      name: 'Off Hold Release'
       <<: *common_config
 
 trigger_variables:
@@ -37,12 +75,39 @@ action:
   - choose:
       - conditions: '{{ trigger.payload == "on_press" }}'
         sequence: !input 'on_press'
+      - condition: '{{ trigger.payload == "on_press_release" }}'
+        sequence: !input 'on_press_release'
+      - condition: '{{ trigger.payload == "on_hold" }}'
+        sequence: !input 'on_hold'
+      - condition: '{{ trigger.payload == "on_hold_release" }}'
+        sequence: !input 'on_hold_release'
+
       - conditions: '{{ trigger.payload == "up_press" }}'
         sequence: !input 'up_press'
+      - condition: '{{ trigger.payload == "up_press_release" }}'
+        sequence: !input 'up_press_release'
+      - condition: '{{ trigger.payload == "up_hold" }}'
+        sequence: !input 'up_hold'
+      - condition: '{{ trigger.payload == "up_hold_release" }}'
+        sequence: !input 'up_hold_release'
+
       - conditions: '{{ trigger.payload == "down_press" }}'
         sequence: !input 'down_press'
+      - condition: '{{ trigger.payload == "down_press_release" }}'
+        sequence: !input 'down_press_release'
+      - condition: '{{ trigger.payload == "down_hold" }}'
+        sequence: !input 'down_hold'
+      - condition: '{{ trigger.payload == "down_hold_release" }}'
+        sequence: !input 'down_hold_release'
+
       - conditions: '{{ trigger.payload == "off_press" }}'
         sequence: !input 'off_press'
+      - condition: '{{ trigger.payload == "off_press_release" }}'
+        sequence: !input 'off_press_release'
+      - condition: '{{ trigger.payload == "off_hold" }}'
+        sequence: !input 'off_hold'
+      - condition: '{{ trigger.payload == "off_hold_release" }}'
+        sequence: !input 'off_hold_release'
 
 mode: 'queued'
 max_exceeded: 'silent'
