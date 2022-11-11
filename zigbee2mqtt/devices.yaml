@@ -236,3 +236,5 @@
   friendly_name: Bedroom 1 Dimmer Switch
 '0x00158d0006c4ff3e':
   friendly_name: Hallway Temperature Sensor
+'0x001788010d26744d':
+  friendly_name: Bedroom 2 Dimmer Switch
