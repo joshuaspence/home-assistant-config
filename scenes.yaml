@@ -57,7 +57,7 @@
   icon: 'mdi:sleep'
   entities:
     light.bedroom_2:
-      brightness: 20
+      brightness: 10
       state: 'on'
     switch.bedroom_2_speaker_do_not_disturb:
       state: 'on'
