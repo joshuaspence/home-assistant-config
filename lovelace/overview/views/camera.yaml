@@ -1,19 +1,18 @@
 ---
+type: 'panel'
 title: 'Cameras'
 icon: 'mdi:camera'
 path: 'camera'
 cards:
-  - type: 'picture-glance'
-    entities:
-      - 'binary_sensor.doorbell_occupancy'
-      - 'sensor.doorbell_detected_object'
-      - 'sensor.doorbell_last_ring'
-      - 'binary_sensor.doorbell_motion'
-      - 'sensor.doorbell_last_motion_detected'
-    camera_image: 'camera.doorbell'
-    camera_view: 'live'
-
-  - type: 'picture-glance'
-    entities: []
-    camera_image: 'camera.office'
-    camera_view: 'live'
+  - type: 'custom:auto-entities'
+    card:
+      type: 'custom:surveillance-card'
+      show_capture_buttons: false
+      camera_view: 'live'
+    filter:
+      include:
+        - domain: 'camera'
+          integration: 'unifiprotect'
+    sort:
+      method: 'name'
+    card_param: 'cameras'
