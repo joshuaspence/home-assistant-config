@@ -244,7 +244,6 @@ cards:
       template: >-
         {%
           set excluded_integrations = [
-            'aussie_broadband',
             'bureau_of_meteorology',
             'cert_expiry',
             'cloud',
