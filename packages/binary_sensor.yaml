@@ -72,7 +72,7 @@ binary_sensor:
     device_class: 'motion'
     entities:
       - 'binary_sensor.back_yard_occupancy'
-      - 'binary_sensor.clothes_line_occupancy'
+      - 'binary_sensor.back_door_occupancy'
       - 'binary_sensor.front_yard_occupancy'
       - 'binary_sensor.side_yard_occupancy'
   - platform: 'group'

@@ -18,7 +18,7 @@ automation:
         light_target:
           - 'light.outside_ene'
           - 'light.outside_ese'
-        illuminance_sensor: 'sensor.back_yard_illuminance'
+        illuminance_sensor: 'sensor.back_door_illuminance'
 
   - id: '2fc1a25d-b05a-4e5d-adc2-2dd2bcf499ea'
     alias: 'Basement Door Lights'
