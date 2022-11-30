@@ -6,7 +6,6 @@ notify:
     vapid_prv_key: !secret 'firebase.private_key'
     vapid_email: !secret 'firebase.email'
 
-
   - platform: 'group'
     name: 'josh'
     services:
