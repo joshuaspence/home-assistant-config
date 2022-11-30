@@ -10,6 +10,7 @@ automation:
       value_template: >-
         {{ (as_datetime(states('sensor.homeassistant_certificate_expiry')) - now()).days < 7 }}
     action:
-      service: 'hassio.addon_start'
-      data:
-        addon: 'core_letsencrypt'
+      # TODO: Need to also call `homeassistant.restart`.
+      - service: 'hassio.addon_start'
+        data:
+          addon: 'core_letsencrypt'
