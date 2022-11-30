@@ -33,6 +33,10 @@ homeassistant:
       icon: 'mdi:cellphone'
     device_tracker.*_phone_*:
       icon: 'mdi:cellphone'
+    device_tracker.*_watch:
+      icon: 'mdi:watch'
+    device_tracker.*_watch_*:
+      icon: 'mdi:watch'
     light.bedroom_*:
       icon: 'mdi:ceiling-light'
     light.living_room_*_*:

@@ -6,20 +6,13 @@ notify:
     vapid_prv_key: !secret 'firebase.private_key'
     vapid_email: !secret 'firebase.email'
 
-  - platform: 'group'
-    name: 'house'
-    services:
-      - service: 'bedroom_1_speaker'
-      - service: 'bedroom_2_speaker'
-      - service: 'hallway_speaker'
-      - service: 'kitchen_display'
-      - service: 'living_room_speaker'
-      - service: 'office_speaker'
+
   - platform: 'group'
     name: 'josh'
     services:
       - service: 'browser_josh_laptop'
       - service: 'mobile_app_josh_phone'
+      - service: 'mobile_app_josh_watch'
   - platform: 'group'
     name: 'lily'
     services:

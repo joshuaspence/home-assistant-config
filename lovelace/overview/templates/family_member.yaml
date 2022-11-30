@@ -28,3 +28,6 @@ card:
           - entity: 'device_tracker.[[person]]_phone_unifi'
             name: 'Unifi'
             icon: 'mdi:wifi'
+      - entity_id: 'device_tracker.[[person]]_watch'
+        options:
+          name: 'Watch'
