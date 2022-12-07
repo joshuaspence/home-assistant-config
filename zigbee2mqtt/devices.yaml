@@ -194,8 +194,6 @@
   friendly_name: Back Door Lock
 '0x00158d000775bff7':
   friendly_name: Laundry Temperature Sensor
-'0x00158d0005426a77':
-  friendly_name: Bedroom 2 Temperature Sensor
 '0x00158d0006bee40b':
   friendly_name: Bedroom 2 Wardrobe Temperature Sensor
 '0x00158d00068b3976':
