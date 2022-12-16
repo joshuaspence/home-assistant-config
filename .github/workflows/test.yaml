@@ -11,6 +11,7 @@ jobs:
   esphome:
     runs-on: 'ubuntu-latest'
     strategy:
+      fail-fast: false
       matrix:
         version:
           - 'dev'
@@ -30,6 +31,7 @@ jobs:
   home-assistant:
     runs-on: 'ubuntu-latest'
     strategy:
+      fail-fast: false
       matrix:
         version:
           - 'dev'
