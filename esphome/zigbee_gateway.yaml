@@ -82,9 +82,9 @@ external_components:
 
 stream_server:
   uart_id: 'uart_bus'
-  id: 'main'
+  id: 'ss'
 
 binary_sensor:
   - platform: 'stream_server'
-    stream_server: 'main'
+    stream_server: 'ss'
     name: '${device_name} Connected'
