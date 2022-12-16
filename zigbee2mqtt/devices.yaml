@@ -22,6 +22,7 @@
   friendly_name: Hallway East Motion Sensor
 '0x000d6f0011193abb':
   friendly_name: Front Door Lock
+  expose_pin: false
 '0x0017880108af072f':
   friendly_name: Bedroom 2 Light
 '0x0017880108b3936b':
@@ -192,6 +193,7 @@
       type: fan
 '0x000d6f0011192562':
   friendly_name: Back Door Lock
+  expose_pin: false
 '0x00158d000775bff7':
   friendly_name: Laundry Temperature Sensor
 '0x00158d0006bee40b':
@@ -236,3 +238,5 @@
   friendly_name: Hallway Temperature Sensor
 '0x001788010d26744d':
   friendly_name: Bedroom 2 Dimmer Switch
+'0x00158d0006ca2ba6':
+  friendly_name: Bedroom 2 Temperature Sensor
