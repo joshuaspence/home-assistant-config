@@ -13,7 +13,8 @@ jobs:
       - uses: 'actions/setup-node@v3'
         with:
           node-version: 'latest'
-      - run: 'npx --package eslint --package eslint-config-airbnb-base --package eslint-plugin-import eslint zigbee2mqtt/'
+      - run: 'npm install eslint eslint-config-airbnb-base eslint-plugin-import'
+      - run: 'npx eslint zigbee2mqtt/'
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
