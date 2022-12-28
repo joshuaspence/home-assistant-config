@@ -23,7 +23,7 @@ sensor:
           {% set sensors = sensors | rejectattr('entity_id', 'in', ns.mobile_app_sensors) %}
 
           {% for sensor in sensors %}
-            {% if sensor.state | int(-1) < 25 %}
+            {% if sensor.state | int(-1) < 10 %}
               {% set ns.entities = ns.entities + [sensor] %}
             {% endif %}
           {% endfor %}
@@ -48,7 +48,7 @@ sensor:
             {% set sensors = sensors | rejectattr('entity_id', 'in', ns.mobile_app_sensors) %}
 
             {% for sensor in sensors %}
-              {% if sensor.state | int(-1) < 25 %}
+              {% if sensor.state | int(-1) < 10 %}
                 {% set ns.entities = ns.entities + [sensor] %}
               {% endif %}
             {% endfor %}
