@@ -16,8 +16,6 @@
   friendly_name: Bedroom 2 Motion Sensor
 '0x0017880109172d0f':
   friendly_name: Hallway West Motion Sensor
-'0x00178801090ad3a7':
-  friendly_name: Hallway West Light
 '0x001788010867ce35':
   friendly_name: Hallway East Motion Sensor
 '0x000d6f0011193abb':
@@ -29,8 +27,6 @@
   friendly_name: Bedroom 1 Light
 '0x00178801064706f8':
   friendly_name: Back Yard Motion Sensor
-'0x00178801090aff0c':
-  friendly_name: Hallway East Light
 '0x0017880109172ceb':
   friendly_name: Toilet Motion Sensor
 '0x001788010916464b':
@@ -51,8 +47,6 @@
   friendly_name: Basement Door Contact Sensor
 '0x00158d00068b4108':
   friendly_name: Outside North Temperature Sensor
-'0x00178801095f6fad':
-  friendly_name: Laundry Light
 '0x0017880108af06e2':
   friendly_name: Outside East-northeast Light
 '0x0017880108af0622':
@@ -83,12 +77,8 @@
   availability:
     timeout: 1560
   friendly_name: Spa Bath Water Leak Sensor
-'0x00178801090b0214':
-  friendly_name: Toilet Light
 '0x00158d0006c4cfd6':
   friendly_name: Bedroom 1 East Window Contact Sensor
-'0x00158d00069b0ea2':
-  friendly_name: Bedroom 1 Door Contact Sensor
 '0x00158d00053f56c1':
   friendly_name: Bedroom 1 Temperature Sensor
 '0x00158d0006bee4d2':
@@ -240,3 +230,13 @@
   friendly_name: Bedroom 2 Dimmer Switch
 '0x00158d0006ca2ba6':
   friendly_name: Bedroom 2 Temperature Sensor
+'0x001788010c507eb8':
+  friendly_name: Laundry Light
+'0x001788010c5092ea':
+  friendly_name: Hallway West Light
+'0x001788010c509282':
+  friendly_name: Hallway East Light
+'0x001788010c50a856':
+  friendly_name: Toilet Light
+'0x00158d00069b0ea2':
+  friendly_name: Bedroom 1 Door Contact Sensor
