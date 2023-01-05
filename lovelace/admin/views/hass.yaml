@@ -289,7 +289,6 @@ cards:
         - entity_id: 'media_player.spotify'
         - entity_id: 'sensor.backup_state'
         - entity_id: 'sensor.downstairs_*'
-        - entity_id: 'sensor.firmware_updates_available'
         - entity_id: 'sensor.inside_*'
         - entity_id: 'sensor.low_battery'
         - entity_id: 'sensor.mosquitto_*'
