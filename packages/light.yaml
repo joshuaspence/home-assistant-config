@@ -44,6 +44,15 @@ light:
       - 'light.office_main'
 
   - platform: 'group'
+    name: 'Outside'
+    unique_id: '0ae79fbc-c1e8-47e6-afd1-fd8a8c06f23b'
+    entities:
+      - 'light.driveway'
+      - 'light.front_door'
+      - 'light.front_patio'
+      - 'light.outside_wall'
+
+  - platform: 'group'
     name: 'Outside Wall'
     unique_id: '57be9955-326a-4f4f-af59-4ac012c5d0ab'
     entities:
