@@ -23,7 +23,6 @@ light:
     entities:
       - 'light.kitchen_benchtop'
       - 'light.kitchen_cooktop'
-      - 'light.kitchen_cupboards'
       - 'light.kitchen_main'
       - 'light.kitchen_sink'
 
