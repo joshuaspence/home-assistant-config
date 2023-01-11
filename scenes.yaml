@@ -72,7 +72,6 @@
   entities:
     fan.homelab: 'on'
     light.bathroom: 'off'
-    light.bathroom_mirror: 'off'
     light.dining_room: 'off'
     light.hallway: 'off'
     light.kitchen: 'off'
@@ -101,7 +100,7 @@
   name: 'Dim'
   icon: 'mdi:brightness-4'
   entities:
-    light.bathroom:
+    light.bathroom_main:
       brightness: 100
       state: 'on'
     light.bathroom_mirror:

@@ -1,5 +1,41 @@
 ---
 light:
+  # Areas
+  - platform: 'group'
+    name: 'Downstairs'
+    unique_id: '7c005ff4-cb99-44f7-8c5e-2414c71f24a9'
+    entities:
+      - 'light.dining_room'
+      - 'light.kitchen'
+      - 'light.laundry'
+      - 'light.living_room'
+  - platform: 'group'
+    name: 'Upstairs'
+    unique_id: '1b6f349c-3ea5-41d5-b37a-d370c61e8efe'
+    entities:
+      - 'light.bathroom'
+      - 'light.bedroom_1'
+      - 'light.bedroom_2'
+      - 'light.hallway'
+      - 'light.office'
+      - 'light.toilet'
+
+  - platform: 'group'
+    name: 'Inside'
+    unique_id: '1f534d13-cce8-46c3-84ea-93d908435e28'
+    entities:
+      - 'light.downstairs'
+      - 'light.upstairs'
+  - platform: 'group'
+    name: 'Outside'
+    unique_id: '0ae79fbc-c1e8-47e6-afd1-fd8a8c06f23b'
+    entities:
+      - 'light.driveway'
+      - 'light.front_door'
+      - 'light.front_patio'
+      - 'light.outside_wall'
+
+  # Rooms
   - platform: 'group'
     name: 'Attic'
     unique_id: '9ae3db8f-8f65-471b-b471-d9c016484f7c'
@@ -9,6 +45,13 @@ light:
       - 'light.attic_1'
       - 'light.attic_2'
       - 'light.attic_3'
+
+  - platform: 'group'
+    name: 'Bathroom'
+    unique_id: '11373065-9f84-40a7-b111-47ab145f0a26'
+    entities:
+      - 'light.bathroom_main'
+      - 'light.bathroom_mirror'
 
   - platform: 'group'
     name: 'Hallway'
@@ -42,15 +85,7 @@ light:
       - 'light.office_desk'
       - 'light.office_main'
 
-  - platform: 'group'
-    name: 'Outside'
-    unique_id: '0ae79fbc-c1e8-47e6-afd1-fd8a8c06f23b'
-    entities:
-      - 'light.driveway'
-      - 'light.front_door'
-      - 'light.front_patio'
-      - 'light.outside_wall'
-
+  # Groups
   - platform: 'group'
     name: 'Outside Wall'
     unique_id: '57be9955-326a-4f4f-af59-4ac012c5d0ab'

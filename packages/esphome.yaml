@@ -20,7 +20,7 @@ automation:
         button1_click:
           service: 'light.toggle'
           data:
-            entity_id: 'light.bathroom'
+            entity_id: 'light.bathroom_main'
         button1_hold:
           service: 'light.toggle'
           data:

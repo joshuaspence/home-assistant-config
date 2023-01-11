@@ -52,7 +52,7 @@ cards:
       - type: 'custom:fold-entity-row'
         head: 'light.bathroom'
         entities:
-          - entity: 'light.bathroom'
+          - entity: 'light.bathroom_main'
             name: 'Main'
           - entity: 'fan.bathroom'
             name: 'Exhaust'
