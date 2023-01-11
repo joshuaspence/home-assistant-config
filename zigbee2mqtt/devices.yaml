@@ -139,8 +139,6 @@
   friendly_name: Dining Room Temperature Sensor
 '0x00158d0004a97174':
   friendly_name: Dining Room Sliding Door Contact Sensor
-'0x0017880109727622':
-  friendly_name: Bathroom Mirror Light
 '0x00158d000678e181':
   friendly_name: Bathroom Temperature Sensor
 '0x00178801067d0483':
@@ -275,3 +273,5 @@
   friendly_name: Kitchen Sink Light
 '0x001788010c4b2da7':
   friendly_name: Kitchen Benchtop Light
+'0x00178801097d491b':
+  friendly_name: Bathroom Mirror Light
