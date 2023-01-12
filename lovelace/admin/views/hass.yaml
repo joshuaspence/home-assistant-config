@@ -219,6 +219,7 @@ cards:
         - domain: 'button'
         - entity_id: 'binary_sensor.*_water_leak_sensor_battery_low'
         - entity_id: 'device_tracker.josh_watch'
+        - entity_id: 'group.ignored_entities'
         - entity_id: 'sensor.*_next_alarm'
         - entity_id: 'sensor.*_smoke_detector_battery_level'
         - entity_id: 'sensor.doorbell_text'
