@@ -51,8 +51,6 @@
   friendly_name: Outside East-northeast Light
 '0x0017880108af0622':
   friendly_name: Outside East-southeast Light
-'0x00158d0006b89039':
-  friendly_name: Bedroom 1 Wardrobe Temperature Sensor
 '0x0017880109164817':
   friendly_name: Laundry Motion Sensor
 '0x0017880109164863':
@@ -275,3 +273,13 @@
   friendly_name: Kitchen Benchtop Light
 '0x00178801097d491b':
   friendly_name: Bathroom Mirror Light
+'0x84fd27fffe9f2616':
+  friendly_name: Kitchen Refrigerator Smart Plug
+'0x84fd27fffea15161':
+  friendly_name: Laundry Refrigerator Smart Plug
+'0x00158d0006b89039':
+  friendly_name: Bedroom 1 Wardrobe Temperature Sensor
+'0x84fd27fffea1504e':
+  friendly_name: Basement Dehumidifier Smart Plug
+'0x84fd27fffea1508c':
+  friendly_name: Office Desk Smart Plug
