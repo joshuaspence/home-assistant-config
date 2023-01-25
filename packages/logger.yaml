@@ -12,6 +12,10 @@ logger:
     snitun.client.client_peer:
       - '^Challenge/Response error with SniTun server\b'
 
+    # See home-assistant/core#45641.
+    aiohttp.server:
+      - 'AttributeError: ''NoneType'' object has no attribute ''resume_reading'''
+
     # TODO: Investigate/fix these issues.
     androidtv.adb_manager.adb_manager_async:
       - 'TcpTimeoutException'
