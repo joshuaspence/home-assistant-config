@@ -77,6 +77,30 @@ light:
       - 'light.living_room_lower_west'
       - 'light.living_room_upper_east'
       - 'light.living_room_upper_west'
+  - platform: 'group'
+    name: 'Living Room North'
+    unique_id: '85487748-5aa8-4c3c-a0c5-b5da6fd91a43'
+    entities:
+      - 'light.living_room_lower_east'
+      - 'light.living_room_lower_west'
+  - platform: 'group'
+    name: 'Living Room East'
+    unique_id: 'c3372f8e-28f3-426a-9113-1a5e9453967c'
+    entities:
+      - 'light.living_room_lower_east'
+      - 'light.living_room_upper_east'
+  - platform: 'group'
+    name: 'Living Room South'
+    unique_id: '234ba033-c387-403e-91a6-41dfcffe64f9'
+    entities:
+      - 'light.living_room_upper_east'
+      - 'light.living_room_upper_west'
+  - platform: 'group'
+    name: 'Living Room West'
+    unique_id: 'fb3e7568-7cfa-4f1b-b25f-fa457e85e270'
+    entities:
+      - 'light.living_room_lower_west'
+      - 'light.living_room_upper_west'
 
   - platform: 'group'
     name: 'Office'

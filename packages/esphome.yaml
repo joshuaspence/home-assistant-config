@@ -122,15 +122,11 @@ automation:
         button1_click:
           service: 'light.toggle'
           data:
-            entity_id:
-              - 'light.living_room_lower_east'
-              - 'light.living_room_upper_east'
+            entity_id: 'light.living_room_east'
         button2_click:
           service: 'light.toggle'
           data:
-            entity_id:
-              - 'light.living_room_lower_west'
-              - 'light.living_room_upper_west'
+            entity_id: 'light.living_room_west'
 
   - id: '2a679f20-660f-4424-b6f6-a6c031aff07f'
     alias: 'living_room_north_shelly Buttons'
@@ -154,15 +150,11 @@ automation:
         button1_click:
           service: 'light.toggle'
           data:
-            entity_id:
-              - 'light.living_room_upper_east'
-              - 'light.living_room_upper_west'
+            entity_id: 'light.living_room_south'
         button2_click:
           service: 'light.toggle'
           data:
-            entity_id:
-              - 'light.living_room_lower_east'
-              - 'light.living_room_lower_west'
+            entity_id: 'light.living_room_north'
 
   - id: '1c2ddeeb-3389-44a9-938f-0100c5485628'
     alias: 'office_shelly Buttons'
