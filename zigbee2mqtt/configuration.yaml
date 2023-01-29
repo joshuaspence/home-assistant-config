@@ -27,7 +27,6 @@ device_options:
 advanced:
   legacy_api: false
   legacy_availability_payload: false
-  log_rotation: false
   log_output:
     - 'file'
   log_directory: '/config/zigbee2mqtt'
