@@ -211,29 +211,9 @@
 '0x54ef4410005fc382':
   friendly_name: Office Presence Sensor
   disabled: true
-  homeassistant:
-    action_source_name:
-      enabled_by_default: false
-    action_source_user:
-      enabled_by_default: false
-    device_temperature:
-      enabled_by_default: false
-    power_outage_count:
-      enabled_by_default: false
-      entity_category: diagnostic
 '0x54ef4410005fc361':
   friendly_name: Living Room Presence Sensor
   disabled: true
-  homeassistant:
-    action_source_name:
-      enabled_by_default: false
-    action_source_user:
-      enabled_by_default: false
-    device_temperature:
-      enabled_by_default: false
-    power_outage_count:
-      enabled_by_default: false
-      entity_category: diagnostic
 '0x0017880109abe28f':
   friendly_name: Bedroom 1 Dimmer Switch
 '0x00158d0006c4ff3e':
@@ -255,16 +235,6 @@
 '0x0017880109b6dcb0':
   friendly_name: Front Door Light
   disabled: true
-  homeassistant:
-    action_source_name:
-      enabled_by_default: false
-    action_source_user:
-      enabled_by_default: false
-    device_temperature:
-      enabled_by_default: false
-    power_outage_count:
-      enabled_by_default: false
-      entity_category: diagnostic
 '0x001788010c4b0671':
   friendly_name: Kitchen Cooktop Light
 '0x001788010c44ff19':
