@@ -15,15 +15,8 @@ devices: 'devices.yaml'
 groups: 'groups.yaml'
 device_options:
   homeassistant:
-    action_source_name:
-      enabled_by_default: false
-    action_source_user:
-      enabled_by_default: false
-    device_temperature:
-      enabled_by_default: false
-    power_outage_count:
-      entity_category: 'diagnostic'
-      enabled_by_default: false
+    action_source_name: null
+    action_user: null
 advanced:
   legacy_api: false
   legacy_availability_payload: false
