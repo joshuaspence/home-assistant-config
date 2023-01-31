@@ -1,12 +1,11 @@
 ---
 substitutions:
-  name: 'upsy-desky-580310'
+  device_name: 'office_desk'
+  name: 'office_desk'
+
 packages:
   tj_horner.upsy_desky: 'github://tjhorner/upsy-desky/firmware/config.yaml'
+  wifi: !include 'packages/wifi.yaml'
 esphome:
-  name: '${name}'
+  name: '${device_name}'
   name_add_mac_suffix: false
-
-wifi:
-  ssid: !secret 'wifi.ssid'
-  password: !secret 'wifi.password'
