@@ -4,14 +4,6 @@ substitutions:
   device_platform: 'esp32'
   device_name: 'office_desk'
 
-  # Defaults
-  standing_desk_uart_rx_pin: '17'
-  standing_desk_up_pin: '21'
-  standing_desk_down_pin: '22'
-  standing_desk_variant: 'uplift'
-  standing_desk_min_height: '25.2'
-  standing_desk_max_height: '50.8'
-
   # Presets
   button_bit1_pin: '21'
   button_bit2_pin: '22'
@@ -21,7 +13,6 @@ substitutions:
 packages:
   common: !include 'packages/common.yaml'
   wifi: !include 'packages/wifi.yaml'
-  standing_desk: 'github://tjhorner/esphome-standing-desk/configs/template.yaml@master'
   presets_addon: 'github://tjhorner/esphome-standing-desk/configs/addons/presets.yaml@master'
 
 esphome:
@@ -29,14 +20,67 @@ esphome:
     then:
       # Wakes up the desk and reports height.
       uart.write:
-        id: 'handset'
-        data:
-          - 0x00
+        - 0x00
 
 uart:
   baud_rate: 9600
   tx_pin: 'GPIO16'
-  id: 'handset'
+  rx_pin: 'GPIO17'
 
 status_led:
   pin: 'GPIO23'
+
+external_components:
+  - source: 'github://tjhorner/esphome-standing-desk'
+
+sensor:
+  - platform: 'standing_desk_height'
+    id: 'desk_height'
+    name: 'Desk Height'
+    unit_of_measurement: 'cm'
+    device_class: 'distance'
+    variant: 'uplift'
+
+output:
+  - platform: 'gpio'
+    pin: 'GPIO21'
+    id: 'desk_up'
+    inverted: true
+  - platform: 'gpio'
+    pin: 'GPIO22'
+    id: 'desk_down'
+    inverted: true
+
+number:
+  - platform: 'template'
+    id: 'target_height'
+    name: 'Target Desk Height'
+    unit_of_measurement: 'cm'
+    device_class: 'distance'
+    min_value: 70.0
+    max_value: 125.0
+    step: 0.1
+    optimistic: true
+    restore_value: true
+    set_action:
+      then:
+        if:
+          condition:
+            lambda: |-
+              return id(desk_height)->get_last_read() > x;
+          then:
+            - output.turn_on: 'desk_down'
+            - wait_until:
+                condition:
+                  lambda: |-
+                    return id(desk_height)->get_last_read() <= x + 0.4;
+                timeout: '20s'
+            - output.turn_off: 'desk_down'
+          else:
+            - output.turn_on: 'desk_up'
+            - wait_until:
+                condition:
+                  lambda: |-
+                    return id(desk_height)->get_last_read() >= x - 0.4;
+                timeout: '20s'
+            - output.turn_off: 'desk_up'
