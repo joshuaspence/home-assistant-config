@@ -93,8 +93,5 @@ number:
         lambda: |
           id(target_desk_height)->traits.set_max_value(x);
 
-light:
-  - platform: 'status_led'
-    id: 'upsy_desky_status_led'
-    pin: 'GPIO23'
-    restore_mode: 'ALWAYS_ON'
+status_led:
+  pin: 'GPIO23'
