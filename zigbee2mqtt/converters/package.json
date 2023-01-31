@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "jest": "^29.4.1"
+  },
+  "dependencies": {
+    "zigbee-herdsman-converters": "^15.0.36"
+  },
+  "peerDependencies": {
+    "uri-js": "^4.4.1"
+  }
+}
