@@ -8,8 +8,7 @@ availability:
   passive:
     timeout: 180
 external_converters:
-  - '/config/zigbee2mqtt/converters/smartthings'
-  - '/config/zigbee2mqtt/converters/yale'
+  - '/config/zigbee2mqtt/converters'
 serial:
   port: 'tcp://zigbee_gateway.local:6638'
 devices: 'devices.yaml'
