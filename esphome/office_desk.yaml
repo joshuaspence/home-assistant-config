@@ -1,5 +1,7 @@
 ---
 substitutions:
+  device_board: 'esp32dev'
+  device_platform: 'esp32'
   device_name: 'office_desk'
 
   # Defaults
@@ -17,7 +19,6 @@ substitutions:
   button_m_pin: '18'
 
 esphome:
-  name: '${device_name}'
   on_boot:
     then:
       # Wakes up the desk and reports height
@@ -31,27 +32,8 @@ uart:
   tx_pin: 16
   baud_rate: 9600
 
-esp32:
-  board: 'esp32dev'
-
-logger:
-  level: 'INFO'
-
-captive_portal: {}
-
-improv_serial: {}
-
-api:
-  password: ''
-  reboot_timeout: '0s'
-
-web_server:
-  port: 80
-
-ota:
-  password: ''
-
 packages:
+  common: !include 'packages/common.yaml'
   standing_desk: 'github://tjhorner/esphome-standing-desk/configs/template.yaml@master'
   presets_addon: 'github://tjhorner/esphome-standing-desk/configs/addons/presets.yaml@master'
   wifi: !include 'packages/wifi.yaml'
@@ -110,9 +92,6 @@ number:
       then:
         lambda: |
           id(target_desk_height)->traits.set_max_value(x);
-button:
-  - platform: 'restart'
-    name: '${device_name} Restart'
 
 light:
   - platform: 'status_led'
