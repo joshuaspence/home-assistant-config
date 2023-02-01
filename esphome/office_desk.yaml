@@ -24,7 +24,7 @@ status_led:
   pin: 'GPIO23'
 
 external_components:
-  - source: 'github://tjhorner/esphome-standing-desk@pull/3/head'
+  - source: 'github://tjhorner/esphome-standing-desk'
 
 sensor:
   - platform: 'standing_desk_height'
