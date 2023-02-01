@@ -31,7 +31,7 @@ status_led:
   pin: 'GPIO23'
 
 external_components:
-  - source: 'github://tjhorner/esphome-standing-desk'
+  - source: 'github://tjhorner/esphome-standing-desk@pull/3/head'
 
 sensor:
   - platform: 'standing_desk_height'
@@ -39,7 +39,7 @@ sensor:
     name: 'Desk Height'
     unit_of_measurement: 'cm'
     device_class: 'distance'
-    variant: 'uplift'
+    variant: 'omnidesk'
 
 output:
   - platform: 'gpio'
