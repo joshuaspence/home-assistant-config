@@ -98,7 +98,7 @@ number:
 button:
   # Recall presets.
   - platform: 'template'
-    id: 'recall_preset_1' 
+    id: 'recall_preset_1'
     name: '${device_name} Preset 1'
     icon: 'mdi:numeric-1-box'
     on_press:
