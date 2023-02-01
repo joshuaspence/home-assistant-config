@@ -8,7 +8,6 @@ ${device_platform}:
 api:
   encryption:
     key: !secret 'api.encryption_key'
-  password: !secret 'api.password'
 
 ota:
   password: !secret 'ota.password'
