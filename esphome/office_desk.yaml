@@ -170,6 +170,7 @@ button:
   - platform: 'template'
     name: '${device_name} Set Preset 4'
     icon: 'mdi:numeric-4-box-multiple'
+    disabled_by_default: true
     entity_category: 'config'
     on_press:
       - output.turn_on: 'button_m'
