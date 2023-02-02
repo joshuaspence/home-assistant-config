@@ -17,6 +17,9 @@ device_options:
   homeassistant:
     action_source_name: null
     action_user: null
+    inside_status_led:
+      entity_category: 'config'
+      icon: 'mdi:led-on'
 advanced:
   legacy_api: false
   legacy_availability_payload: false

@@ -1,5 +1,6 @@
 const zhc = require('zigbee-herdsman-converters');
 const reporting = require('zigbee-herdsman-converters/lib/reporting');
+const utils = require('zigbee-herdsman-converters/lib/utils');
 
 module.exports = {
   e: zhc.exposes.presets,
@@ -8,4 +9,5 @@ module.exports = {
   fz: zhc.fromZigbeeConverters,
   reporting,
   tz: zhc.toZigbeeConverters,
+  utils,
 };
