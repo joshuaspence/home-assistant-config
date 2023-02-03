@@ -122,6 +122,7 @@ const tzLocal = {
 };
 
 module.exports = [
+  // TODO: Add `actuatorEnabled` and `operatingMode`.
   extendDevice('YRD226 TSDB', {
     fromZigbee: Object.values(fzLocal),
     toZigbee: Object.values(tzLocal),
