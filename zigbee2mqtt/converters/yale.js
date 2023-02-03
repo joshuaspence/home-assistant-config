@@ -13,6 +13,31 @@ const fzLocal = {
       return {};
     },
   },
+
+  one_touch_locking: {
+    cluster: 'closuresDoorLock',
+    type: ['attributeReport', 'readResponse'],
+    convert: (model, msg, publish, options, meta) => {
+      if (msg.data.hasOwnProperty('enableOneTouchLocking')) {
+        return { one_touch_locking: !!msg.data.enableOneTouchLocking };
+      }
+
+      return {};
+    },
+  },
+
+  privacy_mode_button: {
+    cluster: 'closuresDoorLock',
+    type: ['attributeReport', 'readResponse'],
+    convert: (model, msg, publish, options, meta) => {
+      if (msg.data.hasOwnProperty('enablePrivacyModeButton')) {
+        return { one_touch_locking: !!msg.data.enablePrivacyModeButton };
+      }
+
+      return {};
+    },
+  },
+
 };
 
 const tzLocal = {
@@ -26,6 +51,28 @@ const tzLocal = {
       await entity.read('closuresDoorLock', ['enableInsideStatusLed']);
     },
   },
+
+  one_touch_locking: {
+    key: ['one_touch_locking'],
+    convertSet: async (entity, key, value, meta) => {
+      await entity.write('closuresDoorLock', { enableOneTouchLocking: value }, utils.getOptions(meta.mapped, entity));
+      return { state: { [key]: value } };
+    },
+    convertGet: async (entity, key, meta) => {
+      await entity.read('closuresDoorLock', ['enableOneTouchLocking']);
+    },
+  },
+
+  privacy_mode_button: {
+    key: ['privacy_mode_button'],
+    convertSet: async (entity, key, value, meta) => {
+      await entity.write('closuresDoorLock', { enablePrivacyModeButton: value }, utils.getOptions(meta.mapped, entity));
+      return { state: { [key]: value } };
+    },
+    convertGet: async (entity, key, meta) => {
+      await entity.read('closuresDoorLock', ['enablePrivacyModeButton']);
+    },
+  },
 };
 
 module.exports = [
@@ -34,6 +81,8 @@ module.exports = [
     toZigbee: [tzLocal.inside_status_led],
     exposes: [
       exposes.binary('inside_status_led', ea.ALL, true, false).withDescription('Enable/disable inside status LED'),
+      exposes.binary('one_touch_locking', ea.ALL, true, false).withDescription('Enable/disable one-touch locking'),
+      exposes.binary('privacy_mode_button', ea.ALL, true, false).withDescription('Enable/disable privacy mode button'),
     ],
   }),
 ];

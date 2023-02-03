@@ -20,6 +20,11 @@ device_options:
     inside_status_led:
       entity_category: 'config'
       icon: 'mdi:led-on'
+    one_touch_locking:
+      entity_category: 'config'
+      icon: 'mdi:gesture-tap'
+    privacy_mode_button:
+      entity_category: 'config'
 advanced:
   legacy_api: false
   legacy_availability_payload: false
