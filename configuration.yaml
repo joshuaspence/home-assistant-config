@@ -45,14 +45,6 @@ homeassistant:
     media_player.*_speaker:
       device_class: 'speaker'
       icon: 'mdi:speaker'
-    sensor.*_watch_daily_calories:
-      entity_category: null
-    sensor.*_watch_daily_distance:
-      entity_category: null
-    sensor.*_watch_daily_floors:
-      entity_category: null
-    sensor.*_watch_daily_steps:
-      entity_category: null
     sensor.*_screen_brightness:
       unit_of_measurement: 'unit(s)'
     switch.aircon_*:
