@@ -53,6 +53,8 @@ homeassistant:
       entity_category: null
     sensor.*_watch_daily_steps:
       entity_category: null
+    sensor.*_screen_brightness:
+      unit_of_measurement: 'unit(s)'
     switch.aircon_*:
       icon: 'mdi:hvac'
   elevation: !secret 'home.elevation'
