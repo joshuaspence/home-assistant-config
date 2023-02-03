@@ -20,6 +20,9 @@ device_options:
     inside_status_led:
       entity_category: 'config'
       icon: 'mdi:led-on'
+    language:
+      entity_category: 'config'
+      icon: 'mdi:translate'
     one_touch_locking:
       entity_category: 'config'
       icon: 'mdi:gesture-tap'
