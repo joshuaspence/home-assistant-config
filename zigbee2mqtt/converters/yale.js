@@ -31,7 +31,7 @@ const fzLocal = {
     type: ['attributeReport', 'readResponse'],
     convert: (model, msg, publish, options, meta) => {
       if (msg.data.hasOwnProperty('enablePrivacyModeButton')) {
-        return { one_touch_locking: !!msg.data.enablePrivacyModeButton };
+        return { privacy_mode_button: !!msg.data.enablePrivacyModeButton };
       }
 
       return {};
