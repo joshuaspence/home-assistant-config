@@ -50,6 +50,17 @@ const fzLocal = {
     },
   },
 
+  wrong_code_entry_limit: {
+    cluster: 'closuresDoorLock',
+    type: ['attributeReport', 'readResponse'],
+    convert: (model, msg, publish, options, meta) => {
+      if (msg.data.hasOwnProperty('wrongCodeEntryLimit')) {
+        return { wrong_code_entry_limit: msg.data.wrongCodeEntryLimit };
+      }
+
+      return {};
+    },
+  },
 };
 
 const tzLocal = {
@@ -97,6 +108,17 @@ const tzLocal = {
       await entity.read('closuresDoorLock', ['enablePrivacyModeButton']);
     },
   },
+
+  wrong_code_entry_limit: {
+    key: ['wrong_code_entry_limit'],
+    convertSet: async (entity, key, value, meta) => {
+      await entity.write('closuresDoorLock', { wrongCodeEntryLimit: value }, utils.getOptions(meta.mapped, entity));
+      return { state: { [key]: value } };
+    },
+    convertGet: async (entity, key, meta) => {
+      await entity.read('closuresDoorLock', ['wrongCodeEntryLimit']);
+    },
+  },
 };
 
 module.exports = [
@@ -108,6 +130,7 @@ module.exports = [
       exposes.enum('language', ea.ALL, ['en', 'es', 'fr']).withDescription('Device language'),
       exposes.binary('one_touch_locking', ea.ALL, true, false).withDescription('Enable/disable one-touch locking'),
       exposes.binary('privacy_mode_button', ea.ALL, true, false).withDescription('Enable/disable privacy mode button'),
+      exposes.numeric('wrong_code_entry_limit', ea.ALL).withValueMin(0).withValueMax(255).withDescription('Wrong code entry limit'),
     ],
   }),
 ];
