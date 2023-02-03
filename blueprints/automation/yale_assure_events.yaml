@@ -34,6 +34,9 @@ blueprint:
     pin_code_changed:
       name: 'PIN Code Changed'
       <<: *common_config
+    auto_lock:
+      name: 'Auto Lock'
+      <<: *common_config
 
 trigger_variables:
   device_friendly_name: !input 'lock'
@@ -55,6 +58,8 @@ action:
   - choose:
       - conditions: '{{ source == "keypad" and action == "unlock" }}'
         sequence: !input 'keypad_unlock'
+      - conditions: '{{ source == "manual" and action == "auto_lock" and user == 65535 }}'
+        sequence: !input 'auto_lock'
       - conditions: '{{ source == "manual" and action == "manual_lock" and user == 65535 }}'
         sequence: !input 'manual_lock'
       - conditions: '{{ source == "manual" and action == "manual_unlock" and user == 65535 }}'
