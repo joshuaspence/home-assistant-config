@@ -176,8 +176,6 @@
   expose_pin: false
 '0x00158d000775bff7':
   friendly_name: Laundry Temperature Sensor
-'0x00158d0006bee40b':
-  friendly_name: Bedroom 2 Wardrobe Temperature Sensor
 '0x00158d00068b3976':
   friendly_name: Office Temperature Sensor
 '0x00158d000542699c':
@@ -253,3 +251,5 @@
   friendly_name: Basement Dehumidifier Smart Plug
 '0x84fd27fffea1508c':
   friendly_name: Office Desk Smart Plug
+'0x00158d0006bee40b':
+  friendly_name: Bedroom 2 Wardrobe Temperature Sensor
