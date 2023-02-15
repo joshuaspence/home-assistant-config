@@ -1,6 +1,7 @@
 ---
 esphome:
-  name: '${device_name}'
+  name: '${device_id}'
+  friendly_name: '${device_name}'
 
 ${device_platform}:
   board: '${device_board}'
@@ -19,10 +20,10 @@ logger: {}
 
 button:
   - platform: 'shutdown'
-    name: '${device_name} Shutdown'
+    name: 'Shutdown'
     disabled_by_default: true
   - platform: 'safe_mode'
-    name: '${device_name} Safe Mode'
+    name: 'Safe Mode'
     disabled_by_default: true
   - platform: 'restart'
-    name: '${device_name} Restart'
+    name: 'Restart'

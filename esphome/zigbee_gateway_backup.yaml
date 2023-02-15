@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'zigbee_gateway_backup'
+  device_id: 'zigbee_gateway_backup'
+  device_name: 'Zigbee Gateway Backup'
 
 packages:
   zigbee_gateway: !include 'zigbee_gateway.yaml'

@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'hallway_west_shelly'
+  device_id: 'hallway_west_shelly'
+  device_name: 'Hallway West Shelly'
 
 packages:
   common: !include 'packages/common.yaml'

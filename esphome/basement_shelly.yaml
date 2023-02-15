@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'basement_shelly'
+  device_id: 'basement_shelly'
+  device_name: 'Basement Shelly'
   output1_component: 'light'
   output1_platform: 'binary'
   output1_name: 'Basement'

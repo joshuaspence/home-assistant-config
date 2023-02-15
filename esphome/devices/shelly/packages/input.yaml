@@ -10,7 +10,7 @@ binary_sensor:
           homeassistant.event:
             event: 'esphome.button'
             data:
-              device: '${device_name}'
+              device: '${device_id}'
               button: '${id}'
               action: 'click'
       - timing:
@@ -19,7 +19,7 @@ binary_sensor:
           homeassistant.event:
             event: 'esphome.button'
             data:
-              device: '${device_name}'
+              device: '${device_id}'
               button: '${id}'
               action: 'hold'
       - timing:
@@ -30,7 +30,7 @@ binary_sensor:
           homeassistant.event:
             event: 'esphome.button'
             data:
-              device: '${device_name}'
+              device: '${device_id}'
               button: '${id}'
               action: 'double-click'
     internal: true

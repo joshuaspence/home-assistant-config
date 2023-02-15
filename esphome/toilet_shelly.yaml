@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'toilet_shelly'
+  device_id: 'toilet_shelly'
+  device_name: 'Toilet Shelly'
   output2_component: 'fan'
   output2_platform: 'binary'
   output2_name: 'Toilet'

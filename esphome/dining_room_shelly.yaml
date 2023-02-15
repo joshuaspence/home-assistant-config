@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'dining_room_shelly'
+  device_id: 'dining_room_shelly'
+  device_name: 'Dining Room Shelly'
 
 packages:
   common: !include 'packages/common.yaml'

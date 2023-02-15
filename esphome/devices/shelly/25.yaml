@@ -44,16 +44,16 @@ sensor:
   - platform: 'ade7953'
     irq_pin: 'GPIO16'
     voltage:
-      name: '${device_name} Voltage'
+      name: 'Voltage'
       internal: true
     current_a:
-      name: '${device_name} Output2 Current'
+      name: 'Output2 Current'
       internal: true
     current_b:
-      name: '${device_name} Output1 Current'
+      name: 'Output1 Current'
       internal: true
     active_power_a:
-      name: '${device_name} Output2 Power'
+      name: 'Output2 Power'
 
       # TODO: Move this to a Home Assistant automation.
       on_value_range:
@@ -67,7 +67,7 @@ sensor:
               data_template:
                 message: 'Switch turned off because power exceeded ${max_power}W'
     active_power_b:
-      name: '${device_name} Output1 Power'
+      name: 'Output1 Power'
       filters:
         multiply: -1
 

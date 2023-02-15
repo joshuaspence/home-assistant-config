@@ -2,7 +2,8 @@
 substitutions:
   device_board: 'esp-wrover-kit'
   device_platform: 'esp32'
-  device_name: 'zigbee_gateway'
+  device_id: 'zigbee_gateway'
+  device_name: 'Zigbee Gateway'
 
 packages:
   common: !include 'packages/common.yaml'
@@ -46,7 +47,7 @@ switch:
     inverted: true
   - platform: 'gpio'
     pin: 32
-    name: '${device_name} Zigbee Module Bootloader Pin'
+    name: 'Zigbee Module Bootloader Pin'
     id: 'zBSL'
     restore_mode: 'ALWAYS_OFF'
     inverted: true
@@ -55,7 +56,7 @@ switch:
 
 button:
   - platform: 'template'
-    name: '${device_name} Zigbee Module Reset'
+    name: 'Zigbee Module Reset'
     id: 'zRST'
     disabled_by_default: true
     entity_category: 'config'
@@ -65,7 +66,7 @@ button:
       - switch.turn_off: 'zRST_gpio'
 
   - platform: 'template'
-    name: '${device_name} Zigbee Module Bootloader'
+    name: 'Zigbee Module Bootloader'
     disabled_by_default: true
     entity_category: 'config'
     on_press:
@@ -87,4 +88,4 @@ stream_server:
 binary_sensor:
   - platform: 'stream_server'
     stream_server: 'ss'
-    name: '${device_name} Connected'
+    name: 'Connected'

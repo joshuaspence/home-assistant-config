@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'kitchen_north_shelly'
+  device_id: 'kitchen_north_shelly'
+  device_name: 'Kitchen North Shelly'
   output1_component: 'light'
   output1_platform: 'binary'
   output1_name: 'Kitchen Cupboards'

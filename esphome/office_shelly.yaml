@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'office_shelly'
+  device_id: 'office_shelly'
+  device_name: 'Office Shelly'
 
 packages:
   common: !include 'packages/common.yaml'

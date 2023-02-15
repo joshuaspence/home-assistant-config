@@ -1,6 +1,7 @@
 ---
 substitutions:
-  device_name: 'laundry_shelly'
+  device_id: 'laundry_shelly'
+  device_name: 'Laundry Shelly'
 
 packages:
   common: !include 'packages/common.yaml'
