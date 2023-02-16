@@ -7,30 +7,48 @@ binary_sensor:
       - timing:
           - 'ON for ${button_click_min_length} to ${button_click_max_length}'
         then:
-          homeassistant.event:
-            event: 'esphome.button'
-            data:
-              device: '${device_id}'
-              button: '${id}'
-              action: 'click'
+          if:
+            condition:
+              and:
+                - wifi.connected: {}
+                - api.connected: {}
+            then:
+              homeassistant.event:
+                event: 'esphome.button'
+                data:
+                  device: '${device_id}'
+                  button: '${id}'
+                  action: 'click'
       - timing:
           - 'ON for ${button_hold_min_length} to ${button_hold_max_length}'
         then:
-          homeassistant.event:
-            event: 'esphome.button'
-            data:
-              device: '${device_id}'
-              button: '${id}'
-              action: 'hold'
+          if:
+            condition:
+              and:
+                - wifi.connected: {}
+                - api.connected: {}
+            then:
+              homeassistant.event:
+                event: 'esphome.button'
+                data:
+                  device: '${device_id}'
+                  button: '${id}'
+                  action: 'hold'
       - timing:
           - 'ON for ${button_click_min_length} to ${button_click_max_length}'
           - 'OFF for ${button_click_min_length} to ${button_click_max_length}'
           - 'ON for ${button_click_min_length} to ${button_click_max_length}'
         then:
-          homeassistant.event:
-            event: 'esphome.button'
-            data:
-              device: '${device_id}'
-              button: '${id}'
-              action: 'double-click'
+          if:
+            condition:
+              and:
+                - wifi.connected: {}
+                - api.connected: {}
+            then:
+              homeassistant.event:
+                event: 'esphome.button'
+                data:
+                  device: '${device_id}'
+                  button: '${id}'
+                  action: 'double-click'
     internal: true
