@@ -69,7 +69,7 @@ sensor:
     active_power_b:
       name: 'Output1 Power'
       filters:
-        multiply: -1
+        lambda: 'return abs(x);'
 
       # TODO: Move this to a Home Assistant automation.
       on_value_range:
