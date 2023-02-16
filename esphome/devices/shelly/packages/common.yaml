@@ -23,8 +23,9 @@ substitutions:
   output2_restore_mode: 'ALWAYS_ON'
   output2_internal: 'true'
 
-  # NOTE: See esphome/issues#1532.
-  wifi_power_save_mode: 'high'
-
 packages:
   wifi: !include '../../../packages/wifi.yaml'
+
+# NOTE: See esphome/issues#1532.
+wifi:
+  power_save_mode: 'high'
