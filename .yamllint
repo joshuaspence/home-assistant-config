@@ -3,6 +3,7 @@ extends: 'default'
 
 ignore: |-
   /custom_components/
+  /esphome/.esphome/
   /themes/
   /www/community/
 
