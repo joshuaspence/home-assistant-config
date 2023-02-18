@@ -5,6 +5,5 @@ wifi:
   ap:
     ssid: '${device_name} Hotspot'
     password: !secret 'fallback_hotspot.password'
-  fast_connect: true
 
 captive_portal: {}
