@@ -1,7 +1,9 @@
 ---
 wifi:
-  ssid: !secret 'wifi.ssid'
-  password: !secret 'wifi.password'
+  networks:
+    - ssid: !secret 'wifi.ssid'
+      password: !secret 'wifi.password'
+      hidden: true
   ap:
     ssid: '${device_name} Hotspot'
     password: !secret 'fallback_hotspot.password'
