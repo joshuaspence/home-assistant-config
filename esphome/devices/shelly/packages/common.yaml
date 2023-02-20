@@ -27,5 +27,6 @@ packages:
   wifi: !include '../../../packages/wifi.yaml'
 
 # NOTE: See esphome/issues#1532.
+# TODO: This should only apply to ESP8266 devices.
 wifi:
   power_save_mode: 'high'
