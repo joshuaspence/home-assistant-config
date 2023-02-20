@@ -32,6 +32,7 @@ packages:
       name: '${output2_name}'
       restore_mode: '${output2_restore_mode}'
       internal: '${output2_internal}'
+  platform: !include 'packages/esp8266.yaml'
   status_led: !include 'packages/status_led.yaml'
   temperature: !include 'packages/temperature.yaml'
 

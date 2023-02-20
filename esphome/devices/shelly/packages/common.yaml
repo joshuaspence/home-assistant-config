@@ -4,8 +4,6 @@ substitutions:
   button_click_max_length: '350ms'
   button_hold_min_length: '500ms'
   button_hold_max_length: '1000ms'
-  device_board: 'esp01_1m'
-  device_platform: 'esp8266'
   max_power: '2000.0'
   max_temp: '90.0'
   status_led_gpio: 'GPIO0'
@@ -25,8 +23,3 @@ substitutions:
 
 packages:
   wifi: !include '../../../packages/wifi.yaml'
-
-# NOTE: See esphome/issues#1532.
-# TODO: This should only apply to ESP8266 devices.
-wifi:
-  power_save_mode: 'high'
