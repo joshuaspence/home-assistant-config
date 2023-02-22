@@ -18,15 +18,13 @@ automation:
           platform: 'state'
           entity_id: &lets_encrypt_running 'binary_sensor.lets_encrypt_addon_running'
           to: 'on'
-        timeout: 10
-        continue_on_timeout: false
+        timeout: 5
       - alias: 'Wait for addon to stop'
         wait_for_trigger:
           platform: 'state'
           entity_id: *lets_encrypt_running
           to: 'off'
         timeout: 120
-        continue_on_timeout: false
 
       - service: 'hassio.addon_restart'
         data:
