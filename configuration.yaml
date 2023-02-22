@@ -58,9 +58,9 @@ homeassistant:
   packages: !include_dir_named 'packages'
   time_zone: 'Australia/Sydney'
 http:
-  server_port: 443
-  ssl_certificate: !secret 'http.ssl_certificate'
-  ssl_key: !secret 'http.ssl_key'
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - '172.30.33.0/24'
 lovelace:
   mode: 'yaml'
   dashboards: !include 'lovelace/dashboards.yaml'
