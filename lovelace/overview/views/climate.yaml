@@ -81,7 +81,6 @@ cards:
     cards:
       - type: 'weather-forecast'
         entity: 'weather.home'
-      - type: 'custom:sun-card'
       - type: 'entities'
         entities:
           - entity: 'sensor.inside_temperature'
