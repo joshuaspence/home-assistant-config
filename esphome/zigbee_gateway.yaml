@@ -79,13 +79,17 @@ uart:
   baud_rate: 115200
 
 external_components:
-  - source: 'github://tube0013/esphome-stream-server-v2'
+  - source: 'github://oxan/esphome-stream-server'
 
 stream_server:
   uart_id: 'uart_bus'
-  id: 'ss'
 
 binary_sensor:
   - platform: 'stream_server'
-    stream_server: 'ss'
-    name: 'Connected'
+    connected:
+      name: 'Connected'
+
+sensor:
+  - platform: 'stream_server'
+    connection_count:
+      name: 'Connection Count'
