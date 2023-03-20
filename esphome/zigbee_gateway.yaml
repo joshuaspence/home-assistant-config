@@ -92,4 +92,4 @@ binary_sensor:
 sensor:
   - platform: 'stream_server'
     connection_count:
-      name: 'Connection Count'
+      name: 'Connections'
