@@ -16,11 +16,6 @@ esphome:
       - delay: '15ms'
       - switch.turn_off: 'zRST_gpio'
 
-      # Workaround for oxan/esphome-stream-server#35.
-      - lambda: |-
-          id(stream_server_connected).publish_state(false);
-          id(stream_server_connections).publish_state(0);
-
 ethernet:
   type: 'LAN8720'
   mdc_pin: 'GPIO23'
@@ -92,11 +87,9 @@ stream_server:
 binary_sensor:
   - platform: 'stream_server'
     connected:
-      id: 'stream_server_connected'
       name: 'Connected'
 
 sensor:
   - platform: 'stream_server'
     connection_count:
-      id: 'stream_server_connections'
       name: 'Connections'
