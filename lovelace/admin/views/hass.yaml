@@ -265,10 +265,12 @@ cards:
         - state: 'unknown'
       exclude:
         - domain: 'button'
+        - entity_id: 'binary_sensor.*_phone_high_accuracy_mode'
         - entity_id: 'binary_sensor.*_water_leak_sensor_battery_low'
         - entity_id: 'device_tracker.josh_watch'
         - entity_id: 'group.ignored_entities'
         - entity_id: 'sensor.*_phone_detected_activity'
+        - entity_id: 'sensor.*_phone_high_accuracy_mode_update_interval'
         - entity_id: 'sensor.*_next_alarm'
         - entity_id: 'sensor.*_smoke_detector_battery_level'
         - entity_id: 'sensor.doorbell_text'
@@ -310,6 +312,7 @@ cards:
             'rpi_power',
             'speedtestdotnet',
             'sql',
+            'sun',
             'systemmonitor',
             'unifigateway',
             'updater',
@@ -362,7 +365,6 @@ cards:
         - domain: 'person'
         - domain: 'scene'
         - domain: 'script'
-        - domain: 'sun'
         - domain: 'vacuum'
         - domain: 'weather'
         - domain: 'zone'
@@ -399,11 +401,6 @@ cards:
         name: 'Latest Version'
       - entity: 'update.hassos'
 
-      - type: 'section'
-        label: 'HACS'
-      - entity: 'sensor.hacs'
-        name: 'Updates'
-
   - type: 'entities'
     title: 'Snapshots'
     icon: 'mdi:backup-restore'
@@ -418,11 +415,11 @@ cards:
     entities:
       - type: 'section'
         label: 'ESPHome'
-      - entity: 'binary_sensor.esphome_addon_running'
+      - entity: 'binary_sensor.esphome_running'
         name: 'Running'
-      - entity: 'sensor.esphome_addon_cpu'
+      - entity: 'sensor.esphome_cpu'
         name: 'CPU'
-      - entity: 'sensor.esphome_addon_memory'
+      - entity: 'sensor.esphome_memory'
         name: 'Memory'
 
       - type: 'section'
