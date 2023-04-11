@@ -270,7 +270,7 @@ cards:
         - entity_id: 'device_tracker.josh_watch'
         - entity_id: 'group.ignored_entities'
         - entity_id: 'sensor.*_phone_detected_activity'
-        - entity_id: 'sensor.*_phone_high_accuracy_mode_update_interval'
+        - entity_id: 'sensor.*_phone_high_accuracy_update_interval'
         - entity_id: 'sensor.*_next_alarm'
         - entity_id: 'sensor.*_smoke_detector_battery_level'
         - entity_id: 'sensor.doorbell_text'
