@@ -47,7 +47,7 @@ template:
           }}
         unit_of_measurement: 'devices'
         icon: '{{ is_state("sensor.unavailable_devices", "0") | iif("mdi:lan-connect", "mdi:lan-disconnect") }}'
-        availability: '{{ states("sensor.unavailable_entities") not in ["unavailable", "unknown"] }}'
+        availability: '{{ has_value("sensor.unavailable_entities") }}'
         attributes:
           devices: >-
             {% set ns = namespace(devices={}) %}
