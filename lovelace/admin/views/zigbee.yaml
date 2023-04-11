@@ -25,43 +25,11 @@ cards:
   - type: 'entities'
     title: 'Mosquitto'
     entities:
-      - entity: 'sensor.mosquitto_clients_connected'
-        name: 'Clients Connected'
-      - entity: 'sensor.mosquitto_clients_disconnected'
-        name: 'Clients Disconnected'
-      - entity: 'sensor.mosquitto_clients_total'
-        name: 'Clients Total'
-
       - entity: 'sensor.mosquitto_connections'
         name: 'Connections'
-
-      - entity: 'sensor.mosquitto_bytes_received'
-        name: 'Bytes Received'
-      - entity: 'sensor.mosquitto_bytes_sent'
-        name: 'Bytes Sent'
-
-      - entity: 'sensor.mosquitto_sockets'
-        name: 'Sockets'
-
-      - entity: 'sensor.mosquitto_messages_inflight'
-        name: 'Messages Inflight'
-      - entity: 'sensor.mosquitto_messages_received'
-        name: 'Messages Received'
-      - entity: 'sensor.mosquitto_messages_sent'
-        name: 'Messages Sent'
-
-      - entity: 'sensor.mosquitto_publish_messages_dropped'
-        name: 'Publish Messages Dropped'
-      - entity: 'sensor.mosquitto_publish_messages_received'
-        name: 'Publish Messages Received'
-      - entity: 'sensor.mosquitto_publish_messages_sent'
-        name: 'Publish Messages Sent'
-
       - entity: 'sensor.mosquitto_retained_messages'
         name: 'Retained Messages'
       - entity: 'sensor.mosquitto_stored_messages_count'
         name: 'Stored Messages Count'
-      - entity: 'sensor.mosquitto_stored_messages_bytes'
-        name: 'Stored Messages Bytes'
       - entity: 'sensor.mosquitto_subscriptions'
         name: 'Subscriptions'
