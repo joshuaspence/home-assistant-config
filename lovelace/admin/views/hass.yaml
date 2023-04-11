@@ -365,6 +365,7 @@ cards:
         - domain: 'person'
         - domain: 'scene'
         - domain: 'script'
+        - domain: 'sun'
         - domain: 'vacuum'
         - domain: 'weather'
         - domain: 'zone'
