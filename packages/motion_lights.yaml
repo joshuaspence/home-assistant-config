@@ -66,15 +66,15 @@ automation:
         illuminance_sensor: 'sensor.laundry_illuminance'
 
   - id: '8a402213-9f7f-4ff7-8538-b974982ba414'
-    alias: 'Side Yard Motion Lights'
+    alias: 'South Side Yard Motion Lights'
     use_blueprint:
       path: 'motion_lights.yaml'
       input:
-        trigger_sensor: 'binary_sensor.side_yard_occupancy'
+        trigger_sensor: 'binary_sensor.south_side_yard_occupancy'
         light_target:
           - 'light.outside_sse'
           - 'light.outside_ssw'
-        illuminance_sensor: 'sensor.side_yard_illuminance'
+        illuminance_sensor: 'sensor.south_side_yard_illuminance'
 
   - id: 'c363bc72-7c75-44ee-9f2a-4c96a2bb9e91'
     alias: 'Toilet Motion Lights'

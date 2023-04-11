@@ -72,9 +72,9 @@ binary_sensor:
     device_class: 'motion'
     entities:
       - 'binary_sensor.back_yard_occupancy'
-      - 'binary_sensor.back_door_occupancy'
+      - 'binary_sensor.east_side_yard_occupancy'
       - 'binary_sensor.front_yard_occupancy'
-      - 'binary_sensor.side_yard_occupancy'
+      - 'binary_sensor.south_side_yard_occupancy'
   - platform: 'group'
     name: 'Internal Occupancy'
     unique_id: 'b205d8cb-5dc4-41fb-9720-7a47a0ea63d3'

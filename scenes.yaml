@@ -14,7 +14,7 @@
   name: 'Bedroom 1 - Awake'
   icon: 'mdi:alarm'
   entities:
-    automation.side_yard_motion_lights:
+    automation.south_side_yard_motion_lights:
       state: 'on'
     fan.bedroom_1_air_purifier:
       state: 'on'
@@ -33,7 +33,7 @@
   name: 'Bedroom 1 - Sleep'
   icon: 'mdi:sleep'
   entities:
-    automation.side_yard_motion_lights:
+    automation.south_side_yard_motion_lights:
       state: 'off'
     light.bedroom_1:
       state: 'off'

@@ -1,7 +1,7 @@
 '0x00178801064750f8':
   friendly_name: Front Yard Motion Sensor
 '0x0017880106470948':
-  friendly_name: Back Door Motion Sensor
+  friendly_name: East Side Yard Motion Sensor
 '0x001788010293c25b':
   friendly_name: Office Light
 '0x001788010916463f':
@@ -112,7 +112,7 @@
 '0x00158d0007758d60':
   friendly_name: Attic Lower Temperature Sensor
 '0x00178801064716e9':
-  friendly_name: Side Yard Motion Sensor
+  friendly_name: South Side Yard Motion Sensor
 '0x00178801093c115e':
   friendly_name: Outside South-southwest Light
 '0x0017880108af0507':
