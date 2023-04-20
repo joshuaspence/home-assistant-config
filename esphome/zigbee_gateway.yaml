@@ -79,7 +79,8 @@ uart:
   baud_rate: 115200
 
 external_components:
-  - source: 'github://oxan/esphome-stream-server'
+  # TODO: Point back to `oxan/esphome-stream-server` after oxan/esphome-stream-server#40 is merged.
+  - source: 'github://joshuaspence/esphome-stream-server@esphome2023.4-socket'
 
 stream_server:
   uart_id: 'uart_bus'
