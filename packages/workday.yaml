@@ -1,10 +1,4 @@
 ---
-binary_sensor:
-  - platform: 'workday'
-    name: 'Workday'
-    country: 'AU'
-    province: 'NSW'
-
 automation:
   - alias: 'Workday Lighting'
     id: '11806cb8-d600-48be-a74a-ac71bf258626'
