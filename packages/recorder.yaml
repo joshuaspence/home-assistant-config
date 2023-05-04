@@ -1,16 +1,5 @@
 ---
-history:
-  exclude:
-    domains:
-      - 'automation'
-    entities:
-      - 'binary_sensor.remote_ui'
-      - 'sensor.backup_state'
-      - 'sensor.snapshot_backup'
-    entity_globs:
-      - 'sensor.*_shelly*_temperature'
-      - 'sensor.*_version'
-      - 'sensor.speedtest_*'
+history: {}
 
 logbook:
   exclude:

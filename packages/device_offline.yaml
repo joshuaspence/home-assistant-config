@@ -82,12 +82,6 @@ group:
       - 'sensor.unavailable_devices'
       - 'sensor.unavailable_entities'
 
-history:
-  exclude:
-    entities:
-      - 'sensor.unavailable_devices'
-      - 'sensor.unavailable_entities'
-
 automation:
   - alias: 'Device Offline'
     id: '7fa5aace-5294-4181-a6f3-4720b1fe1fde'

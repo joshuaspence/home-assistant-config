@@ -1,8 +1,4 @@
 ---
-history:
-  exclude:
-    entity_globs:
-      - 'sensor.*_phone_*'
 logbook:
   exclude:
     entity_globs:

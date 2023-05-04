@@ -30,8 +30,3 @@ automation:
       service: 'scene.apply'
       data:
         entities: '{{ scene }}'
-
-history:
-  exclude:
-    entities:
-      - 'binary_sensor.workday'
