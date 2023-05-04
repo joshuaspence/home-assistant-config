@@ -76,7 +76,7 @@ cards:
         icon: 'mdi:account'
         state: '{{ states.person | count }}'
       - type: 'custom:template-entity-row'
-        name: 'Remottes'
+        name: 'Remotes'
         icon: 'mdi:remote'
         state: '{{ states.remote | count }}'
       - type: 'custom:template-entity-row'
