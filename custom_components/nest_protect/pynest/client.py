@@ -6,16 +6,15 @@ from random import randint
 import time
 from types import TracebackType
 from typing import Any
-import urllib.parse
 
 from aiohttp import ClientSession, ClientTimeout, ContentTypeError, FormData
 
 from .const import (
-    TOKEN_URL,
     APP_LAUNCH_URL_FORMAT,
-    NEST_REQUEST,
     DEFAULT_NEST_ENVIRONMENT,
     NEST_AUTH_URL_JWT,
+    NEST_REQUEST,
+    TOKEN_URL,
     USER_AGENT,
 )
 from .exceptions import (
@@ -189,7 +188,7 @@ class NestClient:
             headers={
                 "Authorization": f"Basic {nest_auth.jwt}",
                 "cookie": "G_ENABLED_IDPS=google; eu_cookie_accepted=1; viewer-volume=0.5; cztoken="
-                + nest_auth.jwt,
+                + (nest_auth.jwt if nest_auth.jwt else ""),
             },
         ) as response:
             try:
@@ -212,7 +211,7 @@ class NestClient:
                 )
 
             if nest_response.get("error"):
-                _LOGGER.error("Authnetication error: %s", nest_response.get("error"))
+                _LOGGER.error("Authentication error: %s", nest_response.get("error"))
 
             try:
                 self.nest_session = NestResponse(**nest_response)
@@ -220,7 +219,7 @@ class NestClient:
                 nest_response = await response.text()
 
                 if result.get("error"):
-                    _LOGGER.error("Could not interprete Nest response")
+                    _LOGGER.error("Could not interpret Nest response")
 
                 raise PynestException(
                     f"{response.status} error while authenticating - {nest_response}. Please create an issue on GitHub."
@@ -257,8 +256,6 @@ class NestClient:
     ) -> Any:
         """Subscribe for data."""
 
-        epoch = int(time.time())
-        random = str(randint(100, 999))
         timeout = 3600 * 24
 
         objects = []
