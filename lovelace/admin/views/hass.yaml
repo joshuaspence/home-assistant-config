@@ -318,7 +318,6 @@ cards:
             'sql',
             'sun',
             'systemmonitor',
-            'unifigateway',
             'updater',
             'uptime',
             'version',
@@ -356,7 +355,6 @@ cards:
         - entity_id: 'sensor.mosquitto_*'
         - entity_id: 'sensor.unavailable_devices'
         - entity_id: 'sensor.unavailable_entities'
-        - entity_id: 'sensor.unifi_*'
         - entity_id: 'sensor.upstairs_*'
         - entity_id: 'sensor.zigbee2mqtt_*'
         - entity_id: 'switch.*_do_not_disturb'

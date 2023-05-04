@@ -68,19 +68,4 @@ cards:
 
   - type: 'vertical-stack'
     title: 'UniFi Gateway'
-    cards:
-      - type: 'grid'
-        columns: 4
-        cards:
-          - type: 'gauge'
-            entity: 'sensor.unifi_gateway_cpu'
-            name: 'Processor'
-          - type: 'gauge'
-            entity: 'sensor.unifi_gateway_memory'
-            name: 'Memory'
-      - type: 'history-graph'
-        entities:
-          - entity: 'sensor.unifi_gateway_cpu'
-            name: 'Processor'
-          - entity: 'sensor.unifi_gateway_memory'
-            name: 'Memory'
+    cards: []
