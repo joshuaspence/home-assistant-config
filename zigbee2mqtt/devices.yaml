@@ -206,6 +206,7 @@
   friendly_name: Attic Upper Temperature Sensor
 '0x54ef4410005fc382':
   friendly_name: Office Presence Sensor
+  disabled: true
 '0x54ef4410005fc361':
   friendly_name: Living Room Presence Sensor
   disabled: true
