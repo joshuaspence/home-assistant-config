@@ -167,9 +167,6 @@
     switch:
       object_id: fan
       type: fan
-'0x000d6f0011192562':
-  friendly_name: Back Door Lock
-  expose_pin: false
 '0x00158d000775bff7':
   friendly_name: Laundry Temperature Sensor
 '0x00158d00068b3976':
@@ -251,3 +248,6 @@
   friendly_name: Bedroom 2 Wardrobe Temperature Sensor
 '0x00158d0006c51f3b':
   friendly_name: Kitchen Sink Water Leak Sensor
+'0x000d6f0011192562':
+  friendly_name: Back Door Lock
+  expose_pin: false
