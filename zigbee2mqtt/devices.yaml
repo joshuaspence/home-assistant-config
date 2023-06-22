@@ -223,9 +223,6 @@
   friendly_name: Toilet Light
 '0x00158d00069b0ea2':
   friendly_name: Bedroom 1 Door Contact Sensor
-'0x0017880109b6dcb0':
-  friendly_name: Front Door Light
-  disabled: true
 '0x001788010c4b0671':
   friendly_name: Kitchen Cooktop Light
 '0x001788010c44ff19':
