@@ -9,5 +9,8 @@ logger:
       - '^State attributes for sensor\.\w+_active_notification_count exceed maximum size of 16384 bytes\. This can cause database performance issues; Attributes will not be stored$'
 
     # See home-assistant/core#79039.
-    homeassistant.components.stream.stream.camera:
+    homeassistant.components.stream.stream.camera.driveway: &unifiprotect_session_invalidated
       - '\[tls\] The specified session has been invalidated for some reason$'
+    homeassistant.components.stream.stream.camera.east_side_yard: *unifiprotect_session_invalidated
+    homeassistant.components.stream.stream.camera.front_patio: *unifiprotect_session_invalidated
+    homeassistant.components.stream.stream.camera.south_side_yard: *unifiprotect_session_invalidated
