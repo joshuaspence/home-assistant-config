@@ -3,6 +3,7 @@ logger:
   default: 'warning'
   logs:
     homeassistant.components.system_log.external: 'info'
+    pydaikin.daikin_brp069: 'fatal'
   filters:
     # See home-assistant/core#92365.
     homeassistant.components.recorder.db_schema:
