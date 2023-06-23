@@ -3,32 +3,7 @@ logger:
   default: 'warning'
   logs:
     homeassistant.components.system_log.external: 'info'
-    matplotlib: 'error'
-    pychromecast.socket_client: 'fatal'
   filters:
-    # See home-assistant/core#41420.
-    hass_nabucasa.remote:
-      - '^Connection problem to snitun server$'
-    snitun.client.client_peer:
-      - '^Challenge/Response error with SniTun server\b'
-
-    # See home-assistant/core#45641.
-    aiohttp.server:
-      - 'AttributeError: ''NoneType'' object has no attribute ''resume_reading'''
-
-    # TODO: Investigate/fix these issues.
-    androidtv.adb_manager.adb_manager_async:
-      - 'TcpTimeoutException'
-    custom_components.localtuya.common:
-      - 'Connect to (?:\d{1,3}\.){3}\d{1,3} failed'
-    homeassistant.components.binary_sensor:
-      - '^Platform netgear_lte not ready yet'
-    homeassistant.components.netgear_lte:
-      - '^Connected to'
-      - '^Could not connect to'
-    homeassistant.components.sensor:
-      - '^Platform netgear_lte not ready yet'
-    homeassistant.components.stream.stream.camera.office:
-      - '^Error from stream worker: Error opening stream \(HTTP_NOT_FOUND, Server returned 404 Not Found\)'
-    homeassistant.config_entries:
-      - '^Config entry ''DaikinAP13127'' for daikin integration not ready yet: Server disconnected; Retrying in background$'
+    # See home-assistant/core#92365.
+    homeassistant.components.recorder.db_schema:
+      - '^State attributes for sensor\.\w+_active_notification_count exceed maximum size of 16384 bytes\. This can cause database performance issues; Attributes will not be stored$'
