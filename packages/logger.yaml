@@ -10,7 +10,7 @@ logger:
 
     # See home-assistant/core#79039.
     homeassistant.components.stream.stream.camera.driveway: &unifiprotect_session_invalidated
-      - '\[tls\] The specified session has been invalidated for some reason$'
+      - '\[tls\] The specified session has been invalidated for some reason\.$'
     homeassistant.components.stream.stream.camera.east_side_yard: *unifiprotect_session_invalidated
     homeassistant.components.stream.stream.camera.front_patio: *unifiprotect_session_invalidated
     homeassistant.components.stream.stream.camera.south_side_yard: *unifiprotect_session_invalidated
