@@ -16,11 +16,6 @@ cards:
         name: 'State'
       - entity: 'binary_sensor.zigbee2mqtt_health_check'
         name: 'Health Check'
-  - type: 'custom:zigbee2mqtt-networkmap'
-    entity: 'sensor.zigbee2mqtt_network_map'
-    force: 2000
-    height: 800
-    link_width: 1
 
   - type: 'entities'
     title: 'Mosquitto'

@@ -17,12 +17,6 @@ mqtt:
       state_topic: '$SYS/broker/subscriptions/count'
 
     # Zigbee2MQTT
-    - name: 'Zigbee2MQTT Network Map'
-      unique_id: 'f6ec75b3-c952-4c8f-9a62-a07f0eb063b2'
-      state_topic: 'zigbee2mqtt/bridge/response/networkmap'
-      value_template: '{{ now().strftime("%Y-%m-%d %H:%M:%S") }}'
-      json_attributes_topic: 'zigbee2mqtt/bridge/response/networkmap'
-      json_attributes_template: '{{ value_json.data.value | tojson }}'
     - name: 'Zigbee2MQTT Coordinator Version'
       unique_id: '99cae535-84d1-44ca-97d5-6bb20e6f0ad1'
       state_topic: 'zigbee2mqtt/bridge/info'
@@ -43,22 +37,6 @@ mqtt:
       payload_on: 'ok'
 
 automation:
-  - alias: 'Zigbee2MQTT Network Map'
-    id: '2b67c904-fb8f-41d3-983d-a013f7c510ba'
-    trigger:
-      - platform: 'homeassistant'
-        event: 'start'
-      - platform: 'time_pattern'
-        hours: '*'
-    action:
-      service: 'mqtt.publish'
-
-      # TODO: Include routes.
-      data:
-        topic: 'zigbee2mqtt/bridge/request/networkmap'
-        payload: 'raw'
-    trace:
-      stored_traces: 0
   - alias: 'Zigbee2MQTT Health Check'
     id: 'e6dc7aa0-14e9-4750-80a0-cb05da0c459c'
     trigger:
