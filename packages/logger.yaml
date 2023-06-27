@@ -8,10 +8,11 @@ logger:
     pydaikin.daikin_brp069: 'fatal'
   filters:
     # See iMicknl/ha-nest-protect#221 and iMicknl/ha-nest-protect#233.
+    custom_components.nest_protect:
+      - '{"error":"invalid_request","error_description":"missing user credentials"}'
     custom_components.nest_protect.pynest:
       - '^Authentication error: invalid_request$'
       - '^Could not interpret Nest response$'
-      - '{"error":"invalid_request","error_description":"missing user credentials"}'
 
     # See home-assistant/core#92365.
     homeassistant.components.recorder.db_schema:
