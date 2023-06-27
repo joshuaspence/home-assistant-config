@@ -2,12 +2,20 @@
 logger:
   default: 'warning'
   logs:
+    custom_components.localtuya.common: 'error'
     homeassistant.components.system_log.external: 'info'
+    pychromecast.socket_client: 'fatal'
     pydaikin.daikin_brp069: 'fatal'
   filters:
+    # See iMicknl/ha-nest-protect#221 and iMicknl/ha-nest-protect#233.
+    custom_components.nest_protect.pynest:
+      - '^Authentication error: invalid_request$'
+      - '^Could not interpret Nest response$'
+      - '{"error":"invalid_request","error_description":"missing user credentials"}'
+
     # See home-assistant/core#92365.
     homeassistant.components.recorder.db_schema:
-      - '^State attributes for sensor\.\w+_active_notification_count exceed maximum size of 16384 bytes\. This can cause database performance issues; Attributes will not be stored$'
+      - '^State attributes for sensor\.\w+_active_notification_count exceed maximum size of \d+ bytes\. This can cause database performance issues; Attributes will not be stored$'
 
     # See home-assistant/core#79039.
     homeassistant.components.stream.stream.camera.driveway: &unifiprotect_session_invalidated
