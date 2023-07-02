@@ -31,7 +31,6 @@ light:
     unique_id: '0ae79fbc-c1e8-47e6-afd1-fd8a8c06f23b'
     entities:
       - 'light.driveway'
-      - 'light.front_door'
       - 'light.front_patio'
       - 'light.outside_wall'
 

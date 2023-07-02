@@ -89,7 +89,6 @@ cards:
     show_header_toggle: false
     entities:
       - 'light.driveway'
-      - 'light.front_door'
       - 'light.front_patio'
       - type: 'custom:fold-entity-row'
         head: 'light.outside_wall'

@@ -61,7 +61,7 @@ automation:
         button1_click:
           service: 'light.toggle'
           data:
-            entity_id: 'light.front_door'
+            entity_id: 'light.driveway'
         button2_click:
           service: 'light.toggle'
           data:
@@ -140,6 +140,10 @@ automation:
             entity_id:
               - 'light.outside_nne'
               - 'light.outside_nnw'
+        button2_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.front_patio'
 
   - id: 'e389a147-b6a7-4191-ad2c-82517c8d56f4'
     alias: 'living_room_west_shelly Buttons'

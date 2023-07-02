@@ -36,7 +36,5 @@ action:
     timeout: 300
   - delay: 300
   - service: 'light.turn_off'
-    entity_id:
-      - 'light.front_door'
-      - 'light.outside_wall'
+    entity_id: 'light.outside_wall'
 mode: 'single'

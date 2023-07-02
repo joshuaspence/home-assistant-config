@@ -3,7 +3,6 @@
   name: 'Arriving Home'
   icon: 'mdi:home'
   entities:
-    light.front_door: 'on'
     light.hallway: 'on'
     light.outside_wall: 'on'
     light.toilet:
@@ -82,7 +81,6 @@
   name: 'Day Time'
   icon: 'mdi:white-balance-sunny'
   entities:
-    light.front_door: 'off'
     light.outside_wall: 'off'
     light.toilet: 'off'
     switch.aircon_downstairs: 'on'
