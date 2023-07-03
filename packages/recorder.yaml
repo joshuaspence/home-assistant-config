@@ -6,6 +6,7 @@ logbook:
     entity_globs: []
 
 recorder:
+  db_url: !secret 'recorder.database_url'
   purge_keep_days: 365
   exclude:
     domains: []
