@@ -93,3 +93,4 @@ sensor:
   - platform: 'stream_server'
     connection_count:
       name: 'Connections'
+      unit_of_measurement: 'connections'
