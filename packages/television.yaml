@@ -12,3 +12,12 @@ automation:
     action:
       service: 'media_player.turn_off'
       entity_id: 'media_player.living_room_tv'
+
+media_player:
+  - platform: 'universal'
+    name: 'Living Room TV'
+    children:
+      - 'media_player.living_room_tv_androidtv'
+      - 'media_player.living_room_tv_cast'
+      - 'media_player.living_room_tv_adb'
+    unique_id: '21a41dd3-31b7-46a9-9441-90de7f89845f'
