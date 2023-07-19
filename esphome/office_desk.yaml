@@ -27,6 +27,8 @@ external_components:
   - source: 'github://tjhorner/esphome-standing-desk'
 
 sensor:
+  - platform: 'internal_temperature'
+    name: 'Internal Temperature'
   - platform: 'standing_desk_height'
     id: 'desk_height'
     name: 'Desk Height'
