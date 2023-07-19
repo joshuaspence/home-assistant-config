@@ -2,7 +2,7 @@
 esphome:
   name: '${device_id}'
   friendly_name: '${device_name}'
-  min_version: '2023.03.0'
+  min_version: '2023.7.0'
 
 ${device_platform}:
   board: '${device_board}'

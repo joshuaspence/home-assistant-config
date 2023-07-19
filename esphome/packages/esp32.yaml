@@ -1,4 +1,8 @@
 ---
+esp32:
+  framework:
+    type: 'esp-idf'
+
 sensor:
   - platform: 'internal_temperature'
     name: 'Internal Temperature'

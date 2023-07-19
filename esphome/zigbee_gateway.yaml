@@ -7,6 +7,7 @@ substitutions:
 
 packages:
   common: !include 'packages/common.yaml'
+  esp32: !include 'packages/esp32.yaml'
 
 esphome:
   on_boot:
