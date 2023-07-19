@@ -13,9 +13,7 @@ packages:
 esphome:
   on_boot:
     then:
-      # Wakes up the desk and reports height.
-      uart.write:
-        - 0x00
+      button.press: 'wakeup'
 
 uart:
   baud_rate: 9600
@@ -179,3 +177,14 @@ button:
       - delay: '100ms'
       - output.turn_off: 'button_m'
       - button.press: 'recall_preset_4'
+
+  - platform: 'template'
+    name: 'Wakeup'
+    id: 'wakeup'
+    icon: 'mdi:cog-refresh'
+    disabled_by_default: true
+    entity_category: 'config'
+    on_press:
+      uart.write:
+        - 0x00
+
