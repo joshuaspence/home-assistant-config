@@ -1,13 +1,12 @@
 ---
 substitutions:
   device_board: 'esp-wrover-kit'
-  device_platform: 'esp32'
   device_id: 'zigbee_gateway'
   device_name: 'Zigbee Gateway'
 
 packages:
   common: !include 'packages/common.yaml'
-  esp32: !include 'packages/esp32.yaml'
+  platform: !include 'packages/platform/esp32.yaml'
 
 esphome:
   on_boot:

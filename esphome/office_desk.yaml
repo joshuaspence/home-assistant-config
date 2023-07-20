@@ -1,13 +1,12 @@
 ---
 substitutions:
   device_board: 'esp32dev'
-  device_platform: 'esp32'
   device_id: 'office_desk'
   device_name: 'Office Desk'
 
 packages:
   common: !include 'packages/common.yaml'
-  esp32: !include 'packages/esp32.yaml'
+  platform: !include 'packages/platform/esp32.yaml'
   wifi: !include 'packages/wifi.yaml'
 
 esphome:

@@ -1,8 +1,10 @@
 ---
 substitutions:
   device_board: 'esp01_1m'
-  device_platform: 'esp8266'
 
 # NOTE: See esphome/issues#1532.
 wifi:
   power_save_mode: 'high'
+
+packages:
+  base: !include '../../../packages/platform/esp8266.yaml'
