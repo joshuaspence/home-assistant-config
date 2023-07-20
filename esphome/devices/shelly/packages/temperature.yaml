@@ -24,7 +24,7 @@ sensor:
         - lambda: !lambda |-
             for (auto *obj : App.get_switches()) {
               if (!obj->is_internal()) {
-                obj->turn_off().perform();
+                obj->turn_off();
               }
             }
         - homeassistant.service:
