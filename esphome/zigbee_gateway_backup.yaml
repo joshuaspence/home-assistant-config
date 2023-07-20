@@ -4,4 +4,5 @@ substitutions:
   device_name: 'Zigbee Gateway Backup'
 
 packages:
-  zigbee_gateway: !include 'zigbee_gateway.yaml'
+  common: !include 'packages/common.yaml'
+  device: !include 'devices/tubeszb/cc2652_poe.yaml'
