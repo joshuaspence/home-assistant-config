@@ -6,7 +6,3 @@ packages:
     vars:
       board: 'esp01_1m'
   wifi: !include '../../../packages/wifi.yaml'
-
-# NOTE: See esphome/issues#1532.
-wifi:
-  power_save_mode: 'high'

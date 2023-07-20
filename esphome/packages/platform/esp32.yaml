@@ -1,4 +1,7 @@
 ---
+substitutions:
+  wifi_power_save_mode: 'light'
+
 esp32:
   board: '${board}'
   framework:
