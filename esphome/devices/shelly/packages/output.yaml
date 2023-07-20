@@ -4,9 +4,9 @@ output:
     pin: '${pin}'
     id: 'output${id}'
 
-${component}:
-  - platform: '${platform}'
+switch:
+  - platform: 'output'
     output: 'output${id}'
-    name: '${name}'
-    restore_mode: '${restore_mode}'
-    internal: '${internal}'
+    name: 'Output ${id}'
+    restore_mode: 'RESTORE_DEFAULT_ON'
+    disabled_by_default: true

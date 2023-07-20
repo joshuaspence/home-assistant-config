@@ -1,5 +1,5 @@
 ---
 status_led:
   pin:
-    number: '${status_led_gpio}'
-    inverted: '${status_led_inverted}'
+    number: 'GPIO0'
+    inverted: 'true'

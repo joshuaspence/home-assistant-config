@@ -1,11 +1,17 @@
 ---
+substitutions:
+  click_min_length: '50ms'
+  click_max_length: '350ms'
+  hold_min_length: '500ms'
+  hold_max_length: '1000ms'
+
 binary_sensor:
   - platform: 'gpio'
     pin: '${pin}'
     id: 'input${id}'
     on_multi_click:
       - timing:
-          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+          - 'ON for ${click_min_length} to ${click_max_length}'
         then:
           if:
             condition:
@@ -20,7 +26,7 @@ binary_sensor:
                   button: '${id}'
                   action: 'click'
       - timing:
-          - 'ON for ${button_hold_min_length} to ${button_hold_max_length}'
+          - 'ON for ${hold_min_length} to ${hold_max_length}'
         then:
           if:
             condition:
@@ -35,9 +41,9 @@ binary_sensor:
                   button: '${id}'
                   action: 'hold'
       - timing:
-          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
-          - 'OFF for ${button_click_min_length} to ${button_click_max_length}'
-          - 'ON for ${button_click_min_length} to ${button_click_max_length}'
+          - 'ON for ${click_min_length} to ${click_max_length}'
+          - 'OFF for ${click_min_length} to ${click_max_length}'
+          - 'ON for ${click_min_length} to ${click_max_length}'
         then:
           if:
             condition:

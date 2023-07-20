@@ -2,19 +2,15 @@
 ---
 packages:
   common: !include 'packages/common.yaml'
+
   input1: !include
     file: 'packages/input.yaml'
     vars:
-      id: '1'
+      id: 1
       pin: 'GPIO5'
+
   output1: !include
     file: 'packages/output.yaml'
     vars:
-      id: '1'
+      id: 1
       pin: 'GPIO4'
-      component: '${output1_component}'
-      platform: '${output1_platform}'
-      name: '${output1_name}'
-      restore_mode: '${output1_restore_mode}'
-      internal: '${output1_internal}'
-  platform: !include 'packages/esp8266.yaml'

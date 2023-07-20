@@ -4,5 +4,4 @@ substitutions:
   device_name: 'Laundry Shelly'
 
 packages:
-  common: !include 'packages/common.yaml'
   device: !include 'devices/shelly/25.yaml'

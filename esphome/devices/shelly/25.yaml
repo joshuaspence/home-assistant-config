@@ -1,60 +1,55 @@
 # Based on https://www.esphome-devices.com/devices/Shelly-25.
 ---
+substitutions:
+  max_power: '2000.0'
+
 packages:
   common: !include 'packages/common.yaml'
+  i2c: !include 'packages/i2c.yaml'
+  status_led: !include 'packages/status_led.yaml'
+  temperature: !include
+    file: 'packages/temperature.yaml'
+    vars:
+      max_temp: 90.0
+
   input1: !include
     file: 'packages/input.yaml'
     vars:
-      id: '1'
+      id: 1
       pin: 'GPIO13'
   input2: !include
     file: 'packages/input.yaml'
     vars:
-      id: '2'
+      id: 2
       pin: 'GPIO5'
+
   output1: !include
     file: 'packages/output.yaml'
     vars:
-      id: '1'
+      id: 1
       pin: 'GPIO4'
-      component: '${output1_component}'
-      platform: '${output1_platform}'
-      name: '${output1_name}'
-      restore_mode: '${output1_restore_mode}'
-      internal: '${output1_internal}'
   output2: !include
     file: 'packages/output.yaml'
     vars:
-      id: '2'
+      id: 2
       pin: 'GPIO15'
-      component: '${output2_component}'
-      platform: '${output2_platform}'
-      name: '${output2_name}'
-      restore_mode: '${output2_restore_mode}'
-      internal: '${output2_internal}'
-  platform: !include 'packages/esp8266.yaml'
-  status_led: !include 'packages/status_led.yaml'
-  temperature: !include 'packages/temperature.yaml'
 
-i2c:
-  sda: 'GPIO12'
-  scl: 'GPIO14'
-
+# Power monitoring
+# TODO: Move this to a package.
 sensor:
-  # Power Monitoring
   - platform: 'ade7953'
     irq_pin: 'GPIO16'
     voltage:
       name: 'Voltage'
       internal: true
     current_a:
-      name: 'Output2 Current'
+      name: 'Output 2 Current'
       internal: true
     current_b:
-      name: 'Output1 Current'
+      name: 'Output 1 Current'
       internal: true
     active_power_a:
-      name: 'Output2 Power'
+      name: 'Output 2 Power'
 
       # TODO: Move this to a Home Assistant automation.
       on_value_range:
@@ -68,7 +63,7 @@ sensor:
               data_template:
                 message: 'Switch turned off because power exceeded ${max_power}W'
     active_power_b:
-      name: 'Output1 Power'
+      name: 'Output 1 Power'
       filters:
         lambda: 'return abs(x);'
 

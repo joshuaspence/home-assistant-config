@@ -1,9 +1,10 @@
 ---
-substitutions:
-  device_board: 'esp32dev'
-
 packages:
-  platform: !include '../packages/platform/esp32.yaml'
+  common: !include '../packages/common.yaml'
+  platform: !include
+    file: '../packages/platform/esp32.yaml'
+    vars:
+      board: 'esp32dev'
   wifi: !include '../packages/wifi.yaml'
 
 esphome:
@@ -180,7 +181,6 @@ button:
     name: 'Wakeup'
     id: 'wakeup'
     icon: 'mdi:cog-refresh'
-    disabled_by_default: true
     entity_category: 'config'
     on_press:
       uart.write:

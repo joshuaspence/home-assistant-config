@@ -1,5 +1,5 @@
 ---
 esp32:
-  board: '${device_board}'
+  board: '${board}'
   framework:
     type: 'esp-idf'

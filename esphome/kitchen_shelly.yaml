@@ -4,5 +4,4 @@ substitutions:
   device_name: 'Kitchen Shelly'
 
 packages:
-  common: !include 'packages/common.yaml'
   device: !include 'devices/shelly/1.yaml'

@@ -1,25 +1,12 @@
 ---
-substitutions:
-  button_click_min_length: '50ms'
-  button_click_max_length: '350ms'
-  button_hold_min_length: '500ms'
-  button_hold_max_length: '1000ms'
-  max_power: '2000.0'
-  max_temp: '90.0'
-  status_led_gpio: 'GPIO0'
-  status_led_inverted: 'true'
-
-  # TODO: These shouldn't be here.
-  output1_component: 'switch'
-  output1_platform: 'output'
-  output1_name: 'Output1'
-  output1_restore_mode: 'ALWAYS_ON'
-  output1_internal: 'true'
-  output2_component: 'switch'
-  output2_platform: 'output'
-  output2_name: 'Output2'
-  output2_restore_mode: 'ALWAYS_ON'
-  output2_internal: 'true'
-
 packages:
+  common: !include '../../../packages/common.yaml'
+  platform: !include
+    file: '../../../packages/platform/esp8266.yaml'
+    vars:
+      board: 'esp01_1m'
   wifi: !include '../../../packages/wifi.yaml'
+
+# NOTE: See esphome/issues#1532.
+wifi:
+  power_save_mode: 'high'

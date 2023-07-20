@@ -1,13 +1,13 @@
 ---
-substitutions:
-  device_board: 'esp-wrover-kit'
-
 packages:
-  platform: !include '../../packages/platform/esp32.yaml'
+  common: !include '../../packages/common.yaml'
+  platform: !include
+    file: '../../packages/platform/esp32.yaml'
+    vars:
+      board: 'esp-wrover-kit'
 
 esphome:
   on_boot:
-    priority: 600
     then:
       - switch.turn_on: 'zRST_gpio'
       - delay: '15ms'

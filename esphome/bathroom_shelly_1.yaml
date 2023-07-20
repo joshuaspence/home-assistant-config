@@ -2,12 +2,6 @@
 substitutions:
   device_id: 'bathroom_shelly_1'
   device_name: 'Bathroom Shelly 1'
-  output2_component: 'fan'
-  output2_platform: 'binary'
-  output2_name: 'Bathroom'
-  output2_restore_mode: 'RESTORE_DEFAULT_OFF'
-  output2_internal: 'false'
 
 packages:
-  common: !include 'packages/common.yaml'
   device: !include 'devices/shelly/25.yaml'

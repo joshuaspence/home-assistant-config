@@ -4,7 +4,6 @@ substitutions:
   device_name: 'Office Desk'
 
 packages:
-  common: !include 'packages/common.yaml'
   device: !include
     file: 'devices/upsy_desky.yaml'
     vars:
