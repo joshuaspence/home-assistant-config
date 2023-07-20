@@ -1,8 +1,5 @@
 ---
 substitutions:
-  wifi_enable_btm: 'false'
-  wifi_enable_rrm: 'false'
-
   # NOTE: See esphome/issues#1532.
   wifi_power_save_mode: 'high'
 
