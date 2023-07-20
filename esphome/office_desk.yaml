@@ -7,4 +7,6 @@ packages:
   device: !include
     file: 'devices/upsy_desky.yaml'
     vars:
+      min_height: 70.0
+      max_height: 125.0
       variant: 'omnidesk'

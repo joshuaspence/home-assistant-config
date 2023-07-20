@@ -25,7 +25,7 @@ external_components:
 
 sensor:
   - platform: 'internal_temperature'
-    name: 'Internal Temperature'
+    name: 'Temperature'
   - platform: 'standing_desk_height'
     id: 'desk_height'
     name: 'Desk Height'
@@ -66,8 +66,8 @@ number:
     name: 'Target Desk Height'
     unit_of_measurement: 'cm'
     device_class: 'distance'
-    min_value: 70.0
-    max_value: 125.0
+    min_value: '${min_height}'
+    max_value: '${max_height}'
     step: 0.1
     optimistic: true
     restore_value: true
