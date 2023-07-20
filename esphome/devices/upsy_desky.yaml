@@ -73,6 +73,7 @@ number:
     step: 0.1
     lambda: !lambda |-
       return id(desk_height)->get_last_read();
+    update_interval: 'never'
     set_action:
       then:
         if:
