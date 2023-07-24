@@ -5,3 +5,7 @@ substitutions:
 
 packages:
   device: !include 'devices/shelly/25.yaml'
+
+switch:
+  - id: !extend 'switch2'
+    restore_mode: 'RESTORE_DEFAULT_OFF'
