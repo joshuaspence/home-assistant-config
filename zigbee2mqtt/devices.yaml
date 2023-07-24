@@ -155,8 +155,6 @@
   friendly_name: Outside North-northeast Light
 '0x00178801093d70ff':
   friendly_name: Outside North-northwest Light
-'0x0017880102d95245':
-  friendly_name: Office Desk Light
 '0x0017880108615a10':
   friendly_name: Attic Fan Smart Plug
   homeassistant:
@@ -242,3 +240,5 @@
 '0x000d6f0011192562':
   friendly_name: Back Door Lock
   expose_pin: false
+'0x0017880109ac7a16':
+  friendly_name: Office Desk Light
