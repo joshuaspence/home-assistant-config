@@ -7,7 +7,8 @@ substitutions:
 # TODO: Remove this after esphome/esphome#5145 is merged.
 external_components:
   - source: 'github://pr#5145'
-    components: ['wifi']
+    components:
+      - 'wifi'
 
 wifi:
   networks:
