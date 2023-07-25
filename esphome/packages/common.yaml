@@ -13,7 +13,6 @@ ota:
 
 time:
   - platform: 'homeassistant'
-  - platform: 'sntp'
 
 logger: {}
 
