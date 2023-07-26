@@ -1,6 +1,6 @@
 ---
 substitutions:
-  # NOTE: See esphome/issues#1532.
+  # See esphome/issues#1532.
   wifi_power_save_mode: 'high'
 
 esp8266:
