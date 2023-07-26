@@ -1,8 +1,12 @@
 ---
 packages:
   common: !include '../../../packages/common.yaml'
+  wifi: !include '../../../packages/wifi.yaml'
+
+  # The `platform` package needs to be included after the `wifi` package so
+  # that platform substitutions take precedence over the default values
+  # specified within the `wifi` package.
   platform: !include
     file: '../../../packages/platform/esp8266.yaml'
     vars:
       board: 'esp01_1m'
-  wifi: !include '../../../packages/wifi.yaml'
