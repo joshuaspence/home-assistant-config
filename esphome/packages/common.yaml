@@ -19,6 +19,10 @@ time:
   - platform: 'homeassistant'
   - platform: 'sntp'
 
+binary_sensor:
+  - platform: 'status'
+    name: 'Status'
+
 button:
   - platform: 'shutdown'
     name: 'Shutdown'
