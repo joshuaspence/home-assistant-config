@@ -8,14 +8,16 @@ api:
   encryption:
     key: !secret 'api.encryption_key'
 
+logger:
+  level: 'DEBUG'
+  logs: {}
+
 ota:
   password: !secret 'ota.password'
 
 time:
   - platform: 'homeassistant'
   - platform: 'sntp'
-
-logger: {}
 
 button:
   - platform: 'shutdown'
