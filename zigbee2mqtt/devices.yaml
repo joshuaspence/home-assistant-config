@@ -2,8 +2,6 @@
   friendly_name: Front Yard Motion Sensor
 '0x0017880106470948':
   friendly_name: East Side Yard Motion Sensor
-'0x001788010293c25b':
-  friendly_name: Office Light
 '0x001788010916463f':
   friendly_name: Living Room South Motion Sensor
 '0x001788010916c04a':
@@ -23,8 +21,6 @@
   expose_pin: false
 '0x0017880108af072f':
   friendly_name: Bedroom 2 Light
-'0x0017880108b3936b':
-  friendly_name: Bedroom 1 Light
 '0x00178801064706f8':
   friendly_name: Back Yard Motion Sensor
 '0x0017880109172ceb':
@@ -121,10 +117,6 @@
   friendly_name: Pantry Door Contact Sensor
 '0x00158d0006b0f386':
   friendly_name: Bathroom Door Contact Sensor
-'0x001788010293c16d':
-  friendly_name: Bathroom Light
-'0x0017880108af04bd':
-  friendly_name: Kitchen Light
 '0x00158d0006a0916c':
   friendly_name: Kitchen Door Contact Sensor
 '0x00158d000320ac26':
@@ -242,3 +234,11 @@
   expose_pin: false
 '0x0017880109ac7a16':
   friendly_name: Office Desk Light
+'0x001788010c49a32e':
+  friendly_name: Kitchen Light
+'0x0017880108af04bd':
+  friendly_name: Office Light
+'0x001788010c49a2b0':
+  friendly_name: Bedroom 1 Light
+'0x0017880108b3936b':
+  friendly_name: Bathroom Light
