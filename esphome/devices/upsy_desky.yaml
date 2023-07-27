@@ -75,7 +75,7 @@ number:
     min_value: '${min_height}'
     max_value: '${max_height}'
     step: 0.1
-    lambda: !lambda |-
+    lambda: |-
       return id(desk_height)->get_last_read();
     update_interval: 'never'
     set_action:

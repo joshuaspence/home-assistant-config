@@ -9,9 +9,7 @@ packages:
 esphome:
   on_boot:
     then:
-      - switch.turn_on: 'zRST_gpio'
-      - delay: '15ms'
-      - switch.turn_off: 'zRST_gpio'
+      button.press: 'zRST'
 
 ethernet:
   type: 'LAN8720'
@@ -19,10 +17,6 @@ ethernet:
   mdio_pin: 'GPIO18'
   clk_mode: 'GPIO17_OUT'
   power_pin: 'GPIO12'
-
-# TODO: Remove this.
-web_server:
-  port: 80
 
 script:
   - id: 'firmware_update_mode'
@@ -35,6 +29,9 @@ script:
       - delay: '11s'
       - switch.turn_off: 'zBSL'
       - logger.log: 'Firmware update mode has been enabled.'
+      - switch.template.publish:
+          id: 'firmware_update_mode_switch'
+          state: true
 
 switch:
   - platform: 'gpio'
@@ -50,6 +47,16 @@ switch:
     inverted: true
     disabled_by_default: true
     entity_category: 'config'
+  - platform: 'template'
+    name: 'Firmware Update Mode'
+    id: 'firmware_update_mode_switch'
+    turn_on_action:
+      script.execute: 'firmware_update_mode'
+    turn_off_action:
+      button.press: 'zRST'
+    #assumed_state: true
+    disabled_by_default: true
+    entity_category: 'config'
 
 button:
   - platform: 'template'
@@ -61,6 +68,9 @@ button:
       - switch.turn_on: 'zRST_gpio'
       - delay: '15ms'
       - switch.turn_off: 'zRST_gpio'
+      - switch.template.publish:
+          id: 'firmware_update_mode_switch'
+          state: false
 
   - platform: 'template'
     name: 'Zigbee Module Bootloader'

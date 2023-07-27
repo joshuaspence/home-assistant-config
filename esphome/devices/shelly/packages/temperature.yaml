@@ -21,7 +21,7 @@ sensor:
     on_value_range:
       above: '${max_temp}'
       then:
-        - lambda: !lambda |-
+        - lambda: |-
             for (auto *obj : App.get_switches()) {
               if (!obj->is_internal()) {
                 obj->turn_off();
