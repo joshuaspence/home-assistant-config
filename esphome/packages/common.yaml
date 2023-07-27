@@ -6,7 +6,7 @@ esphome:
 
 api:
   encryption:
-    key: !secret 'api.encryption_key'
+    key: !secret 'api.encryption.key'
 
 logger:
   level: 'DEBUG'
