@@ -1,0 +1,23 @@
+---
+uart:
+  id: 'uart_bus'
+  rx_pin: 'GPIO5'
+  tx_pin: 'GPIO16'
+  baud_rate: 115200
+
+external_components:
+  - source: 'github://oxan/esphome-stream-server'
+
+stream_server:
+  uart_id: 'uart_bus'
+
+binary_sensor:
+  - platform: 'stream_server'
+    connected:
+      name: 'Connected'
+
+sensor:
+  - platform: 'stream_server'
+    connection_count:
+      name: 'Connections'
+      unit_of_measurement: 'connections'
