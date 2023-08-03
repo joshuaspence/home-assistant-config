@@ -185,8 +185,10 @@ cards:
         entities: &attic_temperature_entities
           - entity: 'sensor.attic_lower_temperature'
             name: 'Lower'
-          - entity: 'sensor.attic_upper_temperature'
-            name: 'Upper'
+          - entity: 'sensor.attic_upper_east_temperature'
+            name: 'Upper (East)'
+          - entity: 'sensor.attic_upper_west_temperature'
+            name: 'Upper (West)'
       - type: 'history-graph'
         entities: *attic_temperature_entities
       - type: 'history-graph'
@@ -205,8 +207,10 @@ cards:
         entities: &attic_humidity_entities
           - entity: 'sensor.attic_lower_humidity'
             name: 'Lower'
-          - entity: 'sensor.attic_upper_humidity'
-            name: 'Upper'
+          - entity: 'sensor.attic_upper_east_humidity'
+            name: 'Upper (East)'
+          - entity: 'sensor.attic_upper_west_humidity'
+            name: 'Upper (West)'
       - type: 'history-graph'
         entities: *attic_humidity_entities
 

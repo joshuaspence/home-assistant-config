@@ -80,14 +80,16 @@ sensor:
     unique_id: '3891a6c9-a63c-47d3-9f12-8883caeb13a4'
     entity_ids:
       - 'sensor.attic_lower_humidity'
-      - 'sensor.attic_upper_humidity'
+      - 'sensor.attic_upper_east_humidity'
+      - 'sensor.attic_upper_west_humidity'
     type: 'mean'
     name: 'Attic Humidity'
   - platform: 'min_max'
     unique_id: '4ee057be-ed3b-46b9-839b-0cad360907c0'
     entity_ids:
       - 'sensor.attic_lower_temperature'
-      - 'sensor.attic_upper_temperature'
+      - 'sensor.attic_upper_east_temperature'
+      - 'sensor.attic_upper_west_temperature'
     type: 'mean'
     name: 'Attic Temperature'
 
