@@ -244,3 +244,9 @@
   friendly_name: Bathroom Light
 '0x00158d00091c5b39':
   friendly_name: Attic Upper West Temperature Sensor
+'0x84fd27fffea15244':
+  friendly_name: Dishwasher Smart Plug
+'0x84fd27fffea14a89':
+  friendly_name: Washing Machine Smart Plug
+'0x84fd27fffea14d9d':
+  friendly_name: Dryer Smart Plug
