@@ -1,7 +1,5 @@
 ---
 substitutions:
-  wifi_enable_btm: 'true'
-  wifi_enable_rrm: 'true'
   wifi_power_save_mode: 'light'
 
 esp32:
