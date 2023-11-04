@@ -60,7 +60,9 @@
     fan.homelab: 'on'
     light.bathroom: 'off'
     light.dining_room: 'off'
-    light.hallway: 'off'
+    light.hallway:
+      brightness: 25
+      state: 'on'
     light.kitchen: 'off'
     light.laundry: 'off'
     light.living_room: 'off'
