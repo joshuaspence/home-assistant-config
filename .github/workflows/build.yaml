@@ -21,7 +21,7 @@ jobs:
     container:
       image: 'esphome/esphome:${{ matrix.version }}'
     steps:
-      - uses: 'actions/checkout@v3'
+      - uses: 'actions/checkout@v4'
       - uses: 'canastro/copy-action@0.0.2'
         with:
           source: '.github/stubs/esphome_secrets.yaml'
