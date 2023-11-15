@@ -1,5 +1,6 @@
 ---
 substitutions:
+  device_area: 'Kitchen'
   device_id: 'kitchen_shelly'
   device_name: 'Kitchen Shelly'
 

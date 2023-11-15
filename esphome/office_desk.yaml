@@ -1,5 +1,6 @@
 ---
 substitutions:
+  device_area: 'Office'
   device_id: 'office_desk'
   device_name: 'Office Desk'
 

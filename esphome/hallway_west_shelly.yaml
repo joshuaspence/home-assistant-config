@@ -1,5 +1,6 @@
 ---
 substitutions:
+  device_area: 'Hallway'
   device_id: 'hallway_west_shelly'
   device_name: 'Hallway West Shelly'
 

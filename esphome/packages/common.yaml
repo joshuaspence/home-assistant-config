@@ -2,6 +2,7 @@
 esphome:
   name: '${device_id}'
   friendly_name: '${device_name}'
+  area: '${device_area}'
   min_version: '2023.11.0'
 
 api:

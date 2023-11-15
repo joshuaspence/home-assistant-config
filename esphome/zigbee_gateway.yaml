@@ -1,5 +1,6 @@
 ---
 substitutions:
+  device_area: 'Office'
   device_id: 'zigbee_gateway'
   device_name: 'Zigbee Gateway'
 
