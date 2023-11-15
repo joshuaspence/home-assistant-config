@@ -37,7 +37,7 @@ packages:
 # Power monitoring
 # TODO: Move this to a package.
 sensor:
-  - platform: 'ade7953'
+  - platform: 'ade7953_i2c'
     irq_pin: 'GPIO16'
     voltage:
       name: 'Voltage'
