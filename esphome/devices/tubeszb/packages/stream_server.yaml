@@ -1,7 +1,9 @@
 ---
 uart:
   id: 'uart_bus'
-  rx_pin: 'GPIO5'
+  rx_pin:
+    number: 'GPIO5'
+    ignore_strapping_warning: true
   tx_pin: 'GPIO16'
   baud_rate: 115200
 
