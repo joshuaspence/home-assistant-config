@@ -34,7 +34,7 @@
       media_content_id: 'media-source://media_source/local/white_noise.mp3'
       media_content_type: 'music'
       state: 'playing'
-      volume_level: '0.2'
+      volume_level: '0.15'
     switch.bedroom_1_air_purifier_night_mode:
       state: 'on'
 
