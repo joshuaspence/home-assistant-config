@@ -12,6 +12,7 @@ packages:
       board: 'esp32dev'
 
 esphome:
+  min_version: '2023.12.0'
   on_boot:
     then:
       button.press: 'wakeup'
@@ -41,28 +42,38 @@ sensor:
 
 output:
   - platform: 'gpio'
-    pin: 'GPIO21'
+    pin:
+      number: 'GPIO21'
+      allow_other_uses: true
     id: 'desk_up'
     inverted: true
   - platform: 'gpio'
-    pin: 'GPIO22'
+    pin:
+      number: 'GPIO22'
+      allow_other_uses: true
     id: 'desk_down'
     inverted: true
 
   - platform: 'gpio'
-    pin: 'GPIO21'
+    pin:
+      number: 'GPIO21'
+      allow_other_uses: true
     id: 'button_bit1'
     inverted: true
   - platform: 'gpio'
-    pin: 'GPIO22'
+    pin:
+      number: 'GPIO22'
+      allow_other_uses: true
     id: 'button_bit2'
     inverted: true
   - platform: 'gpio'
-    pin: 'GPIO19'
+    pin:
+      number: 'GPIO19'
     id: 'button_bit4'
     inverted: true
   - platform: 'gpio'
-    pin: 'GPIO18'
+    pin:
+      number: 'GPIO18'
     id: 'button_m'
     inverted: true
 
