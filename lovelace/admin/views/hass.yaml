@@ -322,7 +322,6 @@ cards:
             'uptime',
             'version',
             'workday',
-            'zoom',
           ]
         %}
         {%
