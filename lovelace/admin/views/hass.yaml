@@ -321,7 +321,6 @@ cards:
             'updater',
             'uptime',
             'version',
-            'workday',
           ]
         %}
         {%
