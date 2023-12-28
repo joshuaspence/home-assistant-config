@@ -1,10 +1,15 @@
-# Based on https://www.esphome-devices.com/devices/Shelly-25.
+# Based on https://devices.esphome.io/devices/Shelly-25.
 ---
 substitutions:
   max_power: '2000.0'
 
 packages:
   common: !include 'packages/common.yaml'
+  platform: !include
+    file: '../../packages/platform/esp8266.yaml'
+    vars:
+      board: 'esp01_1m'
+
   i2c: !include 'packages/i2c.yaml'
   status_led: !include 'packages/status_led.yaml'
   temperature: !include
