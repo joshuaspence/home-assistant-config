@@ -46,5 +46,13 @@ binary_sensor:
       mode:
         input: true
         pullup: true
-    id: 'button'
+    id: 'button1'
     internal: true
+
+sensor:
+  - platform: 'adc'
+    name: 'Relay Supply Voltage'
+    pin: 'GPIO33'
+    attenuation: '11db'
+    filters:
+      - multiply: 8
