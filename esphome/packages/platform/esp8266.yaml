@@ -1,7 +1,7 @@
 ---
-substitutions:
-  # See esphome/issues#1532.
-  wifi_power_save_mode: 'high'
-
 esp8266:
   board: '${board}'
+
+wifi:
+  # See esphome/issues#1532.
+  power_save_mode: 'high'

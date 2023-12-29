@@ -1,8 +1,10 @@
 ---
-substitutions:
-  wifi_power_save_mode: 'light'
-
 esp32:
   board: '${board}'
   framework:
     type: 'esp-idf'
+
+wifi:
+  power_save_mode: 'light'
+  enable_btm: true
+  enable_rrm: true

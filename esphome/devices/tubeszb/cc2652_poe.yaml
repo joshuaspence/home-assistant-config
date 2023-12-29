@@ -18,6 +18,7 @@ ethernet:
   mdio_pin: 'GPIO18'
   clk_mode: 'GPIO17_OUT'
   power_pin: 'GPIO12'
+wifi: !remove
 
 script:
   - id: 'firmware_update_mode'
