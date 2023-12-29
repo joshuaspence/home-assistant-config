@@ -13,6 +13,8 @@ logger:
   level: 'DEBUG'
   logs: {}
 
+network: {}
+
 ota:
   password: !secret 'ota.password'
 
