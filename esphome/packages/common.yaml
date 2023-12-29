@@ -33,3 +33,4 @@ button:
     disabled_by_default: true
   - platform: 'restart'
     name: 'Restart'
+    id: 'button_restart'

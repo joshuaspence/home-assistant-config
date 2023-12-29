@@ -48,3 +48,8 @@ binary_sensor:
         pullup: true
     id: 'button1'
     internal: true
+    filters:
+      delayed_on_off: '5s'
+    on_press:
+      then:
+        button.press: 'button_restart'
