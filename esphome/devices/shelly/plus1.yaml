@@ -37,3 +37,14 @@ esp32:
       CONFIG_ESP32_DEFAULT_CPU_FREQ_160: 'y'
       CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ: '160'
       CONFIG_FREERTOS_UNICORE: 'y'
+
+binary_sensor:
+  - platform: 'gpio'
+    pin:
+      number: 'GPIO25'
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    id: 'button'
+    internal: true
