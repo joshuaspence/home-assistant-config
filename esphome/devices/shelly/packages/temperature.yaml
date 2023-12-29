@@ -1,15 +1,17 @@
 ---
 substitutions:
+  adc_attenuation: '0db'
   max_temp: '90.0'
 
 sensor:
   - platform: 'adc'
-    pin: 'A0'
+    pin: '${adc_pin}'
     id: 'temperature_adc'
+    attenuation: '${adc_attenuation}'
   - platform: 'resistance'
     sensor: 'temperature_adc'
     configuration: 'DOWNSTREAM'
-    resistor: '32kOhm'
+    resistor: '${resistor}'
     id: 'temperature_resistance'
   - platform: 'ntc'
     name: 'Temperature'

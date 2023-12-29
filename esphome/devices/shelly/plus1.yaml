@@ -8,7 +8,12 @@ packages:
       board: 'esp32doit-devkit-v1'
 
   status_led: !include 'packages/status_led.yaml'
-  temperature: !include 'packages/temperature.yaml'
+  temperature: !include
+    file: 'packages/temperature.yaml'
+    vars:
+      adc_attenuation: '11db'
+      adc_pin: 'GPIO32'
+      resistor: '10kOhm'
 
   input1: !include
     file: 'packages/input.yaml'
@@ -29,14 +34,6 @@ esphome:
 esp32:
   framework:
     sdkconfig_options:
-      CONFIG_FREERTOS_UNICORE: 'y'
       CONFIG_ESP32_DEFAULT_CPU_FREQ_160: 'y'
       CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ: '160'
-
-# TODO: Refactor this.
-sensor:
-  - id: !extend 'temperature_adc'
-    pin: 'GPIO32'
-    attenuation: '11db'
-  - id: !extend 'temperature_resistance'
-    resistor: '10kOhm'
+      CONFIG_FREERTOS_UNICORE: 'y'

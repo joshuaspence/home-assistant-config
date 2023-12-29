@@ -12,7 +12,15 @@ packages:
 
   i2c: !include 'packages/i2c.yaml'
   status_led: !include 'packages/status_led.yaml'
-  temperature: !include 'packages/temperature.yaml'
+  temperature: !include
+    file: 'packages/temperature.yaml'
+    vars:
+      adc_pin: 'A0'
+      resistor: '32kOhm'
+  temperature_esp8266:
+    sensor:
+      - id: !extend 'temperature_adc'
+        attenuation: !remove
 
   input1: !include
     file: 'packages/input.yaml'
