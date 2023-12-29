@@ -7,4 +7,5 @@ wifi:
   ap:
     password: !secret 'wifi.ap.password'
 
+# TODO: Use Improv instead of captive portal.
 captive_portal: {}
