@@ -1,4 +1,7 @@
 ---
+substitutions:
+  max_temp: '90.0'
+
 sensor:
   - platform: 'adc'
     pin: 'A0'

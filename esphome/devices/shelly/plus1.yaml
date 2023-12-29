@@ -8,10 +8,7 @@ packages:
       board: 'esp32doit-devkit-v1'
 
   status_led: !include 'packages/status_led.yaml'
-  temperature: !include
-    file: 'packages/temperature.yaml'
-    vars:
-      max_temp: 90.0
+  temperature: !include 'packages/temperature.yaml'
 
   input1: !include
     file: 'packages/input.yaml'
