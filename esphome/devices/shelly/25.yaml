@@ -1,8 +1,5 @@
 # Based on https://devices.esphome.io/devices/Shelly-25.
 ---
-substitutions:
-  max_power: '2000.0'
-
 packages:
   common: !include 'packages/common.yaml'
   platform: !include
