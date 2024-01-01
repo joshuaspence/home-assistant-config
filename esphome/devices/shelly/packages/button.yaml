@@ -1,0 +1,16 @@
+---
+binary_sensor:
+  - platform: 'gpio'
+    pin:
+      number: '${pin}'
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    id: 'button${id}'
+    filters:
+      delayed_on_off: '5s'
+    on_press:
+      then:
+        button.press: 'button_restart'
+    internal: true

@@ -1,55 +1,29 @@
 # Based on https://devices.esphome.io/devices/Shelly-Plus-1PM.
 ---
-packages:
-  common: !include 'packages/common.yaml'
-  platform: !include
-    file: '../../packages/platform/esp32.yaml'
-    vars:
-      board: 'esp32doit-devkit-v1'
+<<: !include 'plus1.yaml'
 
-  status_led: !include 'packages/status_led.yaml'
-  temperature: !include
-    file: 'packages/temperature.yaml'
-    vars:
-      adc_attenuation: '11db'
-      adc_pin: 'GPIO32'
-      resistor: '10kOhm'
-
-  input1: !include
-    file: 'packages/input.yaml'
-    vars:
-      id: 1
-      pin: 'GPIO4'
-
-  output1: !include
-    file: 'packages/output.yaml'
-    vars:
-      id: 1
-      pin: 'GPIO26'
-
-esphome:
-  platformio_options:
-    board_build.f_cpu: '160000000L'
-
-esp32:
-  framework:
-    sdkconfig_options:
-      CONFIG_ESP32_DEFAULT_CPU_FREQ_160: 'y'
-      CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ: '160'
-      CONFIG_FREERTOS_UNICORE: 'y'
-
-binary_sensor:
-  - platform: 'gpio'
-    pin:
-      number: 'GPIO25'
+sensor:
+  - platform: 'hlw8012'
+    sel_pin:
+      number: 'GPIO23'
       inverted: true
-      mode:
-        input: true
-        pullup: true
-    id: 'button1'
-    internal: true
-    filters:
-      delayed_on_off: '5s'
-    on_press:
-      then:
-        button.press: 'button_restart'
+    cf_pin: 'GPIO5'
+    cf1_pin: 'GPIO18'
+    current:
+      name: 'Current'
+      device_class: 'current'
+      accuracy_decimals: 3
+      internal: true
+    power:
+      name: 'Power'
+      device_class: 'power'
+    voltage:
+      name: 'Voltage'
+      device_class: 'voltage'
+      accuracy_decimals: 1
+      internal: true
+    update_interval: '10s'
+    current_resistor: 0.001
+    voltage_divider: 1925
+    model: 'BL0937'
+    change_mode_every: 2

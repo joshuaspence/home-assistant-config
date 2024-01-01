@@ -10,7 +10,15 @@ packages:
     vars:
       board: 'esp01_1m'
 
-  i2c: !include 'packages/i2c.yaml'
+  ade7953: !include
+    file: 'packages/ade7953.yaml'
+    vars:
+      irq_pin: 'GPIO16'
+  i2c: !include
+    file: 'packages/i2c.yaml'
+    vars:
+      sda: 'GPIO12'
+      scl: 'GPIO14'
   status_led: !include 'packages/status_led.yaml'
   temperature: !include
     file: 'packages/temperature.yaml'
@@ -43,49 +51,3 @@ packages:
     vars:
       id: 2
       pin: 'GPIO15'
-
-# Power monitoring
-# TODO: Move this to a package.
-sensor:
-  - platform: 'ade7953_i2c'
-    irq_pin: 'GPIO16'
-    voltage:
-      name: 'Voltage'
-      internal: true
-    current_a:
-      name: 'Output 2 Current'
-      internal: true
-    current_b:
-      name: 'Output 1 Current'
-      internal: true
-    active_power_a:
-      name: 'Output 2 Power'
-
-      # TODO: Move this to a Home Assistant automation.
-      on_value_range:
-        above: '${max_power}'
-        then:
-          - output.turn_off: 'output2'
-          - homeassistant.service:
-              service: 'persistent_notification.create'
-              data:
-                title: '${device_name} Power Usage'
-              data_template:
-                message: 'Switch turned off because power exceeded ${max_power}W'
-    active_power_b:
-      name: 'Output 1 Power'
-      filters:
-        lambda: 'return abs(x);'
-
-      # TODO: Move this to a Home Assistant automation.
-      on_value_range:
-        above: '${max_power}'
-        then:
-          - output.turn_off: 'output1'
-          - homeassistant.service:
-              service: 'persistent_notification.create'
-              data:
-                title: '${device_name} Power Usage'
-              data_template:
-                message: 'Switch turned off because power exceeded ${max_power}W'
-    update_interval: '30s'

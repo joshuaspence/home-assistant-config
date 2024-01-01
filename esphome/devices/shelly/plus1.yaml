@@ -15,6 +15,12 @@ packages:
       adc_pin: 'GPIO32'
       resistor: '10kOhm'
 
+  button1: !include
+    file: 'packages/button.yaml'
+    vars:
+      id: 1
+      pin: 'GPIO25'
+
   input1: !include
     file: 'packages/input.yaml'
     vars:
@@ -37,19 +43,3 @@ esp32:
       CONFIG_ESP32_DEFAULT_CPU_FREQ_160: 'y'
       CONFIG_ESP32_DEFAULT_CPU_FREQ_MHZ: '160'
       CONFIG_FREERTOS_UNICORE: 'y'
-
-binary_sensor:
-  - platform: 'gpio'
-    pin:
-      number: 'GPIO25'
-      inverted: true
-      mode:
-        input: true
-        pullup: true
-    id: 'button1'
-    internal: true
-    filters:
-      delayed_on_off: '5s'
-    on_press:
-      then:
-        button.press: 'button_restart'
