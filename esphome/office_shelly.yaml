@@ -5,4 +5,4 @@ substitutions:
   device_name: 'Office Shelly'
 
 packages:
-  device: !include 'devices/shelly/1.yaml'
+  device: !include 'devices/shelly/plus1PM.yaml'
