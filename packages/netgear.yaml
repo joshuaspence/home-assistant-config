@@ -1,25 +1,4 @@
 ---
-netgear_lte:
-  - host: '192.168.0.2'
-    password: !secret 'netgear_lte.password'
-    notify:
-      - name: 'sms_josh'
-        recipient: !secret 'phone_number.josh'
-      - name: 'sms_lily'
-        recipient: !secret 'phone_number.lily'
-    sensor:
-      monitored_conditions:
-        - 'radio_quality'
-        - 'rx_level'
-        - 'sms'
-        - 'sms_total'
-        - 'tx_level'
-        - 'usage'
-    binary_sensor:
-      monitored_conditions:
-        - 'mobile_connected'
-        - 'roaming'
-
 automation:
   - id: '595cc2f2-ac5d-4447-a995-5d6e71327141'
     alias: 'Netgear SMS'
