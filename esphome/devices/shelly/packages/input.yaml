@@ -1,5 +1,5 @@
 ---
-substitutions:
+defaults:
   click_min_length: '50ms'
   click_max_length: '350ms'
   hold_min_length: '500ms'

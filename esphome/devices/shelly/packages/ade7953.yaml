@@ -1,5 +1,5 @@
 ---
-substitutions:
+defaults:
   max_power: '2000.0'
 
 sensor:
