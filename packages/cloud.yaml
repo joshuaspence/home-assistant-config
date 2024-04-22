@@ -21,8 +21,3 @@ cloud:
         - 'light.office'
         - 'light.outside_wall'
     entity_config: {}
-
-tts:
-  - platform: 'cloud'
-    cache_dir: '/tmp/tts'
-    language: 'en-AU'
