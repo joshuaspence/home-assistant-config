@@ -9,7 +9,7 @@ from aiohttp import ClientConnectorError, ClientError, ServerDisconnectedError
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
-from homeassistant.helpers.aiohttp_client import async_get_clientsession
+from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers.device_registry import DeviceEntry
 from homeassistant.helpers.dispatcher import async_dispatcher_send
 
@@ -69,26 +69,26 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         cookies = entry.data[CONF_COOKIES]
     if CONF_REFRESH_TOKEN in entry.data:
         refresh_token = entry.data[CONF_REFRESH_TOKEN]
+
+    session = async_create_clientsession(hass)
     account_type = entry.data[CONF_ACCOUNT_TYPE]
-    session = async_get_clientsession(hass)
     client = NestClient(session=session, environment=NEST_ENVIRONMENTS[account_type])
 
     try:
+        # Using user-retrieved cookies for authentication
         if issue_token and cookies:
             auth = await client.get_access_token_from_cookies(issue_token, cookies)
+        # Using refresh_token from legacy authentication method
         elif refresh_token:
             auth = await client.get_access_token_from_refresh_token(refresh_token)
-        else:
-            raise Exception(
-                "No cookies, issue token and refresh token, please provide issue_token and cookies or refresh_token"
-            )
+
         nest = await client.authenticate(auth.access_token)
     except (TimeoutError, ClientError) as exception:
         raise ConfigEntryNotReady from exception
     except BadCredentialsException as exception:
         raise ConfigEntryAuthFailed from exception
     except Exception as exception:  # pylint: disable=broad-except
-        LOGGER.exception(exception)
+        LOGGER.exception("Unknown exception.")
         raise ConfigEntryNotReady from exception
 
     data = await client.get_first_data(nest.access_token, nest.userid)
@@ -160,7 +160,9 @@ async def _async_subscribe_for_data(hass: HomeAssistant, entry: ConfigEntry, dat
         if not entry_data.client.auth or entry_data.client.auth.is_expired():
             LOGGER.debug("Subscriber: retrieving new Google access token")
             auth = await entry_data.client.get_access_token()
-            entry_data.client.nest_session = await entry_data.client.authenticate(auth)
+            entry_data.client.nest_session = await entry_data.client.authenticate(
+                auth.access_token
+            )
 
         # Subscribe to Google Nest subscribe endpoint
         result = await entry_data.client.subscribe_for_data(
