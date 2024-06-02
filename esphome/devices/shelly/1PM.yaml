@@ -34,7 +34,7 @@ sensor:
   - platform: 'hlw8012'
     sel_pin: 'GPIO14'
     cf_pin: 'GPIO5'
-    cf1_pin: 'GPIO18'
+    cf1_pin: 'GPIO13'
     power:
       name: 'Power'
       device_class: 'power'
