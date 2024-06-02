@@ -74,6 +74,17 @@ automation:
           data:
             entity_id: 'light.dining_room'
 
+  - id: 'c516f224-4e1d-4e4f-a78e-5fdcf89f2d1f'
+    alias: 'hallway_east_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'hallway_east_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.hallway'
+
   - id: '33b809fa-ed36-4fef-a5a8-73ad91d7eb64'
     alias: 'hallway_west_shelly Buttons'
     use_blueprint:

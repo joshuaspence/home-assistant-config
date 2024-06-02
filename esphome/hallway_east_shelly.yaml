@@ -1,0 +1,8 @@
+---
+substitutions:
+  device_area: 'Hallway'
+  device_id: 'hallway_east_shelly'
+  device_name: 'Hallway East Shelly'
+
+packages:
+  device: !include 'devices/shelly/plus1.yaml'
