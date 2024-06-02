@@ -41,6 +41,28 @@ automation:
           data:
             entity_id: 'light.bathroom_heat'
 
+  - id: '8d039a2f-9786-4c2e-acc3-e6930eef697a'
+    alias: 'bedroom_1_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'bedroom_1_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bedroom_1'
+
+  - id: '7992de88-4120-4cf6-8735-376432a980b2'
+    alias: 'bedroom_2_shelly Buttons'
+    use_blueprint:
+      path: 'esphome_buttons.yaml'
+      input:
+        device: 'bedroom_2_shelly'
+        button1_click:
+          service: 'light.toggle'
+          data:
+            entity_id: 'light.bedroom_2'
+
   - id: '7fd8b536-4e19-4e97-a783-eff5b1d61722'
     alias: 'dining_room_shelly Buttons'
     use_blueprint:

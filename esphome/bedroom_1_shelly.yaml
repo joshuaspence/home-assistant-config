@@ -1,0 +1,8 @@
+---
+substitutions:
+  device_area: 'Bedroom 1'
+  device_id: 'bedroom_1_shelly'
+  device_name: 'Bedroom 1 Shelly'
+
+packages:
+  device: !include 'devices/shelly/plus1PM.yaml'
