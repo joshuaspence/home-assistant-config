@@ -345,7 +345,6 @@ cards:
         - entity_id: 'light.upstairs'
         - entity_id: 'lock.all'
         - entity_id: 'media_player.all'
-        - entity_id: 'media_player.spotify'
         - entity_id: 'sensor.backup_state'
         - entity_id: 'sensor.downstairs_*'
         - entity_id: 'sensor.inside_*'
