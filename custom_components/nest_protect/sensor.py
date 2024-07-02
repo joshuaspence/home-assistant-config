@@ -1,4 +1,5 @@
 """Sensor platform for Nest Protect."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -11,7 +12,7 @@ from homeassistant.components.sensor import (
     SensorEntity,
     SensorEntityDescription,
 )
-from homeassistant.const import PERCENTAGE, TEMP_CELSIUS
+from homeassistant.const import PERCENTAGE, UnitOfTemperature
 from homeassistant.helpers.entity import EntityCategory
 from homeassistant.helpers.typing import StateType
 
@@ -99,7 +100,7 @@ SENSOR_DESCRIPTIONS: list[NestProtectSensorDescription] = [
         key="current_temperature",
         value_fn=lambda state: round(state, 2),
         device_class=SensorDeviceClass.TEMPERATURE,
-        native_unit_of_measurement=TEMP_CELSIUS,
+        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
     ),
     # TODO Add Color Status (gray, green, yellow, red)
     # TODO Smoke Status (OK, Warning, Emergency)
@@ -113,16 +114,16 @@ async def async_setup_entry(hass, entry, async_add_devices):
     data: HomeAssistantNestProtectData = hass.data[DOMAIN][entry.entry_id]
     entities: list[NestProtectSensor] = []
 
-    SUPPORTED_KEYS: dict[str, NestProtectSensorDescription] = {
-        description.key: description for description in SENSOR_DESCRIPTIONS
-    }
-
     for device in data.devices.values():
+
+        SUPPORTED_KEYS: dict[str, NestProtectSensorDescription] = {
+            description.key: description
+            for description in SENSOR_DESCRIPTIONS
+            if (not description.bucket_type or device.type == description.bucket_type)
+        }
+
         for key in device.value:
             if description := SUPPORTED_KEYS.get(key):
-                if description.bucket_type and device.type != description.bucket_type:
-                    continue
-
                 entities.append(
                     NestProtectSensor(device, description, data.areas, data.client)
                 )
