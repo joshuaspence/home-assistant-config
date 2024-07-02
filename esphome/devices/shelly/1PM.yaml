@@ -1,4 +1,4 @@
-# Based on https://devices.esphome.io/devices/Shelly-1.
+# Based on https://devices.esphome.io/devices/Shelly-1PM.
 ---
 packages:
   common: !include 'packages/common.yaml'
