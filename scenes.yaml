@@ -22,7 +22,7 @@
     media_player.bedroom_1_speaker:
       state: 'off'
     select.bedroom_1_air_purifier_mode:
-      state: 'Manual'
+      state: 'Auto'
     switch.bedroom_1_air_purifier_night_mode:
       state: 'off'
     switch.bedroom_1_air_purifier_uv_sterilization:
