@@ -53,8 +53,6 @@
   friendly_name: Bathroom Motion Sensor
 '0x00158d0006c4cf5a':
   friendly_name: Laundry Window Contact Sensor
-'0x00158d00053f566d':
-  friendly_name: Living Room Temperature Sensor
 '0x00158d0006a09215':
   friendly_name: Bedroom 2 Door Contact Sensor
 '0x00158d0006c4bb2e':
@@ -77,6 +75,7 @@
   friendly_name: Bedroom 1 South Window Contact Sensor
 '0x00158d0006c5055b':
   friendly_name: Basement East Temperature Sensor
+  description: Paired with Outside East-southeast Light.
 '0x00158d000693b739':
   friendly_name: Attic Door Contact Sensor
 '0x00158d000693d38d':
@@ -119,6 +118,7 @@
   friendly_name: Kitchen Door Contact Sensor
 '0x00158d000320ac26':
   friendly_name: Kitchen Temperature Sensor
+  description: Paired with Kitchen Refrigerator Smart Plug.
 '0x00158d0006c4c3a5':
   friendly_name: Dishwasher Water Leak Sensor
 '0x00158d0006c4fdf7':
@@ -157,6 +157,7 @@
   friendly_name: Laundry Temperature Sensor
 '0x00158d00068b3976':
   friendly_name: Office Temperature Sensor
+  description: Paired with Homelab Fan Smart Plug.
 '0x00158d000542699c':
   friendly_name: Basement West Temperature Sensor
 '0x00158d0006c4b0cc':
@@ -179,6 +180,7 @@
   friendly_name: Driveway Light
 '0x00158d00054c3fd3':
   friendly_name: Front Door Vibration Sensor
+  description: Paired with Homelab Fan Smart Plug.
 '0x0017880108b39317':
   friendly_name: Attic Main Light
 '0x00158d0005408afa':
@@ -250,3 +252,6 @@
   friendly_name: Bedroom 1 Temperature Sensor
 '0x54ef4410002542a1':
   friendly_name: Mailbox Top Door Contact Sensor
+'0x00158d00053f566d':
+  friendly_name: Living Room Temperature Sensor
+  description: Paired with Kitchen Refrigerator Smart Plug
