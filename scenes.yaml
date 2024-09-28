@@ -82,6 +82,7 @@
   name: 'Day Time'
   icon: 'mdi:white-balance-sunny'
   entities:
+    light.hallway: 'off'
     light.outside_wall: 'off'
     light.toilet: 'off'
     switch.aircon_downstairs: 'on'
