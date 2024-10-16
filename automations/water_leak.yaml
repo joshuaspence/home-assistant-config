@@ -12,7 +12,7 @@ trigger:
   from: 'off'
   to: 'on'
 action:
-  service: 'script.mobile_app_notify'
+  action: 'script.mobile_app_notify'
   data:
     target: 'josh_phone'
     title: 'Water Leak'

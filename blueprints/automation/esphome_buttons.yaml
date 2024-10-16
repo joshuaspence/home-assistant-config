@@ -61,7 +61,7 @@ action:
       - conditions: '{{ button == 2 and action == "double-click" }}'
         sequence: !input 'button2_double_click'
     default:
-      service: 'system_log.write'
+      action: 'system_log.write'
       data:
         message: 'Unexpected {{ trigger.event.event_type }} event: {{ trigger.event.data }}'
         level: 'warning'

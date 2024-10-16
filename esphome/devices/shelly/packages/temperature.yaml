@@ -32,8 +32,8 @@ sensor:
                 obj->turn_off();
               }
             }
-        - homeassistant.service:
-            service: 'persistent_notification.create'
+        - homeassistant.action:
+            action: 'persistent_notification.create'
             data:
               title: '${device_name} Overheated'
             data_template:

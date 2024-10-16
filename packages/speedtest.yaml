@@ -16,7 +16,7 @@ automation:
       entity_id: *entity_id
       state: *state
     action:
-      service: 'homeassistant.update_entity'
+      action: 'homeassistant.update_entity'
       target:
         entity_id: *entity_id
     mode: 'restart'

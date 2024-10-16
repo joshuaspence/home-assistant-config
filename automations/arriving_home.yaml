@@ -15,7 +15,7 @@ condition:
 action:
   # Turn some lights on when we arrive home.
   - parallel:
-      - service: 'scene.turn_on'
+      - action: 'scene.turn_on'
         entity_id: 'scene.arriving_home'
 
   # Wait for the door to be opened.
@@ -35,6 +35,6 @@ action:
       to: 'off'
     timeout: 300
   - delay: 300
-  - service: 'light.turn_off'
+  - action: 'light.turn_off'
     entity_id: 'light.outside_wall'
 mode: 'single'

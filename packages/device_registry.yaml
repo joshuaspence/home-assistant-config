@@ -10,7 +10,7 @@ automation:
     variables:
       device_id: '{{ trigger.event.data.device_id }}'
     action:
-      service: 'persistent_notification.create'
+      action: 'persistent_notification.create'
       data:
         title: 'New device registered'
         message: |-

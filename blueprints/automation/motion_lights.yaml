@@ -70,7 +70,7 @@ condition:
       state: 'on'
 
 action:
-  - service: 'light.turn_on'
+  - action: 'light.turn_on'
     entity_id: !input 'light_target'
   - wait_for_trigger:
       - platform: 'state'
@@ -81,7 +81,7 @@ action:
       - platform: 'state'
         entity_id: !input 'light_target'
         to: 'off'
-  - service: 'light.turn_off'
+  - action: 'light.turn_off'
     entity_id: !input 'light_target'
 
 mode: 'single'

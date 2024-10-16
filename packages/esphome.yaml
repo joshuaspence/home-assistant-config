@@ -7,7 +7,7 @@ automation:
       input:
         device: 'basement_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.basement'
 
@@ -18,15 +18,15 @@ automation:
       input:
         device: 'bathroom_shelly_1'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.bathroom_main'
         button1_hold:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.bathroom_mirror'
         button2_click:
-          service: 'fan.toggle'
+          action: 'fan.toggle'
           data:
             entity_id: 'fan.bathroom'
 
@@ -37,7 +37,7 @@ automation:
       input:
         device: 'bathroom_shelly_2'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.bathroom_heat'
 
@@ -48,7 +48,7 @@ automation:
       input:
         device: 'bedroom_1_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.bedroom_1'
 
@@ -59,7 +59,7 @@ automation:
       input:
         device: 'bedroom_2_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.bedroom_2'
 
@@ -70,7 +70,7 @@ automation:
       input:
         device: 'dining_room_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.dining_room'
 
@@ -81,7 +81,7 @@ automation:
       input:
         device: 'hallway_east_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.hallway'
 
@@ -92,11 +92,11 @@ automation:
       input:
         device: 'hallway_west_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.driveway'
         button2_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.hallway'
 
@@ -107,11 +107,11 @@ automation:
       input:
         device: 'kitchen_north_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.kitchen_cupboards'
         button2_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id:
               - 'light.kitchen_benchtop'
@@ -125,7 +125,7 @@ automation:
       input:
         device: 'kitchen_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.kitchen_main'
 
@@ -136,11 +136,11 @@ automation:
       input:
         device: 'laundry_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.laundry'
         button2_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id:
               - 'light.outside_ene'
@@ -153,11 +153,11 @@ automation:
       input:
         device: 'living_room_east_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.living_room_east'
         button2_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.living_room_west'
 
@@ -168,13 +168,13 @@ automation:
       input:
         device: 'living_room_north_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id:
               - 'light.outside_nne'
               - 'light.outside_nnw'
         button2_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.front_patio'
 
@@ -185,11 +185,11 @@ automation:
       input:
         device: 'living_room_west_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.living_room_south'
         button2_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.living_room_north'
 
@@ -200,7 +200,7 @@ automation:
       input:
         device: 'office_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.office'
 
@@ -211,10 +211,10 @@ automation:
       input:
         device: 'toilet_shelly'
         button1_click:
-          service: 'light.toggle'
+          action: 'light.toggle'
           data:
             entity_id: 'light.toilet'
         button2_click:
-          service: 'fan.toggle'
+          action: 'fan.toggle'
           data:
             entity_id: 'fan.toilet'

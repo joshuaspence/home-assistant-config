@@ -9,10 +9,10 @@ notify:
   - platform: 'group'
     name: 'josh'
     services:
-      - service: 'browser_josh_laptop'
-      - service: 'mobile_app_josh_phone'
-      - service: 'mobile_app_josh_watch'
+      - action: 'browser_josh_laptop'
+      - action: 'mobile_app_josh_phone'
+      - action: 'mobile_app_josh_watch'
   - platform: 'group'
     name: 'lily'
     services:
-      - service: 'mobile_app_lily_phone'
+      - action: 'mobile_app_lily_phone'

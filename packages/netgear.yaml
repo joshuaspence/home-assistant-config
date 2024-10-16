@@ -17,7 +17,7 @@ automation:
             condition: 'trigger'
             id: 'receive'
           sequence:
-            service: 'script.mobile_app_notify'
+            action: 'script.mobile_app_notify'
             data:
               target: 'josh_phone'
               title: 'SMS Message Received'
@@ -37,6 +37,6 @@ automation:
             condition: 'trigger'
             id: 'delete'
           sequence:
-            service: 'netgear_lte.delete_sms'
+            action: 'netgear_lte.delete_sms'
             data:
               sms_id: '{{ trigger.event.data.action_2_uri }}'

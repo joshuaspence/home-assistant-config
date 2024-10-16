@@ -7,8 +7,8 @@ trigger:
   from: 'home'
   to: 'not_home'
 action:
-  - service: 'light.turn_off'
+  - action: 'light.turn_off'
     entity_id: 'all'
-  - service: 'climate.turn_off'
+  - action: 'climate.turn_off'
     entity_id: 'climate.aircon'
 mode: 'single'

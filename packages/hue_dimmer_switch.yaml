@@ -7,7 +7,7 @@ automation:
       input:
         remote: 'Bedroom 1 Dimmer Switch'
         on_press_release:
-          service: 'light.turn_on'
+          action: 'light.turn_on'
           target:
             entity_id: 'light.bedroom_1'
           data:
@@ -15,19 +15,19 @@ automation:
         on_hold_release:
           scene: 'scene.bedroom_1_awake'
         up_press_release:
-          service: 'light.turn_on'
+          action: 'light.turn_on'
           target:
             entity_id: 'light.bedroom_1'
           data:
             brightness_step_pct: 20
         down_press_release:
-          service: 'light.turn_on'
+          action: 'light.turn_on'
           target:
             entity_id: 'light.bedroom_1'
           data:
             brightness_step_pct: -20
         off_press_release:
-          service: 'light.turn_off'
+          action: 'light.turn_off'
           target:
             entity_id: 'light.bedroom_1'
         off_hold_release:
@@ -40,7 +40,7 @@ automation:
       input:
         remote: 'Bedroom 2 Dimmer Switch'
         on_press_release:
-          service: 'light.turn_on'
+          action: 'light.turn_on'
           target:
             entity_id: 'light.bedroom_2'
           data:
@@ -48,19 +48,19 @@ automation:
         on_hold_release:
           scene: 'scene.bedroom_2_awake'
         up_press_release:
-          service: 'light.turn_on'
+          action: 'light.turn_on'
           target:
             entity_id: 'light.bedroom_2'
           data:
             brightness_step_pct: 20
         down_press_release:
-          service: 'light.turn_on'
+          action: 'light.turn_on'
           target:
             entity_id: 'light.bedroom_2'
           data:
             brightness_step_pct: -20
         off_press_release:
-          service: 'light.turn_off'
+          action: 'light.turn_off'
           target:
             entity_id: 'light.bedroom_2'
         off_hold_release:

@@ -43,7 +43,7 @@ automation:
       platform: 'time_pattern'
       minutes: '*'
     action:
-      service: 'mqtt.publish'
+      action: 'mqtt.publish'
       data:
         topic: 'zigbee2mqtt/bridge/request/health_check'
     trace:

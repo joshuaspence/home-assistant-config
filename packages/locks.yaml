@@ -25,7 +25,7 @@ automation:
                 {% else %}
                   {{ state_attr('person.' ~ users[user - 2], 'friendly_name') }}
                 {% endif %}
-          - service: 'logbook.log'
+          - action: 'logbook.log'
             data:
               message: 'was unlocked by {{ friendly_name }}'
               <<: &back_door
@@ -33,22 +33,22 @@ automation:
                 entity_id: 'lock.back_door'
                 domain: 'lock'
         manual_lock:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was locked manually'
             <<: *back_door
         manual_unlock:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was unlocked manually'
             <<: *back_door
         touch_lock:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was locked by touchscreen'
             <<: *back_door
         pin_code_added:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was setup with a PIN code for user {{ user }}'
             <<: *back_door
@@ -60,7 +60,7 @@ automation:
         lock: 'Front Door Lock'
         keypad_unlock:
           - variables: *variables
-          - service: 'logbook.log'
+          - action: 'logbook.log'
             data:
               message: 'was unlocked by {{ friendly_name }}'
               <<: &front_door
@@ -68,22 +68,22 @@ automation:
                 entity_id: 'lock.front_door'
                 domain: 'lock'
         manual_lock:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was locked manually'
             <<: *front_door
         manual_unlock:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was unlocked manually'
             <<: *front_door
         touch_lock:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was locked by touchscreen'
             <<: *front_door
         pin_code_added:
-          service: 'logbook.log'
+          action: 'logbook.log'
           data:
             message: 'was setup with a PIN code for user {{ user }}'
             <<: *front_door

@@ -7,16 +7,16 @@ trigger:
     entity_id: 'sensor.attic_temperature'
     below: 25
     variables:
-      service: 'fan.turn_off'
+      action: 'fan.turn_off'
   - platform: 'numeric_state'
     id: 'high'
     entity_id: 'sensor.attic_temperature'
     above: 30
     variables:
-      service: 'fan.turn_on'
+      action: 'fan.turn_on'
 
 action:
-  service: '{{ service }}'
+  action: '{{ action }}'
   target:
     area_id: 'attic'
 mode: 'single'

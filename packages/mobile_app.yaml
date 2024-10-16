@@ -18,13 +18,13 @@ switch:
         value_template: '{{ not is_state("sensor.josh_phone_do_not_disturb_sensor", "off") }}'
         availability_template: '{{ not is_state("sensor.josh_phone_do_not_disturb_sensor", "unavailable") }}'
         turn_on:
-          service: 'script.mobile_app_command'
+          action: 'script.mobile_app_command'
           data:
             device: 'josh_phone'
             command: 'command_dnd'
             data: 'priority_only'
         turn_off:
-          service: 'script.mobile_app_command'
+          action: 'script.mobile_app_command'
           data:
             device: 'josh_phone'
             command: 'command_dnd'
@@ -171,7 +171,7 @@ script:
         tag: '{{ tag | default(None) }}'
         timeout: '{{ timeout | default(None) }}'
     sequence:
-      service: 'notify.mobile_app_{{ device }}'
+      action: 'notify.mobile_app_{{ device }}'
       data:
         title: '{{ title }}'
         message: '{{ message }}'
@@ -211,7 +211,7 @@ script:
       device: *device_variable
 
     sequence:
-      service: 'notify.mobile_app_{{ device }}'
+      action: 'notify.mobile_app_{{ device }}'
       data:
         message: '{{ command }}'
         data:
@@ -234,7 +234,7 @@ script:
       device: *device_variable
 
     sequence:
-      service: 'notify.mobile_app_{{ device }}'
+      action: 'notify.mobile_app_{{ device }}'
       data:
         message: 'clear_notification'
         data:
