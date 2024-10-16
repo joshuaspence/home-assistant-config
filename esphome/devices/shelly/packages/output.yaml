@@ -1,9 +1,7 @@
 ---
 output:
   - platform: 'gpio'
-    pin:
-      number: '${pin}'
-      ignore_strapping_warning: true
+    pin: '${pin}'
     id: 'output${id}'
 
 switch:
