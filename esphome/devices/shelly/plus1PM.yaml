@@ -7,7 +7,9 @@ sensor:
     sel_pin:
       number: 'GPIO23'
       inverted: true
-    cf_pin: 'GPIO5'
+    cf_pin:
+      number: 'GPIO5'
+      ignore_strapping_warning: true
     cf1_pin: 'GPIO18'
     current:
       name: 'Current'
