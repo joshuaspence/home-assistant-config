@@ -46,13 +46,13 @@ blueprint:
       selector:
         duration: null
 
-trigger:
-  platform: 'state'
+triggers:
+  trigger: 'state'
   entity_id: !input 'trigger_sensor'
   from: 'off'
   to: 'on'
 
-condition:
+conditions:
   # If the target lights are already on then they must've been turned on manually.
   - not:
       condition: 'state'
@@ -63,16 +63,16 @@ condition:
     entity_id: !input 'illuminance_sensor'
     below: !input 'illuminance_threshold'
 
-action:
+actions:
   - action: 'light.turn_on'
     entity_id: !input 'light_target'
   - wait_for_trigger:
-      - platform: 'state'
+      - trigger: 'state'
         entity_id: !input 'trigger_sensor'
         from: 'on'
         to: 'off'
         for: !input 'off_delay'
-      - platform: 'state'
+      - trigger: 'state'
         entity_id: !input 'light_target'
         to: 'off'
   - action: 'light.turn_off'

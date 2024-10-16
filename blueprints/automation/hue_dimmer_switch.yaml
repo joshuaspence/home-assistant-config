@@ -68,11 +68,11 @@ blueprint:
 trigger_variables:
   device_friendly_name: !input 'remote'
 
-trigger:
-  platform: 'mqtt'
+triggers:
+  trigger: 'mqtt'
   topic: 'zigbee2mqtt/{{ device_friendly_name }}/action'
 
-action:
+actions:
   - choose:
       - conditions: '{{ trigger.payload == "on_press" }}'
         sequence: !input 'on_press'

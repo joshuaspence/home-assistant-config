@@ -1,11 +1,11 @@
 ---
 template:
-  - trigger:
-      - platform: 'event'
+  - triggers:
+      - trigger: 'event'
         event_type: 'entity_registry_updated'
-      - platform: 'state'
+      - trigger: 'state'
         entity_id: 'binary_sensor.zigbee2mqtt_state'
-      - platform: 'time_pattern'
+      - trigger: 'time_pattern'
         minutes: '*'
     sensor:
       - name: 'Unavailable Entities'
@@ -31,10 +31,10 @@ template:
               rejectattr('entity_id', 'in', state_attr('group.ignored_entities', 'entity_id')) |
               map(attribute='entity_id') | list
             }}
-  - trigger:
-      - platform: 'event'
+  - triggers:
+      - trigger: 'event'
         event_type: 'device_registry_updated'
-      - platform: 'state'
+      - trigger: 'state'
         entity_id: 'sensor.unavailable_entities'
     sensor:
       - name: 'Unavailable Devices'
@@ -85,11 +85,11 @@ group:
 automation:
   - alias: 'Device Offline'
     id: '7fa5aace-5294-4181-a6f3-4720b1fe1fde'
-    trigger:
-      platform: 'state'
+    triggers:
+      trigger: 'state'
       entity_id: 'sensor.unavailable_devices'
       not_to: 'unavailable'
-    action:
+    actions:
       - delay: 5
       - choose:
           conditions:

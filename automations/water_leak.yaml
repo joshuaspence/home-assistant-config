@@ -1,8 +1,8 @@
 ---
 id: 'a7e693d8-45df-4f2a-85e4-b0fa7cf6a682'
 alias: 'Water Leak'
-trigger:
-  platform: 'state'
+triggers:
+  trigger: 'state'
   entity_id:
     - 'binary_sensor.bathroom_sink_water_leak'
     - 'binary_sensor.dishwasher_water_leak'
@@ -11,7 +11,7 @@ trigger:
     - 'binary_sensor.toilet_sink_water_leak'
   from: 'off'
   to: 'on'
-action:
+actions:
   action: 'script.mobile_app_notify'
   data:
     target: 'josh_phone'

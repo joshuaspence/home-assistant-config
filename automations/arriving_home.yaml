@@ -1,18 +1,18 @@
 ---
 id: '7a14e9b0-b1ea-43da-9057-fcd7be8c66c3'
 alias: 'Arriving Home'
-trigger:
+triggers:
   # TODO: Use https://www.home-assistant.io/docs/automation/trigger/#zone-trigger.
-  platform: 'state'
+  trigger: 'state'
   entity_id: 'group.family'
   from: 'not_home'
   to: 'home'
-condition:
+conditions:
   condition: 'sun'
   after: 'sunset'
 
 # TODO: Add welcome message (see https://github.com/stanvx/Home-Assistant-Configuration/blob/master/packages/welcome_home.yaml).
-action:
+actions:
   # Turn some lights on when we arrive home.
   - parallel:
       - action: 'scene.turn_on'
@@ -20,7 +20,7 @@ action:
 
   # Wait for the door to be opened.
   - wait_for_trigger:
-      platform: 'state'
+      trigger: 'state'
       entity_id: 'binary_sensor.front_door'
       from: 'off'
       to: 'on'
@@ -29,7 +29,7 @@ action:
 
   # Turn some lights off after the door is closed.
   - wait_for_trigger:
-      platform: 'state'
+      trigger: 'state'
       entity_id: 'binary_sensor.front_door'
       from: 'on'
       to: 'off'

@@ -36,13 +36,13 @@ blueprint:
 trigger_variables:
   device: !input 'device'
 
-trigger:
-  platform: 'event'
+triggers:
+  trigger: 'event'
   event_type: 'esphome.button'
   event_data:
     device: '{{ device }}'
 
-action:
+actions:
   - variables:
       action: '{{ trigger.event.data.action }}'
       button: '{{ trigger.event.data.button }}'

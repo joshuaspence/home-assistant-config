@@ -58,10 +58,10 @@ sensor:
 automation:
   - alias: 'Low Battery'
     id: '685c0eb4-1d80-4ca3-8b5f-46a5e4e20c27'
-    trigger:
-      platform: 'state'
+    triggers:
+      trigger: 'state'
       entity_id: 'sensor.low_battery'
-    action:
+    actions:
       if:
         condition: 'numeric_state'
         entity_id: 'sensor.low_battery'

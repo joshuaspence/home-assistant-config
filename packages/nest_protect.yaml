@@ -25,14 +25,14 @@ binary_sensor:
 automation:
   - id: 'a7cf20d9-3be3-4b9d-8cb0-67652ebe48ae'
     alias: 'Smoke Alarm'
-    trigger:
-      platform: 'state'
+    triggers:
+      trigger: 'state'
       entity_id:
         - 'binary_sensor.carbon_monoxide_alarm'
         - 'binary_sensor.heat_alarm'
         - 'binary_sensor.smoke_alarm'
       to: 'on'
-    action:
+    actions:
       action: 'script.mobile_app_notify'
       data:
         target:

@@ -1,12 +1,12 @@
 ---
 id: '4f1d6cb3-b8fb-42d1-a0fc-b90eee1bf7a5'
 alias: 'Mail Delivery'
-trigger:
-  platform: 'state'
+triggers:
+  trigger: 'state'
   entity_id: 'binary_sensor.mailbox_top_door'
   from: 'off'
   to: 'on'
-condition:
+conditions:
   condition: 'time'
   after: '08:00:00'
   before: '18:00:00'
@@ -16,7 +16,7 @@ condition:
     - 'wed'
     - 'thu'
     - 'fri'
-action:
+actions:
   action: 'script.mobile_app_notify'
   data:
     target: 'josh_phone'

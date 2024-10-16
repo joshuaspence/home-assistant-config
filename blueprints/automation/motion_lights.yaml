@@ -50,13 +50,13 @@ blueprint:
       selector:
         duration: null
 
-trigger:
-  platform: 'state'
+triggers:
+  trigger: 'state'
   entity_id: !input 'trigger_sensor'
   from: 'off'
   to: 'on'
 
-condition:
+conditions:
   - condition: 'numeric_state'
     entity_id: !input 'illuminance_sensor'
     below: !input 'illuminance_threshold'
@@ -69,16 +69,16 @@ condition:
       entity_id: !input 'light_target'
       state: 'on'
 
-action:
+actions:
   - action: 'light.turn_on'
     entity_id: !input 'light_target'
   - wait_for_trigger:
-      - platform: 'state'
+      - trigger: 'state'
         entity_id: !input 'trigger_sensor'
         from: 'on'
         to: 'off'
         for: !input 'off_delay'
-      - platform: 'state'
+      - trigger: 'state'
         entity_id: !input 'light_target'
         to: 'off'
   - action: 'light.turn_off'

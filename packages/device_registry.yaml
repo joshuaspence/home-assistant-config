@@ -2,14 +2,14 @@
 automation:
   - id: 'e672aca4-7227-422f-b4e5-af477cb67cbf'
     alias: 'Device Registry Notification'
-    trigger:
-      platform: 'event'
+    triggers:
+      trigger: 'event'
       event_type: 'device_registry_updated'
       event_data:
         action: 'create'
     variables:
       device_id: '{{ trigger.event.data.device_id }}'
-    action:
+    actions:
       action: 'persistent_notification.create'
       data:
         title: 'New device registered'

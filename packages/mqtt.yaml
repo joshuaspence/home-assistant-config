@@ -39,10 +39,10 @@ mqtt:
 automation:
   - alias: 'Zigbee2MQTT Health Check'
     id: 'e6dc7aa0-14e9-4750-80a0-cb05da0c459c'
-    trigger:
-      platform: 'time_pattern'
+    triggers:
+      trigger: 'time_pattern'
       minutes: '*'
-    action:
+    actions:
       action: 'mqtt.publish'
       data:
         topic: 'zigbee2mqtt/bridge/request/health_check'

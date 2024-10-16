@@ -41,16 +41,16 @@ blueprint:
 trigger_variables:
   device_friendly_name: !input 'lock'
 
-trigger:
-  platform: 'mqtt'
+triggers:
+  trigger: 'mqtt'
   topic: 'zigbee2mqtt/{{ device_friendly_name }}'
 
-condition:
+conditions:
   condition: 'template'
   value_template: >-
     {{ 'action' in trigger.payload_json }}
 
-action:
+actions:
   - variables:
       action: '{{ trigger.payload_json.action }}'
       source: '{{ trigger.payload_json.action_source_name }}'

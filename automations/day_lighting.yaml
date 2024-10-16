@@ -1,10 +1,10 @@
 ---
 id: '31c797b8-4353-4bd6-b4b8-d185c6e963f0'
 alias: 'Day Lighting'
-trigger:
-  platform: 'sun'
+triggers:
+  trigger: 'sun'
   event: 'sunrise'
-action:
+actions:
   - scene: 'scene.day_time'
 
   # TODO: Remove this hack.

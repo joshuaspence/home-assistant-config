@@ -1,11 +1,11 @@
 ---
 id: 'ffb89ef2-6be4-4625-9e12-953d23b5b4a7'
 alias: 'Low Storage'
-trigger:
-  platform: 'numeric_state'
+triggers:
+  trigger: 'numeric_state'
   entity_id: 'sensor.disk_use_percent'
   above: '90'
-action:
+actions:
   action: 'script.mobile_app_notify'
   data:
     target: 'josh_phone'

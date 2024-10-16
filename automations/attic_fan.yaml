@@ -1,21 +1,21 @@
 ---
 id: '05cfb2f2-6f36-498f-a321-88756cfe534d'
 alias: 'Attic Fan'
-trigger:
-  - platform: 'numeric_state'
+triggers:
+  - trigger: 'numeric_state'
     id: 'low'
     entity_id: 'sensor.attic_temperature'
     below: 25
     variables:
       action: 'fan.turn_off'
-  - platform: 'numeric_state'
+  - trigger: 'numeric_state'
     id: 'high'
     entity_id: 'sensor.attic_temperature'
     above: 30
     variables:
       action: 'fan.turn_on'
 
-action:
+actions:
   action: '{{ action }}'
   target:
     area_id: 'attic'

@@ -1,15 +1,15 @@
 ---
 id: 'd66c61c9-1819-4909-bf49-accb40fadfea'
 alias: 'Basement Dehumidifier'
-trigger:
-  platform: 'state'
+triggers:
+  trigger: 'state'
   entity_id:
     - &basement_humidity 'sensor.basement_humidity'
     - &outside_humidity 'sensor.outside_humidity'
-condition:
+conditions:
   condition: 'template'
   value_template: '{{ (as_timestamp(now()) - as_timestamp(state_attr("automation.basement_dehumidifier", "last_triggered")) | int(0)) > 1800 }}'
-action:
+actions:
   choose:
     - conditions:
         condition: 'numeric_state'

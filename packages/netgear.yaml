@@ -2,16 +2,16 @@
 automation:
   - id: '595cc2f2-ac5d-4447-a995-5d6e71327141'
     alias: 'Netgear SMS'
-    trigger:
-      - platform: 'event'
+    triggers:
+      - trigger: 'event'
         event_type: 'netgear_lte_sms'
         id: 'receive'
-      - platform: 'event'
+      - trigger: 'event'
         event_type: 'mobile_app_notification_action'
         event_data:
           action: 'netgear_lte.delete_sms'
         id: 'delete'
-    action:
+    actions:
       choose:
         - conditions:
             condition: 'trigger'

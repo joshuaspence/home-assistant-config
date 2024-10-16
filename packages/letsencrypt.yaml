@@ -2,26 +2,26 @@
 automation:
   - alias: 'Let''s Encrypt Certificate Renewal'
     id: '94d091f3-9e9d-49d8-a192-a6cb7ca679bd'
-    trigger:
-      platform: 'time'
+    triggers:
+      trigger: 'time'
       at: '00:00:00'
-    condition:
+    conditions:
       condition: 'template'
       value_template: >-
         {{ (as_datetime(states('sensor.homeassistant_certificate_expiry')) - now()).days < 7 }}
-    action:
+    actions:
       - action: 'hassio.addon_start'
         data:
           addon: 'core_letsencrypt'
       - alias: 'Wait for addon to start'
         wait_for_trigger:
-          platform: 'state'
+          trigger: 'state'
           entity_id: &lets_encrypt_running 'binary_sensor.lets_encrypt_addon_running'
           to: 'on'
         timeout: 5
       - alias: 'Wait for addon to stop'
         wait_for_trigger:
-          platform: 'state'
+          trigger: 'state'
           entity_id: *lets_encrypt_running
           to: 'off'
         timeout: 120
