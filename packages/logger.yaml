@@ -7,21 +7,6 @@ logger:
     pychromecast.socket_client: 'fatal'
     pydaikin.daikin_brp069: 'fatal'
   filters:
-    # See iMicknl/ha-nest-protect#221 and iMicknl/ha-nest-protect#233.
     custom_components.nest_protect:
-      - '^Unknown pynest exception\.'
-    custom_components.nest_protect.pynest:
-      - '^Authentication error: invalid_request$'
-      - '^Could not interpret Nest response$'
-
-    # See home-assistant/core#92365.
-    homeassistant.components.recorder.db_schema:
-      - '^State attributes for sensor\.\w+_active_notification_count exceed maximum size of \d+ bytes\. This can cause database performance issues; Attributes will not be stored$'
-
-    # See home-assistant/core#79039.
-    homeassistant.components.stream.stream.camera.bedroom_1: &unifiprotect_session_invalidated
-      - '\[tls\] The specified session has been invalidated for some reason\.$'
-    homeassistant.components.stream.stream.camera.driveway: *unifiprotect_session_invalidated
-    homeassistant.components.stream.stream.camera.east_side_yard: *unifiprotect_session_invalidated
-    homeassistant.components.stream.stream.camera.front_patio: *unifiprotect_session_invalidated
-    homeassistant.components.stream.stream.camera.south_side_yard: *unifiprotect_session_invalidated
+      # See iMicknl/ha-nest-protect#338.
+      - 'AttributeError: ''list'' object has no attribute ''object_key'''
