@@ -160,8 +160,6 @@
   description: Paired with Homelab Fan Smart Plug.
 '0x00158d000542699c':
   friendly_name: Basement West Temperature Sensor
-'0x00158d0006c4b0cc':
-  friendly_name: Toilet Sink Water Leak Sensor
 '0x00158d0006c248a8':
   friendly_name: Bathroom Sink Water Leak Sensor
 '0x0017880109172d32':
@@ -193,6 +191,7 @@
   friendly_name: Bedroom 2 Dimmer Switch
 '0x00158d0006ca2ba6':
   friendly_name: Bedroom 2 Temperature Sensor
+  description: Paired with Bedroom 2 Light.
 '0x001788010c507eb8':
   friendly_name: Laundry Light
 '0x001788010c5092ea':
@@ -255,3 +254,6 @@
 '0x00158d00053f566d':
   friendly_name: Living Room Temperature Sensor
   description: Paired with Kitchen Refrigerator Smart Plug
+'0x00158d0006c4b0cc':
+  friendly_name: Toilet Sink Water Leak Sensor
+  description: Paired with Toilet Mirror Light.
