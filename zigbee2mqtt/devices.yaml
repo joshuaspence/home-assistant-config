@@ -145,10 +145,10 @@
 '0x00178801093d70ff':
   friendly_name: Outside North-northwest Light
 '0x0017880108615a10':
-  friendly_name: Attic Fan Smart Plug
+  friendly_name: Attic West Fan Smart Plug
   homeassistant:
     fan:
-      name: Attic
+      name: Attic West
       state_value_template: '{{ value_json.state }}'
       value_template: null
     switch:
@@ -258,3 +258,13 @@
 '0x00158d0006c4b0cc':
   friendly_name: Toilet Sink Water Leak Sensor
   description: Paired with Toilet Mirror Light.
+'0x84fd27fffea15042':
+  friendly_name: Attic East Fan Smart Plug
+  homeassistant:
+    fan:
+      name: Attic East
+      state_value_template: '{{ value_json.state }}'
+      value_template: null
+    switch:
+      object_id: fan
+      type: fan
