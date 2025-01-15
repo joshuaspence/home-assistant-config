@@ -1,0 +1,22 @@
+---
+substitutions:
+  friendly_name: 'Office Voice Assistant'
+  name: 'office_voice_assistant'
+
+packages:
+  Nabu Casa.Home Assistant Voice PE: 'github://esphome/voice-kit/home-assistant-voice.yaml'
+
+esphome:
+  name: '${name}'
+  name_add_mac_suffix: false
+  friendly_name: '${friendly_name}'
+
+api:
+  encryption:
+    key: !secret 'api.encryption.key'
+
+wifi:
+  networks:
+    - ssid: !secret 'wifi.ssid'
+      password: !secret 'wifi.password'
+      hidden: true
