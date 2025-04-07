@@ -307,6 +307,40 @@ SWITCHES: dict[str, tuple[LocalTuyaEntity, ...]] = {
             entity_category=EntityCategory.CONFIG,
         ),
     ),
+    # Cat litter box
+    # https://developer.tuya.com/en/docs/iot/f?id=Kakg309qkmuit
+    "msp": (
+        LocalTuyaEntity(
+            id=DPCode.SWITCH,
+        ),
+        LocalTuyaEntity(
+            id=DPCode.CLEANING,
+            name="Cleaning",
+            icon="mdi:power",
+        ),
+        LocalTuyaEntity(
+            id=DPCode.SLEEPING,
+            name="Sleep",
+            icon="mdi:sleep",
+        ),
+        LocalTuyaEntity(
+            id=DPCode.BEEP,
+            name="Beep",
+            icon="mdi:volume-high",
+        ),
+        LocalTuyaEntity(
+            id=DPCode.INDICATOR_LIGHT,
+            name="Light Indicator",
+            icon="mdi:wall-sconce-flat-variant",
+        ),
+        LocalTuyaEntity(
+            id=DPCode.QUIET_TIMING_ON,
+            name="Enable Quiet Timing",
+            icon="mdi:timer-settings-outline",
+            entity_category=EntityCategory.CONFIG,
+        ),
+    ),
+    # Po
     # Sous Vide Cooker
     # https://developer.tuya.com/en/docs/iot/categorymzj?id=Kaiuz2vy130ux
     "mzj": (
@@ -478,6 +512,15 @@ SWITCHES: dict[str, tuple[LocalTuyaEntity, ...]] = {
             name="Child Lock",
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
+        ),
+    ),
+    # Generic products, EV Charger
+    # https://support.tuya.com/en/help/_detail/K9g77zfmlnwal
+    "qt": (
+        LocalTuyaEntity(
+            id=DPCode.CHARGING_STATE,
+            icon="mdi:ev-plug-tesla",
+            name="Charge",
         ),
     ),
     # Robot Vacuum
@@ -785,12 +828,24 @@ SWITCHES: dict[str, tuple[LocalTuyaEntity, ...]] = {
             icon="mdi:account-lock",
             entity_category=EntityCategory.CONFIG,
         ),
+        LocalTuyaEntity(
+            id=DPCode.LCD_ONOF,
+            name="LCD",
+            icon="mdi:television",
+            entity_category=EntityCategory.CONFIG,
+        ),
+        LocalTuyaEntity(
+            id=DPCode.SPEEK,
+            name="Sound",
+            icon="mdi:volume-medium",
+            entity_category=EntityCategory.CONFIG,
+        ),
     ),
     # Fan switch
     "fskg": (
         LocalTuyaEntity(
             id=DPCode.BACKLIGHT_SWITCH,
-            name="LED Siwtch",
+            name="LED Switch",
             icon="mdi:led-outline",
             entity_category=EntityCategory.CONFIG,
         ),

@@ -1,7 +1,7 @@
 """Code shared between all platforms."""
 
 import logging
-from typing import Any
+from typing import Any, Coroutine, Callable
 
 from homeassistant.core import HomeAssistant, State
 from homeassistant.config_entries import ConfigEntry
@@ -49,12 +49,13 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(
-    domain,
-    entity_class,
-    flow_schema,
+    domain: str,
+    entity_class: Any,
+    flow_schema: Callable,
     hass: HomeAssistant,
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
+    async_setup_services: Coroutine[HomeAssistant, list, None] = None,
 ):
     """Set up a Tuya platform based on a config entry.
 
@@ -95,12 +96,17 @@ async def async_setup_entry(
                         device,
                         dev_entry,
                         entity_config[CONF_ID],
+                        # we need add_entites_callback in-case we want to add sub-entites, such as electric sensor "phase_a"
+                        add_entites_callback=async_add_entities,
                     )
                 )
     # Once the entities have been created, add to the TuyaDevice instance
     if entities:
         device.add_entities(entities)
         async_add_entities(entities)
+
+        if async_setup_services:
+            await async_setup_services(hass, entities)
 
 
 def get_dps_for_platform(flow_schema):
@@ -138,7 +144,11 @@ class LocalTuyaEntity(RestoreEntity, pytuya.ContextualLogger):
         self._state = None
         self._last_state = None
         self._stored_states: State | None = None
-        self._hass = device._hass
+        self.hass = device.hass
+        self.componet_add_entities: AddEntitiesCallback = kwargs.get(
+            "add_entites_callback"
+        )
+        self._loaded = False
 
         # Default value is available to be provided by Platform entities if required
         self._default_value = self._config.get(CONF_DEFAULT_VALUE)
@@ -160,23 +170,20 @@ class LocalTuyaEntity(RestoreEntity, pytuya.ContextualLogger):
             self._stored_states = stored_data
             self.status_restored(stored_data)
 
-        def _update_handler(new_status: dict | None):
+        def _update_handler(status: dict | None):
             """Update entity state when status was updated."""
-            status = self._status.clear() if new_status is None else new_status.copy()
+            last_status = self._status.copy()
 
-            if status == RESTORE_STATES and stored_data and not self._status:
-                if stored_data.state not in (STATE_UNAVAILABLE, STATE_UNKNOWN):
-                    self.debug(f"{self.name}: Restore state: {stored_data.state}")
-                    status[self._dp_id] = stored_data.state
+            self._status = {} if status is None else {**self._status, **status}
 
-            if self._status != status:
+            if not self._loaded:
+                self._loaded = True
+                self.connection_made()
+
+            if status != last_status:
                 if status:
-                    # Pop the special DPs
-                    status.pop("0", None)
-                    self._status.update(status)
                     self.status_updated()
 
-                # Update HA
                 self.schedule_update_ha_state()
 
         signal = f"localtuya_{self._device_config.id}"
@@ -205,25 +212,25 @@ class LocalTuyaEntity(RestoreEntity, pytuya.ContextualLogger):
         return attributes
 
     @property
-    def device_info(self) -> DeviceInfo:
+    def device_info(self):
         """Return device information for the device registry."""
-        model = self._device_config.model
+        device_config = self._device_config
         device_info = DeviceInfo(
             # Serial numbers are unique identifiers within a specific domain
-            identifiers={(DOMAIN, f"local_{self._device_config.id}")},
-            name=self._device_config.name,
+            identifiers={(DOMAIN, f"local_{device_config.id}")},
+            name=device_config.name,
             manufacturer="Tuya",
-            model=f"{model} ({self._device_config.id})",
-            sw_version=self._device_config.protocol_version,
+            model=f"{device_config.model} ({device_config.id})",
+            sw_version=device_config.protocol_version,
         )
-        if self._device.is_subdevice:
+        if self._device.is_subdevice and self._device.id != self._device.gateway.id:
             device_info[ATTR_VIA_DEVICE] = (DOMAIN, f"local_{self._device.gateway.id}")
         return device_info
 
     @property
     def name(self) -> str:
         """Get name of Tuya entity."""
-        return self._config.get(CONF_FRIENDLY_NAME)
+        return getattr(self, "_attr_name", self._config.get(CONF_FRIENDLY_NAME))
 
     @property
     def icon(self) -> str | None:
@@ -233,6 +240,9 @@ class LocalTuyaEntity(RestoreEntity, pytuya.ContextualLogger):
     @property
     def unique_id(self) -> str:
         """Return unique device identifier."""
+        if getattr(self, "_attr_unique_id") is not None:
+            return self._attr_unique_id
+
         return f"local_{self._device_config.id}_{self._dp_id}"
 
     @property
@@ -259,7 +269,8 @@ class LocalTuyaEntity(RestoreEntity, pytuya.ContextualLogger):
     @property
     def device_class(self):
         """Return the class of this device."""
-        return self._config.get(CONF_DEVICE_CLASS, self._attr_device_class)
+        attr_device_class = getattr(self, "_attr_device_class")
+        return attr_device_class or self._config.get(CONF_DEVICE_CLASS)
 
     def has_config(self, attr) -> bool:
         """Return if a config parameter has a valid value."""
@@ -297,7 +308,7 @@ class LocalTuyaEntity(RestoreEntity, pytuya.ContextualLogger):
         if (state is not None) and (not self._device.is_connecting):
             self._last_state = state
 
-    def status_restored(self, stored_state) -> None:
+    def status_restored(self, stored_state: State) -> None:
         """Device status was restored.
 
         Override in subclasses and update entity specific state.
@@ -308,6 +319,20 @@ class LocalTuyaEntity(RestoreEntity, pytuya.ContextualLogger):
             self.debug(
                 f"Restoring state for entity: {self.name} - state: {str(self._last_state)}"
             )
+
+    def connection_made(self):
+        """The connection has made with the device and status retrieved. configure entity based on it.
+
+        Override in subclasses and update entity initialization based on detected DPS.
+        """
+        stored_data = self._stored_states
+        if self._status == RESTORE_STATES and stored_data:
+            self._status.pop("0", True)
+            if self._dp_id in self._status:
+                return
+            if stored_data.state not in (STATE_UNAVAILABLE, STATE_UNKNOWN):
+                self.debug(f"{self.name}: Restore state: {stored_data.state}")
+                self._status[self._dp_id] = stored_data.state
 
     def default_value(self):
         """Return default value of this entity.

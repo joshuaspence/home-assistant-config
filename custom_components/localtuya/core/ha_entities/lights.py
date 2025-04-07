@@ -47,6 +47,14 @@ LIGHTS: dict[str, tuple[LocalTuyaEntity, ...]] = {
             custom_configs=localtuya_light(29, 1000, 2700, 6500, False, False),
         ),
     ),
+    # Smart Pet Feeder
+    # https://developer.tuya.com/en/docs/iot/categorycwwsq?id=Kaiuz2b6vydld
+    "cwwsq": (
+        LocalTuyaEntity(
+            id=DPCode.LIGHT,
+            name="Light",
+        ),
+    ),
     # String Lights
     # https://developer.tuya.com/en/docs/iot/dc?id=Kaof7taxmvadu
     "dc": (
@@ -84,8 +92,8 @@ LIGHTS: dict[str, tuple[LocalTuyaEntity, ...]] = {
             color_mode=DPCode.WORK_MODE,
             brightness=(DPCode.BRIGHT_VALUE_V2, DPCode.BRIGHT_VALUE),
             color_temp=(DPCode.TEMP_VALUE_V2, DPCode.TEMP_VALUE),
-            color=(DPCode.COLOUR_DATA_V2, DPCode.COLOUR_DATA),
-            scene=(DPCode.SCENE_DATA_V2, DPCode.SCENE_DATA),
+            color=(DPCode.COLOUR_DATA_V2, DPCode.COLOUR_DATA, DPCode.COLOUR_DATA_RAW),
+            scene=(DPCode.SCENE_DATA_V2, DPCode.SCENE_DATA, DPCode.SCENE_DATA_RAW),
             custom_configs=localtuya_light(29, 1000, 2700, 6500, False, True),
         ),
         # Not documented
