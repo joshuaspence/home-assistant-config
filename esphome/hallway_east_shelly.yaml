@@ -5,4 +5,4 @@ substitutions:
   device_name: 'Hallway East Shelly'
 
 packages:
-  device: !include 'devices/shelly/plus1.yaml'
+  device: !include 'devices/shelly/plus1PM.yaml'
