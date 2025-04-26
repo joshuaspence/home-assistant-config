@@ -1,16 +1,14 @@
----
 homeassistant:
-  legacy_triggers: false
-  legacy_entity_attributes: false
+  enabled: true
 availability:
+  enabled: true
   active:
     timeout: 10
   passive:
     timeout: 180
-external_converters:
-  - '/config/zigbee2mqtt/converters'
 serial:
   port: 'tcp://zigbee_gateway.local:6638'
+  adapter: 'zstack'
 devices: 'devices.yaml'
 groups: 'groups.yaml'
 device_options:
@@ -31,8 +29,6 @@ device_options:
     wrong_code_entry_limit:
       entity_category: 'config'
 advanced:
-  legacy_api: false
-  legacy_availability_payload: false
   log_output:
     - 'file'
   log_directory: '/config/zigbee2mqtt'
@@ -41,3 +37,4 @@ advanced:
   channel: 25
   last_seen: 'ISO_8601'
   network_key: '!secret network_key'
+version: 4
