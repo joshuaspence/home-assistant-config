@@ -66,6 +66,7 @@
   friendly_name: Living Room Sliding Door Contact Sensor
 '0x00158d0006a0a692':
   friendly_name: Linen Closet Door Contact Sensor
+  description: Paired with Toilet Light.
 '0x286d97000108ff62':
   availability:
     timeout: 1560
@@ -83,6 +84,7 @@
   friendly_name: Toilet Door Contact Sensor
 '0x00158d00053f589a':
   friendly_name: Toilet Temperature Sensor
+  description: Paired with Hallway East Light.
 '0x00178801086169fd':
   friendly_name: Homelab Fan Smart Plug
   homeassistant:
@@ -105,6 +107,7 @@
       type: fan
 '0x00158d0007758d60':
   friendly_name: Attic Lower Temperature Sensor
+  description: Paired with Attic Main Light.
 '0x00178801064716e9':
   friendly_name: South Side Yard Motion Sensor
 '0x00178801093c115e':
@@ -119,27 +122,31 @@
   friendly_name: Kitchen Door Contact Sensor
 '0x00158d000320ac26':
   friendly_name: Kitchen Temperature Sensor
-  description: Paired with Kitchen Refrigerator Smart Plug.
+  description: Paired with Kitchen Light.
 '0x00158d0006c4c3a5':
   friendly_name: Dishwasher Water Leak Sensor
 '0x00158d0006c4fdf7':
   friendly_name: Dining Room Temperature Sensor
+  description: Paired with Dining Room Light.
 '0x00158d0004a97174':
   friendly_name: Dining Room Sliding Door Contact Sensor
+  description: Paired with Outside North-northeast Light.
 '0x00158d000678e181':
   friendly_name: Bathroom Temperature Sensor
+  description: Paired with Hallway East Light.
 '0x00178801067d0483':
   friendly_name: Front Patio Light
 '0x00158d0006a0a724':
   friendly_name: Mailbox Front Door Contact Sensor
+  description: Paired with Front Patio Light.
 '0x00158d0006bee4d9':
   friendly_name: Kitchen Window Contact Sensor
+  description: Paired with Kitchen Sink Light.
 '0x00158d0006c4bce4':
   friendly_name: Front Door Contact Sensor
 '0x00158d00075f312f':
   friendly_name: Linen Closet Temperature Sensor
-'0x00158d000777ca93':
-  friendly_name: Outside South Temperature Sensor
+  description: Paired with Hallway East Light.
 '0x00178801093b66fe':
   friendly_name: Outside North-northeast Light
 '0x00178801093d70ff':
@@ -161,6 +168,7 @@
   description: Paired with Homelab Fan Smart Plug.
 '0x00158d000542699c':
   friendly_name: Basement West Temperature Sensor
+  description: Paired with Hallway East Light.
 '0x00158d0006c248a8':
   friendly_name: Bathroom Sink Water Leak Sensor
 '0x0017880109172d32':
@@ -175,6 +183,7 @@
   friendly_name: Back Door Contact Sensor
 '0x00158d0006ca2865':
   friendly_name: Homelab Temperature Sensor
+  description: Paired with Homelab Smart Plug.
 '0x0017880106fd4309':
   friendly_name: Driveway Light
 '0x00158d00054c3fd3':
@@ -188,8 +197,10 @@
   friendly_name: Bedroom 1 Dimmer Switch
 '0x00158d0006c4ff3e':
   friendly_name: Hallway Temperature Sensor
+  description: Paired with Hallway East Light.
 '0x001788010d26744d':
   friendly_name: Bedroom 2 Dimmer Switch
+  description: Paired with Bedroom 2 Light.
 '0x00158d0006ca2ba6':
   friendly_name: Bedroom 2 Temperature Sensor
   description: Paired with Bedroom 2 Light.
@@ -217,12 +228,12 @@
   friendly_name: Laundry Refrigerator Smart Plug
 '0x00158d0006b89039':
   friendly_name: Bedroom 1 Wardrobe Temperature Sensor
+  description: Paired with Bedroom 1 Light.
 '0x84fd27fffea1504e':
   friendly_name: Basement Dehumidifier Smart Plug
-'0x84fd27fffea1508c':
-  friendly_name: Office Desk Smart Plug
 '0x00158d0006bee40b':
   friendly_name: Bedroom 2 Wardrobe Temperature Sensor
+  description: Paired with Outside South-southeast Light.
 '0x00158d0006c51f3b':
   friendly_name: Kitchen Sink Water Leak Sensor
 '0x000d6f0011192562':
@@ -246,15 +257,14 @@
   friendly_name: Washing Machine Smart Plug
 '0x84fd27fffea14d9d':
   friendly_name: Dryer Smart Plug
-'0x84fd27fffea14c45':
-  friendly_name: Homelab Smart Plug
 '0x00158d00091c8195':
   friendly_name: Bedroom 1 Temperature Sensor
+  description: Paired with Bedroom 1 Light.
 '0x54ef4410002542a1':
   friendly_name: Mailbox Top Door Contact Sensor
 '0x00158d00053f566d':
   friendly_name: Living Room Temperature Sensor
-  description: Paired with Kitchen Refrigerator Smart Plug
+  description: Paired with Kitchen Light.
 '0x00158d0006c4b0cc':
   friendly_name: Toilet Sink Water Leak Sensor
   description: Paired with Toilet Mirror Light.
@@ -268,3 +278,20 @@
     switch:
       object_id: fan
       type: fan
+'0x00158d0005473679':
+  friendly_name: Gun Safe Vibration Sensor
+  description: Paired with Homelab Fan Smart Plug.
+'0x54ef441000257a0d':
+  friendly_name: Gun Safe Door Contact Sensor
+  description: Paired with Homelab Fan Smart Plug.
+'0x00158d0007005aca':
+  friendly_name: Bedroom Safe Door Contact Sensor
+  description: Paired with Rooftop East Fan Smart Plug.
+'0x54ef441000254a7e':
+  friendly_name: Pistol Safe Door Contact Sensor
+  description: Paired with Toilet Light.
+'0x00158d0009210030':
+  friendly_name: Outside South Temperature Sensor
+  description: Paired with Outside South-southeast Light.
+'0x84fd27fffea15300':
+  friendly_name: Homelab Smart Plug
