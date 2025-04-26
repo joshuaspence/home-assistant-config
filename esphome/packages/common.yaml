@@ -37,3 +37,7 @@ button:
   - platform: 'restart'
     name: 'Restart'
     id: 'button_restart'
+
+select:
+  - platform: 'logger'
+    name: 'Log Level'
