@@ -21,7 +21,7 @@ jobs:
     container:
       image: 'esphome/esphome:${{ matrix.version }}'
     steps:
-      - uses: 'actions/checkout@v4'
+      - uses: 'actions/checkout@v5'
       - uses: 'canastro/copy-action@0.0.2'
         with:
           source: '.github/stubs/esphome_secrets.yaml'
@@ -39,7 +39,7 @@ jobs:
           - 'stable'
     continue-on-error: '${{ matrix.version != ''stable'' }}'
     steps:
-      - uses: 'actions/checkout@v4'
+      - uses: 'actions/checkout@v5'
       - uses: 'frenck/action-home-assistant@v1.4'
         with:
           secrets: '.github/stubs/hass_secrets.yaml'
