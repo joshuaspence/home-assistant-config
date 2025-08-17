@@ -23,8 +23,6 @@
   type: 'module'
 - url: '/hacsfiles/mini-graph-card/mini-graph-card-bundle.js'
   type: 'module'
-- url: '/hacsfiles/purifier-card/purifier-card.js'
-  type: 'module'
 - url: '/hacsfiles/surveillance-card/surveillance-card.js'
   type: 'module'
 - url: '/hacsfiles/tabbed-card/tabbed-card.js'
