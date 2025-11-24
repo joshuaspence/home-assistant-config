@@ -11,7 +11,7 @@ from jinja2 import Template
 import voluptuous as vol
 from yarl import URL
 
-from custom_components.frigate.api import FrigateApiClient
+from custom_components.frigate.api import FrigateApiClient, FrigateApiClientError
 from homeassistant.components.camera import (
     Camera,
     CameraEntityFeature,
@@ -323,7 +323,7 @@ class FrigateCamera(
             "via_device": get_frigate_device_identifier(self._config_entry),
             "name": get_friendly_name(self._cam_name),
             "model": self._get_model(),
-            "configuration_url": f"{self._url}/cameras/{self._cam_name}",
+            "configuration_url": f"{self._url}/#{self._cam_name}",
             "manufacturer": NAME,
         }
 
@@ -356,7 +356,7 @@ class FrigateCamera(
             % ({"h": height} if height is not None and height > 0 else {})
         )
 
-        headers = await self._client._get_auth_headers()
+        headers = await self._client.get_auth_headers()
         async with async_timeout.timeout(10):
             response = await websession.get(image_url, headers=headers)
             return await response.read()
@@ -411,12 +411,18 @@ class FrigateCamera(
         self, playback_factor: str, start_time: str, end_time: str
     ) -> None:
         """Export recording."""
-        await self._client.async_export_recording(
-            self._cam_name,
-            playback_factor,
-            datetime.datetime.strptime(start_time, "%Y-%m-%d %H:%M:%S").timestamp(),
-            datetime.datetime.strptime(end_time, "%Y-%m-%d %H:%M:%S").timestamp(),
-        )
+        try:
+            await self._client.async_export_recording(
+                self._cam_name,
+                playback_factor,
+                datetime.datetime.strptime(start_time, "%Y-%m-%d %H:%M:%S").timestamp(),
+                datetime.datetime.strptime(end_time, "%Y-%m-%d %H:%M:%S").timestamp(),
+            )
+        except FrigateApiClientError as err:
+            raise ServiceValidationError(
+                f"Failed to export recording for {self._cam_name}: {err}. "
+                "This may occur if no recordings exist for the specified time range."
+            ) from err
 
     async def favorite_event(self, event_id: str, favorite: bool) -> None:
         """Favorite an event."""
@@ -536,7 +542,7 @@ class BirdseyeCamera(FrigateEntity, Camera):
             % ({"h": height} if height is not None and height > 0 else {})
         )
 
-        headers = await self._client._get_auth_headers()
+        headers = await self._client.get_auth_headers()
         async with async_timeout.timeout(10):
             response = await websession.get(image_url, headers=headers)
             return await response.read()
@@ -558,7 +564,7 @@ class FrigateCameraWebRTC(FrigateCamera):
         )
         url = f"{self._url}/api/go2rtc/webrtc?src={self._cam_name}"
         payload = {"type": "offer", "sdp": offer_sdp}
-        headers = await self._client._get_auth_headers()
+        headers = await self._client.get_auth_headers()
         async with websession.post(url, json=payload, headers=headers) as resp:
             answer = await resp.json()
             send_message(WebRTCAnswer(answer["sdp"]))
@@ -580,7 +586,7 @@ class BirdseyeCameraWebRTC(BirdseyeCamera):
         )
         url = f"{self._url}/api/go2rtc/webrtc?src={self._cam_name}"
         payload = {"type": "offer", "sdp": offer_sdp}
-        headers = await self._client._get_auth_headers()
+        headers = await self._client.get_auth_headers()
         async with websession.post(url, json=payload, headers=headers) as resp:
             answer = await resp.json()
             send_message(WebRTCAnswer(answer["sdp"]))
