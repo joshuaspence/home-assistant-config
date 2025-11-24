@@ -27,27 +27,27 @@ packages:
   button1: !include
     file: 'packages/button.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO4'
 
   input1: !include
     file: 'packages/input.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO5'
   input2: !include
     file: 'packages/input.yaml'
     vars:
-      id: 2
+      id: '2'
       pin: 'GPIO18'
 
   output1: !include
     file: 'packages/output.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO12'
   output2: !include
     file: 'packages/output.yaml'
     vars:
-      id: 2
+      id: '2'
       pin: 'GPIO13'

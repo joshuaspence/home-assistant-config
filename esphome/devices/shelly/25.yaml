@@ -30,21 +30,21 @@ packages:
   input1: !include
     file: 'packages/input.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO13'
   input2: !include
     file: 'packages/input.yaml'
     vars:
-      id: 2
+      id: '2'
       pin: 'GPIO5'
 
   output1: !include
     file: 'packages/output.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO4'
   output2: !include
     file: 'packages/output.yaml'
     vars:
-      id: 2
+      id: '2'
       pin: 'GPIO15'

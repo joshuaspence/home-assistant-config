@@ -18,19 +18,19 @@ packages:
   button1: !include
     file: 'packages/button.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO25'
 
   input1: !include
     file: 'packages/input.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO4'
 
   output1: !include
     file: 'packages/output.yaml'
     vars:
-      id: 1
+      id: '1'
       pin: 'GPIO26'
 
 esphome:
