@@ -1392,6 +1392,14 @@ SENSORS: dict[str, tuple[LocalTuyaEntity, ...]] = {
             icon="mdi:ticket-percent-outline",
             state_class=SensorStateClass.MEASUREMENT,
         ),
+        LocalTuyaEntity(
+            id=(DPCode.ELECTRICITY_LEFT, DPCode.RESIDUAL_ELECTRICITY),
+            name="Battery",
+            device_class=SensorDeviceClass.BATTERY,
+            entity_category=EntityCategory.DIAGNOSTIC,
+            state_class=SensorStateClass.MEASUREMENT,
+        ),
+        *BATTERY_SENSORS,
     ),
     # Curtain
     # https://developer.tuya.com/en/docs/iot/s?id=K9gf48qy7wkre
@@ -1590,12 +1598,14 @@ SENSORS: dict[str, tuple[LocalTuyaEntity, ...]] = {
             name="Temperature",
             device_class=SensorDeviceClass.TEMPERATURE,
             state_class=SensorStateClass.MEASUREMENT,
+            custom_configs=localtuya_sensor(UnitOfTemperature.CELSIUS),
         ),
         LocalTuyaEntity(
             id=DPCode.HUMIDITY_INDOOR,
             name="Humidity",
             device_class=SensorDeviceClass.HUMIDITY,
             state_class=SensorStateClass.MEASUREMENT,
+            custom_configs=localtuya_sensor(PERCENTAGE),
         ),
         LocalTuyaEntity(
             id=DPCode.COUNTDOWN_LEFT,
