@@ -4,6 +4,4 @@ esp8266:
 
 wifi:
   min_auth_mode: 'wpa2'
-
-  # See esphome/issues#1532.
-  power_save_mode: 'high'
+  power_save_mode: 'light'
