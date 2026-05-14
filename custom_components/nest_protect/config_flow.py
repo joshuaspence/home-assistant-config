@@ -2,17 +2,20 @@
 
 from __future__ import annotations
 
+import base64
+import json
 from typing import Any, cast
 
+import voluptuous as vol
 from aiohttp import ClientError
 from homeassistant import config_entries
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
-import voluptuous as vol
 
 from .const import (
     CONF_ACCOUNT_TYPE,
+    CONF_AUTH_CODE,
     CONF_COOKIES,
     CONF_ISSUE_TOKEN,
     CONF_REFRESH_TOKEN,
@@ -23,6 +26,13 @@ from .pynest.client import NestClient
 from .pynest.const import NEST_ENVIRONMENTS
 from .pynest.enums import Environment
 from .pynest.exceptions import BadCredentialsException
+
+DESCRIPTION_PLACEHOLDERS = {
+    "nest_url": "https://home.nest.com",
+    "issue_token_prefix": "https://accounts.google.com/o/oauth2/iframerpc?action=issueToken",
+    "accounts_url": "https://accounts.google.com/",
+    "extension_download_url": "https://github.com/iMicknl/ha-nest-protect/releases/latest/download/nest-auth-helper.zip",
+}
 
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -45,9 +55,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if "action=issueToken" not in issue_token:
             return False
         # Verify it looks like a proper URL with query parameters
-        if "?" not in issue_token:
-            return False
-        return True
+        return "?" in issue_token
 
     @staticmethod
     def _validate_cookies(cookies: str) -> bool:
@@ -105,7 +113,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         if user_input:
             self._default_account_type = user_input[CONF_ACCOUNT_TYPE]
-            return await self.async_step_account_link()
+            return await self.async_step_auth_method()
 
         return self.async_show_form(
             step_id="user",
@@ -118,6 +126,108 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     ),
                 }
             ),
+            errors=errors,
+        )
+
+    async def async_step_auth_method(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Handle auth method selection."""
+        if user_input:
+            if user_input["method"] == "extension":
+                return await self.async_step_extension()
+            return await self.async_step_account_link()
+
+        return self.async_show_form(
+            step_id="auth_method",
+            data_schema=vol.Schema(
+                {
+                    vol.Required("method", default="extension"): vol.In(
+                        {
+                            "extension": "Use the Chrome Extension (recommended)",
+                            "manual": "Enter credentials manually",
+                        }
+                    ),
+                }
+            ),
+            description_placeholders=DESCRIPTION_PLACEHOLDERS,
+        )
+
+    async def async_step_extension(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Handle authentication via Chrome extension code."""
+        errors = {}
+
+        if user_input:
+            issue_token = ""
+            cookies = ""
+
+            try:
+                decoded = json.loads(
+                    base64.b64decode(user_input[CONF_AUTH_CODE]).decode()
+                )
+                issue_token = decoded["issue_token"]
+                cookies = decoded["cookies"]
+            except ValueError, KeyError, json.JSONDecodeError:
+                errors[CONF_AUTH_CODE] = "invalid_code"
+
+            if not errors and (
+                not self._validate_issue_token(issue_token)
+                or not self._validate_cookies(cookies)
+            ):
+                errors[CONF_AUTH_CODE] = "invalid_code"
+
+            if not errors:
+                validation_input = {
+                    CONF_ISSUE_TOKEN: issue_token,
+                    CONF_COOKIES: cookies,
+                    CONF_ACCOUNT_TYPE: self._default_account_type,
+                }
+                try:
+                    [issue_token, cookies, email] = await self.async_validate_input(
+                        validation_input
+                    )
+                except TimeoutError, ClientError:
+                    errors["base"] = "cannot_connect"
+                except BadCredentialsException:
+                    errors["base"] = "invalid_auth"
+                except Exception as exception:  # pylint: disable=broad-except
+                    errors["base"] = "unknown"
+                    LOGGER.exception(exception)
+
+            if not errors:
+                data = {
+                    CONF_ISSUE_TOKEN: issue_token,
+                    CONF_COOKIES: cookies,
+                    CONF_ACCOUNT_TYPE: self._default_account_type,
+                }
+
+                if self._config_entry:
+                    self.hass.config_entries.async_update_entry(
+                        self._config_entry,
+                        data={**self._config_entry.data, **data},
+                    )
+                    self.hass.async_create_task(
+                        self.hass.config_entries.async_reload(
+                            self._config_entry.entry_id
+                        )
+                    )
+                    return self.async_abort(reason="reauth_successful")
+
+                self._abort_if_unique_id_configured()
+                return self.async_create_entry(
+                    title=f"Nest Protect ({email})", data=data
+                )
+
+        return self.async_show_form(
+            step_id="extension",
+            data_schema=vol.Schema(
+                {
+                    vol.Required(CONF_AUTH_CODE): str,
+                }
+            ),
+            description_placeholders=DESCRIPTION_PLACEHOLDERS,
             errors=errors,
         )
 
@@ -147,7 +257,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     [issue_token, cookies, email] = await self.async_validate_input(
                         user_input
                     )
-                except (TimeoutError, ClientError):
+                except TimeoutError, ClientError:
                     errors["base"] = "cannot_connect"
                 except BadCredentialsException:
                     errors["base"] = "invalid_auth"
@@ -188,6 +298,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     vol.Required(CONF_COOKIES): str,
                 }
             ),
+            description_placeholders=DESCRIPTION_PLACEHOLDERS,
             errors=errors,
             last_step=True,
         )
@@ -203,4 +314,4 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
         self._default_account_type = self._config_entry.data[CONF_ACCOUNT_TYPE]
 
-        return await self.async_step_account_link(user_input)
+        return await self.async_step_auth_method()
