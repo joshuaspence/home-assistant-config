@@ -9,11 +9,9 @@ recorder:
     entity_globs:
       - 'sensor.*_phone_last_notification'
 
-switch:
-  - platform: 'template'
-    switches:
-      josh_phone_do_not_disturb:
-        friendly_name: 'Josh''s Phone Do Not Disturb'
+template:
+  - switch:
+      - name: 'Josh''s Phone Do Not Disturb'
         unique_id: '3948a81c-6813-41cf-a7b9-ca676ca43dc5'
         value_template: '{{ not is_state("sensor.josh_phone_do_not_disturb_sensor", "off") }}'
         availability_template: '{{ not is_state("sensor.josh_phone_do_not_disturb_sensor", "unavailable") }}'

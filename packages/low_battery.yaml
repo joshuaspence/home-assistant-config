@@ -1,9 +1,7 @@
 ---
-sensor:
-  - platform: 'template'
-    sensors:
-      low_battery:
-        friendly_name: 'Low Battery'
+template:
+  - sensor:
+      - name: 'Low Battery'
         unique_id: '2dbdee74-5c79-4f10-ae67-e6c8aead4d61'
         unit_of_measurement: 'devices'
         value_template: >-
