@@ -5,3 +5,11 @@ esp8266:
 wifi:
   min_auth_mode: 'wpa2'
   power_save_mode: 'light'
+
+# Only available on ESP8266. Fragmentation is what actually causes allocation
+# failures here — the heap runs out of contiguous blocks long before it runs out
+# of bytes.
+sensor:
+  - platform: 'debug'
+    fragmentation:
+      name: 'Heap Fragmentation'

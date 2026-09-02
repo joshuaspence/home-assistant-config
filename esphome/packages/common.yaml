@@ -9,6 +9,11 @@ api:
   encryption:
     key: !secret 'api.encryption.key'
 
+# Diagnostics. `reset_reason` is the only record of *why* a device rebooted that
+# survives the reboot, and `loop_time` catches a blocked main loop before the
+# watchdog does.
+debug: {}
+
 logger:
   level: 'DEBUG'
   logs: {}
@@ -41,3 +46,21 @@ button:
 select:
   - platform: 'logger'
     name: 'Log Level'
+
+sensor:
+  - platform: 'uptime'
+    name: 'Uptime'
+  - platform: 'debug'
+    free:
+      name: 'Free Heap'
+    block:
+      name: 'Heap Max Block'
+    loop_time:
+      name: 'Loop Time'
+
+text_sensor:
+  - platform: 'debug'
+    device:
+      name: 'Device Info'
+    reset_reason:
+      name: 'Reset Reason'
