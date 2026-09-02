@@ -4,8 +4,10 @@ wifi:
     - ssid: !secret 'wifi.ssid'
       password: !secret 'wifi.password'
       hidden: true
+
+  # Kept without a captive portal so that a device which cannot join the
+  # network is still reachable over its own access point for OTA recovery.
+  # ESPHome warns that such an AP is unusable for configuration; that is
+  # expected, and does not apply to OTA, which binds to all interfaces.
   ap:
     password: !secret 'wifi.ap.password'
-
-# TODO: Use Improv instead of captive portal.
-captive_portal: {}
