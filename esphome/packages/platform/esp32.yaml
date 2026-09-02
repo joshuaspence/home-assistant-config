@@ -3,6 +3,7 @@ esp32:
   board: '${board}'
   framework:
     type: 'esp-idf'
+    minimum_chip_revision: '3.0'
 
 wifi:
   enable_btm: true
