@@ -8,7 +8,8 @@ uart:
   baud_rate: 115200
 
 external_components:
-  - source: 'github://grob6000/esphome-stream-server@get_use_address_to'
+  # Pinned to the tip of the `get_use_address_to` branch.
+  - source: 'github://grob6000/esphome-stream-server@2eade8f0ec9c5282631e09af95f08b634c6a5c20'
 
 stream_server:
   uart_id: 'uart_bus'

@@ -4,7 +4,7 @@ substitutions:
   name: 'office_voice_assistant'
 
 packages:
-  Nabu Casa.Home Assistant Voice PE: 'github://esphome/voice-kit/home-assistant-voice.yaml'
+  Nabu Casa.Home Assistant Voice PE: 'github://esphome/voice-kit/home-assistant-voice.yaml@0579e7b9d8504264719c593474c85447253c9dc1'
 
 esphome:
   name: '${name}'
