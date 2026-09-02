@@ -1,5 +1,5 @@
 ---
-substitutions:
+defaults:
   adc_attenuation: '0db'
   max_temp: '90.0'
 
