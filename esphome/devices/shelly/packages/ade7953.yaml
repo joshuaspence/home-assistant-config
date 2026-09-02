@@ -23,7 +23,7 @@ sensor:
       on_value_range:
         above: '${max_power}'
         then:
-          - output.turn_off: 'output2'
+          - switch.turn_off: 'switch2'
           - homeassistant.action:
               action: 'persistent_notification.create'
               data:
@@ -39,7 +39,7 @@ sensor:
       on_value_range:
         above: '${max_power}'
         then:
-          - output.turn_off: 'output1'
+          - switch.turn_off: 'switch1'
           - homeassistant.action:
               action: 'persistent_notification.create'
               data:
