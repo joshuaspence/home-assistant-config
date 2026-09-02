@@ -57,10 +57,6 @@ homeassistant:
   name: 'Home'
   packages: !include_dir_named 'packages'
   time_zone: 'Australia/Sydney'
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - '172.30.33.0/24'
 lovelace:
   mode: 'yaml'
   dashboards: !include 'lovelace/dashboards.yaml'
