@@ -41,12 +41,12 @@ script:
 
 switch:
   - platform: 'gpio'
-    pin: 33
+    pin: 'GPIO33'
     id: 'zRST_gpio'
     restore_mode: 'ALWAYS_OFF'
     inverted: true
   - platform: 'gpio'
-    pin: 32
+    pin: 'GPIO32'
     name: 'Zigbee Module Bootloader Pin'
     id: 'zBSL'
     restore_mode: 'ALWAYS_OFF'
