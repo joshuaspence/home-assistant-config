@@ -10,3 +10,26 @@ packages:
 switch:
   - id: !extend 'switch2'
     restore_mode: 'RESTORE_DEFAULT_OFF'
+
+# This device reset every 16-100 minutes until `power_save_mode` was pinned to `none`. Every WiFi state change is a
+# chance for the SDK to crash, so the settings below exist to minimise how often it changes state: `fast_connect` reuses
+# the stored BSSID instead of scanning, `passive_scan` listens for beacons rather than sending probe requests, and
+# `none` stops the sleep/wake cycling that drives reassociation.
+#
+# Measured here, one variable at a time:
+#
+#   power_save light, roaming off -> crashed every 16-100 min
+#   power_save none,  roaming off -> stable 6h35m
+#   power_save light, roaming on  -> crashed after 33 min
+#   power_save none,  roaming on  -> crashed after 7 min
+#   power_save none,  roaming off -> stable 83h+
+#
+# Both overrides are scoped to this device rather than the platform package because both cost something the rest of the
+# fleet should not pay: `none` costs about 13C of idle temperature (45C -> 57-62C, cutout is 90C), and disabling roaming
+# gives up moving to a stronger AP. `output_power` is not a useful lever; the heat is continuous receive, not transmit
+# bursts. Untested: `light` with roaming off, which would buy the 13C back if it holds.
+wifi:
+  fast_connect: true
+  passive_scan: true
+  power_save_mode: 'none'
+  post_connect_roaming: false

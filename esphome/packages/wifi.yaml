@@ -3,7 +3,6 @@ wifi:
   networks:
     - ssid: !secret 'wifi.ssid'
       password: !secret 'wifi.password'
-      hidden: true
 
   # Kept without a captive portal so that a device which cannot join the
   # network is still reachable over its own access point for OTA recovery.
