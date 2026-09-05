@@ -1,0 +1,22 @@
+---
+debug: {}
+
+sensor:
+  - platform: 'debug'
+    free:
+      name: 'Heap Free'
+    block:
+      name: 'Heap Max Block'
+    fragmentation:
+      name: 'Heap Fragmentation'
+    loop_time:
+      name: 'Loop Time'
+  - platform: 'uptime'
+    name: 'Uptime'
+
+text_sensor:
+  - platform: 'debug'
+    device:
+      name: 'Device Info'
+    reset_reason:
+      name: 'Reset Reason'
