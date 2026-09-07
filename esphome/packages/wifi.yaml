@@ -5,8 +5,11 @@ wifi:
       password: !secret 'wifi.password'
 
   # Kept without a captive portal so that a device which cannot join the
-  # network is still reachable over its own access point for OTA recovery.
-  # ESPHome warns that such an AP is unusable for configuration; that is
-  # expected, and does not apply to OTA, which binds to all interfaces.
+  # network still exposes the OTA server for recovery.
   ap:
     password: !secret 'wifi.ap.password'
+
+sensor:
+  - platform: 'wifi_signal'
+    name: 'WiFi Signal'
+    update_interval: '60s'
