@@ -195,7 +195,6 @@ class SensorBase(CoordinatorEntity[BomDataUpdateCoordinator], SensorEntity):
     async def async_added_to_hass(self) -> None:
         """Set up a listener and load data."""
         self.async_on_remove(self.coordinator.async_add_listener(self._update_callback))
-        self.async_on_remove(self.coordinator.async_add_listener(self._update_callback))
         self._update_callback()
 
     @callback
@@ -241,7 +240,9 @@ class ObservationSensor(SensorBase):
             except iso8601.ParseError:
                 attr[key] = self.collector.observations_data["metadata"][key]
 
-        attr.update(self.collector.observations_data["data"]["station"])
+        station = self.collector.observations_data["data"].get("station")
+        if isinstance(station, dict):
+            attr.update(station)
         attr[ATTR_ATTRIBUTION] = ATTRIBUTION
 
         # Only proceed for max_temp or min_temp
