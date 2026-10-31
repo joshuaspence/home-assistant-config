@@ -5,7 +5,7 @@ substitutions:
   device_name: 'Bathroom Shelly 2'
 
 packages:
-  device: !include 'devices/shelly/25.yaml'
+  device: !include 'devices/shelly/plus2PM_gen4.yaml'
 
 switch:
   - id: !extend 'switch1'
