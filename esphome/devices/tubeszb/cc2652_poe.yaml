@@ -1,10 +1,7 @@
 ---
 packages:
   common: !include '../../packages/common.yaml'
-  platform: !include
-    file: '../../packages/platform/esp32.yaml'
-    vars:
-      board: 'esp-wrover-kit'
+  platform: !include '../../packages/platform/esp32.yaml'
   stream_server: !include 'packages/stream_server.yaml'
 
 esphome:

@@ -1,6 +1,11 @@
 ---
+defaults:
+  flash_size: '4MB'
+  variant: 'esp32'
+
 esp32:
-  board: '${board}'
+  variant: '${variant}'
+  flash_size: '${flash_size}'
   framework:
     type: 'esp-idf'
     advanced:

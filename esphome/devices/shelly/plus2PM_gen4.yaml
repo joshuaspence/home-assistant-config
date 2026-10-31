@@ -1,0 +1,59 @@
+# Based on https://devices.esphome.io/devices/shelly-plus-2pm-gen-4.
+---
+packages:
+  common: !include 'packages/common.yaml'
+  platform: !include
+    file: '../../packages/platform/esp32.yaml'
+    vars:
+      flash_size: '8MB'
+      variant: 'esp32c6'
+  platform_esp32c6:
+    esp32:
+      framework:
+        advanced:
+          minimum_chip_revision: !remove
+
+  ade7953: !include
+    file: 'packages/ade7953.yaml'
+    vars:
+      irq_pin: 'GPIO19'
+  i2c: !include
+    file: 'packages/i2c.yaml'
+    vars:
+      sda: 'GPIO6'
+      scl: 'GPIO7'
+  status_led: !include 'packages/status_led.yaml'
+  temperature: !include
+    file: 'packages/temperature.yaml'
+    vars:
+      adc_attenuation: '11db'
+      adc_pin: 'GPIO4'
+      resistor: '10kOhm'
+
+  button1: !include
+    file: 'packages/button.yaml'
+    vars:
+      id: '1'
+      pin: 'GPIO12'
+
+  input1: !include
+    file: 'packages/input.yaml'
+    vars:
+      id: '1'
+      pin: 'GPIO11'
+  input2: !include
+    file: 'packages/input.yaml'
+    vars:
+      id: '2'
+      pin: 'GPIO10'
+
+  output1: !include
+    file: 'packages/output.yaml'
+    vars:
+      id: '1'
+      pin: 'GPIO5'
+  output2: !include
+    file: 'packages/output.yaml'
+    vars:
+      id: '2'
+      pin: 'GPIO3'
