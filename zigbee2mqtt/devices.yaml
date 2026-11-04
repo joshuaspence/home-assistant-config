@@ -154,8 +154,6 @@
     switch:
       object_id: fan
       type: fan
-'0x00158d000775bff7':
-  friendly_name: Laundry Temperature Sensor
 '0x00158d00068b3976':
   friendly_name: Office Temperature Sensor
   description: Paired with Homelab Fan Smart Plug.
@@ -194,9 +192,6 @@
 '0x001788010d26744d':
   friendly_name: Bedroom 2 Dimmer Switch
   description: Paired with Bedroom 2 Light.
-'0x00158d0006ca2ba6':
-  friendly_name: Bedroom 2 Temperature Sensor
-  description: Paired with Bedroom 2 Light.
 '0x001788010c507eb8':
   friendly_name: Laundry Light
 '0x001788010c5092ea':
@@ -230,9 +225,6 @@
 '0x00158d0006c51f3b':
   friendly_name: Kitchen Sink Water Leak Sensor
   description: Paired with Kitchen Light.
-'0x000d6f0011192562':
-  friendly_name: Back Door Lock
-  expose_pin: false
 '0x0017880109ac7a16':
   friendly_name: Office Desk Light
 '0x001788010c49a32e':
@@ -292,3 +284,14 @@
 '0x00158d0005426a77':
   friendly_name: Linen Closet Temperature Sensor
   description: Paired with Hallway East Light.
+'0x000d6f0011192562':
+  friendly_name: Back Door Lock
+'0x00158d0006c5055b':
+  friendly_name: Basement East Temperature Sensor
+  description: Paired with Laundry Light.
+'0x00158d00091c8240':
+  friendly_name: Laundry Temperature Sensor
+  description: Paired with Laundry Light.
+'0x00158d000775bff7':
+  friendly_name: Bedroom 2 Temperature Sensor
+  description: Paired with Bedroom 2 Light.
