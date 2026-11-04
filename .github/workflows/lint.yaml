@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 'latest'
       - run: 'npm install eslint eslint-config-airbnb-base eslint-plugin-eslint-comments eslint-plugin-import'
-      - run: 'npx eslint zigbee2mqtt/'
+      - run: 'npx eslint --ext .js,.mjs zigbee2mqtt/'
   yamllint:
     runs-on: 'ubuntu-latest'
     steps:
