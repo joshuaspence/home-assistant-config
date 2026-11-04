@@ -14,6 +14,18 @@
           "method": "Method"
         }
       },
+      "master_token": {
+        "title": "Connect with a Master Token (experimental)",
+        "description": "**Experimental:** this uses an unofficial Google sign-in flow, which Google may change or block at any time. It creates a long-lived login, the same kind the mobile apps use. It stops working if you change your Google password or Google signs it out for security reasons.\n\n1. Open an **Incognito/Private** window and go to [Google EmbeddedSetup]({embedded_setup_url})\n2. Sign in with the Google account that owns your Nest devices (2-step verification is fine)\n3. If asked **\"Who will be using this device?\"**, choose **I will be using this device**\n4. Click **I agree** if prompted. The page may then show a spinner forever — that is expected, ignore it.\n5. Open **Developer Tools** (F12) → **Application** tab → **Cookies** → `{accounts_url}`\n6. Find the cookie named **`oauth_token`** and copy its **Value** (it starts with `oauth2_4/`)\n7. Enter your Google email and paste that value below\n\nThe `oauth_token` expires within minutes and works only once. If setup fails, repeat the steps to get a new one.\n\n⚠️ The master token gives lasting access to your whole Google account, not just Nest, and is stored in your Home Assistant configuration and backups. Do not share it. To revoke it, change your Google password.",
+        "data": {
+          "google_email": "Google Email",
+          "oauth_token": "oauth_token value"
+        },
+        "data_description": {
+          "google_email": "The Google account that owns your Nest devices",
+          "oauth_token": "The oauth_token cookie value from accounts.google.com (starts with oauth2_4/)"
+        }
+      },
       "extension": {
         "title": "Connect with Chrome Extension",
         "description": "1. [Download the Nest Auth Helper extension]({extension_download_url})\n2. Unzip and load it in Chrome (chrome://extensions → Developer Mode → Load Unpacked)\n3. Sign in to [home.nest.com]({nest_url})\n4. Click the extension icon → click **Extract Credentials**\n5. Copy the code and paste it below\n\n⚠️ Do not share this code — it contains your session credentials.",
@@ -25,8 +37,8 @@
         }
       },
       "account_link": {
-        "title": "Connect Your Nest Account",
-        "description": "Follow these steps to get your credentials:\n\n1. Open an **Incognito/Private** browser window\n2. Enable **third-party cookies** in browser settings\n3. Go to [home.nest.com]({nest_url}) and sign in with Google\n4. Open **Developer Tools** (F12) → **Network** tab → Check **Preserve Log**\n5. In the filter box, type `issueToken` and copy the full **Request URL**\n6. In the filter box, type `oauth2/iframe`, click the last request, and copy the entire **Cookie** header value\n\n⚠️ Do not log out of home.nest.com after copying credentials",
+        "title": "Connect Your Nest Account (Manual)",
+        "description": "Follow these steps to get your credentials:\n\n1. Open a **regular** Chrome/Edge browser window (not Incognito — third-party cookies must be enabled)\n2. Open **Developer Tools** (F12) → **Network** tab → Check **Preserve Log**\n3. In the filter box, type `issueToken`\n4. Go to [home.nest.com]({nest_url}) and sign in with Google\n5. Click the `iframerpc` request and copy the full **Request URL**\n6. In the filter box, type `oauth2/iframe`, click the last request, and copy the entire **Cookie** header value\n\n⚠️ Do not log out of home.nest.com after copying credentials.",
         "data": {
           "issue_token": "Issue Token URL",
           "cookies": "Cookies"
@@ -34,6 +46,16 @@
         "data_description": {
           "issue_token": "Full URL starting with {issue_token_prefix}...",
           "cookies": "Complete cookie string from the oauth2/iframe request headers"
+        }
+      },
+      "homes": {
+        "title": "Choose your homes",
+        "description": "Your Nest account has more than one home. Choose the homes to add to Home Assistant. Devices in other homes are not added.\n\nWhen every home is selected, homes added to the account later are added too.",
+        "data": {
+          "homes": "Homes"
+        },
+        "data_description": {
+          "homes": "The Nest homes whose devices this entry adds"
         }
       }
     },
@@ -43,22 +65,166 @@
       "invalid_issue_token": "Invalid issue token URL. Must start with {accounts_url} and contain the issueToken action.",
       "invalid_cookies": "Invalid cookies format. Ensure you copied the complete cookie header from the oauth2/iframe request.",
       "invalid_code": "Invalid authentication code. Make sure you copied the complete code from the extension.",
-      "unknown": "[%key:common::config_flow::error::unknown%]"
+      "unknown": "[%key:common::config_flow::error::unknown%]",
+      "no_homes_selected": "Select at least one home."
     },
     "abort": {
       "already_configured": "[%key:common::config_flow::abort::already_configured_account%]",
-      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]"
+      "wrong_account": "The credentials belong to a different Nest account than the one configured. Sign in with the original account, or add the other account as a new entry."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Choose your homes",
+        "description": "Choose the homes to add to Home Assistant. Devices in homes that are no longer selected are removed.\n\nWhen every home is selected, homes added to the account later are added too.",
+        "data": {
+          "homes": "Homes"
+        },
+        "data_description": {
+          "homes": "The Nest homes whose devices this entry adds"
+        }
+      }
+    },
+    "error": {
+      "no_homes_selected": "Select at least one home."
+    },
+    "abort": {
+      "not_loaded": "Nest Protect must be set up before you can choose homes. Fix the setup error, then try again."
     }
   },
   "entity": {
+    "binary_sensor": {
+      "co_status": {
+        "name": "CO status"
+      },
+      "smoke_status": {
+        "name": "Smoke status"
+      },
+      "heat_status": {
+        "name": "Heat status"
+      },
+      "hushed_state": {
+        "name": "Alarm hushed"
+      },
+      "component_speaker_test_passed": {
+        "name": "Speaker test"
+      },
+      "battery_health_state": {
+        "name": "Battery health"
+      },
+      "is_online": {
+        "name": "Online"
+      },
+      "component_smoke_test_passed": {
+        "name": "Smoke test"
+      },
+      "component_co_test_passed": {
+        "name": "CO test"
+      },
+      "component_wifi_test_passed": {
+        "name": "Wi-Fi test"
+      },
+      "component_led_test_passed": {
+        "name": "LED test"
+      },
+      "component_pir_test_passed": {
+        "name": "PIR test"
+      },
+      "component_buzzer_test_passed": {
+        "name": "Buzzer test"
+      },
+      "component_hum_test_passed": {
+        "name": "Humidity test"
+      },
+      "component_als_test_passed": {
+        "name": "Ambient light sensor test"
+      },
+      "component_temp_test_passed": {
+        "name": "Temperature sensor test"
+      },
+      "removed_from_base": {
+        "name": "Removed from base"
+      },
+      "auto_away": {
+        "name": "Occupancy"
+      },
+      "line_power_present": {
+        "name": "Line power"
+      }
+    },
+    "sensor": {
+      "battery_level": {
+        "name": "Battery level"
+      },
+      "battery_voltage": {
+        "name": "Battery voltage"
+      },
+      "replace_by_date_utc_secs": {
+        "name": "Replace by"
+      },
+      "last_audio_self_test_end_utc_secs": {
+        "name": "Last audio self-test"
+      },
+      "latest_manual_test_end_utc_secs": {
+        "name": "Last manual test"
+      },
+      "current_temperature": {
+        "name": "Temperature"
+      },
+      "smoke_status_sensor": {
+        "name": "Smoke alarm state",
+        "state": {
+          "ok": "OK",
+          "testing": "Testing",
+          "warning": "Warning",
+          "emergency": "Emergency"
+        }
+      },
+      "co_status_sensor": {
+        "name": "CO alarm state",
+        "state": {
+          "ok": "OK",
+          "testing": "Testing",
+          "warning": "Warning",
+          "emergency": "Emergency"
+        }
+      },
+      "co_previous_peak": {
+        "name": "CO previous peak"
+      },
+      "total_critical_failures": {
+        "name": "Safety critical failures"
+      },
+      "total_warnings": {
+        "name": "Safety warnings"
+      }
+    },
     "select": {
       "night_light_brightness": {
-        "name": "Night Light Brightness",
+        "name": "Night light brightness",
         "state": {
           "low": "Low",
           "medium": "Medium",
           "high": "High"
         }
+      }
+    },
+    "switch": {
+      "night_light_enable": {
+        "name": "Pathlight"
+      },
+      "night_light_continuous": {
+        "name": "Pathlight always on"
+      },
+      "ntp_green_led_enable": {
+        "name": "Nightly promise"
+      },
+      "heads_up_enable": {
+        "name": "Heads-Up"
+      },
+      "steam_detection_enable": {
+        "name": "Steam check"
       }
     }
   }
